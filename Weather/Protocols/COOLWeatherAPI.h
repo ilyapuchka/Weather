@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @class COOLSearchAPIResponse;
-@class COOLForecastResponse;
+@class COOLForecastAPIResponse;
 @class COOLBatchForecastsAPIResponse;
 
 typedef void(^COOLWeatherAPISearchSuccessBlock)(COOLSearchAPIResponse *response);
-typedef void(^COOLWeatherAPIForecastSuccessBlock)(COOLForecastResponse *response);
+typedef void(^COOLWeatherAPIForecastSuccessBlock)(COOLForecastAPIResponse *response);
 typedef void(^COOLWeatherAPIBatchForecastsSuccessBlock)(COOLBatchForecastsAPIResponse *response);
 
 
@@ -21,7 +21,7 @@ typedef void(^COOLWeatherAPIBatchForecastsSuccessBlock)(COOLBatchForecastsAPIRes
 
 - (void)searchCitiesWithQuery:(NSString *)query
                       success:(COOLWeatherAPISearchSuccessBlock)succes
-                      failure:(COOLAPIClientFailureBlock)faulure;
+                      failure:(COOLAPIClientFailureBlock)failure;
 
 - (void)weatherWithQuery:(NSString *)query
                  success:(COOLWeatherAPIForecastSuccessBlock)success
