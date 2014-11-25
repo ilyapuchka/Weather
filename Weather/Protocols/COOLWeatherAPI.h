@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @class COOLSearchAPIResponse;
-@class COOLForecastAPIResponse;
+@class COOLTodayForecastAPIResponse;
 @class COOLBatchForecastsAPIResponse;
 
 typedef void(^COOLWeatherAPISearchSuccessBlock)(COOLSearchAPIResponse *response);
-typedef void(^COOLWeatherAPIForecastSuccessBlock)(COOLForecastAPIResponse *response);
+typedef void(^COOLWeatherAPIForecastSuccessBlock)(COOLTodayForecastAPIResponse *response);
 typedef void(^COOLWeatherAPIBatchForecastsSuccessBlock)(COOLBatchForecastsAPIResponse *response);
 
 

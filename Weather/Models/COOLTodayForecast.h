@@ -8,23 +8,40 @@
 
 #import <Foundation/Foundation.h>
 
-@interface COOLTodayForecast : NSObject <NSCopying>
+@interface COOLCurrentCondition : NSObject <NSCopying>
+
+@property (nonatomic, copy, readonly) NSString *windDirection;
+@property (nonatomic, copy, readonly) NSString *windSpeedKmph;
+@property (nonatomic, copy, readonly) NSString *windSpeedMiles;
+@property (nonatomic, copy, readonly) NSString *temperatureC;
+@property (nonatomic, copy, readonly) NSString *temperatureF;
+@property (nonatomic, copy, readonly) NSString *pressure;
+@property (nonatomic, copy, readonly) NSString *precip;
+@property (nonatomic, copy, readonly) NSString *humidity;
+@property (nonatomic, copy, readonly) NSString *weatherCondition;
+
+@end
+
+@interface COOLTodayForecastWeatherHourly : NSObject <NSCopying>
+
+@property (nonatomic, copy, readonly) NSString *chanceOfRain;
+@property (nonatomic, copy, readonly) NSString *chanceOfSnow;
+@property (nonatomic, copy, readonly) NSString *chanceOfThunder;
+@property (nonatomic, copy, readonly) NSString *chanceOfSunshine;
+
+@end
+
+@interface COOLTodayForecastWeather : NSObject <NSCopying>
 
 @property (nonatomic, copy, readonly) NSDate *date;
+@property (nonatomic, copy, readonly) COOLTodayForecastWeatherHourly *hourly;
+
+@end
+
+@interface COOLTodayForecast : NSObject <NSCopying>
+
 @property (nonatomic, copy, readonly) NSString *cityName;
-@property (nonatomic, copy, readonly) NSString *weatherCondition;
-@property (nonatomic, copy, readonly) NSURL *weatherConditionIconURL;
-@property (nonatomic, copy, readonly) NSNumber *temperatureC;
-@property (nonatomic, copy, readonly) NSNumber *temperatureF;
-@property (nonatomic, copy, readonly) NSNumber *chanceOfRain;
-@property (nonatomic, copy, readonly) NSNumber *chanceOfSnow;
-@property (nonatomic, copy, readonly) NSNumber *chanceOfThunder;
-@property (nonatomic, copy, readonly) NSNumber *chanceOfSunshine;
-@property (nonatomic, copy, readonly) NSNumber *humidity;
-@property (nonatomic, copy, readonly) NSNumber *pressure;
-@property (nonatomic, copy, readonly) NSNumber *precip;
-@property (nonatomic, copy, readonly) NSString *windDirection;
-@property (nonatomic, copy, readonly) NSNumber *windSpeedKmph;
-@property (nonatomic, copy, readonly) NSNumber *windSpeedMiles;
+@property (nonatomic, copy, readonly) COOLCurrentCondition *currentCondition;
+@property (nonatomic, copy, readonly) COOLTodayForecastWeather *weather;
 
 @end

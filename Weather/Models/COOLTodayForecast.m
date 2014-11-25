@@ -8,28 +8,74 @@
 
 #import "COOLTodayForecast.h"
 
-@interface COOLTodayForecast()
+@interface COOLCurrentCondition()
 
-@property (nonatomic, copy, readwrite) NSDate *date;
-@property (nonatomic, copy, readwrite) NSString *cityName;
-@property (nonatomic, copy, readwrite) NSString *weatherCondition;
-@property (nonatomic, copy, readwrite) NSURL *weatherConditionIconURL;
-@property (nonatomic, copy, readwrite) NSNumber *temperatureC;
-@property (nonatomic, copy, readwrite) NSNumber *temperatureF;
-@property (nonatomic, copy, readwrite) NSNumber *chanceOfRain;
-@property (nonatomic, copy, readwrite) NSNumber *chanceOfSnow;
-@property (nonatomic, copy, readwrite) NSNumber *chanceOfThunder;
-@property (nonatomic, copy, readwrite) NSNumber *chanceOfSunshine;
-@property (nonatomic, copy, readwrite) NSNumber *humidity;
-@property (nonatomic, copy, readwrite) NSNumber *pressure;
-@property (nonatomic, copy, readwrite) NSNumber *precip;
 @property (nonatomic, copy, readwrite) NSString *windDirection;
-@property (nonatomic, copy, readwrite) NSNumber *windSpeedKmph;
-@property (nonatomic, copy, readwrite) NSNumber *windSpeedMiles;
+@property (nonatomic, copy, readwrite) NSString *windSpeedKmph;
+@property (nonatomic, copy, readwrite) NSString *windSpeedMiles;
+@property (nonatomic, copy, readwrite) NSString *temperatureC;
+@property (nonatomic, copy, readwrite) NSString *temperatureF;
+@property (nonatomic, copy, readwrite) NSString *pressure;
+@property (nonatomic, copy, readwrite) NSString *precip;
+@property (nonatomic, copy, readwrite) NSString *humidity;
+@property (nonatomic, copy, readwrite) NSString *weatherCondition;
 
 @end
 
-@implementation COOLTodayForecast
+@implementation COOLCurrentCondition
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    COOLCurrentCondition *copy = [[[self class] allocWithZone:zone] init];
+    copy.windDirection = _windDirection;
+    copy.windSpeedMiles = _windSpeedMiles;
+    copy.windSpeedKmph = _windSpeedKmph;
+    copy.temperatureC = _temperatureC;
+    copy.temperatureF = _temperatureF;
+    copy.pressure = _pressure;
+    copy.precip = _precip;
+    copy.humidity = _humidity;
+    copy.weatherCondition = _weatherCondition;
+    return copy;
+}
+
+@end
+
+#pragma mark -
+
+@interface COOLTodayForecastWeatherHourly()
+
+@property (nonatomic, copy, readwrite) NSString *chanceOfRain;
+@property (nonatomic, copy, readwrite) NSString *chanceOfSnow;
+@property (nonatomic, copy, readwrite) NSString *chanceOfThunder;
+@property (nonatomic, copy, readwrite) NSString *chanceOfSunshine;
+
+@end
+
+@implementation COOLTodayForecastWeatherHourly
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    COOLTodayForecastWeatherHourly *copy = [[[self class] allocWithZone:zone] init];
+    copy.chanceOfRain = _chanceOfRain;
+    copy.chanceOfSnow = _chanceOfSnow;
+    copy.chanceOfThunder = _chanceOfThunder;
+    copy.chanceOfSunshine = _chanceOfSunshine;
+    return copy;
+}
+
+@end
+
+#pragma mark -
+
+@interface COOLTodayForecastWeather()
+
+@property (nonatomic, copy, readwrite) NSDate *date;
+@property (nonatomic, copy, readwrite) COOLTodayForecastWeatherHourly *hourly;
+
+@end
+
+@implementation COOLTodayForecastWeather
 
 - (instancetype)init
 {
@@ -42,23 +88,32 @@
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    COOLTodayForecast *copy = [[[self class] allocWithZone:zone] init];
+    COOLTodayForecastWeather *copy = [[[self class] allocWithZone:zone] init];
     copy.date = _date;
+    copy.hourly = _hourly;
+    return copy;
+}
+
+@end
+
+#pragma mark -
+
+@interface COOLTodayForecast()
+
+@property (nonatomic, copy, readwrite) NSString *cityName;
+@property (nonatomic, copy, readwrite) COOLCurrentCondition *currentCondition;
+@property (nonatomic, copy, readwrite) COOLTodayForecastWeather *weather;
+
+@end
+
+@implementation COOLTodayForecast
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    COOLTodayForecast *copy = [[[self class] allocWithZone:zone] init];
     copy.cityName = _cityName;
-    copy.weatherCondition = _weatherCondition;
-    copy.weatherConditionIconURL = _weatherConditionIconURL;
-    copy.temperatureC = _temperatureC;
-    copy.temperatureF = _temperatureF;
-    copy.chanceOfRain = _chanceOfRain;
-    copy.chanceOfSnow = _chanceOfSnow;
-    copy.chanceOfThunder = _chanceOfThunder;
-    copy.chanceOfSunshine = _chanceOfSunshine;
-    copy.humidity = _humidity;
-    copy.pressure = _pressure;
-    copy.precip = _precip;
-    copy.windDirection = _windDirection;
-    copy.windSpeedKmph = _windSpeedKmph;
-    copy.windSpeedMiles = _windSpeedMiles;
+    copy.weather = _weather;
+    copy.currentCondition = _currentCondition;
     return copy;
 }
 

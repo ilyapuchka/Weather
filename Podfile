@@ -4,10 +4,9 @@
 source 'https://github.com/ilyapuchka/Specs.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
+pod 'COOLNetworkStack'
 
 target 'Weather' do
-
-pod 'COOLNetworkStack'
 
 end
 
