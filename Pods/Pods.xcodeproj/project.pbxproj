@@ -1,0 +1,1370 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		000709360586BD39D6BA0911 /* AFHTTPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = EA0DDA01334FEB1F5560FF5D /* AFHTTPSessionManager.h */; };
+		0071A92E865F64BFA6C4548A /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = C45A0B9E1CD420EEAE21E4A5 /* UIWebView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		0835CA66481D04CC422EB93D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF69BEADF01539CC52029403 /* Foundation.framework */; };
+		09B3C01B7C4B074733AFF7E5 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = FC76FFA673A5B523B2E98752 /* AFURLResponseSerialization.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		0C164114E318AA6D937406C8 /* COOLAPIResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EDB5B6BAEC3937FAE345E2D /* COOLAPIResponse.h */; };
+		0E874DBAAF7338884CB9CC71 /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 2298CE40FB1AC3E52BE58949 /* UIButton+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		0F82F9A0833EBFB165EEFF78 /* COOLNetworkStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 62575C2F95649A1BC527B5E1 /* COOLNetworkStack.h */; };
+		100EC3A07A16968C38A1EBB2 /* AFSecurityPolicy.h in Headers */ = {isa = PBXBuildFile; fileRef = EF63C1DA59FA7719B1F12E73 /* AFSecurityPolicy.h */; };
+		111C786DC5202A69A7D9EA3F /* AFURLRequestSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AFA20BD8A5FE1612A929AEC /* AFURLRequestSerialization.h */; };
+		11E92D88C1A1564291457113 /* EKTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = 649E202400E41C4258DD288F /* EKTransformer.h */; };
+		128FF05EBA8275BD9865440F /* EasyMapping.h in Headers */ = {isa = PBXBuildFile; fileRef = 83BE5C253A0890F91567BA7D /* EasyMapping.h */; };
+		13518E103461CB04252C8B3C /* AFHTTPRequestOperationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E46CD833CBF9C9BE6F3CDACA /* AFHTTPRequestOperationManager.h */; };
+		180641F759BC4087595A9F41 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF69BEADF01539CC52029403 /* Foundation.framework */; };
+		1B8B97A8E6A2322D9BBBE987 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF69BEADF01539CC52029403 /* Foundation.framework */; };
+		21C6DE81AB90E2D6FEE9C4B8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25E8D4B8BD9D099E804FEDF9 /* SystemConfiguration.framework */; };
+		22B73C4B363930BEB3E0C814 /* COOLJSONResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2D80F4A5839E414AE7100A /* COOLJSONResponseSerializer.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		247800EC2D5BD11C167D68EB /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2822F408C76DE169EE79806B /* AFURLConnectionOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		24C46FBEE5CA624BCA3AE763 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B80656BF4D813714CD7998 /* UIRefreshControl+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		26A69549AAD5EA284C394D1D /* Pods-Weather-AFNetworkActivityLogger-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C58A6EB46C4D8A53829D62D /* Pods-Weather-AFNetworkActivityLogger-dummy.m */; };
+		27AF049C8B62180DA35DD4F3 /* EKMappingBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = D37D42DEF71CE237613C418D /* EKMappingBlocks.h */; };
+		28EFB8595025D91C44FE4E9C /* AFHTTPRequestSerializer+COOLAPIRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = B02DBB1336A91383E8A1C9CB /* AFHTTPRequestSerializer+COOLAPIRequestSerialization.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		299EE648F3415FB87C5AC158 /* UIActivityIndicatorView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B20B5F44061556A860D4825 /* UIActivityIndicatorView+AFNetworking.h */; };
+		29F0FEE996DFC94913C05EAF /* COOLAPIResponseBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 47CCC9199EAACFBD6400EC63 /* COOLAPIResponseBuilder.h */; };
+		2C7B1EBC04BD17C336CB8BCB /* COOLAPIResponseSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 80BE32458454B25F2B261F50 /* COOLAPIResponseSerialization.h */; };
+		3324C98F8E536D7F73EE72F3 /* COOLAPIClientBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = ABA805332F1ED19E5F300DA1 /* COOLAPIClientBlocks.h */; };
+		36478F49BCA18D8FEE1F6C81 /* AFNetworkReachabilityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 097F656CE6F0A7841BF1A7A9 /* AFNetworkReachabilityManager.h */; };
+		37BB4055AB0BDF3CFE7984DA /* NSArray+FlattenArray.h in Headers */ = {isa = PBXBuildFile; fileRef = C3949F83BFCF580A69A71604 /* NSArray+FlattenArray.h */; };
+		3AE0EEB063E06AA655D50EAA /* EKManagedObjectMapping.h in Headers */ = {isa = PBXBuildFile; fileRef = DEE3973E7DC9B0B5929EA91A /* EKManagedObjectMapping.h */; };
+		40C789085D3709AE2442FB5C /* AFHTTPRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DEFC3D0DC68AF8350536842 /* AFHTTPRequestOperation.h */; };
+		46AE977465F55D912800253C /* COOLNetworkActivityLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DAA6997F9F552D06D25D527 /* COOLNetworkActivityLogger.h */; };
+		491C9691FA62D5072B27CBCD /* COOLAPIClientImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD2D81E8310F9C5C4552316 /* COOLAPIClientImpl.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		49CC84655983E16B1BFE0B30 /* COOLAPIResponse_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A117AFDFEAD0D37C259851C4 /* COOLAPIResponse_Private.h */; };
+		4B822E87837CAAFA98448B19 /* Pods-Weather-COOLNetworkStack-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D94B1AF55F6296DC2617974 /* Pods-Weather-COOLNetworkStack-dummy.m */; };
+		4E58D24E6675417063675490 /* UIButton+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = D1B777ACD24ECD8FE708A534 /* UIButton+AFNetworking.h */; };
+		4F8BDF589CE5279EC1F68575 /* COOLJSONResponseSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = BE35CB0011E179B350A4933C /* COOLJSONResponseSerializer.h */; };
+		5495D0F90AFD58E53ED98E4B /* COOLAPIResponse+Package.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC36F3E13EFD76BD8A0A31B /* COOLAPIResponse+Package.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		558BE01A7A6BD28C5DDC2C58 /* COOLAPIResponseBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 781F2CE90212876983D100CF /* COOLAPIResponseBuilder.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		55DE1D01E757D05174F591A3 /* COOLNetworkActivityLoggerImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C401D93AFAECF41F1785B38 /* COOLNetworkActivityLoggerImpl.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		56B4005C59A4665A7DE3C0EA /* UIAlertView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = E060C48E94E2B04EFB829DBA /* UIAlertView+AFNetworking.h */; };
+		5C695EDB9DA4A48B9D7A8B5C /* EKFieldMapping.h in Headers */ = {isa = PBXBuildFile; fileRef = A55ADCB205A3B1EB4D8BFC4E /* EKFieldMapping.h */; };
+		63C1214C3AE15CA596B21AAC /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C89575E13A4EE4EBD7A2F459 /* AFHTTPRequestOperationManager.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		64BA2C6941739C1D256733BA /* EKTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = ED398E17BD975C4D02F7639C /* EKTransformer.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		64F7E9474E5D1DC973181117 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E22AC24CD3208E4223E8C26F /* Security.framework */; };
+		68952BA9F88F6BC5FA96006F /* UIProgressView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 223D0133014C1A92E3381777 /* UIProgressView+AFNetworking.h */; };
+		694A6F7A7E7D24FD262DA36C /* Pods-Weather-AFNetworking-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7714B0842468E101A52D632A /* Pods-Weather-AFNetworking-dummy.m */; };
+		6BD97C421C12F0425259FEEF /* AFNetworkActivityLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = F8EA42106C223C849D797904 /* AFNetworkActivityLogger.h */; };
+		6C2D52FFE59B5E291D6B64A5 /* COOLAPIRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E8C7550791FADAFC6706DF9A /* COOLAPIRequest.h */; };
+		7093B8470CDF4E7473DEEAF1 /* AFURLResponseSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = FEBAE51234BB65C0CB2B5FA9 /* AFURLResponseSerialization.h */; };
+		722185A2431463E2AFE9A576 /* AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 65040C81761D546282C5BB62 /* AFNetworking.h */; };
+		748494337EBFBFDAE2DA7B2A /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C6591618ED24D87E79E7D0D9 /* AFURLSessionManager.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		76006B075A968A77169D5440 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE5C6252FC0CA4420EA86D7 /* CoreData.framework */; };
+		78901398FCA8CABA5189BCC6 /* EKSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = EC52AFB5EBA9BB0A94D6EEE0 /* EKSerializer.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		7CCABECCFB7255AD921EC954 /* UIRefreshControl+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = DFD37C6260D0803BBA1EF584 /* UIRefreshControl+AFNetworking.h */; };
+		7DE7D902FF2D221E1FA60C78 /* EKPropertyHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 5499188C138E3F0453A4BCEC /* EKPropertyHelper.h */; };
+		7EF167474E145AF6CDED469E /* UIKit+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 91F780F0460DF7769DBBA60A /* UIKit+AFNetworking.h */; };
+		8159046BF85C67004672F671 /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8921EA685E387D044A9F94 /* UIActivityIndicatorView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		81F8C9E9C464ED4DA8CE7900 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A2386CFEF7EAE05F8E690E /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		894D5B9D0D1C1AF66A3AF396 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = DA659819646C1CC4DCC8D1C4 /* AFURLRequestSerialization.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		8A999B257BA8ECE31E51BA11 /* EKSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 88E5F349F210FEFF033F7A38 /* EKSerializer.h */; };
+		8B8F57F9E4B6E00CFAB73FA5 /* EKManagedObjectMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB7450C5E0126AB1DEE3A8B /* EKManagedObjectMapper.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		8CD668675AF41425AC7B9BF6 /* EKMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A43C02BF2D8A72453DB38FD0 /* EKMapper.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		8DFA1E178D5E76D029DA0E63 /* NSArray+FlattenArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E667124FF20AE9E1E1DE3F4 /* NSArray+FlattenArray.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		8FA4251AC45A924AD213F540 /* EKObjectMapping.h in Headers */ = {isa = PBXBuildFile; fileRef = E2A00B2B9CA128AC2C1E2D6B /* EKObjectMapping.h */; };
+		91AD451827293832F65FFA8B /* COOLNetworkActivityLoggerImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 055E648DA589D1C58C4B2C46 /* COOLNetworkActivityLoggerImpl.h */; };
+		95A37B9609BF0B071402EF09 /* EKCoreDataImporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D9F9D6DD11761F09A2C4CBE /* EKCoreDataImporter.h */; };
+		992142CCC85778F84F6EC99E /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 756A35DE33A493A467AFB2E5 /* AFHTTPSessionManager.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		A5617EC07F5D98098F0539FE /* EKFieldMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D965C2EAE880FABF21C94BF /* EKFieldMapping.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		A8A14F2F5280304477C403BA /* COOLAPIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F98AFEDD22AD2BD18FABF9CF /* COOLAPIRequest.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		AAC68433C3002DC086958E99 /* AFURLConnectionOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = A22F016BF2B2AC50776B38E9 /* AFURLConnectionOperation.h */; };
+		AFD7F4F7A9708BA73F67E94B /* COOLAPIClientImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 5902F4F39CD2CEB3163A56B8 /* COOLAPIClientImpl.h */; };
+		B224011063CD8742381D6CA2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF69BEADF01539CC52029403 /* Foundation.framework */; };
+		B27A96EBD3E42497A94785EF /* Pods-Weather-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A8666BDC7614C0C419FEF422 /* Pods-Weather-dummy.m */; };
+		B6940A209B9646FAF6EEE1E8 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F01863EF3C97E42AB61B5155 /* MobileCoreServices.framework */; };
+		BA4140D5D7AADF49816FCAF6 /* Pods-Weather-EasyMapping-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5165488CD5D57D23127D7849 /* Pods-Weather-EasyMapping-dummy.m */; };
+		BA68F27EC26F5659564BE92E /* COOLAPIRequestSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = D2EF69459D136CB4D2473D93 /* COOLAPIRequestSerialization.h */; };
+		BAD2FAB5C3EAA6339BE574A1 /* AFNetworkActivityLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = A9241ECE428289FC2B083B5A /* AFNetworkActivityLogger.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		BBCD9F312A63BDCE18D9818D /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 216F37B0E7143A86F2565913 /* AFNetworkReachabilityManager.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		BC46BBFD4FD3BB53E5CEA72B /* EKObjectMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = B729800EF992A02D1E8483E3 /* EKObjectMapping.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		C0ADFA4C6948EEA923B667A9 /* COOLMapperImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 48D285DF696E95B745965FC4 /* COOLMapperImpl.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		C1876CDFEE4337B469F1E8DE /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E88B3323C082CE6E78C2354 /* AFSecurityPolicy.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		C5C575C3138F490A4576F69E /* UIImageView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 14BE36F3E0A0D6ACD76F301B /* UIImageView+AFNetworking.h */; };
+		C9FC420F31154B571BFE0B93 /* COOLAPIResponse+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = 47B07EE56E9CACAB46354B15 /* COOLAPIResponse+Package.h */; };
+		CB73CCBB672CCEEFB95261D6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937507844D568BEFF7E2ACF1 /* CoreGraphics.framework */; };
+		CF6E6410035F0C0073B52351 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B52F97DF5C737A6616AB2E /* UIProgressView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		CF76EFD994534ED1D2FD3528 /* EKPropertyHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 368F6FB5FFEE91C77BE35709 /* EKPropertyHelper.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		D540DE69F4634C657B66165E /* EKMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = ACDDA3F810F46449FFDF0101 /* EKMapper.h */; };
+		D9EAD346CF7123DE735DB800 /* EKManagedObjectMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8E038388763FB0FDEF9851 /* EKManagedObjectMapping.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		DBA4F528506463C2396BD361 /* UIWebView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E1B1537766A1813EC314247 /* UIWebView+AFNetworking.h */; };
+		DCCFD513BB405C15BFC949BF /* COOLMapperImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 0ED9D8F0EE8D3DE39865D442 /* COOLMapperImpl.h */; };
+		DCFF1AA20A552DAD13A928E9 /* COOLMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 51B34FE6D965511AF8B8037B /* COOLMapper.h */; };
+		DD2F2BFE1640589F9260C8C3 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CA887E7C7B48A28208436D27 /* AFNetworkActivityIndicatorManager.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		DD97237CB3D860204F58B713 /* UIAlertView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A13A06130528D90418F5CEB /* UIAlertView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		DFDA07CC5473E96DA614AC75 /* COOLAPIClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 594F604336219BFC0977785B /* COOLAPIClient.h */; };
+		E29541E8CDEBED48303A898C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF69BEADF01539CC52029403 /* Foundation.framework */; };
+		E70CC9A3B0DC711DE3092735 /* AFHTTPRequestSerializer+COOLAPIRequestSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BE90D7514A3E992A9D8F710 /* AFHTTPRequestSerializer+COOLAPIRequestSerialization.h */; };
+		E8D6C508D64687F437A7CD98 /* EKManagedObjectMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AC4C1C5B8F027FB72D744BC /* EKManagedObjectMapper.h */; };
+		EB8DB5994FA3B3C57DA2DE08 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF3CAA1FE26345E885170FE /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		EC203349105E3449F407D00D /* AFNetworkActivityIndicatorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 7682530B583E4E83D54803AD /* AFNetworkActivityIndicatorManager.h */; };
+		EC7F5A269EA77AF34BCA277D /* AFURLSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2617157C1724523EC6365EEC /* AFURLSessionManager.h */; };
+		FA52527792931CDA844ACACC /* EKCoreDataImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB76390A2C167B88DFCB23A /* EKCoreDataImporter.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		FE02E50FD26FF3DA47E5A455 /* COOLAPIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = CBEA5A99FDB08D7CB5C9C54B /* COOLAPIResponse.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		72D37B42EC2401AD5F2F573D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 415848D0F40C2EF5ECCA41BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 920804A7F3BAFB807C49C7CA;
+			remoteInfo = "Pods-Weather-AFNetworking";
+		};
+		983E2132EDD558AD7CFE1EFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 415848D0F40C2EF5ECCA41BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB173108B088DDF615945070;
+			remoteInfo = "Pods-Weather-COOLNetworkStack";
+		};
+		B987E7A40FAB11BE322B921E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 415848D0F40C2EF5ECCA41BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 920804A7F3BAFB807C49C7CA;
+			remoteInfo = "Pods-Weather-AFNetworking";
+		};
+		BE1ACD1A348E1EE0FA705EF4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 415848D0F40C2EF5ECCA41BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A44DA6D7C2E3799344E5C07;
+			remoteInfo = "Pods-Weather-EasyMapping";
+		};
+		CF16FF51926C0815A1F9BEF4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 415848D0F40C2EF5ECCA41BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 920804A7F3BAFB807C49C7CA;
+			remoteInfo = "Pods-Weather-AFNetworking";
+		};
+		DA711D867688A38DF9CBBAAD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 415848D0F40C2EF5ECCA41BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A44DA6D7C2E3799344E5C07;
+			remoteInfo = "Pods-Weather-EasyMapping";
+		};
+		E53D2CF15E22D6DD8191B360 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 415848D0F40C2EF5ECCA41BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B82914F419789B4B009F8B45;
+			remoteInfo = "Pods-Weather-AFNetworkActivityLogger";
+		};
+		F281F82F16C65CB42562510D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 415848D0F40C2EF5ECCA41BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B82914F419789B4B009F8B45;
+			remoteInfo = "Pods-Weather-AFNetworkActivityLogger";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0038F7D08C25A5B5FC5133FF /* Pods-Weather-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Weather-environment.h"; sourceTree = "<group>"; };
+		055E648DA589D1C58C4B2C46 /* COOLNetworkActivityLoggerImpl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = COOLNetworkActivityLoggerImpl.h; path = COOLNetworkStack/Public/NetworkActivityLogger/COOLNetworkActivityLoggerImpl.h; sourceTree = "<group>"; };
+		097F656CE6F0A7841BF1A7A9 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkReachabilityManager.h; path = AFNetworking/AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		098069B849B90D43A4A11731 /* Pods-Weather-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Weather-resources.sh"; sourceTree = "<group>"; };
+		0DEFC3D0DC68AF8350536842 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperation.h; path = AFNetworking/AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		0E88B3323C082CE6E78C2354 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFSecurityPolicy.m; path = AFNetworking/AFSecurityPolicy.m; sourceTree = "<group>"; };
+		0ED9D8F0EE8D3DE39865D442 /* COOLMapperImpl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = COOLMapperImpl.h; path = COOLNetworkStack/Public/Mapper/COOLMapperImpl.h; sourceTree = "<group>"; };
+		0EF3CAA1FE26345E885170FE /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPRequestOperation.m; path = AFNetworking/AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		14BE36F3E0A0D6ACD76F301B /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+AFNetworking.h"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
+		1796EF8C1BEE2DF5168A8593 /* Pods-Weather-COOLNetworkStack-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Weather-COOLNetworkStack-prefix.pch"; sourceTree = "<group>"; };
+		1BE90D7514A3E992A9D8F710 /* AFHTTPRequestSerializer+COOLAPIRequestSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "AFHTTPRequestSerializer+COOLAPIRequestSerialization.h"; path = "COOLNetworkStack/Public/APIClient/AFHTTPRequestSerializer+COOLAPIRequestSerialization.h"; sourceTree = "<group>"; };
+		1E1B1537766A1813EC314247 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIWebView+AFNetworking.h"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
+		216F37B0E7143A86F2565913 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkReachabilityManager.m; path = AFNetworking/AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		223D0133014C1A92E3381777 /* UIProgressView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIProgressView+AFNetworking.h"; path = "UIKit+AFNetworking/UIProgressView+AFNetworking.h"; sourceTree = "<group>"; };
+		2298CE40FB1AC3E52BE58949 /* UIButton+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+AFNetworking.m"; path = "UIKit+AFNetworking/UIButton+AFNetworking.m"; sourceTree = "<group>"; };
+		25E8D4B8BD9D099E804FEDF9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		2617157C1724523EC6365EEC /* AFURLSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLSessionManager.h; path = AFNetworking/AFURLSessionManager.h; sourceTree = "<group>"; };
+		2822F408C76DE169EE79806B /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLConnectionOperation.m; path = AFNetworking/AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		2EA80D75263A70F5315C56D2 /* Pods-Weather-AFNetworking-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Weather-AFNetworking-Private.xcconfig"; sourceTree = "<group>"; };
+		32412DB5248077A8B5DE1C2D /* Pods-Weather-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Weather-acknowledgements.plist"; sourceTree = "<group>"; };
+		348E9501F7114CDA60AD7331 /* Pods-Weather-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Weather-acknowledgements.markdown"; sourceTree = "<group>"; };
+		368F6FB5FFEE91C77BE35709 /* EKPropertyHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EKPropertyHelper.m; path = EasyMapping/EKPropertyHelper.m; sourceTree = "<group>"; };
+		36C0E5334F291A305FD5D8BC /* Pods-Weather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Weather.release.xcconfig"; sourceTree = "<group>"; };
+		3DE5C6252FC0CA4420EA86D7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		47B07EE56E9CACAB46354B15 /* COOLAPIResponse+Package.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "COOLAPIResponse+Package.h"; path = "COOLNetworkStack/Private/COOLAPIResponse+Package.h"; sourceTree = "<group>"; };
+		47CCC9199EAACFBD6400EC63 /* COOLAPIResponseBuilder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = COOLAPIResponseBuilder.h; path = COOLNetworkStack/Private/COOLAPIResponseBuilder.h; sourceTree = "<group>"; };
+		48D285DF696E95B745965FC4 /* COOLMapperImpl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = COOLMapperImpl.m; path = COOLNetworkStack/Public/Mapper/COOLMapperImpl.m; sourceTree = "<group>"; };
+		4AC4C1C5B8F027FB72D744BC /* EKManagedObjectMapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EKManagedObjectMapper.h; path = EasyMapping/EKManagedObjectMapper.h; sourceTree = "<group>"; };
+		4D965C2EAE880FABF21C94BF /* EKFieldMapping.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EKFieldMapping.m; path = EasyMapping/EKFieldMapping.m; sourceTree = "<group>"; };
+		4DF43DB363882DD5168A0758 /* Pods-Weather-AFNetworkActivityLogger-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Weather-AFNetworkActivityLogger-prefix.pch"; sourceTree = "<group>"; };
+		4EC36F3E13EFD76BD8A0A31B /* COOLAPIResponse+Package.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "COOLAPIResponse+Package.m"; path = "COOLNetworkStack/Private/COOLAPIResponse+Package.m"; sourceTree = "<group>"; };
+		5165488CD5D57D23127D7849 /* Pods-Weather-EasyMapping-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Weather-EasyMapping-dummy.m"; sourceTree = "<group>"; };
+		51B34FE6D965511AF8B8037B /* COOLMapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = COOLMapper.h; path = COOLNetworkStack/Public/Protocols/COOLMapper.h; sourceTree = "<group>"; };
+		5499188C138E3F0453A4BCEC /* EKPropertyHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EKPropertyHelper.h; path = EasyMapping/EKPropertyHelper.h; sourceTree = "<group>"; };
+		56F13469D2025C76292C20E9 /* Pods-Weather-EasyMapping-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Weather-EasyMapping-Private.xcconfig"; sourceTree = "<group>"; };
+		5902F4F39CD2CEB3163A56B8 /* COOLAPIClientImpl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = COOLAPIClientImpl.h; path = COOLNetworkStack/Public/APIClient/COOLAPIClientImpl.h; sourceTree = "<group>"; };
+		594F604336219BFC0977785B /* COOLAPIClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = COOLAPIClient.h; path = COOLNetworkStack/Public/Protocols/COOLAPIClient.h; sourceTree = "<group>"; };
+		5A13A06130528D90418F5CEB /* UIAlertView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIAlertView+AFNetworking.m"; path = "UIKit+AFNetworking/UIAlertView+AFNetworking.m"; sourceTree = "<group>"; };
+		5E667124FF20AE9E1E1DE3F4 /* NSArray+FlattenArray.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+FlattenArray.m"; path = "EasyMapping/NSArray+FlattenArray.m"; sourceTree = "<group>"; };
+		5F00CC3E16E36124217CEA44 /* Pods-Weather-AFNetworkActivityLogger-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Weather-AFNetworkActivityLogger-Private.xcconfig"; sourceTree = "<group>"; };
+		5F3C01A91F9E5AFA2A50A654 /* Pods-Weather-COOLNetworkStack.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Weather-COOLNetworkStack.xcconfig"; sourceTree = "<group>"; };
+		62575C2F95649A1BC527B5E1 /* COOLNetworkStack.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = COOLNetworkStack.h; path = COOLNetworkStack/COOLNetworkStack.h; sourceTree = "<group>"; };
+		649E202400E41C4258DD288F /* EKTransformer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EKTransformer.h; path = EasyMapping/EKTransformer.h; sourceTree = "<group>"; };
+		65040C81761D546282C5BB62 /* AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworking.h; path = AFNetworking/AFNetworking.h; sourceTree = "<group>"; };
+		68A2386CFEF7EAE05F8E690E /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		68BF50B9E02B7CBC378C8C26 /* Pods-Weather-AFNetworking-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Weather-AFNetworking-prefix.pch"; sourceTree = "<group>"; };
+		6C58A6EB46C4D8A53829D62D /* Pods-Weather-AFNetworkActivityLogger-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Weather-AFNetworkActivityLogger-dummy.m"; sourceTree = "<group>"; };
+		6D94B1AF55F6296DC2617974 /* Pods-Weather-COOLNetworkStack-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Weather-COOLNetworkStack-dummy.m"; sourceTree = "<group>"; };
+		6EDB5B6BAEC3937FAE345E2D /* COOLAPIResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = COOLAPIResponse.h; path = COOLNetworkStack/Public/APIResponses/COOLAPIResponse.h; sourceTree = "<group>"; };
+		6FD2D81E8310F9C5C4552316 /* COOLAPIClientImpl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = COOLAPIClientImpl.m; path = COOLNetworkStack/Public/APIClient/COOLAPIClientImpl.m; sourceTree = "<group>"; };
+		756A35DE33A493A467AFB2E5 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPSessionManager.m; path = AFNetworking/AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		7682530B583E4E83D54803AD /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkActivityIndicatorManager.h; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"; sourceTree = "<group>"; };
+		7714B0842468E101A52D632A /* Pods-Weather-AFNetworking-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Weather-AFNetworking-dummy.m"; sourceTree = "<group>"; };
+		781F2CE90212876983D100CF /* COOLAPIResponseBuilder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = COOLAPIResponseBuilder.m; path = COOLNetworkStack/Private/COOLAPIResponseBuilder.m; sourceTree = "<group>"; };
+		7AFA20BD8A5FE1612A929AEC /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLRequestSerialization.h; path = AFNetworking/AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		7D9F9D6DD11761F09A2C4CBE /* EKCoreDataImporter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EKCoreDataImporter.h; path = EasyMapping/EKCoreDataImporter.h; sourceTree = "<group>"; };
+		80BE32458454B25F2B261F50 /* COOLAPIResponseSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = COOLAPIResponseSerialization.h; path = COOLNetworkStack/Public/Protocols/COOLAPIResponseSerialization.h; sourceTree = "<group>"; };
+		81B80656BF4D813714CD7998 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIRefreshControl+AFNetworking.m"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
+		83BE5C253A0890F91567BA7D /* EasyMapping.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EasyMapping.h; path = EasyMapping/EasyMapping.h; sourceTree = "<group>"; };
+		87A36AAD084D77EA73E8E059 /* Pods-Weather-AFNetworkActivityLogger.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Weather-AFNetworkActivityLogger.xcconfig"; sourceTree = "<group>"; };
+		88E5F349F210FEFF033F7A38 /* EKSerializer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EKSerializer.h; path = EasyMapping/EKSerializer.h; sourceTree = "<group>"; };
+		89D22AD8A24A27B24E4CD77D /* libPods-Weather-AFNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Weather-AFNetworking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E2D80F4A5839E414AE7100A /* COOLJSONResponseSerializer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = COOLJSONResponseSerializer.m; path = COOLNetworkStack/Public/APIClient/COOLJSONResponseSerializer.m; sourceTree = "<group>"; };
+		91F780F0460DF7769DBBA60A /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIKit+AFNetworking.h"; path = "UIKit+AFNetworking/UIKit+AFNetworking.h"; sourceTree = "<group>"; };
+		937507844D568BEFF7E2ACF1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		9B20B5F44061556A860D4825 /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIActivityIndicatorView+AFNetworking.h"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
+		9C401D93AFAECF41F1785B38 /* COOLNetworkActivityLoggerImpl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = COOLNetworkActivityLoggerImpl.m; path = COOLNetworkStack/Public/NetworkActivityLogger/COOLNetworkActivityLoggerImpl.m; sourceTree = "<group>"; };
+		9DAA6997F9F552D06D25D527 /* COOLNetworkActivityLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = COOLNetworkActivityLogger.h; path = COOLNetworkStack/Public/Protocols/COOLNetworkActivityLogger.h; sourceTree = "<group>"; };
+		A117AFDFEAD0D37C259851C4 /* COOLAPIResponse_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = COOLAPIResponse_Private.h; path = COOLNetworkStack/Private/COOLAPIResponse_Private.h; sourceTree = "<group>"; };
+		A22F016BF2B2AC50776B38E9 /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLConnectionOperation.h; path = AFNetworking/AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		A43C02BF2D8A72453DB38FD0 /* EKMapper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EKMapper.m; path = EasyMapping/EKMapper.m; sourceTree = "<group>"; };
+		A55ADCB205A3B1EB4D8BFC4E /* EKFieldMapping.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EKFieldMapping.h; path = EasyMapping/EKFieldMapping.h; sourceTree = "<group>"; };
+		A8666BDC7614C0C419FEF422 /* Pods-Weather-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Weather-dummy.m"; sourceTree = "<group>"; };
+		A9241ECE428289FC2B083B5A /* AFNetworkActivityLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkActivityLogger.m; path = AFNetworkActivityLogger/AFNetworkActivityLogger.m; sourceTree = "<group>"; };
+		A9D6954EDC1F4F9ABD9F7F11 /* libPods-Weather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Weather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA97E5AB37CAF2F098F64BDE /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		AAB7450C5E0126AB1DEE3A8B /* EKManagedObjectMapper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EKManagedObjectMapper.m; path = EasyMapping/EKManagedObjectMapper.m; sourceTree = "<group>"; };
+		AB8921EA685E387D044A9F94 /* UIActivityIndicatorView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIActivityIndicatorView+AFNetworking.m"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.m"; sourceTree = "<group>"; };
+		ABA805332F1ED19E5F300DA1 /* COOLAPIClientBlocks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = COOLAPIClientBlocks.h; path = COOLNetworkStack/Public/APIClient/COOLAPIClientBlocks.h; sourceTree = "<group>"; };
+		ACDDA3F810F46449FFDF0101 /* EKMapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EKMapper.h; path = EasyMapping/EKMapper.h; sourceTree = "<group>"; };
+		ADEF5C35BCE2456260A27EC3 /* Pods-Weather-AFNetworking.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Weather-AFNetworking.xcconfig"; sourceTree = "<group>"; };
+		B02DBB1336A91383E8A1C9CB /* AFHTTPRequestSerializer+COOLAPIRequestSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "AFHTTPRequestSerializer+COOLAPIRequestSerialization.m"; path = "COOLNetworkStack/Public/APIClient/AFHTTPRequestSerializer+COOLAPIRequestSerialization.m"; sourceTree = "<group>"; };
+		B729800EF992A02D1E8483E3 /* EKObjectMapping.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EKObjectMapping.m; path = EasyMapping/EKObjectMapping.m; sourceTree = "<group>"; };
+		BB95CD21E1F432F7138B94AA /* Pods-Weather-COOLNetworkStack-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Weather-COOLNetworkStack-Private.xcconfig"; sourceTree = "<group>"; };
+		BE35CB0011E179B350A4933C /* COOLJSONResponseSerializer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = COOLJSONResponseSerializer.h; path = COOLNetworkStack/Public/APIClient/COOLJSONResponseSerializer.h; sourceTree = "<group>"; };
+		C3949F83BFCF580A69A71604 /* NSArray+FlattenArray.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+FlattenArray.h"; path = "EasyMapping/NSArray+FlattenArray.h"; sourceTree = "<group>"; };
+		C45A0B9E1CD420EEAE21E4A5 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+AFNetworking.m"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		C52A451FA1241A6EA3E7E0E8 /* libPods-Weather-EasyMapping.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Weather-EasyMapping.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6591618ED24D87E79E7D0D9 /* AFURLSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLSessionManager.m; path = AFNetworking/AFURLSessionManager.m; sourceTree = "<group>"; };
+		C89575E13A4EE4EBD7A2F459 /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPRequestOperationManager.m; path = AFNetworking/AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
+		CA887E7C7B48A28208436D27 /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkActivityIndicatorManager.m; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.m"; sourceTree = "<group>"; };
+		CBEA5A99FDB08D7CB5C9C54B /* COOLAPIResponse.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = COOLAPIResponse.m; path = COOLNetworkStack/Public/APIResponses/COOLAPIResponse.m; sourceTree = "<group>"; };
+		CDB76390A2C167B88DFCB23A /* EKCoreDataImporter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EKCoreDataImporter.m; path = EasyMapping/EKCoreDataImporter.m; sourceTree = "<group>"; };
+		D1B777ACD24ECD8FE708A534 /* UIButton+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+AFNetworking.h"; path = "UIKit+AFNetworking/UIButton+AFNetworking.h"; sourceTree = "<group>"; };
+		D2EF69459D136CB4D2473D93 /* COOLAPIRequestSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = COOLAPIRequestSerialization.h; path = COOLNetworkStack/Public/Protocols/COOLAPIRequestSerialization.h; sourceTree = "<group>"; };
+		D37D42DEF71CE237613C418D /* EKMappingBlocks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EKMappingBlocks.h; path = EasyMapping/EKMappingBlocks.h; sourceTree = "<group>"; };
+		D7A9A9F2D375507BE9698D46 /* Pods-Weather-EasyMapping-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Weather-EasyMapping-prefix.pch"; sourceTree = "<group>"; };
+		DA659819646C1CC4DCC8D1C4 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLRequestSerialization.m; path = AFNetworking/AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		DCD631CAC8B8460E1115BD0B /* libPods-Weather-COOLNetworkStack.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Weather-COOLNetworkStack.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEE3973E7DC9B0B5929EA91A /* EKManagedObjectMapping.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EKManagedObjectMapping.h; path = EasyMapping/EKManagedObjectMapping.h; sourceTree = "<group>"; };
+		DFD37C6260D0803BBA1EF584 /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIRefreshControl+AFNetworking.h"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
+		E060C48E94E2B04EFB829DBA /* UIAlertView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIAlertView+AFNetworking.h"; path = "UIKit+AFNetworking/UIAlertView+AFNetworking.h"; sourceTree = "<group>"; };
+		E22AC24CD3208E4223E8C26F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		E2A00B2B9CA128AC2C1E2D6B /* EKObjectMapping.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EKObjectMapping.h; path = EasyMapping/EKObjectMapping.h; sourceTree = "<group>"; };
+		E46CD833CBF9C9BE6F3CDACA /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperationManager.h; path = AFNetworking/AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
+		E8C7550791FADAFC6706DF9A /* COOLAPIRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = COOLAPIRequest.h; path = COOLNetworkStack/Public/APIReqests/COOLAPIRequest.h; sourceTree = "<group>"; };
+		EA0DDA01334FEB1F5560FF5D /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFHTTPSessionManager.h; path = AFNetworking/AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		EB8996A6EDFBD233C2A0A705 /* libPods-Weather-AFNetworkActivityLogger.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Weather-AFNetworkActivityLogger.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC52AFB5EBA9BB0A94D6EEE0 /* EKSerializer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EKSerializer.m; path = EasyMapping/EKSerializer.m; sourceTree = "<group>"; };
+		EC5A618B588998BE469ADE4F /* Pods-Weather-EasyMapping.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Weather-EasyMapping.xcconfig"; sourceTree = "<group>"; };
+		EC6D69304DCE0894895393FA /* Pods-Weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Weather.debug.xcconfig"; sourceTree = "<group>"; };
+		ED398E17BD975C4D02F7639C /* EKTransformer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EKTransformer.m; path = EasyMapping/EKTransformer.m; sourceTree = "<group>"; };
+		EF63C1DA59FA7719B1F12E73 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFSecurityPolicy.h; path = AFNetworking/AFSecurityPolicy.h; sourceTree = "<group>"; };
+		F01863EF3C97E42AB61B5155 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
+		F8B52F97DF5C737A6616AB2E /* UIProgressView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIProgressView+AFNetworking.m"; path = "UIKit+AFNetworking/UIProgressView+AFNetworking.m"; sourceTree = "<group>"; };
+		F8EA42106C223C849D797904 /* AFNetworkActivityLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkActivityLogger.h; path = AFNetworkActivityLogger/AFNetworkActivityLogger.h; sourceTree = "<group>"; };
+		F98AFEDD22AD2BD18FABF9CF /* COOLAPIRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = COOLAPIRequest.m; path = COOLNetworkStack/Public/APIReqests/COOLAPIRequest.m; sourceTree = "<group>"; };
+		FC76FFA673A5B523B2E98752 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLResponseSerialization.m; path = AFNetworking/AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		FEBAE51234BB65C0CB2B5FA9 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLResponseSerialization.h; path = AFNetworking/AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		FF69BEADF01539CC52029403 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		FF8E038388763FB0FDEF9851 /* EKManagedObjectMapping.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EKManagedObjectMapping.m; path = EasyMapping/EKManagedObjectMapping.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		14FC829E87E1648741A20C63 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B224011063CD8742381D6CA2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B9FCAD45C3098A5EC37403E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E29541E8CDEBED48303A898C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		458BFD8D73C047BBDD523619 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76006B075A968A77169D5440 /* CoreData.framework in Frameworks */,
+				1B8B97A8E6A2322D9BBBE987 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F95E6A0638A7CC753B43AF3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB73CCBB672CCEEFB95261D6 /* CoreGraphics.framework in Frameworks */,
+				0835CA66481D04CC422EB93D /* Foundation.framework in Frameworks */,
+				B6940A209B9646FAF6EEE1E8 /* MobileCoreServices.framework in Frameworks */,
+				64F7E9474E5D1DC973181117 /* Security.framework in Frameworks */,
+				21C6DE81AB90E2D6FEE9C4B8 /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		842B39714B52D9A6189BC403 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				180641F759BC4087595A9F41 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0BC02CDE117322547D8094B6 /* EasyMapping */ = {
+			isa = PBXGroup;
+			children = (
+				7D9F9D6DD11761F09A2C4CBE /* EKCoreDataImporter.h */,
+				CDB76390A2C167B88DFCB23A /* EKCoreDataImporter.m */,
+				A55ADCB205A3B1EB4D8BFC4E /* EKFieldMapping.h */,
+				4D965C2EAE880FABF21C94BF /* EKFieldMapping.m */,
+				4AC4C1C5B8F027FB72D744BC /* EKManagedObjectMapper.h */,
+				AAB7450C5E0126AB1DEE3A8B /* EKManagedObjectMapper.m */,
+				DEE3973E7DC9B0B5929EA91A /* EKManagedObjectMapping.h */,
+				FF8E038388763FB0FDEF9851 /* EKManagedObjectMapping.m */,
+				ACDDA3F810F46449FFDF0101 /* EKMapper.h */,
+				A43C02BF2D8A72453DB38FD0 /* EKMapper.m */,
+				D37D42DEF71CE237613C418D /* EKMappingBlocks.h */,
+				E2A00B2B9CA128AC2C1E2D6B /* EKObjectMapping.h */,
+				B729800EF992A02D1E8483E3 /* EKObjectMapping.m */,
+				5499188C138E3F0453A4BCEC /* EKPropertyHelper.h */,
+				368F6FB5FFEE91C77BE35709 /* EKPropertyHelper.m */,
+				88E5F349F210FEFF033F7A38 /* EKSerializer.h */,
+				EC52AFB5EBA9BB0A94D6EEE0 /* EKSerializer.m */,
+				649E202400E41C4258DD288F /* EKTransformer.h */,
+				ED398E17BD975C4D02F7639C /* EKTransformer.m */,
+				83BE5C253A0890F91567BA7D /* EasyMapping.h */,
+				C3949F83BFCF580A69A71604 /* NSArray+FlattenArray.h */,
+				5E667124FF20AE9E1E1DE3F4 /* NSArray+FlattenArray.m */,
+				65F0D2BBA296A3915E14D4D9 /* Support Files */,
+			);
+			path = EasyMapping;
+			sourceTree = "<group>";
+		};
+		0D13CBED408B86E4D58EC887 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				ADEF5C35BCE2456260A27EC3 /* Pods-Weather-AFNetworking.xcconfig */,
+				2EA80D75263A70F5315C56D2 /* Pods-Weather-AFNetworking-Private.xcconfig */,
+				7714B0842468E101A52D632A /* Pods-Weather-AFNetworking-dummy.m */,
+				68BF50B9E02B7CBC378C8C26 /* Pods-Weather-AFNetworking-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-Weather-AFNetworking";
+			sourceTree = "<group>";
+		};
+		32BF1B433E8E50BF1DF6ECC9 /* COOLNetworkStack */ = {
+			isa = PBXGroup;
+			children = (
+				1BE90D7514A3E992A9D8F710 /* AFHTTPRequestSerializer+COOLAPIRequestSerialization.h */,
+				B02DBB1336A91383E8A1C9CB /* AFHTTPRequestSerializer+COOLAPIRequestSerialization.m */,
+				594F604336219BFC0977785B /* COOLAPIClient.h */,
+				ABA805332F1ED19E5F300DA1 /* COOLAPIClientBlocks.h */,
+				5902F4F39CD2CEB3163A56B8 /* COOLAPIClientImpl.h */,
+				6FD2D81E8310F9C5C4552316 /* COOLAPIClientImpl.m */,
+				E8C7550791FADAFC6706DF9A /* COOLAPIRequest.h */,
+				F98AFEDD22AD2BD18FABF9CF /* COOLAPIRequest.m */,
+				D2EF69459D136CB4D2473D93 /* COOLAPIRequestSerialization.h */,
+				6EDB5B6BAEC3937FAE345E2D /* COOLAPIResponse.h */,
+				CBEA5A99FDB08D7CB5C9C54B /* COOLAPIResponse.m */,
+				47B07EE56E9CACAB46354B15 /* COOLAPIResponse+Package.h */,
+				4EC36F3E13EFD76BD8A0A31B /* COOLAPIResponse+Package.m */,
+				47CCC9199EAACFBD6400EC63 /* COOLAPIResponseBuilder.h */,
+				781F2CE90212876983D100CF /* COOLAPIResponseBuilder.m */,
+				80BE32458454B25F2B261F50 /* COOLAPIResponseSerialization.h */,
+				A117AFDFEAD0D37C259851C4 /* COOLAPIResponse_Private.h */,
+				BE35CB0011E179B350A4933C /* COOLJSONResponseSerializer.h */,
+				8E2D80F4A5839E414AE7100A /* COOLJSONResponseSerializer.m */,
+				51B34FE6D965511AF8B8037B /* COOLMapper.h */,
+				0ED9D8F0EE8D3DE39865D442 /* COOLMapperImpl.h */,
+				48D285DF696E95B745965FC4 /* COOLMapperImpl.m */,
+				9DAA6997F9F552D06D25D527 /* COOLNetworkActivityLogger.h */,
+				055E648DA589D1C58C4B2C46 /* COOLNetworkActivityLoggerImpl.h */,
+				9C401D93AFAECF41F1785B38 /* COOLNetworkActivityLoggerImpl.m */,
+				62575C2F95649A1BC527B5E1 /* COOLNetworkStack.h */,
+				5400EB88C412B7FC81588DB2 /* Support Files */,
+			);
+			path = COOLNetworkStack;
+			sourceTree = "<group>";
+		};
+		3D43BD6208239B351C4955E7 = {
+			isa = PBXGroup;
+			children = (
+				AA97E5AB37CAF2F098F64BDE /* Podfile */,
+				CA34FF8D26E5286994039118 /* Frameworks */,
+				AC95C39E1198F74ED770439E /* Pods */,
+				B257003FE884DDFD8A41E684 /* Products */,
+				79B2A4EEB424DD9FE337628F /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		5400EB88C412B7FC81588DB2 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5F3C01A91F9E5AFA2A50A654 /* Pods-Weather-COOLNetworkStack.xcconfig */,
+				BB95CD21E1F432F7138B94AA /* Pods-Weather-COOLNetworkStack-Private.xcconfig */,
+				6D94B1AF55F6296DC2617974 /* Pods-Weather-COOLNetworkStack-dummy.m */,
+				1796EF8C1BEE2DF5168A8593 /* Pods-Weather-COOLNetworkStack-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-Weather-COOLNetworkStack";
+			sourceTree = "<group>";
+		};
+		5DC58C04E2478C8A504EC343 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				7682530B583E4E83D54803AD /* AFNetworkActivityIndicatorManager.h */,
+				CA887E7C7B48A28208436D27 /* AFNetworkActivityIndicatorManager.m */,
+				9B20B5F44061556A860D4825 /* UIActivityIndicatorView+AFNetworking.h */,
+				AB8921EA685E387D044A9F94 /* UIActivityIndicatorView+AFNetworking.m */,
+				E060C48E94E2B04EFB829DBA /* UIAlertView+AFNetworking.h */,
+				5A13A06130528D90418F5CEB /* UIAlertView+AFNetworking.m */,
+				D1B777ACD24ECD8FE708A534 /* UIButton+AFNetworking.h */,
+				2298CE40FB1AC3E52BE58949 /* UIButton+AFNetworking.m */,
+				14BE36F3E0A0D6ACD76F301B /* UIImageView+AFNetworking.h */,
+				68A2386CFEF7EAE05F8E690E /* UIImageView+AFNetworking.m */,
+				91F780F0460DF7769DBBA60A /* UIKit+AFNetworking.h */,
+				223D0133014C1A92E3381777 /* UIProgressView+AFNetworking.h */,
+				F8B52F97DF5C737A6616AB2E /* UIProgressView+AFNetworking.m */,
+				DFD37C6260D0803BBA1EF584 /* UIRefreshControl+AFNetworking.h */,
+				81B80656BF4D813714CD7998 /* UIRefreshControl+AFNetworking.m */,
+				1E1B1537766A1813EC314247 /* UIWebView+AFNetworking.h */,
+				C45A0B9E1CD420EEAE21E4A5 /* UIWebView+AFNetworking.m */,
+			);
+			name = UIKit;
+			sourceTree = "<group>";
+		};
+		65F0D2BBA296A3915E14D4D9 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				EC5A618B588998BE469ADE4F /* Pods-Weather-EasyMapping.xcconfig */,
+				56F13469D2025C76292C20E9 /* Pods-Weather-EasyMapping-Private.xcconfig */,
+				5165488CD5D57D23127D7849 /* Pods-Weather-EasyMapping-dummy.m */,
+				D7A9A9F2D375507BE9698D46 /* Pods-Weather-EasyMapping-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-Weather-EasyMapping";
+			sourceTree = "<group>";
+		};
+		79B2A4EEB424DD9FE337628F /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F1A6804D298604EED76A2032 /* Pods-Weather */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		870E329C7F409B965738FC68 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				EF63C1DA59FA7719B1F12E73 /* AFSecurityPolicy.h */,
+				0E88B3323C082CE6E78C2354 /* AFSecurityPolicy.m */,
+			);
+			name = Security;
+			sourceTree = "<group>";
+		};
+		8BA7146C2A9758EE9101418A /* Serialization */ = {
+			isa = PBXGroup;
+			children = (
+				7AFA20BD8A5FE1612A929AEC /* AFURLRequestSerialization.h */,
+				DA659819646C1CC4DCC8D1C4 /* AFURLRequestSerialization.m */,
+				FEBAE51234BB65C0CB2B5FA9 /* AFURLResponseSerialization.h */,
+				FC76FFA673A5B523B2E98752 /* AFURLResponseSerialization.m */,
+			);
+			name = Serialization;
+			sourceTree = "<group>";
+		};
+		92883F8209341076755C3648 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				097F656CE6F0A7841BF1A7A9 /* AFNetworkReachabilityManager.h */,
+				216F37B0E7143A86F2565913 /* AFNetworkReachabilityManager.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
+		AC95C39E1198F74ED770439E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B1C88E8C738AA0435C2CFC1B /* AFNetworkActivityLogger */,
+				E082F9893056344706512B22 /* AFNetworking */,
+				32BF1B433E8E50BF1DF6ECC9 /* COOLNetworkStack */,
+				0BC02CDE117322547D8094B6 /* EasyMapping */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AF3C8EDBBFFCB7AD29073FA7 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				87A36AAD084D77EA73E8E059 /* Pods-Weather-AFNetworkActivityLogger.xcconfig */,
+				5F00CC3E16E36124217CEA44 /* Pods-Weather-AFNetworkActivityLogger-Private.xcconfig */,
+				6C58A6EB46C4D8A53829D62D /* Pods-Weather-AFNetworkActivityLogger-dummy.m */,
+				4DF43DB363882DD5168A0758 /* Pods-Weather-AFNetworkActivityLogger-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-Weather-AFNetworkActivityLogger";
+			sourceTree = "<group>";
+		};
+		B1C88E8C738AA0435C2CFC1B /* AFNetworkActivityLogger */ = {
+			isa = PBXGroup;
+			children = (
+				F8EA42106C223C849D797904 /* AFNetworkActivityLogger.h */,
+				A9241ECE428289FC2B083B5A /* AFNetworkActivityLogger.m */,
+				AF3C8EDBBFFCB7AD29073FA7 /* Support Files */,
+			);
+			path = AFNetworkActivityLogger;
+			sourceTree = "<group>";
+		};
+		B257003FE884DDFD8A41E684 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A9D6954EDC1F4F9ABD9F7F11 /* libPods-Weather.a */,
+				EB8996A6EDFBD233C2A0A705 /* libPods-Weather-AFNetworkActivityLogger.a */,
+				89D22AD8A24A27B24E4CD77D /* libPods-Weather-AFNetworking.a */,
+				DCD631CAC8B8460E1115BD0B /* libPods-Weather-COOLNetworkStack.a */,
+				C52A451FA1241A6EA3E7E0E8 /* libPods-Weather-EasyMapping.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B34A210444D1A4AA212563F5 /* NSURLSession */ = {
+			isa = PBXGroup;
+			children = (
+				EA0DDA01334FEB1F5560FF5D /* AFHTTPSessionManager.h */,
+				756A35DE33A493A467AFB2E5 /* AFHTTPSessionManager.m */,
+				2617157C1724523EC6365EEC /* AFURLSessionManager.h */,
+				C6591618ED24D87E79E7D0D9 /* AFURLSessionManager.m */,
+			);
+			name = NSURLSession;
+			sourceTree = "<group>";
+		};
+		C020F4CA1053A89A32A73062 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3DE5C6252FC0CA4420EA86D7 /* CoreData.framework */,
+				937507844D568BEFF7E2ACF1 /* CoreGraphics.framework */,
+				FF69BEADF01539CC52029403 /* Foundation.framework */,
+				F01863EF3C97E42AB61B5155 /* MobileCoreServices.framework */,
+				E22AC24CD3208E4223E8C26F /* Security.framework */,
+				25E8D4B8BD9D099E804FEDF9 /* SystemConfiguration.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		CA34FF8D26E5286994039118 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C020F4CA1053A89A32A73062 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E082F9893056344706512B22 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				65040C81761D546282C5BB62 /* AFNetworking.h */,
+				FF0F4FCB365D261349083EAF /* NSURLConnection */,
+				B34A210444D1A4AA212563F5 /* NSURLSession */,
+				92883F8209341076755C3648 /* Reachability */,
+				870E329C7F409B965738FC68 /* Security */,
+				8BA7146C2A9758EE9101418A /* Serialization */,
+				0D13CBED408B86E4D58EC887 /* Support Files */,
+				5DC58C04E2478C8A504EC343 /* UIKit */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		F1A6804D298604EED76A2032 /* Pods-Weather */ = {
+			isa = PBXGroup;
+			children = (
+				348E9501F7114CDA60AD7331 /* Pods-Weather-acknowledgements.markdown */,
+				32412DB5248077A8B5DE1C2D /* Pods-Weather-acknowledgements.plist */,
+				A8666BDC7614C0C419FEF422 /* Pods-Weather-dummy.m */,
+				0038F7D08C25A5B5FC5133FF /* Pods-Weather-environment.h */,
+				098069B849B90D43A4A11731 /* Pods-Weather-resources.sh */,
+				EC6D69304DCE0894895393FA /* Pods-Weather.debug.xcconfig */,
+				36C0E5334F291A305FD5D8BC /* Pods-Weather.release.xcconfig */,
+			);
+			name = "Pods-Weather";
+			path = "Target Support Files/Pods-Weather";
+			sourceTree = "<group>";
+		};
+		FF0F4FCB365D261349083EAF /* NSURLConnection */ = {
+			isa = PBXGroup;
+			children = (
+				0DEFC3D0DC68AF8350536842 /* AFHTTPRequestOperation.h */,
+				0EF3CAA1FE26345E885170FE /* AFHTTPRequestOperation.m */,
+				E46CD833CBF9C9BE6F3CDACA /* AFHTTPRequestOperationManager.h */,
+				C89575E13A4EE4EBD7A2F459 /* AFHTTPRequestOperationManager.m */,
+				A22F016BF2B2AC50776B38E9 /* AFURLConnectionOperation.h */,
+				2822F408C76DE169EE79806B /* AFURLConnectionOperation.m */,
+			);
+			name = NSURLConnection;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		04DA4EA697EE5856FFF893D7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6BD97C421C12F0425259FEEF /* AFNetworkActivityLogger.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		060386C01BD92156F1B32E2A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40C789085D3709AE2442FB5C /* AFHTTPRequestOperation.h in Headers */,
+				13518E103461CB04252C8B3C /* AFHTTPRequestOperationManager.h in Headers */,
+				000709360586BD39D6BA0911 /* AFHTTPSessionManager.h in Headers */,
+				EC203349105E3449F407D00D /* AFNetworkActivityIndicatorManager.h in Headers */,
+				36478F49BCA18D8FEE1F6C81 /* AFNetworkReachabilityManager.h in Headers */,
+				722185A2431463E2AFE9A576 /* AFNetworking.h in Headers */,
+				100EC3A07A16968C38A1EBB2 /* AFSecurityPolicy.h in Headers */,
+				AAC68433C3002DC086958E99 /* AFURLConnectionOperation.h in Headers */,
+				111C786DC5202A69A7D9EA3F /* AFURLRequestSerialization.h in Headers */,
+				7093B8470CDF4E7473DEEAF1 /* AFURLResponseSerialization.h in Headers */,
+				EC7F5A269EA77AF34BCA277D /* AFURLSessionManager.h in Headers */,
+				299EE648F3415FB87C5AC158 /* UIActivityIndicatorView+AFNetworking.h in Headers */,
+				56B4005C59A4665A7DE3C0EA /* UIAlertView+AFNetworking.h in Headers */,
+				4E58D24E6675417063675490 /* UIButton+AFNetworking.h in Headers */,
+				C5C575C3138F490A4576F69E /* UIImageView+AFNetworking.h in Headers */,
+				7EF167474E145AF6CDED469E /* UIKit+AFNetworking.h in Headers */,
+				68952BA9F88F6BC5FA96006F /* UIProgressView+AFNetworking.h in Headers */,
+				7CCABECCFB7255AD921EC954 /* UIRefreshControl+AFNetworking.h in Headers */,
+				DBA4F528506463C2396BD361 /* UIWebView+AFNetworking.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36BE08CDB6026EA5DD06B85B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95A37B9609BF0B071402EF09 /* EKCoreDataImporter.h in Headers */,
+				5C695EDB9DA4A48B9D7A8B5C /* EKFieldMapping.h in Headers */,
+				E8D6C508D64687F437A7CD98 /* EKManagedObjectMapper.h in Headers */,
+				3AE0EEB063E06AA655D50EAA /* EKManagedObjectMapping.h in Headers */,
+				D540DE69F4634C657B66165E /* EKMapper.h in Headers */,
+				27AF049C8B62180DA35DD4F3 /* EKMappingBlocks.h in Headers */,
+				8FA4251AC45A924AD213F540 /* EKObjectMapping.h in Headers */,
+				7DE7D902FF2D221E1FA60C78 /* EKPropertyHelper.h in Headers */,
+				8A999B257BA8ECE31E51BA11 /* EKSerializer.h in Headers */,
+				11E92D88C1A1564291457113 /* EKTransformer.h in Headers */,
+				128FF05EBA8275BD9865440F /* EasyMapping.h in Headers */,
+				37BB4055AB0BDF3CFE7984DA /* NSArray+FlattenArray.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1EBF701CA1AFA330212F527 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E70CC9A3B0DC711DE3092735 /* AFHTTPRequestSerializer+COOLAPIRequestSerialization.h in Headers */,
+				DFDA07CC5473E96DA614AC75 /* COOLAPIClient.h in Headers */,
+				3324C98F8E536D7F73EE72F3 /* COOLAPIClientBlocks.h in Headers */,
+				AFD7F4F7A9708BA73F67E94B /* COOLAPIClientImpl.h in Headers */,
+				6C2D52FFE59B5E291D6B64A5 /* COOLAPIRequest.h in Headers */,
+				BA68F27EC26F5659564BE92E /* COOLAPIRequestSerialization.h in Headers */,
+				C9FC420F31154B571BFE0B93 /* COOLAPIResponse+Package.h in Headers */,
+				0C164114E318AA6D937406C8 /* COOLAPIResponse.h in Headers */,
+				29F0FEE996DFC94913C05EAF /* COOLAPIResponseBuilder.h in Headers */,
+				2C7B1EBC04BD17C336CB8BCB /* COOLAPIResponseSerialization.h in Headers */,
+				49CC84655983E16B1BFE0B30 /* COOLAPIResponse_Private.h in Headers */,
+				4F8BDF589CE5279EC1F68575 /* COOLJSONResponseSerializer.h in Headers */,
+				DCFF1AA20A552DAD13A928E9 /* COOLMapper.h in Headers */,
+				DCCFD513BB405C15BFC949BF /* COOLMapperImpl.h in Headers */,
+				46AE977465F55D912800253C /* COOLNetworkActivityLogger.h in Headers */,
+				91AD451827293832F65FFA8B /* COOLNetworkActivityLoggerImpl.h in Headers */,
+				0F82F9A0833EBFB165EEFF78 /* COOLNetworkStack.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4A44DA6D7C2E3799344E5C07 /* Pods-Weather-EasyMapping */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 472DF81D8294D9BF787BC416 /* Build configuration list for PBXNativeTarget "Pods-Weather-EasyMapping" */;
+			buildPhases = (
+				2C5F56B44FBDC2B575CB4912 /* Sources */,
+				458BFD8D73C047BBDD523619 /* Frameworks */,
+				36BE08CDB6026EA5DD06B85B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Weather-EasyMapping";
+			productName = "Pods-Weather-EasyMapping";
+			productReference = C52A451FA1241A6EA3E7E0E8 /* libPods-Weather-EasyMapping.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		86D96B4CAE32C7469ECD80DD /* Pods-Weather */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18C446515ED88DCAD78FB8C4 /* Build configuration list for PBXNativeTarget "Pods-Weather" */;
+			buildPhases = (
+				69D765176EF6A94C35FE3D85 /* Sources */,
+				14FC829E87E1648741A20C63 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1E59845CEE02C9A9251389B7 /* PBXTargetDependency */,
+				95F59F12B6F2C9D88C595166 /* PBXTargetDependency */,
+				52B1798DDFE2C936E51EE9D7 /* PBXTargetDependency */,
+				C4D837256F168CA15B88D928 /* PBXTargetDependency */,
+			);
+			name = "Pods-Weather";
+			productName = "Pods-Weather";
+			productReference = A9D6954EDC1F4F9ABD9F7F11 /* libPods-Weather.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		920804A7F3BAFB807C49C7CA /* Pods-Weather-AFNetworking */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 70B30BC18451327B73B13C7F /* Build configuration list for PBXNativeTarget "Pods-Weather-AFNetworking" */;
+			buildPhases = (
+				B8139DDAD71F2DB9F9E8A990 /* Sources */,
+				4F95E6A0638A7CC753B43AF3 /* Frameworks */,
+				060386C01BD92156F1B32E2A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Weather-AFNetworking";
+			productName = "Pods-Weather-AFNetworking";
+			productReference = 89D22AD8A24A27B24E4CD77D /* libPods-Weather-AFNetworking.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		B82914F419789B4B009F8B45 /* Pods-Weather-AFNetworkActivityLogger */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 48E271B2BB8D86A7720A20E8 /* Build configuration list for PBXNativeTarget "Pods-Weather-AFNetworkActivityLogger" */;
+			buildPhases = (
+				EAF70EC50A80FC0F919FC972 /* Sources */,
+				842B39714B52D9A6189BC403 /* Frameworks */,
+				04DA4EA697EE5856FFF893D7 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AE2DFD3AD1B6289CA985B395 /* PBXTargetDependency */,
+			);
+			name = "Pods-Weather-AFNetworkActivityLogger";
+			productName = "Pods-Weather-AFNetworkActivityLogger";
+			productReference = EB8996A6EDFBD233C2A0A705 /* libPods-Weather-AFNetworkActivityLogger.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		CB173108B088DDF615945070 /* Pods-Weather-COOLNetworkStack */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A8E241421B7B05B4D2FD064 /* Build configuration list for PBXNativeTarget "Pods-Weather-COOLNetworkStack" */;
+			buildPhases = (
+				F92E5B7BC4D22A014F76C2A4 /* Sources */,
+				3B9FCAD45C3098A5EC37403E /* Frameworks */,
+				D1EBF701CA1AFA330212F527 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A7C941E51B9FB3ED16F6825A /* PBXTargetDependency */,
+				33F9ACD1F701B678C1F7E500 /* PBXTargetDependency */,
+				557B9A7A2FCEB75318B8FFF8 /* PBXTargetDependency */,
+			);
+			name = "Pods-Weather-COOLNetworkStack";
+			productName = "Pods-Weather-COOLNetworkStack";
+			productReference = DCD631CAC8B8460E1115BD0B /* libPods-Weather-COOLNetworkStack.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		415848D0F40C2EF5ECCA41BE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+			};
+			buildConfigurationList = 96C999AEC06EADA3CBC52CCE /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3D43BD6208239B351C4955E7;
+			productRefGroup = B257003FE884DDFD8A41E684 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				86D96B4CAE32C7469ECD80DD /* Pods-Weather */,
+				B82914F419789B4B009F8B45 /* Pods-Weather-AFNetworkActivityLogger */,
+				920804A7F3BAFB807C49C7CA /* Pods-Weather-AFNetworking */,
+				CB173108B088DDF615945070 /* Pods-Weather-COOLNetworkStack */,
+				4A44DA6D7C2E3799344E5C07 /* Pods-Weather-EasyMapping */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2C5F56B44FBDC2B575CB4912 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA52527792931CDA844ACACC /* EKCoreDataImporter.m in Sources */,
+				A5617EC07F5D98098F0539FE /* EKFieldMapping.m in Sources */,
+				8B8F57F9E4B6E00CFAB73FA5 /* EKManagedObjectMapper.m in Sources */,
+				D9EAD346CF7123DE735DB800 /* EKManagedObjectMapping.m in Sources */,
+				8CD668675AF41425AC7B9BF6 /* EKMapper.m in Sources */,
+				BC46BBFD4FD3BB53E5CEA72B /* EKObjectMapping.m in Sources */,
+				CF76EFD994534ED1D2FD3528 /* EKPropertyHelper.m in Sources */,
+				78901398FCA8CABA5189BCC6 /* EKSerializer.m in Sources */,
+				64BA2C6941739C1D256733BA /* EKTransformer.m in Sources */,
+				8DFA1E178D5E76D029DA0E63 /* NSArray+FlattenArray.m in Sources */,
+				BA4140D5D7AADF49816FCAF6 /* Pods-Weather-EasyMapping-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69D765176EF6A94C35FE3D85 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B27A96EBD3E42497A94785EF /* Pods-Weather-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8139DDAD71F2DB9F9E8A990 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB8DB5994FA3B3C57DA2DE08 /* AFHTTPRequestOperation.m in Sources */,
+				63C1214C3AE15CA596B21AAC /* AFHTTPRequestOperationManager.m in Sources */,
+				992142CCC85778F84F6EC99E /* AFHTTPSessionManager.m in Sources */,
+				DD2F2BFE1640589F9260C8C3 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				BBCD9F312A63BDCE18D9818D /* AFNetworkReachabilityManager.m in Sources */,
+				C1876CDFEE4337B469F1E8DE /* AFSecurityPolicy.m in Sources */,
+				247800EC2D5BD11C167D68EB /* AFURLConnectionOperation.m in Sources */,
+				894D5B9D0D1C1AF66A3AF396 /* AFURLRequestSerialization.m in Sources */,
+				09B3C01B7C4B074733AFF7E5 /* AFURLResponseSerialization.m in Sources */,
+				748494337EBFBFDAE2DA7B2A /* AFURLSessionManager.m in Sources */,
+				694A6F7A7E7D24FD262DA36C /* Pods-Weather-AFNetworking-dummy.m in Sources */,
+				8159046BF85C67004672F671 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				DD97237CB3D860204F58B713 /* UIAlertView+AFNetworking.m in Sources */,
+				0E874DBAAF7338884CB9CC71 /* UIButton+AFNetworking.m in Sources */,
+				81F8C9E9C464ED4DA8CE7900 /* UIImageView+AFNetworking.m in Sources */,
+				CF6E6410035F0C0073B52351 /* UIProgressView+AFNetworking.m in Sources */,
+				24C46FBEE5CA624BCA3AE763 /* UIRefreshControl+AFNetworking.m in Sources */,
+				0071A92E865F64BFA6C4548A /* UIWebView+AFNetworking.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAF70EC50A80FC0F919FC972 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAD2FAB5C3EAA6339BE574A1 /* AFNetworkActivityLogger.m in Sources */,
+				26A69549AAD5EA284C394D1D /* Pods-Weather-AFNetworkActivityLogger-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F92E5B7BC4D22A014F76C2A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28EFB8595025D91C44FE4E9C /* AFHTTPRequestSerializer+COOLAPIRequestSerialization.m in Sources */,
+				491C9691FA62D5072B27CBCD /* COOLAPIClientImpl.m in Sources */,
+				A8A14F2F5280304477C403BA /* COOLAPIRequest.m in Sources */,
+				5495D0F90AFD58E53ED98E4B /* COOLAPIResponse+Package.m in Sources */,
+				FE02E50FD26FF3DA47E5A455 /* COOLAPIResponse.m in Sources */,
+				558BE01A7A6BD28C5DDC2C58 /* COOLAPIResponseBuilder.m in Sources */,
+				22B73C4B363930BEB3E0C814 /* COOLJSONResponseSerializer.m in Sources */,
+				C0ADFA4C6948EEA923B667A9 /* COOLMapperImpl.m in Sources */,
+				55DE1D01E757D05174F591A3 /* COOLNetworkActivityLoggerImpl.m in Sources */,
+				4B822E87837CAAFA98448B19 /* Pods-Weather-COOLNetworkStack-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1E59845CEE02C9A9251389B7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B82914F419789B4B009F8B45 /* Pods-Weather-AFNetworkActivityLogger */;
+			targetProxy = F281F82F16C65CB42562510D /* PBXContainerItemProxy */;
+		};
+		33F9ACD1F701B678C1F7E500 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 920804A7F3BAFB807C49C7CA /* Pods-Weather-AFNetworking */;
+			targetProxy = B987E7A40FAB11BE322B921E /* PBXContainerItemProxy */;
+		};
+		52B1798DDFE2C936E51EE9D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CB173108B088DDF615945070 /* Pods-Weather-COOLNetworkStack */;
+			targetProxy = 983E2132EDD558AD7CFE1EFC /* PBXContainerItemProxy */;
+		};
+		557B9A7A2FCEB75318B8FFF8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4A44DA6D7C2E3799344E5C07 /* Pods-Weather-EasyMapping */;
+			targetProxy = BE1ACD1A348E1EE0FA705EF4 /* PBXContainerItemProxy */;
+		};
+		95F59F12B6F2C9D88C595166 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 920804A7F3BAFB807C49C7CA /* Pods-Weather-AFNetworking */;
+			targetProxy = CF16FF51926C0815A1F9BEF4 /* PBXContainerItemProxy */;
+		};
+		A7C941E51B9FB3ED16F6825A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B82914F419789B4B009F8B45 /* Pods-Weather-AFNetworkActivityLogger */;
+			targetProxy = E53D2CF15E22D6DD8191B360 /* PBXContainerItemProxy */;
+		};
+		AE2DFD3AD1B6289CA985B395 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 920804A7F3BAFB807C49C7CA /* Pods-Weather-AFNetworking */;
+			targetProxy = 72D37B42EC2401AD5F2F573D /* PBXContainerItemProxy */;
+		};
+		C4D837256F168CA15B88D928 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4A44DA6D7C2E3799344E5C07 /* Pods-Weather-EasyMapping */;
+			targetProxy = DA711D867688A38DF9CBBAAD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		08426D36C3E004950F5299A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36C0E5334F291A305FD5D8BC /* Pods-Weather.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1113C86C93629F7A039C6C10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB95CD21E1F432F7138B94AA /* Pods-Weather-COOLNetworkStack-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Weather-COOLNetworkStack/Pods-Weather-COOLNetworkStack-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		192C94374EACFED8D14FFA7E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2EA80D75263A70F5315C56D2 /* Pods-Weather-AFNetworking-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Weather-AFNetworking/Pods-Weather-AFNetworking-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		2AA61228835C6FF312629CD9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC6D69304DCE0894895393FA /* Pods-Weather.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		5238429EE03A320D9BF79974 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56F13469D2025C76292C20E9 /* Pods-Weather-EasyMapping-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Weather-EasyMapping/Pods-Weather-EasyMapping-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		55565E153C09B61514D0B09B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB95CD21E1F432F7138B94AA /* Pods-Weather-COOLNetworkStack-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Weather-COOLNetworkStack/Pods-Weather-COOLNetworkStack-prefix.pch";
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		60756D94FE55C138E87F48A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2EA80D75263A70F5315C56D2 /* Pods-Weather-AFNetworking-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Weather-AFNetworking/Pods-Weather-AFNetworking-prefix.pch";
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		995995997D505C10026D850A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F00CC3E16E36124217CEA44 /* Pods-Weather-AFNetworkActivityLogger-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Weather-AFNetworkActivityLogger/Pods-Weather-AFNetworkActivityLogger-prefix.pch";
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9A703EEAC619DE844894E668 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				STRIP_INSTALLED_PRODUCT = NO;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A4AB945C47553F6F70D73A40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F00CC3E16E36124217CEA44 /* Pods-Weather-AFNetworkActivityLogger-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Weather-AFNetworkActivityLogger/Pods-Weather-AFNetworkActivityLogger-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A51FE3BC1E719D6C3B1FB904 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+			};
+			name = Debug;
+		};
+		E0F98B602EA6281CAF3D764C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56F13469D2025C76292C20E9 /* Pods-Weather-EasyMapping-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Weather-EasyMapping/Pods-Weather-EasyMapping-prefix.pch";
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		18C446515ED88DCAD78FB8C4 /* Build configuration list for PBXNativeTarget "Pods-Weather" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2AA61228835C6FF312629CD9 /* Debug */,
+				08426D36C3E004950F5299A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A8E241421B7B05B4D2FD064 /* Build configuration list for PBXNativeTarget "Pods-Weather-COOLNetworkStack" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1113C86C93629F7A039C6C10 /* Debug */,
+				55565E153C09B61514D0B09B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		472DF81D8294D9BF787BC416 /* Build configuration list for PBXNativeTarget "Pods-Weather-EasyMapping" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5238429EE03A320D9BF79974 /* Debug */,
+				E0F98B602EA6281CAF3D764C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		48E271B2BB8D86A7720A20E8 /* Build configuration list for PBXNativeTarget "Pods-Weather-AFNetworkActivityLogger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4AB945C47553F6F70D73A40 /* Debug */,
+				995995997D505C10026D850A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		70B30BC18451327B73B13C7F /* Build configuration list for PBXNativeTarget "Pods-Weather-AFNetworking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				192C94374EACFED8D14FFA7E /* Debug */,
+				60756D94FE55C138E87F48A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96C999AEC06EADA3CBC52CCE /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A51FE3BC1E719D6C3B1FB904 /* Debug */,
+				9A703EEAC619DE844894E668 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 415848D0F40C2EF5ECCA41BE /* Project object */;
+}

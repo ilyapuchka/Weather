@@ -1,0 +1,1 @@
+../../../COOLNetworkStack/COOLNetworkStack/Public/APIClient/COOLJSONResponseSerializer.h

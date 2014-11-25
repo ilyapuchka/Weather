@@ -1,0 +1,41 @@
+PODS:
+  - AFNetworkActivityLogger (2.0.3):
+    - AFNetworking/NSURLConnection (~> 2.0)
+    - AFNetworking/NSURLSession (~> 2.0)
+  - AFNetworking (2.5.0):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+    - AFNetworking/UIKit
+  - AFNetworking/NSURLConnection (2.5.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.5.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.5.0)
+  - AFNetworking/Security (2.5.0)
+  - AFNetworking/Serialization (2.5.0)
+  - AFNetworking/UIKit (2.5.0):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - COOLNetworkStack (0.0.1):
+    - AFNetworkActivityLogger (~> 2.0)
+    - AFNetworking (~> 2.0)
+    - EasyMapping (~> 0.6)
+  - EasyMapping (0.6.3)
+
+DEPENDENCIES:
+  - COOLNetworkStack
+
+SPEC CHECKSUMS:
+  AFNetworkActivityLogger: d6a2d2755fada3a1fbf1f490ec0dd92224e092a4
+  AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
+  COOLNetworkStack: ff326116d856cbe399c4e7ace0db9fb9a8844334
+  EasyMapping: bb3ca83bf207ad382a14202561dd93d393c05a13
+
+COCOAPODS: 0.34.4
