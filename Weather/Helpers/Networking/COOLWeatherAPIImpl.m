@@ -10,17 +10,17 @@
 
 @implementation COOLWeatherAPIImpl
 
-- (void)searchCitiesWithQuery:(NSString *)query success:(id)succes failure:(id)faulure
+- (void)searchCitiesWithQuery:(NSString *)query success:(COOLWeatherAPISearchSuccessBlock)succes failure:(COOLAPIClientFailureBlock)faulure
 {
     
 }
 
-- (void)weatherWithQuery:(NSString *)query success:(id)success failure:(id)failure
+- (void)weatherWithQuery:(NSString *)query success:(COOLWeatherAPIForecastSuccessBlock)success failure:(COOLAPIClientFailureBlock)failure
 {
     
 }
 
-- (void)weatherWithBatchQuery:(NSArray *)queries success:(id)success failure:(id)failure
+- (void)weatherWithBatchQuery:(NSArray *)queries success:(COOLWeatherAPIBatchForecastsSuccessBlock)success failure:(COOLAPIClientFailureBlock)failure
 {
     
 }

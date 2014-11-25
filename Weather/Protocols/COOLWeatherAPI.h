@@ -8,10 +8,27 @@
 
 #import <Foundation/Foundation.h>
 
+@class COOLSearchAPIResponse;
+@class COOLForecastResponse;
+@class COOLBatchForecastsAPIResponse;
+
+typedef void(^COOLWeatherAPISearchSuccessBlock)(COOLSearchAPIResponse *response);
+typedef void(^COOLWeatherAPIForecastSuccessBlock)(COOLForecastResponse *response);
+typedef void(^COOLWeatherAPIBatchForecastsSuccessBlock)(COOLBatchForecastsAPIResponse *response);
+
+
 @protocol COOLWeatherAPI <NSObject>
 
-- (void)searchCitiesWithQuery:(NSString *)query success:(id)succes failure:(id)faulure;
-- (void)weatherWithQuery:(NSString *)query success:(id)success failure:(id)failure;
-- (void)weatherWithBatchQuery:(NSArray *)queries success:(id)success failure:(id)failure;
+- (void)searchCitiesWithQuery:(NSString *)query
+                      success:(COOLWeatherAPISearchSuccessBlock)succes
+                      failure:(COOLAPIClientFailureBlock)faulure;
+
+- (void)weatherWithQuery:(NSString *)query
+                 success:(COOLWeatherAPIForecastSuccessBlock)success
+                 failure:(COOLAPIClientFailureBlock)failure;
+
+- (void)weatherWithBatchQuery:(NSArray *)queries
+                      success:(COOLWeatherAPIBatchForecastsSuccessBlock)success
+                      failure:(COOLAPIClientFailureBlock)failure;
 
 @end
