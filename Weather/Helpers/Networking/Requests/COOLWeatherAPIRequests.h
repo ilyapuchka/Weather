@@ -11,6 +11,6 @@
 
 #import "COOLSearchAPIRequest.h"
 #import "COOLTodayForecastAPIRequest.h"
-#import "COOLForecastAPIRequest.h"
+#import "COOLDailyForecastAPIRequest.h"
 
 #endif

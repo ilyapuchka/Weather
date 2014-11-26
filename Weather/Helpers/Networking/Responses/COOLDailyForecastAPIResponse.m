@@ -1,18 +1,17 @@
 //
-//  COOLForecastAPIResponse.m
+//  COOLDailyForecastAPIResponse.m
 //  Weather
 //
 //  Created by Ilya Puchka on 26.11.14.
 //  Copyright (c) 2014 Ilya Puchka. All rights reserved.
 //
 
-#import "COOLTodayForecastAPIResponse.h"
+#import "COOLDailyForecastAPIResponse.h"
 #import "EKObjectMapping.h"
-#import "COOLTodayForecast+Mapping.h"
 
-@implementation COOLTodayForecastAPIResponse
+@implementation COOLDailyForecastAPIResponse
 
-- (COOLTodayForecast *)todayForecast
+- (Forecast *)forecast
 {
     return [self.mappedResponseObject valueForKey:@"forecast"];
 }

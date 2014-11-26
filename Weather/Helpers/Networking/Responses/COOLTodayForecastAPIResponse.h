@@ -7,10 +7,10 @@
 //
 
 #import "COOLAPIResponse.h"
-#import "COOLTodayForecast.h"
+#import "Forecast.h"
 
 @interface COOLTodayForecastAPIResponse : COOLAPIResponse
 
-- (COOLTodayForecast *)todayForecast;
+- (Forecast *)todayForecast;
 
 @end

@@ -1,5 +1,5 @@
 //
-//  COOLBatchForecastsAPIResponse.h
+//  COOLDailyForecastAPIResponse.h
 //  Weather
 //
 //  Created by Ilya Puchka on 26.11.14.
@@ -9,8 +9,8 @@
 #import "COOLAPIResponse.h"
 #import "Forecast.h"
 
-@interface COOLBatchForecastsAPIResponse : COOLAPIResponse
+@interface COOLDailyForecastAPIResponse : COOLAPIResponse
 
-- (NSArray *)forecasts;
+- (Forecast *)forecast;
 
 @end

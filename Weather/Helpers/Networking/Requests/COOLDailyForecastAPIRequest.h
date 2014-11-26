@@ -8,8 +8,8 @@
 
 #import "COOLAPIRequest.h"
 
-@interface COOLForecastAPIRequest : COOLAPIRequest
+@interface COOLDailyForecastAPIRequest : COOLAPIRequest
 
-- (instancetype)initWithQuery:(NSString *)query;
+- (instancetype)initWithQuery:(NSString *)query days:(NSInteger)days;
 
 @end

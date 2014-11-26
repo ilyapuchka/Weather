@@ -7,12 +7,24 @@
 //
 
 #import "COOLBatchForecastsAPIResponse.h"
+#import "EKObjectMapping.h"
 
 @implementation COOLBatchForecastsAPIResponse
 
 - (NSArray *)forecasts
 {
-    return nil;
+    return [self.mappedResponseObject valueForKey:@"forecasts"];
+}
+
++ (id)responseMapping
+{
+#warning TODO
+    return [EKObjectMapping mappingForClass:[NSMutableDictionary class] withBlock:^(EKObjectMapping *mapping) {
+        [mapping mapKey:@"data" toField:@"forecast" withValueBlock:^id(NSString *key, NSDictionary *value) {
+            Forecast *forecast = [Forecast modelObjectWithDictionary:value];
+            return forecast;
+        }];
+    }];
 }
 
 @end

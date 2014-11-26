@@ -11,6 +11,7 @@
 #import "EKMapper.h"
 #import "COOLForecast+Mapping.h"
 #import "COOLTodayForecast+Mapping.h"
+#import "DataModels.h"
 
 @interface ModelsMappingTests : XCTestCase
 
@@ -49,6 +50,17 @@
     XCTAssertNotNil(forecast, @"Mapped forecast should not be nil");
     XCTAssertNotNil(forecast.currentCondition, @"Mapped forecast current condition should not be nil");
     XCTAssertNotNil(forecast.weather, @"Mapped forecast weather should not be nil");
+}
+
+- (void)testForecastMapping1 {
+    // This is an example of a functional test case.
+    NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"forecast" ofType:@"json"];
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    NSError *error;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    Forecast *forecast = [Forecast modelObjectWithDictionary:[json valueForKey:@"data"]];
+    
+    XCTAssertNotNil(forecast, @"Mapped forecast should not be nil");
 }
 
 @end

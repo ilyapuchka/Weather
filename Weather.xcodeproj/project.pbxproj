@@ -19,7 +19,7 @@
 		092214C71A254215002A614A /* COOLTodayForecastAPIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 092214C61A254215002A614A /* COOLTodayForecastAPIResponse.m */; };
 		092214CA1A25423C002A614A /* COOLBatchForecastsAPIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 092214C91A25423C002A614A /* COOLBatchForecastsAPIResponse.m */; };
 		092214CF1A2543CC002A614A /* COOLSearchAPIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 092214CE1A2543CC002A614A /* COOLSearchAPIRequest.m */; };
-		092214D21A2543DF002A614A /* COOLForecastAPIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 092214D11A2543DF002A614A /* COOLForecastAPIRequest.m */; };
+		092214D21A2543DF002A614A /* COOLDailyForecastAPIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 092214D11A2543DF002A614A /* COOLDailyForecastAPIRequest.m */; };
 		092214D51A254471002A614A /* COOLWeatherAPIRequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 092214D41A254471002A614A /* COOLWeatherAPIRequestSerializer.m */; };
 		092214DC1A2547DF002A614A /* COOLForecast+Mapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 092214DB1A2547DF002A614A /* COOLForecast+Mapping.m */; };
 		092214DF1A2547ED002A614A /* COOLTodayForecast+Mapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 092214DE1A2547EC002A614A /* COOLTodayForecast+Mapping.m */; };
@@ -27,6 +27,12 @@
 		092214E41A255166002A614A /* ModelsMappingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 092214E31A255166002A614A /* ModelsMappingTests.m */; };
 		092214E71A255302002A614A /* forecast.json in Resources */ = {isa = PBXBuildFile; fileRef = 092214E51A255302002A614A /* forecast.json */; };
 		092214E81A255302002A614A /* todayforecast.json in Resources */ = {isa = PBXBuildFile; fileRef = 092214E61A255302002A614A /* todayforecast.json */; };
+		092214F41A25E0E3002A614A /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 092214EA1A25E0E3002A614A /* Forecast.m */; };
+		092214F51A25E0E3002A614A /* Hourly.m in Sources */ = {isa = PBXBuildFile; fileRef = 092214ED1A25E0E3002A614A /* Hourly.m */; };
+		092214F61A25E0E3002A614A /* Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 092214EF1A25E0E3002A614A /* Request.m */; };
+		092214F71A25E0E3002A614A /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = 092214F11A25E0E3002A614A /* Weather.m */; };
+		092214F81A25E0E3002A614A /* WeatherDesc.m in Sources */ = {isa = PBXBuildFile; fileRef = 092214F31A25E0E3002A614A /* WeatherDesc.m */; };
+		092214FB1A25E69D002A614A /* COOLDailyForecastAPIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 092214FA1A25E69D002A614A /* COOLDailyForecastAPIResponse.m */; };
 		5F2E8026CF92388742E15B90 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6FA99A54B363D495378D33 /* libPods.a */; };
 		B72236D1D1643D1FD7D36065 /* libPods-Weather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B0B32FE5B0B6EB82894486 /* libPods-Weather.a */; };
 /* End PBXBuildFile section */
@@ -67,8 +73,8 @@
 		092214C91A25423C002A614A /* COOLBatchForecastsAPIResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLBatchForecastsAPIResponse.m; sourceTree = "<group>"; };
 		092214CD1A2543CC002A614A /* COOLSearchAPIRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLSearchAPIRequest.h; sourceTree = "<group>"; };
 		092214CE1A2543CC002A614A /* COOLSearchAPIRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLSearchAPIRequest.m; sourceTree = "<group>"; };
-		092214D01A2543DF002A614A /* COOLForecastAPIRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLForecastAPIRequest.h; sourceTree = "<group>"; };
-		092214D11A2543DF002A614A /* COOLForecastAPIRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLForecastAPIRequest.m; sourceTree = "<group>"; };
+		092214D01A2543DF002A614A /* COOLDailyForecastAPIRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLDailyForecastAPIRequest.h; sourceTree = "<group>"; };
+		092214D11A2543DF002A614A /* COOLDailyForecastAPIRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLDailyForecastAPIRequest.m; sourceTree = "<group>"; };
 		092214D31A254471002A614A /* COOLWeatherAPIRequestSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLWeatherAPIRequestSerializer.h; sourceTree = "<group>"; };
 		092214D41A254471002A614A /* COOLWeatherAPIRequestSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLWeatherAPIRequestSerializer.m; sourceTree = "<group>"; };
 		092214D61A2545AD002A614A /* COOLWeatherAPIRequests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLWeatherAPIRequests.h; sourceTree = "<group>"; };
@@ -83,6 +89,19 @@
 		092214E31A255166002A614A /* ModelsMappingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelsMappingTests.m; sourceTree = "<group>"; };
 		092214E51A255302002A614A /* forecast.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = forecast.json; sourceTree = "<group>"; };
 		092214E61A255302002A614A /* todayforecast.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = todayforecast.json; sourceTree = "<group>"; };
+		092214E91A25E0E3002A614A /* Forecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Forecast.h; sourceTree = "<group>"; };
+		092214EA1A25E0E3002A614A /* Forecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forecast.m; sourceTree = "<group>"; };
+		092214EB1A25E0E3002A614A /* DataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModels.h; sourceTree = "<group>"; };
+		092214EC1A25E0E3002A614A /* Hourly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hourly.h; sourceTree = "<group>"; };
+		092214ED1A25E0E3002A614A /* Hourly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hourly.m; sourceTree = "<group>"; };
+		092214EE1A25E0E3002A614A /* Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Request.h; sourceTree = "<group>"; };
+		092214EF1A25E0E3002A614A /* Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Request.m; sourceTree = "<group>"; };
+		092214F01A25E0E3002A614A /* Weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weather.h; sourceTree = "<group>"; };
+		092214F11A25E0E3002A614A /* Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weather.m; sourceTree = "<group>"; };
+		092214F21A25E0E3002A614A /* WeatherDesc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherDesc.h; sourceTree = "<group>"; };
+		092214F31A25E0E3002A614A /* WeatherDesc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherDesc.m; sourceTree = "<group>"; };
+		092214F91A25E69D002A614A /* COOLDailyForecastAPIResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLDailyForecastAPIResponse.h; sourceTree = "<group>"; };
+		092214FA1A25E69D002A614A /* COOLDailyForecastAPIResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLDailyForecastAPIResponse.m; sourceTree = "<group>"; };
 		148FA9D5671E73E74C2D367E /* Pods-Weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weather/Pods-Weather.debug.xcconfig"; sourceTree = "<group>"; };
 		6E6FA99A54B363D495378D33 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2B0B32FE5B0B6EB82894486 /* libPods-Weather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Weather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -219,6 +238,17 @@
 		0922149E1A25401C002A614A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				092214E91A25E0E3002A614A /* Forecast.h */,
+				092214EA1A25E0E3002A614A /* Forecast.m */,
+				092214EB1A25E0E3002A614A /* DataModels.h */,
+				092214EC1A25E0E3002A614A /* Hourly.h */,
+				092214ED1A25E0E3002A614A /* Hourly.m */,
+				092214EE1A25E0E3002A614A /* Request.h */,
+				092214EF1A25E0E3002A614A /* Request.m */,
+				092214F01A25E0E3002A614A /* Weather.h */,
+				092214F11A25E0E3002A614A /* Weather.m */,
+				092214F21A25E0E3002A614A /* WeatherDesc.h */,
+				092214F31A25E0E3002A614A /* WeatherDesc.m */,
 				092214BB1A254125002A614A /* COOLForecast.h */,
 				092214BC1A254125002A614A /* COOLForecast.m */,
 				092214BD1A254125002A614A /* COOLTodayForecast.h */,
@@ -270,6 +300,8 @@
 				092214C31A2541F5002A614A /* COOLSearchAPIResponse.m */,
 				092214C51A254215002A614A /* COOLTodayForecastAPIResponse.h */,
 				092214C61A254215002A614A /* COOLTodayForecastAPIResponse.m */,
+				092214F91A25E69D002A614A /* COOLDailyForecastAPIResponse.h */,
+				092214FA1A25E69D002A614A /* COOLDailyForecastAPIResponse.m */,
 				092214C81A25423C002A614A /* COOLBatchForecastsAPIResponse.h */,
 				092214C91A25423C002A614A /* COOLBatchForecastsAPIResponse.m */,
 				092214D71A2545BB002A614A /* COOLWeatherAPIResponses.h */,
@@ -284,8 +316,8 @@
 				092214CE1A2543CC002A614A /* COOLSearchAPIRequest.m */,
 				092214E01A254B41002A614A /* COOLTodayForecastAPIRequest.h */,
 				092214E11A254B41002A614A /* COOLTodayForecastAPIRequest.m */,
-				092214D01A2543DF002A614A /* COOLForecastAPIRequest.h */,
-				092214D11A2543DF002A614A /* COOLForecastAPIRequest.m */,
+				092214D01A2543DF002A614A /* COOLDailyForecastAPIRequest.h */,
+				092214D11A2543DF002A614A /* COOLDailyForecastAPIRequest.m */,
 				092214D61A2545AD002A614A /* COOLWeatherAPIRequests.h */,
 			);
 			path = Requests;
@@ -457,19 +489,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				092214F71A25E0E3002A614A /* Weather.m in Sources */,
+				092214FB1A25E69D002A614A /* COOLDailyForecastAPIResponse.m in Sources */,
 				092214DC1A2547DF002A614A /* COOLForecast+Mapping.m in Sources */,
 				092214AC1A25401C002A614A /* COOLAppDelegate.m in Sources */,
 				092214BF1A254125002A614A /* COOLForecast.m in Sources */,
 				092214C71A254215002A614A /* COOLTodayForecastAPIResponse.m in Sources */,
 				092214C41A2541F5002A614A /* COOLSearchAPIResponse.m in Sources */,
+				092214F81A25E0E3002A614A /* WeatherDesc.m in Sources */,
 				092214CF1A2543CC002A614A /* COOLSearchAPIRequest.m in Sources */,
+				092214F61A25E0E3002A614A /* Request.m in Sources */,
+				092214F51A25E0E3002A614A /* Hourly.m in Sources */,
 				092214E21A254B41002A614A /* COOLTodayForecastAPIRequest.m in Sources */,
 				092214CA1A25423C002A614A /* COOLBatchForecastsAPIResponse.m in Sources */,
 				092214DF1A2547ED002A614A /* COOLTodayForecast+Mapping.m in Sources */,
 				092214BA1A25411E002A614A /* COOLWeatherAPIImpl.m in Sources */,
 				0922146D1A253F86002A614A /* main.m in Sources */,
 				092214D51A254471002A614A /* COOLWeatherAPIRequestSerializer.m in Sources */,
-				092214D21A2543DF002A614A /* COOLForecastAPIRequest.m in Sources */,
+				092214D21A2543DF002A614A /* COOLDailyForecastAPIRequest.m in Sources */,
+				092214F41A25E0E3002A614A /* Forecast.m in Sources */,
 				092214C01A254125002A614A /* COOLTodayForecast.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
