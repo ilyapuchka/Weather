@@ -41,6 +41,13 @@
 		092215281A25EFBC002A614A /* Region.m in Sources */ = {isa = PBXBuildFile; fileRef = 092215241A25EFBC002A614A /* Region.m */; };
 		092215311A25F6BF002A614A /* COOLForecastDataSourceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 092215301A25F6BF002A614A /* COOLForecastDataSourceImpl.m */; };
 		092215341A25F6DC002A614A /* COOLLocationsDataSourceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 092215331A25F6DC002A614A /* COOLLocationsDataSourceImpl.m */; };
+		093876D21A26250300ADF480 /* COOLTodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 093876D11A26250300ADF480 /* COOLTodayViewController.m */; };
+		093876D51A26251900ADF480 /* COOLSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 093876D41A26251900ADF480 /* COOLSettingsViewController.m */; };
+		093876D81A26252E00ADF480 /* COOLDailyForecastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 093876D71A26252E00ADF480 /* COOLDailyForecastViewController.m */; };
+		093876DB1A26256300ADF480 /* COOLLocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 093876DA1A26256300ADF480 /* COOLLocationsViewController.m */; };
+		093876E11A26258900ADF480 /* UIViewController+SegueUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 093876DE1A26258900ADF480 /* UIViewController+SegueUserInfo.m */; };
+		093876E21A26258900ADF480 /* UIViewController+Typhoon.m in Sources */ = {isa = PBXBuildFile; fileRef = 093876E01A26258900ADF480 /* UIViewController+Typhoon.m */; };
+		093876E51A26272700ADF480 /* ApplicationComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 093876E41A26272700ADF480 /* ApplicationComponents.m */; };
 		5F2E8026CF92388742E15B90 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6FA99A54B363D495378D33 /* libPods.a */; };
 		B72236D1D1643D1FD7D36065 /* libPods-Weather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B0B32FE5B0B6EB82894486 /* libPods-Weather.a */; };
 /* End PBXBuildFile section */
@@ -128,6 +135,20 @@
 		092215301A25F6BF002A614A /* COOLForecastDataSourceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLForecastDataSourceImpl.m; sourceTree = "<group>"; };
 		092215321A25F6DC002A614A /* COOLLocationsDataSourceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLLocationsDataSourceImpl.h; sourceTree = "<group>"; };
 		092215331A25F6DC002A614A /* COOLLocationsDataSourceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLLocationsDataSourceImpl.m; sourceTree = "<group>"; };
+		093876D01A26250300ADF480 /* COOLTodayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLTodayViewController.h; sourceTree = "<group>"; };
+		093876D11A26250300ADF480 /* COOLTodayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLTodayViewController.m; sourceTree = "<group>"; };
+		093876D31A26251900ADF480 /* COOLSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLSettingsViewController.h; sourceTree = "<group>"; };
+		093876D41A26251900ADF480 /* COOLSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLSettingsViewController.m; sourceTree = "<group>"; };
+		093876D61A26252E00ADF480 /* COOLDailyForecastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLDailyForecastViewController.h; sourceTree = "<group>"; };
+		093876D71A26252E00ADF480 /* COOLDailyForecastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLDailyForecastViewController.m; sourceTree = "<group>"; };
+		093876D91A26256300ADF480 /* COOLLocationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLLocationsViewController.h; sourceTree = "<group>"; };
+		093876DA1A26256300ADF480 /* COOLLocationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLLocationsViewController.m; sourceTree = "<group>"; };
+		093876DD1A26258900ADF480 /* UIViewController+SegueUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SegueUserInfo.h"; sourceTree = "<group>"; };
+		093876DE1A26258900ADF480 /* UIViewController+SegueUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SegueUserInfo.m"; sourceTree = "<group>"; };
+		093876DF1A26258900ADF480 /* UIViewController+Typhoon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Typhoon.h"; sourceTree = "<group>"; };
+		093876E01A26258900ADF480 /* UIViewController+Typhoon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Typhoon.m"; sourceTree = "<group>"; };
+		093876E31A26272700ADF480 /* ApplicationComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationComponents.h; sourceTree = "<group>"; };
+		093876E41A26272700ADF480 /* ApplicationComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationComponents.m; sourceTree = "<group>"; };
 		148FA9D5671E73E74C2D367E /* Pods-Weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weather/Pods-Weather.debug.xcconfig"; sourceTree = "<group>"; };
 		6E6FA99A54B363D495378D33 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2B0B32FE5B0B6EB82894486 /* libPods-Weather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Weather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -235,6 +256,7 @@
 		092214941A25401C002A614A /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				093876DC1A26258900ADF480 /* ViewController */,
 				092215011A25E96D002A614A /* EKObjectMapping */,
 				092214D91A2547C6002A614A /* Models Mappings */,
 			);
@@ -244,6 +266,14 @@
 		092214961A25401C002A614A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				093876D01A26250300ADF480 /* COOLTodayViewController.h */,
+				093876D11A26250300ADF480 /* COOLTodayViewController.m */,
+				093876D61A26252E00ADF480 /* COOLDailyForecastViewController.h */,
+				093876D71A26252E00ADF480 /* COOLDailyForecastViewController.m */,
+				093876D31A26251900ADF480 /* COOLSettingsViewController.h */,
+				093876D41A26251900ADF480 /* COOLSettingsViewController.m */,
+				093876D91A26256300ADF480 /* COOLLocationsViewController.h */,
+				093876DA1A26256300ADF480 /* COOLLocationsViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -362,6 +392,8 @@
 			children = (
 				092214FE1A25E80A002A614A /* NetworkComponents.h */,
 				092214FF1A25E80A002A614A /* NetworkComponents.m */,
+				093876E31A26272700ADF480 /* ApplicationComponents.h */,
+				093876E41A26272700ADF480 /* ApplicationComponents.m */,
 			);
 			path = Assemblies;
 			sourceTree = "<group>";
@@ -416,6 +448,17 @@
 				092215331A25F6DC002A614A /* COOLLocationsDataSourceImpl.m */,
 			);
 			name = "Data Sources";
+			sourceTree = "<group>";
+		};
+		093876DC1A26258900ADF480 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				093876DD1A26258900ADF480 /* UIViewController+SegueUserInfo.h */,
+				093876DE1A26258900ADF480 /* UIViewController+SegueUserInfo.m */,
+				093876DF1A26258900ADF480 /* UIViewController+Typhoon.h */,
+				093876E01A26258900ADF480 /* UIViewController+Typhoon.m */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		686D8539725BBAE68D191E5D /* Frameworks */ = {
@@ -575,20 +618,26 @@
 			files = (
 				092214F71A25E0E3002A614A /* Weather.m in Sources */,
 				092214FB1A25E69D002A614A /* COOLDailyForecastAPIResponse.m in Sources */,
+				093876E51A26272700ADF480 /* ApplicationComponents.m in Sources */,
 				092214DC1A2547DF002A614A /* COOLForecast+Mapping.m in Sources */,
 				092214AC1A25401C002A614A /* COOLAppDelegate.m in Sources */,
 				092214BF1A254125002A614A /* COOLForecast.m in Sources */,
 				092214C71A254215002A614A /* COOLTodayForecastAPIResponse.m in Sources */,
 				092215311A25F6BF002A614A /* COOLForecastDataSourceImpl.m in Sources */,
 				092215001A25E80A002A614A /* NetworkComponents.m in Sources */,
+				093876E11A26258900ADF480 /* UIViewController+SegueUserInfo.m in Sources */,
 				092215261A25EFBC002A614A /* Location.m in Sources */,
 				092214C41A2541F5002A614A /* COOLSearchAPIResponse.m in Sources */,
 				092214F81A25E0E3002A614A /* WeatherDesc.m in Sources */,
 				092214CF1A2543CC002A614A /* COOLSearchAPIRequest.m in Sources */,
+				093876D21A26250300ADF480 /* COOLTodayViewController.m in Sources */,
+				093876D81A26252E00ADF480 /* COOLDailyForecastViewController.m in Sources */,
 				092214F61A25E0E3002A614A /* Request.m in Sources */,
 				092214F51A25E0E3002A614A /* Hourly.m in Sources */,
+				093876DB1A26256300ADF480 /* COOLLocationsViewController.m in Sources */,
 				092214E21A254B41002A614A /* COOLTodayForecastAPIRequest.m in Sources */,
 				092215271A25EFBC002A614A /* Country.m in Sources */,
+				093876E21A26258900ADF480 /* UIViewController+Typhoon.m in Sources */,
 				092214CA1A25423C002A614A /* COOLBatchForecastsAPIResponse.m in Sources */,
 				092214DF1A2547ED002A614A /* COOLTodayForecast+Mapping.m in Sources */,
 				092215251A25EFBC002A614A /* AreaName.m in Sources */,
@@ -600,6 +649,7 @@
 				092214D21A2543DF002A614A /* COOLDailyForecastAPIRequest.m in Sources */,
 				092215281A25EFBC002A614A /* Region.m in Sources */,
 				092214F41A25E0E3002A614A /* Forecast.m in Sources */,
+				093876D51A26251900ADF480 /* COOLSettingsViewController.m in Sources */,
 				092214C01A254125002A614A /* COOLTodayForecast.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

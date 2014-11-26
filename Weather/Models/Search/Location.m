@@ -201,8 +201,8 @@ NSString *const kBaseClassAreaName = @"areaName";
             [nameComponents addObject:string];
         }
     };
-    addBlock(self.areaName.lastObject);
-    addBlock(self.region.lastObject);
+    addBlock([self.areaName.lastObject value]);
+    addBlock([self.region.lastObject value]);
     return [nameComponents componentsJoinedByString:@", "];
 }
 

@@ -47,16 +47,6 @@
     dataSource.delegate = self;
 //    [dataSource loadTodayForecastWithQuery:@"Moscow,Russia"];
     
-    [[INTULocationManager sharedInstance] requestLocationWithDesiredAccuracy:INTULocationAccuracyCity timeout:10.f delayUntilAuthorized:YES block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
-       
-        if (status == INTULocationStatusSuccess) {
-            id<COOLLocationsDataSource> lDataSource = [factory locationsDataSource];
-            lDataSource.delegate = self;
-            [lDataSource loadLocationsWithLatitude:currentLocation.coordinate.latitude longituted:currentLocation.coordinate.longitude];
-        }
-        
-    }];
-    
     return YES;
 }
 

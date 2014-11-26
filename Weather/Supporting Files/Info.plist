@@ -30,6 +30,11 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>TyphoonInitialAssemblies</key>
+	<array>
+		<string>ApplicationComponents</string>
+		<string>NetworkComponents</string>
+	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
