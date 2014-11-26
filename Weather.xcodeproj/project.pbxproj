@@ -49,6 +49,10 @@
 		093876E51A26272700ADF480 /* ApplicationComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 093876E41A26272700ADF480 /* ApplicationComponents.m */; };
 		093876EA1A262E6E00ADF480 /* COOLStoryboardIdentifiers.m in Sources */ = {isa = PBXBuildFile; fileRef = 093876E91A262E6E00ADF480 /* COOLStoryboardIdentifiers.m */; };
 		093876EF1A263A5A00ADF480 /* COOLForecastComposedDataSourceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 093876EE1A263A5A00ADF480 /* COOLForecastComposedDataSourceImpl.m */; };
+		093876F41A26444C00ADF480 /* COOLDailyForecastTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 093876F31A26444C00ADF480 /* COOLDailyForecastTableViewDataSource.m */; };
+		093876F71A26445D00ADF480 /* COOLLocationsTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 093876F61A26445D00ADF480 /* COOLLocationsTableViewDataSource.m */; };
+		093876FA1A26446D00ADF480 /* COOLLocationsSearchResultsTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 093876F91A26446D00ADF480 /* COOLLocationsSearchResultsTableViewDataSource.m */; };
+		093876FD1A26459D00ADF480 /* COOLUserLocationsUserDefaultsImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 093876FC1A26459D00ADF480 /* COOLUserLocationsUserDefaultsImpl.m */; };
 		5F2E8026CF92388742E15B90 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6FA99A54B363D495378D33 /* libPods.a */; };
 		B72236D1D1643D1FD7D36065 /* libPods-Weather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B0B32FE5B0B6EB82894486 /* libPods-Weather.a */; };
 /* End PBXBuildFile section */
@@ -155,6 +159,14 @@
 		093876ED1A263A5A00ADF480 /* COOLForecastComposedDataSourceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLForecastComposedDataSourceImpl.h; sourceTree = "<group>"; };
 		093876EE1A263A5A00ADF480 /* COOLForecastComposedDataSourceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLForecastComposedDataSourceImpl.m; sourceTree = "<group>"; };
 		093876F01A263D7600ADF480 /* COOLUserLocationsRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLUserLocationsRepository.h; sourceTree = "<group>"; };
+		093876F21A26444C00ADF480 /* COOLDailyForecastTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLDailyForecastTableViewDataSource.h; sourceTree = "<group>"; };
+		093876F31A26444C00ADF480 /* COOLDailyForecastTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLDailyForecastTableViewDataSource.m; sourceTree = "<group>"; };
+		093876F51A26445D00ADF480 /* COOLLocationsTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLLocationsTableViewDataSource.h; sourceTree = "<group>"; };
+		093876F61A26445D00ADF480 /* COOLLocationsTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLLocationsTableViewDataSource.m; sourceTree = "<group>"; };
+		093876F81A26446D00ADF480 /* COOLLocationsSearchResultsTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLLocationsSearchResultsTableViewDataSource.h; sourceTree = "<group>"; };
+		093876F91A26446D00ADF480 /* COOLLocationsSearchResultsTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLLocationsSearchResultsTableViewDataSource.m; sourceTree = "<group>"; };
+		093876FB1A26459D00ADF480 /* COOLUserLocationsUserDefaultsImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLUserLocationsUserDefaultsImpl.h; sourceTree = "<group>"; };
+		093876FC1A26459D00ADF480 /* COOLUserLocationsUserDefaultsImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLUserLocationsUserDefaultsImpl.m; sourceTree = "<group>"; };
 		148FA9D5671E73E74C2D367E /* Pods-Weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weather/Pods-Weather.debug.xcconfig"; sourceTree = "<group>"; };
 		6E6FA99A54B363D495378D33 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2B0B32FE5B0B6EB82894486 /* libPods-Weather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Weather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -295,8 +307,11 @@
 		0922149A1A25401C002A614A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				093876F11A26442400ADF480 /* Table View Data Sources */,
 				092215291A25F568002A614A /* Data Sources */,
 				092214B71A25411E002A614A /* Networking */,
+				093876FB1A26459D00ADF480 /* COOLUserLocationsUserDefaultsImpl.h */,
+				093876FC1A26459D00ADF480 /* COOLUserLocationsUserDefaultsImpl.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -480,6 +495,19 @@
 			path = Generated;
 			sourceTree = "<group>";
 		};
+		093876F11A26442400ADF480 /* Table View Data Sources */ = {
+			isa = PBXGroup;
+			children = (
+				093876F21A26444C00ADF480 /* COOLDailyForecastTableViewDataSource.h */,
+				093876F31A26444C00ADF480 /* COOLDailyForecastTableViewDataSource.m */,
+				093876F51A26445D00ADF480 /* COOLLocationsTableViewDataSource.h */,
+				093876F61A26445D00ADF480 /* COOLLocationsTableViewDataSource.m */,
+				093876F81A26446D00ADF480 /* COOLLocationsSearchResultsTableViewDataSource.h */,
+				093876F91A26446D00ADF480 /* COOLLocationsSearchResultsTableViewDataSource.m */,
+			);
+			name = "Table View Data Sources";
+			sourceTree = "<group>";
+		};
 		686D8539725BBAE68D191E5D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -660,8 +688,10 @@
 				092214DC1A2547DF002A614A /* COOLForecast+Mapping.m in Sources */,
 				093876EF1A263A5A00ADF480 /* COOLForecastComposedDataSourceImpl.m in Sources */,
 				092214AC1A25401C002A614A /* COOLAppDelegate.m in Sources */,
+				093876FD1A26459D00ADF480 /* COOLUserLocationsUserDefaultsImpl.m in Sources */,
 				092214BF1A254125002A614A /* COOLForecast.m in Sources */,
 				092214C71A254215002A614A /* COOLTodayForecastAPIResponse.m in Sources */,
+				093876F41A26444C00ADF480 /* COOLDailyForecastTableViewDataSource.m in Sources */,
 				092215311A25F6BF002A614A /* COOLForecastDataSourceImpl.m in Sources */,
 				092215001A25E80A002A614A /* NetworkComponents.m in Sources */,
 				093876E11A26258900ADF480 /* UIViewController+SegueUserInfo.m in Sources */,
@@ -678,8 +708,10 @@
 				092215271A25EFBC002A614A /* Country.m in Sources */,
 				093876E21A26258900ADF480 /* UIViewController+Typhoon.m in Sources */,
 				092214DF1A2547ED002A614A /* COOLTodayForecast+Mapping.m in Sources */,
+				093876FA1A26446D00ADF480 /* COOLLocationsSearchResultsTableViewDataSource.m in Sources */,
 				092215251A25EFBC002A614A /* AreaName.m in Sources */,
 				092215041A25E96D002A614A /* EKObjectMapping+Transfromers.m in Sources */,
+				093876F71A26445D00ADF480 /* COOLLocationsTableViewDataSource.m in Sources */,
 				092214BA1A25411E002A614A /* COOLWeatherAPIImpl.m in Sources */,
 				0922146D1A253F86002A614A /* main.m in Sources */,
 				092215341A25F6DC002A614A /* COOLLocationsDataSourceImpl.m in Sources */,

@@ -1,0 +1,28 @@
+//
+//  COOLLocationsTableViewDataSource.m
+//  Weather
+//
+//  Created by Ilya Puchka on 26.11.14.
+//  Copyright (c) 2014 Ilya Puchka. All rights reserved.
+//
+
+#import "COOLLocationsTableViewDataSource.h"
+
+@implementation COOLLocationsTableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return nil;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+@end

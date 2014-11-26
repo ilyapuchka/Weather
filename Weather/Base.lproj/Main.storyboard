@@ -79,6 +79,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="afl-9v-Cxh">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="mjc-Ae-KQb" id="uRa-19-jr4"/>
+                                    <outlet property="delegate" destination="mjc-Ae-KQb" id="P0d-9O-9BU"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -101,6 +105,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hsl-HZ-M6b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="mjc-Ae-KQb" customClass="COOLDailyForecastTableViewDataSource"/>
             </objects>
             <point key="canvasLocation" x="1731" y="1155"/>
         </scene>
@@ -139,10 +144,18 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VTP-gu-yzO" userLabel="Locations Table View">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="5m5-zb-AvO" id="gOk-ZK-6MJ"/>
+                                    <outlet property="delegate" destination="5m5-zb-AvO" id="c39-tJ-CvN"/>
+                                </connections>
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="yaQ-TL-6CX" userLabel="Search Table View">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="C8b-Z9-YqE" id="N8G-hU-dDT"/>
+                                    <outlet property="delegate" destination="C8b-Z9-YqE" id="qN7-YD-U0u"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -170,6 +183,8 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IME-0T-pqu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="5m5-zb-AvO" customClass="COOLLocationsTableViewDataSource"/>
+                <customObject id="C8b-Z9-YqE" customClass="COOLLocationsSearchResultsTableViewDataSource"/>
             </objects>
             <point key="canvasLocation" x="553" y="2056"/>
         </scene>

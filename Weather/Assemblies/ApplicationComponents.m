@@ -11,6 +11,7 @@
 #import "COOLDailyForecastViewController.h"
 #import "COOLLocationsViewController.h"
 #import "NetworkComponents.h"
+#import "COOLUserLocationsUserDefaultsImpl.h"
 
 @implementation ApplicationComponents
 
@@ -35,7 +36,13 @@
     return [TyphoonDefinition withClass:[COOLLocationsViewController class] configuration:^(TyphoonDefinition *definition) {
         [definition injectProperty:@selector(locationsDataSource) with:[self.networkComponents locationsDataSource]];
         [definition injectProperty:@selector(forecastDataSource) with:[self.networkComponents forecastComposedDataSource]];
+        [definition injectProperty:@selector(userLocationsRepository) with:[self userLocationsRepository]];
     }];
+}
+
+- (id<COOLUserLocationsRepository>)userLocationsRepository
+{
+    return [TyphoonDefinition withClass:[COOLUserLocationsUserDefaultsImpl class]];
 }
 
 @end
