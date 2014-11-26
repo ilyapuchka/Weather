@@ -16,7 +16,7 @@
 @interface COOLDailyForecastViewController() <COOLDataSourceDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) Location *location;
+@property (nonatomic, copy) Location *location;
 
 @end
 
@@ -62,7 +62,7 @@
 - (void)loadForecastForLocation:(Location *)location
 {
     NSString *query = [location displayName];
-    [self.forecastDataSource loadForecastWithQuery:query days:5];
+    [self.forecastDataSource loadDailyForecastWithQuery:query days:5];
 }
 
 #pragma mark - COOLDataSourceDelegate
@@ -75,7 +75,7 @@
 - (void)dataSource:(id)dataSource didLoadContentWithError:(NSError *)error
 {
     if (dataSource == self.locationsDataSource) {
-        self.location = [[(id<COOLLocationsDataSource>)dataSource locations] firstObject];
+        self.location = [[self.locationsDataSource locations] firstObject];
         [self loadForecastForLocation:self.location];
     }
     else if (dataSource == self.forecastDataSource) {

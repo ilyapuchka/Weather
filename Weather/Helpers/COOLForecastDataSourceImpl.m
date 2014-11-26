@@ -45,10 +45,10 @@
 {
     NSCParameterAssert(self.query);
     NSParameterAssert(self.days);
-    [self loadForecastWithQuery:self.query days:self.days];
+    [self loadDailyForecastWithQuery:self.query days:self.days];
 }
 
-- (NSURLSessionDataTask *)loadForecastWithQuery:(NSString *)query days:(NSInteger)days
+- (NSURLSessionDataTask *)loadDailyForecastWithQuery:(NSString *)query days:(NSInteger)days
 {
     __block NSURLSessionDataTask *task;
     [super loadContentWithBlock:^(COOLLoadingProcess *loadingProcess) {

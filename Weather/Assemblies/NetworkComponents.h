@@ -11,11 +11,13 @@
 @protocol COOLWeatherAPI;
 @protocol COOLForecastDataSource;
 @protocol COOLLocationsDataSource;
+@protocol COOLForecastComposedDataSource;
 
 @interface NetworkComponents : TyphoonAssembly
 
 - (id<COOLWeatherAPI>)apiClient;
 - (id<COOLForecastDataSource>)forecastDataSource;
+- (id<COOLForecastComposedDataSource>)forecastComposedDataSource;
 - (id<COOLLocationsDataSource>)locationsDataSource;
 
 @end

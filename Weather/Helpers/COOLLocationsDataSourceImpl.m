@@ -21,6 +21,23 @@
 
 @synthesize query = _query;
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.onContentBlock = ^ void(COOLDataSource *me){
+            NSLog(@"Locations loaded");
+        };
+        self.onNoContentBlock = ^ void(COOLDataSource *me){
+            NSLog(@"No locations");
+        };
+        self.onErrorBlock = ^ void(COOLDataSource *me){
+            NSLog(@"Locations error");
+        };
+    }
+    return self;
+}
+
 - (void)loadContent
 {
     NSCParameterAssert(self.query);

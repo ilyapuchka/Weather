@@ -19,6 +19,7 @@
 
 #import "COOLForecastDataSourceImpl.h"
 #import "COOLLocationsDataSourceImpl.h"
+#import "COOLForecastComposedDataSourceImpl.h"
 
 #import "TyphoonConfigPostProcessor.h"
 #import "TyphoonDefinition+Infrastructure.h"
@@ -95,6 +96,12 @@
 {
     return [TyphoonDefinition withClass:[COOLLocationsDataSourceImpl class] configuration:^(TyphoonDefinition *definition) {
         [definition injectProperty:@selector(apiClient) with:[self apiClient]];
+    }];
+}
+
+- (id<COOLForecastComposedDataSource>)forecastComposedDataSource
+{
+    return [TyphoonDefinition withClass:[COOLForecastComposedDataSourceImpl class] configuration:^(TyphoonDefinition *definition) {
     }];
 }
 

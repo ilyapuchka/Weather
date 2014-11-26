@@ -48,6 +48,8 @@
 		093876E11A26258900ADF480 /* UIViewController+SegueUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 093876DE1A26258900ADF480 /* UIViewController+SegueUserInfo.m */; };
 		093876E21A26258900ADF480 /* UIViewController+Typhoon.m in Sources */ = {isa = PBXBuildFile; fileRef = 093876E01A26258900ADF480 /* UIViewController+Typhoon.m */; };
 		093876E51A26272700ADF480 /* ApplicationComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 093876E41A26272700ADF480 /* ApplicationComponents.m */; };
+		093876EA1A262E6E00ADF480 /* COOLStoryboardIdentifiers.m in Sources */ = {isa = PBXBuildFile; fileRef = 093876E91A262E6E00ADF480 /* COOLStoryboardIdentifiers.m */; };
+		093876EF1A263A5A00ADF480 /* COOLForecastComposedDataSourceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 093876EE1A263A5A00ADF480 /* COOLForecastComposedDataSourceImpl.m */; };
 		5F2E8026CF92388742E15B90 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6FA99A54B363D495378D33 /* libPods.a */; };
 		B72236D1D1643D1FD7D36065 /* libPods-Weather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B0B32FE5B0B6EB82894486 /* libPods-Weather.a */; };
 /* End PBXBuildFile section */
@@ -149,6 +151,13 @@
 		093876E01A26258900ADF480 /* UIViewController+Typhoon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Typhoon.m"; sourceTree = "<group>"; };
 		093876E31A26272700ADF480 /* ApplicationComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationComponents.h; sourceTree = "<group>"; };
 		093876E41A26272700ADF480 /* ApplicationComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationComponents.m; sourceTree = "<group>"; };
+		093876E81A262E6E00ADF480 /* COOLStoryboardIdentifiers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLStoryboardIdentifiers.h; sourceTree = "<group>"; };
+		093876E91A262E6E00ADF480 /* COOLStoryboardIdentifiers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLStoryboardIdentifiers.m; sourceTree = "<group>"; };
+		093876EB1A26331100ADF480 /* COOLLocationsViewControllerInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLLocationsViewControllerInput.h; sourceTree = "<group>"; };
+		093876EC1A2638CE00ADF480 /* COOLForecastComposedDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLForecastComposedDataSource.h; sourceTree = "<group>"; };
+		093876ED1A263A5A00ADF480 /* COOLForecastComposedDataSourceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLForecastComposedDataSourceImpl.h; sourceTree = "<group>"; };
+		093876EE1A263A5A00ADF480 /* COOLForecastComposedDataSourceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLForecastComposedDataSourceImpl.m; sourceTree = "<group>"; };
+		093876F01A263D7600ADF480 /* COOLUserLocationsRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLUserLocationsRepository.h; sourceTree = "<group>"; };
 		148FA9D5671E73E74C2D367E /* Pods-Weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weather/Pods-Weather.debug.xcconfig"; sourceTree = "<group>"; };
 		6E6FA99A54B363D495378D33 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2B0B32FE5B0B6EB82894486 /* libPods-Weather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Weather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,6 +207,7 @@
 		092214691A253F86002A614A /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				093876E71A262E6E00ADF480 /* Generated */,
 				092214FD1A25E7F3002A614A /* Assemblies */,
 				092214901A25401C002A614A /* Application */,
 				092214941A25401C002A614A /* Categories */,
@@ -315,6 +325,9 @@
 				092214D81A2547BE002A614A /* COOLMapping.h */,
 				0922152A1A25F589002A614A /* COOLLocationsDataSource.h */,
 				0922152B1A25F59C002A614A /* COOLForecastDataSource.h */,
+				093876EB1A26331100ADF480 /* COOLLocationsViewControllerInput.h */,
+				093876EC1A2638CE00ADF480 /* COOLForecastComposedDataSource.h */,
+				093876F01A263D7600ADF480 /* COOLUserLocationsRepository.h */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -446,6 +459,8 @@
 				092215301A25F6BF002A614A /* COOLForecastDataSourceImpl.m */,
 				092215321A25F6DC002A614A /* COOLLocationsDataSourceImpl.h */,
 				092215331A25F6DC002A614A /* COOLLocationsDataSourceImpl.m */,
+				093876ED1A263A5A00ADF480 /* COOLForecastComposedDataSourceImpl.h */,
+				093876EE1A263A5A00ADF480 /* COOLForecastComposedDataSourceImpl.m */,
 			);
 			name = "Data Sources";
 			sourceTree = "<group>";
@@ -459,6 +474,15 @@
 				093876E01A26258900ADF480 /* UIViewController+Typhoon.m */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		093876E71A262E6E00ADF480 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				093876E81A262E6E00ADF480 /* COOLStoryboardIdentifiers.h */,
+				093876E91A262E6E00ADF480 /* COOLStoryboardIdentifiers.m */,
+			);
+			path = Generated;
 			sourceTree = "<group>";
 		};
 		686D8539725BBAE68D191E5D /* Frameworks */ = {
@@ -491,6 +515,7 @@
 				092214641A253F86002A614A /* Frameworks */,
 				092214651A253F86002A614A /* Resources */,
 				99805E12A7ED51526391E568 /* Copy Pods Resources */,
+				093876E61A262D7200ADF480 /* Storyboard segue identifiers */,
 			);
 			buildRules = (
 			);
@@ -579,6 +604,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		093876E61A262D7200ADF480 /* Storyboard segue identifiers */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Weather/Base.lproj/Main.storyboard",
+			);
+			name = "Storyboard segue identifiers";
+			outputPaths = (
+				"$(PROJECT_DIR)/Weather/Generated/COOLStoryboardIdentifiers.h",
+				"$(PROJECT_DIR)/Weather/Generated/COOLStoryboardIdentifiers.m",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "mkdir -p \"${PROJECT_DIR}/Weather/Generated\"\n\npython \"${PROJECT_DIR}/bin/generate_constants.py\" \"${SCRIPT_OUTPUT_FILE_0}\" \"${SCRIPT_OUTPUT_FILE_1}\"";
+		};
 		99805E12A7ED51526391E568 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -618,8 +660,10 @@
 			files = (
 				092214F71A25E0E3002A614A /* Weather.m in Sources */,
 				092214FB1A25E69D002A614A /* COOLDailyForecastAPIResponse.m in Sources */,
+				093876EA1A262E6E00ADF480 /* COOLStoryboardIdentifiers.m in Sources */,
 				093876E51A26272700ADF480 /* ApplicationComponents.m in Sources */,
 				092214DC1A2547DF002A614A /* COOLForecast+Mapping.m in Sources */,
+				093876EF1A263A5A00ADF480 /* COOLForecastComposedDataSourceImpl.m in Sources */,
 				092214AC1A25401C002A614A /* COOLAppDelegate.m in Sources */,
 				092214BF1A254125002A614A /* COOLForecast.m in Sources */,
 				092214C71A254215002A614A /* COOLTodayForecastAPIResponse.m in Sources */,

@@ -12,9 +12,15 @@
 #import "INTULocationManager.h"
 #import "Location.h"
 
+#import "COOLStoryboardIdentifiers.h"
+#import "UIViewController+SegueUserInfo.h"
+
+#import "COOLLocationsViewControllerInput.h"
+
 @interface COOLTodayViewController() <COOLDataSourceDelegate>
 
-@property (nonatomic, strong) Location *location;
+@property (nonatomic, copy) Location *location;
+@property (nonatomic, copy) Location *userLocation;
 
 @end
 
@@ -67,10 +73,22 @@
 - (void)dataSource:(id)dataSource didLoadContentWithError:(NSError *)error
 {
     if (dataSource == self.locationsDataSource) {
-        self.location = [[(id<COOLLocationsDataSource>)dataSource locations] firstObject];
+        self.userLocation = [[self.locationsDataSource locations] firstObject];
+        if (!self.location) {
+            self.location = self.userLocation;
+        }
         [self loadForecastForLocation:self.location];
     }
     else if (dataSource == self.forecastDataSource) {
+    }
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:COOLShowLocations]) {
+        [(id<COOLLocationsViewControllerInput>)[(UINavigationController *)segue.destinationViewController topViewController] setCurrentLocation:self.location];
     }
 }
 

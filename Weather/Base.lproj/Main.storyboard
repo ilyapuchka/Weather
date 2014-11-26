@@ -18,7 +18,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Today" id="jbr-e8-eSU"/>
+                    <navigationItem key="navigationItem" title="Today" id="jbr-e8-eSU">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="cJW-lK-JGf">
+                            <connections>
+                                <segue destination="pWj-sX-Gej" kind="presentation" identifier="showLocations" id="BTb-jC-ohr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="typhoonKey" value="todayViewController"/>
                     </userDefinedRuntimeAttributes>
@@ -83,7 +89,13 @@
                             <constraint firstItem="afl-9v-Cxh" firstAttribute="leading" secondItem="aCz-WR-49e" secondAttribute="leading" id="jhy-vB-EFq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="rbZ-5b-kem"/>
+                    <navigationItem key="navigationItem" id="rbZ-5b-kem">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="gRf-PF-dK0">
+                            <connections>
+                                <segue destination="pWj-sX-Gej" kind="presentation" identifier="showLocations" id="hvY-bh-no2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="afl-9v-Cxh" id="UZ9-wF-mKQ"/>
                     </connections>
@@ -113,10 +125,10 @@
             </objects>
             <point key="canvasLocation" x="553" y="1155"/>
         </scene>
-        <!--View Controller-->
+        <!--Locations-->
         <scene sceneID="PIk-n7-6WB">
             <objects>
-                <viewController id="oia-M3-VU9" sceneMemberID="viewController">
+                <viewController title="Locations" id="oia-M3-VU9" customClass="COOLLocationsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yY0-KM-c36"/>
                         <viewControllerLayoutGuide type="bottom" id="PjM-g8-QSE"/>
@@ -125,17 +137,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VTP-gu-yzO">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VTP-gu-yzO" userLabel="Locations Table View">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="yaQ-TL-6CX">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="yaQ-TL-6CX" userLabel="Search Table View">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Enter city name" translatesAutoresizingMaskIntoConstraints="NO" id="HfL-XR-hlU">
-                                <rect key="frame" x="0.0" y="64" width="414" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -145,8 +153,21 @@
                             <constraint firstAttribute="bottom" secondItem="yaQ-TL-6CX" secondAttribute="bottom" id="t2t-Oz-98G"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="uoo-ro-dZ5"/>
+                    <navigationItem key="navigationItem" title="Locations" id="uoo-ro-dZ5">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="wVL-Ua-7QI">
+                            <connections>
+                                <action selector="closeTapped:" destination="oia-M3-VU9" id="cib-dO-QWN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="typhoonKey" value="locationsViewController"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="locationsTableView" destination="VTP-gu-yzO" id="KZl-Z1-HOK"/>
+                        <outlet property="searchTableView" destination="yaQ-TL-6CX" id="Qqb-BR-JcK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IME-0T-pqu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -229,4 +250,7 @@
             <point key="canvasLocation" x="47" y="2056"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="hvY-bh-no2"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -19,7 +19,7 @@
 @property (nonatomic, assign) NSInteger days;
 
 - (NSURLSessionDataTask *)loadTodayForecastWithQuery:(NSString *)query;
-- (NSURLSessionDataTask *)loadForecastWithQuery:(NSString *)query days:(NSInteger)days;
+- (NSURLSessionDataTask *)loadDailyForecastWithQuery:(NSString *)query days:(NSInteger)days;
 
 - (Forecast *)dailyForecast;
 - (Forecast *)todayForecast;
