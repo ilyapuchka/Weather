@@ -23,6 +23,8 @@
 @property (nonatomic, copy) Location *location;
 @property (nonatomic, copy) Location *userLocation;
 
+@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
+
 @end
 
 @implementation COOLTodayViewController
@@ -48,6 +50,14 @@
 {
     [super viewWillAppear:animated];
     
+    [self.view setNeedsLayout];
+    [self.view layoutIfNeeded];
+    
+    if (self.scrollView.contentSize.height < self.scrollView.bounds.size.height) {
+        CGFloat top = (self.scrollView.bounds.size.height - self.scrollView.contentSize.height) / 2;
+        self.scrollView.contentInset = UIEdgeInsetsMake(top, 0, 0, 0);
+    }
+
     [self reloadData];
 }
 
