@@ -10,21 +10,21 @@
 #import "COOLLocationsDataSource.h"
 #import "COOLForecastComposedDataSource.h"
 #import "COOLUserLocationsRepository.h"
+#import "COOLTableViewDataSource.h"
 
 #import "Location.h"
 
 @interface COOLLocationsViewController() <UISearchBarDelegate, COOLDataSourceDelegate, COOLLocationsSelectionOutput>
 
-@property (nonatomic, weak) IBOutlet UITableView *locationsTableView;
-@property (nonatomic, weak) IBOutlet UITableView *searchTableView;
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) UIBarButtonItem *doneItem;
 
 @property (nonatomic, copy) Location *selectedLocation;
 @property (nonatomic, copy) NSArray *locations;
-@property (nonatomic, copy) NSArray *searchResults;
-@property (nonatomic, copy) NSArray *dailyForecasts;
 
-@property (nonatomic, weak) id currentDataSource;
+@property (nonatomic, weak) IBOutlet id<COOLTableViewDataSource> locationsTableViewDataSource;
+@property (nonatomic, weak) IBOutlet id<COOLTableViewDataSource> searchResultsTableViewDataSource;
+@property (nonatomic, weak) id<COOLTableViewDataSource> currentDataSource;
 
 @end
 
@@ -39,6 +39,9 @@
     self.doneItem = self.navigationItem.rightBarButtonItem;
     self.locationsDataSource.delegate = self;
     self.forecastDataSource.delegate = self;
+
+    self.currentDataSource = self.locationsTableViewDataSource;
+    [self reloadData];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -46,6 +49,13 @@
     [super viewWillAppear:animated];
     
     [self.forecastDataSource loadDailyForecastsWithQueries:self.locations days:1];
+}
+
+- (void)reloadData
+{
+    self.tableView.dataSource = self.currentDataSource;
+    self.tableView.delegate = self.currentDataSource;
+    [self.tableView reloadData];
 }
 
 - (void)setCurrentLocation:(Location *)location
@@ -76,16 +86,13 @@
 
 - (void)showLocations
 {
+    [self.view endEditing:YES];
     self.navigationItem.titleView = nil;
     self.navigationItem.title = @"Locations";
     [self.navigationItem setRightBarButtonItem:self.doneItem animated:YES];
-    [UIView animateWithDuration:0.25f animations:^{
-        self.searchTableView.alpha = 0.0f;
-        self.locationsTableView.alpha = 1.0f;
-    }];
-    
-    self.currentDataSource = self.locationsTableView.dataSource;
     [self.forecastDataSource loadDailyForecastsWithQueries:self.locations days:1];
+    self.currentDataSource = self.locationsTableViewDataSource;
+    [self.tableView reloadData];
 }
 
 - (void)showSearch
@@ -96,12 +103,8 @@
     self.navigationItem.titleView = searchBar;
     [self.navigationItem setRightBarButtonItem:nil animated:YES];
     [searchBar becomeFirstResponder];
-    [UIView animateWithDuration:0.25f animations:^{
-        self.searchTableView.alpha = 1.0f;
-        self.locationsTableView.alpha = 0.0f;
-    }];
-    
-    self.currentDataSource = self.searchTableView.dataSource;
+    self.currentDataSource = self.searchResultsTableViewDataSource;
+    [self reloadData];
 }
 
 - (IBAction)addPlaceTapped:(id)sender
@@ -124,7 +127,11 @@
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    [self.locationsDataSource loadLocationsWithQuery:searchText];
+    static NSURLSessionDataTask *task;
+    if (task && task.state == NSURLSessionTaskStateRunning) {
+        [task cancel];
+    }
+    task = [self.locationsDataSource loadLocationsWithQuery:searchText];
 }
 
 #pragma mark - COOLDataSourceDelegate
@@ -136,23 +143,25 @@
 
 - (void)dataSource:(id)dataSource didLoadContentWithError:(NSError *)error
 {
+    NSArray *items;
     if (dataSource == self.locationsDataSource) {
-        self.searchResults = [self.locationsDataSource locations];
-        [self.searchTableView reloadData];
+        items = [self.locationsDataSource locations];
     }
     else if (dataSource == self.forecastDataSource) {
-        self.dailyForecasts = [self.forecastDataSource forecasts];
-        [self.locationsTableView reloadData];
+        items = [self.forecastDataSource forecasts];
     }
+    [self.currentDataSource setItems:items];
+    [self.tableView reloadData];
 }
 
 #pragma mark - COOLLocationsTableViewDataSourceOutput
 
 - (void)didSelectLocation:(Location *)location
 {
-    if (self.currentDataSource == self.searchTableView.dataSource) {
+    if (self.currentDataSource == self.searchResultsTableViewDataSource) {
         if (![[self.userLocationsRepository userLocations] containsObject:location]) {
             [self.userLocationsRepository addUserLocation:location];
+            [self showLocations];
         }
     }
     else {

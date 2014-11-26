@@ -144,27 +144,9 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VTP-gu-yzO" userLabel="Locations Table View">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="5m5-zb-AvO" id="gOk-ZK-6MJ"/>
-                                    <outlet property="delegate" destination="5m5-zb-AvO" id="c39-tJ-CvN"/>
-                                </connections>
-                            </tableView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="yaQ-TL-6CX" userLabel="Search Table View">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="C8b-Z9-YqE" id="N8G-hU-dDT"/>
-                                    <outlet property="delegate" destination="C8b-Z9-YqE" id="qN7-YD-U0u"/>
-                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="yaQ-TL-6CX" firstAttribute="leading" secondItem="Rmf-P2-bcf" secondAttribute="leading" id="Xh7-GS-hQq"/>
-                            <constraint firstItem="yaQ-TL-6CX" firstAttribute="top" secondItem="yY0-KM-c36" secondAttribute="bottom" id="ZLu-1C-pUi"/>
-                            <constraint firstAttribute="trailing" secondItem="yaQ-TL-6CX" secondAttribute="trailing" id="pbz-IT-44t"/>
-                            <constraint firstAttribute="bottom" secondItem="yaQ-TL-6CX" secondAttribute="bottom" id="t2t-Oz-98G"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Locations" id="uoo-ro-dZ5">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="wVL-Ua-7QI">
@@ -179,7 +161,8 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="locationsTableView" destination="VTP-gu-yzO" id="KZl-Z1-HOK"/>
-                        <outlet property="searchTableView" destination="yaQ-TL-6CX" id="Qqb-BR-JcK"/>
+                        <outlet property="locationsTableViewDataSource" destination="5m5-zb-AvO" id="tlS-bh-Y9D"/>
+                        <outlet property="searchResultsTableViewDataSource" destination="C8b-Z9-YqE" id="Pgf-J9-7IF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IME-0T-pqu" userLabel="First Responder" sceneMemberID="firstResponder"/>

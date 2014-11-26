@@ -11,6 +11,7 @@
 @interface COOLLocationsTableViewDataSource()
 
 @property (nonatomic, copy) NSArray *locations;
+@property (nonatomic, copy) NSArray *items;
 
 @end
 
@@ -20,7 +21,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.locations count];
+    return [self.items count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -30,7 +31,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.output didSelectLocation:self.locations[indexPath.row]];
+    [self.output didSelectLocation:self.items[indexPath.row]];
 }
 
 @end

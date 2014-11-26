@@ -8,8 +8,9 @@
 
 @import UIKit;
 #import "COOLLocationsSelection.h"
+#import "COOLTableViewDataSource.h"
 
-@interface COOLLocationsSearchResultsTableViewDataSource : NSObject <UITableViewDataSource, UITableViewDelegate, COOLLocationsSelection>
+@interface COOLLocationsSearchResultsTableViewDataSource : NSObject <COOLTableViewDataSource, COOLLocationsSelection>
 
 @property (nonatomic, weak) IBOutlet id<COOLLocationsSelectionOutput> output;
 
