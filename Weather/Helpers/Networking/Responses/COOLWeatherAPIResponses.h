@@ -10,7 +10,8 @@
 #define Weather_COOLWeatherAPIResponses_h
 
 #import "COOLSearchAPIResponse.h"
-#import "COOLForecastAPIResponse.h"
+#import "COOLTodayForecastAPIResponse.h"
+#import "COOLDailyForecastAPIResponse.h"
 #import "COOLBatchForecastsAPIResponse.h"
 
 #endif

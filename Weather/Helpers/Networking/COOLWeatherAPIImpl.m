@@ -17,9 +17,15 @@
     [self dataTaskWithRequest:request success:(COOLAPIClientSuccessBlock)succes failure:failure];
 }
 
-- (void)weatherWithQuery:(NSString *)query success:(COOLWeatherAPIForecastSuccessBlock)success failure:(COOLAPIClientFailureBlock)failure
+- (void)todayWeatherWithQuery:(NSString *)query success:(COOLWeatherAPITodayForecastSuccessBlock)success failure:(COOLAPIClientFailureBlock)failure
 {
     COOLTodayForecastAPIRequest *request = [[COOLTodayForecastAPIRequest alloc] initWithQuery:query];
+    [self dataTaskWithRequest:request success:(COOLAPIClientSuccessBlock)success failure:failure];
+}
+
+- (void)daylyWeatherWithQuery:(NSString *)query days:(NSInteger)days success:(COOLWeatherAPIDailyForecastSuccessBlock)success failure:(COOLAPIClientFailureBlock)failure
+{
+    COOLDailyForecastAPIRequest *request = [[COOLDailyForecastAPIRequest alloc] initWithQuery:query days:days];
     [self dataTaskWithRequest:request success:(COOLAPIClientSuccessBlock)success failure:failure];
 }
 

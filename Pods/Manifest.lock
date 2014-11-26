@@ -28,14 +28,19 @@ PODS:
     - AFNetworking (~> 2.0)
     - EasyMapping (~> 0.6)
   - EasyMapping (0.6.3)
+  - Typhoon (2.3.0):
+    - Typhoon/no-arc
+  - Typhoon/no-arc (2.3.0)
 
 DEPENDENCIES:
   - COOLNetworkStack
+  - Typhoon
 
 SPEC CHECKSUMS:
   AFNetworkActivityLogger: d6a2d2755fada3a1fbf1f490ec0dd92224e092a4
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
   COOLNetworkStack: ff326116d856cbe399c4e7ace0db9fb9a8844334
   EasyMapping: bb3ca83bf207ad382a14202561dd93d393c05a13
+  Typhoon: ee9b8c034b11746f8024a0487965c04965a6a4ee
 
 COCOAPODS: 0.34.4

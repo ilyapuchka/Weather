@@ -26,4 +26,14 @@
     }];
 }
 
+- (BOOL)succes
+{
+    return [super succes] && self.forecast != nil && self.forecast.weather.count != 0;
+}
+
+- (BOOL)noContent
+{
+    return [super noContent] || self.forecast == nil || self.forecast.weather.count == 0;
+}
+
 @end

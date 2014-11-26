@@ -10,6 +10,6 @@
 
 @interface COOLSearchAPIResponse : COOLAPIResponse
 
-- (NSArray *)cities;
+- (NSArray *)locations;
 
 @end

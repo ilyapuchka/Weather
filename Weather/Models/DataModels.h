@@ -10,4 +10,8 @@
 #import "Weather.h"
 #import "WeatherDesc.h"
 #import "Forecast.h"
+#import "Location.h"
+#import "AreaName.h"
+#import "Country.h"
+#import "Region.h"
 

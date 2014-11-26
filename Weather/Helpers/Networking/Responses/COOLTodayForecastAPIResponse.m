@@ -27,4 +27,14 @@
     }];
 }
 
+- (BOOL)succes
+{
+    return [super succes] && self.todayForecast != nil && self.todayForecast.weather.count != 0;
+}
+
+- (BOOL)noContent
+{
+    return [super noContent] || self.todayForecast == nil || self.todayForecast.weather.count == 0;
+}
+
 @end

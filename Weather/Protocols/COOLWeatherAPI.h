@@ -7,13 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "COOLAPIClientBlocks.h"
 
 @class COOLSearchAPIResponse;
 @class COOLTodayForecastAPIResponse;
 @class COOLBatchForecastsAPIResponse;
+@class COOLDailyForecastAPIResponse;
 
 typedef void(^COOLWeatherAPISearchSuccessBlock)(COOLSearchAPIResponse *response);
-typedef void(^COOLWeatherAPIForecastSuccessBlock)(COOLTodayForecastAPIResponse *response);
+typedef void(^COOLWeatherAPITodayForecastSuccessBlock)(COOLTodayForecastAPIResponse *response);
+typedef void(^COOLWeatherAPIDailyForecastSuccessBlock)(COOLDailyForecastAPIResponse *response);
 typedef void(^COOLWeatherAPIBatchForecastsSuccessBlock)(COOLBatchForecastsAPIResponse *response);
 
 
@@ -23,9 +26,14 @@ typedef void(^COOLWeatherAPIBatchForecastsSuccessBlock)(COOLBatchForecastsAPIRes
                       success:(COOLWeatherAPISearchSuccessBlock)succes
                       failure:(COOLAPIClientFailureBlock)failure;
 
-- (void)weatherWithQuery:(NSString *)query
-                 success:(COOLWeatherAPIForecastSuccessBlock)success
-                 failure:(COOLAPIClientFailureBlock)failure;
+- (void)todayWeatherWithQuery:(NSString *)query
+                      success:(COOLWeatherAPITodayForecastSuccessBlock)success
+                      failure:(COOLAPIClientFailureBlock)failure;
+
+- (void)daylyWeatherWithQuery:(NSString *)query
+                         days:(NSInteger)days
+                      success:(COOLWeatherAPIDailyForecastSuccessBlock)success
+                      failure:(COOLAPIClientFailureBlock)failure;
 
 - (void)weatherWithBatchQuery:(NSArray *)queries
                       success:(COOLWeatherAPIBatchForecastsSuccessBlock)success
