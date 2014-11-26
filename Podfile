@@ -7,6 +7,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 pod 'COOLNetworkStack'
 pod 'COOLDataSource'
 pod 'COOLCompositions'
+pod 'INTULocationManager'
 pod 'Typhoon'
 
 target 'Weather' do

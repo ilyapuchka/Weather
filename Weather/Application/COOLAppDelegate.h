@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Ilya Puchka. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 @interface COOLAppDelegate : UIResponder <UIApplicationDelegate>
 

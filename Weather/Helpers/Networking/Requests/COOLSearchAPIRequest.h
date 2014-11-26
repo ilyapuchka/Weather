@@ -7,9 +7,11 @@
 //
 
 #import "COOLAPIRequest.h"
+@import UIKit;
 
 @interface COOLSearchAPIRequest : COOLAPIRequest
 
 - (instancetype)initWithQuery:(NSString *)query;
+- (instancetype)initWithLatitude:(CGFloat)latitude longitude:(CGFloat)longitude;
 
 @end

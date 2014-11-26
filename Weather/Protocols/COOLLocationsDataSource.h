@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "COOLDataSourceDelegate.h"
 
+@class Location;
+
 @protocol COOLLocationsDataSource <NSObject>
 
 @property (nonatomic, weak) id<COOLDataSourceDelegate> delegate;
@@ -16,6 +18,7 @@
 @property (nonatomic, copy) NSString *query;
 
 - (NSURLSessionDataTask *)loadLocationsWithQuery:(NSString *)query;
+- (NSURLSessionDataTask *)loadLocationsWithLatitude:(CGFloat)latitude longituted:(CGFloat)longitude;
 
 - (NSArray *)locations;
 

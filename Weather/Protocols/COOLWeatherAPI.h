@@ -26,6 +26,11 @@ typedef void(^COOLWeatherAPIBatchForecastsSuccessBlock)(COOLBatchForecastsAPIRes
                                         success:(COOLWeatherAPISearchSuccessBlock)succes
                                         failure:(COOLAPIClientFailureBlock)failure;
 
+- (NSURLSessionDataTask *)searchCitiesWithLatitude:(CGFloat)latitude
+                                         longitude:(CGFloat)longitude
+                                           success:(COOLWeatherAPISearchSuccessBlock)succes
+                                           failure:(COOLAPIClientFailureBlock)failure;
+
 - (NSURLSessionDataTask *)todayWeatherWithQuery:(NSString *)query
                                         success:(COOLWeatherAPITodayForecastSuccessBlock)success
                                         failure:(COOLAPIClientFailureBlock)failure;

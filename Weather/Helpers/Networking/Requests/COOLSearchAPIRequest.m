@@ -20,4 +20,9 @@
     return [self initWithMethod:COOLAPIGETRequest path:@"search.ashx" parameters:@{@"q": query}];
 }
 
+- (instancetype)initWithLatitude:(CGFloat)latitude longitude:(CGFloat)longitude
+{
+    return [self initWithQuery:[NSString stringWithFormat:@"%f,%f", latitude, longitude]];
+}
+
 @end

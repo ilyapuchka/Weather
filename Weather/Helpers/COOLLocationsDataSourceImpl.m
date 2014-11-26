@@ -42,6 +42,21 @@
     return task;
 }
 
+- (NSURLSessionDataTask *)loadLocationsWithLatitude:(CGFloat)latitude longituted:(CGFloat)longitude
+{
+    __block NSURLSessionDataTask *task;
+    [super loadContentWithBlock:^(COOLLoadingProcess *loadingProcess) {
+        task = [self.apiClient searchCitiesWithLatitude:latitude longitude:longitude success:^(COOLSearchAPIResponse *response) {
+            self.locations = response.locations;
+            [self completeLoadingWithTask:task response:response];
+        } failure:^(COOLAPIResponse *response) {
+            self.locations = nil;
+            [self completeLoadingWithTask:task response:response];
+        }];
+    }];
+    return task;
+}
+
 - (void)resetContent
 {
     self.locations = nil;

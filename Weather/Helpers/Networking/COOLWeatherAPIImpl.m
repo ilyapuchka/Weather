@@ -17,6 +17,12 @@
     return [self dataTaskWithRequest:request success:(COOLAPIClientSuccessBlock)succes failure:failure];
 }
 
+- (NSURLSessionDataTask *)searchCitiesWithLatitude:(CGFloat)latitude longitude:(CGFloat)longitude success:(COOLWeatherAPISearchSuccessBlock)succes failure:(COOLAPIClientFailureBlock)failure
+{
+    COOLSearchAPIRequest *request = [[COOLSearchAPIRequest alloc] initWithLatitude:latitude longitude:longitude];
+    return [self dataTaskWithRequest:request success:(COOLAPIClientSuccessBlock)succes failure:failure];
+}
+
 - (NSURLSessionDataTask *)todayWeatherWithQuery:(NSString *)query success:(COOLWeatherAPITodayForecastSuccessBlock)success failure:(COOLAPIClientFailureBlock)failure
 {
     COOLTodayForecastAPIRequest *request = [[COOLTodayForecastAPIRequest alloc] initWithQuery:query];
