@@ -12,6 +12,5 @@
 #import "COOLSearchAPIResponse.h"
 #import "COOLTodayForecastAPIResponse.h"
 #import "COOLDailyForecastAPIResponse.h"
-#import "COOLBatchForecastsAPIResponse.h"
 
 #endif

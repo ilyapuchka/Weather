@@ -17,7 +17,6 @@
 		092214C01A254125002A614A /* COOLTodayForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 092214BE1A254125002A614A /* COOLTodayForecast.m */; };
 		092214C41A2541F5002A614A /* COOLSearchAPIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 092214C31A2541F5002A614A /* COOLSearchAPIResponse.m */; };
 		092214C71A254215002A614A /* COOLTodayForecastAPIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 092214C61A254215002A614A /* COOLTodayForecastAPIResponse.m */; };
-		092214CA1A25423C002A614A /* COOLBatchForecastsAPIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 092214C91A25423C002A614A /* COOLBatchForecastsAPIResponse.m */; };
 		092214CF1A2543CC002A614A /* COOLSearchAPIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 092214CE1A2543CC002A614A /* COOLSearchAPIRequest.m */; };
 		092214D21A2543DF002A614A /* COOLDailyForecastAPIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 092214D11A2543DF002A614A /* COOLDailyForecastAPIRequest.m */; };
 		092214D51A254471002A614A /* COOLWeatherAPIRequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 092214D41A254471002A614A /* COOLWeatherAPIRequestSerializer.m */; };
@@ -86,8 +85,6 @@
 		092214C31A2541F5002A614A /* COOLSearchAPIResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLSearchAPIResponse.m; sourceTree = "<group>"; };
 		092214C51A254215002A614A /* COOLTodayForecastAPIResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLTodayForecastAPIResponse.h; sourceTree = "<group>"; };
 		092214C61A254215002A614A /* COOLTodayForecastAPIResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLTodayForecastAPIResponse.m; sourceTree = "<group>"; };
-		092214C81A25423C002A614A /* COOLBatchForecastsAPIResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLBatchForecastsAPIResponse.h; sourceTree = "<group>"; };
-		092214C91A25423C002A614A /* COOLBatchForecastsAPIResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLBatchForecastsAPIResponse.m; sourceTree = "<group>"; };
 		092214CD1A2543CC002A614A /* COOLSearchAPIRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLSearchAPIRequest.h; sourceTree = "<group>"; };
 		092214CE1A2543CC002A614A /* COOLSearchAPIRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLSearchAPIRequest.m; sourceTree = "<group>"; };
 		092214D01A2543DF002A614A /* COOLDailyForecastAPIRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLDailyForecastAPIRequest.h; sourceTree = "<group>"; };
@@ -368,8 +365,6 @@
 				092214C61A254215002A614A /* COOLTodayForecastAPIResponse.m */,
 				092214F91A25E69D002A614A /* COOLDailyForecastAPIResponse.h */,
 				092214FA1A25E69D002A614A /* COOLDailyForecastAPIResponse.m */,
-				092214C81A25423C002A614A /* COOLBatchForecastsAPIResponse.h */,
-				092214C91A25423C002A614A /* COOLBatchForecastsAPIResponse.m */,
 				092214D71A2545BB002A614A /* COOLWeatherAPIResponses.h */,
 			);
 			path = Responses;
@@ -462,7 +457,7 @@
 				093876ED1A263A5A00ADF480 /* COOLForecastComposedDataSourceImpl.h */,
 				093876EE1A263A5A00ADF480 /* COOLForecastComposedDataSourceImpl.m */,
 			);
-			name = "Data Sources";
+			path = "Data Sources";
 			sourceTree = "<group>";
 		};
 		093876DC1A26258900ADF480 /* ViewController */ = {
@@ -682,7 +677,6 @@
 				092214E21A254B41002A614A /* COOLTodayForecastAPIRequest.m in Sources */,
 				092215271A25EFBC002A614A /* Country.m in Sources */,
 				093876E21A26258900ADF480 /* UIViewController+Typhoon.m in Sources */,
-				092214CA1A25423C002A614A /* COOLBatchForecastsAPIResponse.m in Sources */,
 				092214DF1A2547ED002A614A /* COOLTodayForecast+Mapping.m in Sources */,
 				092215251A25EFBC002A614A /* AreaName.m in Sources */,
 				092215041A25E96D002A614A /* EKObjectMapping+Transfromers.m in Sources */,
