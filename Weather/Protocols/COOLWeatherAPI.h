@@ -22,21 +22,21 @@ typedef void(^COOLWeatherAPIBatchForecastsSuccessBlock)(COOLBatchForecastsAPIRes
 
 @protocol COOLWeatherAPI <NSObject>
 
-- (void)searchCitiesWithQuery:(NSString *)query
-                      success:(COOLWeatherAPISearchSuccessBlock)succes
-                      failure:(COOLAPIClientFailureBlock)failure;
+- (NSURLSessionDataTask *)searchCitiesWithQuery:(NSString *)query
+                                        success:(COOLWeatherAPISearchSuccessBlock)succes
+                                        failure:(COOLAPIClientFailureBlock)failure;
 
-- (void)todayWeatherWithQuery:(NSString *)query
-                      success:(COOLWeatherAPITodayForecastSuccessBlock)success
-                      failure:(COOLAPIClientFailureBlock)failure;
+- (NSURLSessionDataTask *)todayWeatherWithQuery:(NSString *)query
+                                        success:(COOLWeatherAPITodayForecastSuccessBlock)success
+                                        failure:(COOLAPIClientFailureBlock)failure;
 
-- (void)daylyWeatherWithQuery:(NSString *)query
-                         days:(NSInteger)days
-                      success:(COOLWeatherAPIDailyForecastSuccessBlock)success
-                      failure:(COOLAPIClientFailureBlock)failure;
+- (NSURLSessionDataTask *)daylyWeatherWithQuery:(NSString *)query
+                                           days:(NSInteger)days
+                                        success:(COOLWeatherAPIDailyForecastSuccessBlock)success
+                                        failure:(COOLAPIClientFailureBlock)failure;
 
-- (void)weatherWithBatchQuery:(NSArray *)queries
-                      success:(COOLWeatherAPIBatchForecastsSuccessBlock)success
-                      failure:(COOLAPIClientFailureBlock)failure;
+- (NSURLSessionDataTask *)weatherWithBatchQuery:(NSArray *)queries
+                                        success:(COOLWeatherAPIBatchForecastsSuccessBlock)success
+                                        failure:(COOLAPIClientFailureBlock)failure;
 
 @end

@@ -9,9 +9,13 @@
 #import "TyphoonAssembly.h"
 
 @protocol COOLWeatherAPI;
+@protocol COOLForecastDataSource;
+@protocol COOLLocationsDataSource;
 
 @interface NetworkComponents : TyphoonAssembly
 
 - (id<COOLWeatherAPI>)apiClient;
+- (id<COOLForecastDataSource>)forecastDataSource;
+- (id<COOLLocationsDataSource>)locationsDataSource;
 
 @end

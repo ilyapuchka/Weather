@@ -11,26 +11,27 @@
 
 @implementation COOLWeatherAPIImpl
 
-- (void)searchCitiesWithQuery:(NSString *)query success:(COOLWeatherAPISearchSuccessBlock)succes failure:(COOLAPIClientFailureBlock)failure
+- (NSURLSessionDataTask *)searchCitiesWithQuery:(NSString *)query success:(COOLWeatherAPISearchSuccessBlock)succes failure:(COOLAPIClientFailureBlock)failure
 {
     COOLSearchAPIRequest *request = [[COOLSearchAPIRequest alloc] initWithQuery:query];
-    [self dataTaskWithRequest:request success:(COOLAPIClientSuccessBlock)succes failure:failure];
+    return [self dataTaskWithRequest:request success:(COOLAPIClientSuccessBlock)succes failure:failure];
 }
 
-- (void)todayWeatherWithQuery:(NSString *)query success:(COOLWeatherAPITodayForecastSuccessBlock)success failure:(COOLAPIClientFailureBlock)failure
+- (NSURLSessionDataTask *)todayWeatherWithQuery:(NSString *)query success:(COOLWeatherAPITodayForecastSuccessBlock)success failure:(COOLAPIClientFailureBlock)failure
 {
     COOLTodayForecastAPIRequest *request = [[COOLTodayForecastAPIRequest alloc] initWithQuery:query];
-    [self dataTaskWithRequest:request success:(COOLAPIClientSuccessBlock)success failure:failure];
+    return [self dataTaskWithRequest:request success:(COOLAPIClientSuccessBlock)success failure:failure];
 }
 
-- (void)daylyWeatherWithQuery:(NSString *)query days:(NSInteger)days success:(COOLWeatherAPIDailyForecastSuccessBlock)success failure:(COOLAPIClientFailureBlock)failure
+- (NSURLSessionDataTask *)daylyWeatherWithQuery:(NSString *)query days:(NSInteger)days success:(COOLWeatherAPIDailyForecastSuccessBlock)success failure:(COOLAPIClientFailureBlock)failure
 {
     COOLDailyForecastAPIRequest *request = [[COOLDailyForecastAPIRequest alloc] initWithQuery:query days:days];
-    [self dataTaskWithRequest:request success:(COOLAPIClientSuccessBlock)success failure:failure];
+    return [self dataTaskWithRequest:request success:(COOLAPIClientSuccessBlock)success failure:failure];
 }
 
-- (void)weatherWithBatchQuery:(NSArray *)queries success:(COOLWeatherAPIBatchForecastsSuccessBlock)success failure:(COOLAPIClientFailureBlock)failure
+- (NSURLSessionDataTask *)weatherWithBatchQuery:(NSArray *)queries success:(COOLWeatherAPIBatchForecastsSuccessBlock)success failure:(COOLAPIClientFailureBlock)failure
 {
+    return nil;
 }
 
 @end

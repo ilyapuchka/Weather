@@ -10,6 +10,12 @@
 #import "Typhoon.h"
 #import "NetworkComponents.h"
 #import "COOLWeatherAPI.h"
+#import "COOLForecastDataSource.h"
+#import "COOLLocationsDataSource.h"
+
+@interface COOLAppDelegate() <COOLDataSourceDelegate>
+
+@end
 
 @implementation COOLAppDelegate
 
@@ -17,26 +23,44 @@
 {
     NetworkComponents *factory = (NetworkComponents *)[TyphoonBlockComponentFactory factoryWithAssembly:[NetworkComponents new]];
     
-    id<COOLWeatherAPI> apiClient = [factory apiClient];
-    [apiClient todayWeatherWithQuery:@"Moscow, Russia" success:^(COOLTodayForecastAPIResponse *response) {
-        
-    } failure:^(COOLAPIResponse *response) {
-        
-    }];
+//    id<COOLWeatherAPI> apiClient = [factory apiClient];
+//    [apiClient todayWeatherWithQuery:@"Moscow, Russia" success:^(COOLTodayForecastAPIResponse *response) {
+//        
+//    } failure:^(COOLAPIResponse *response) {
+//        
+//    }];
+//    
+//    [apiClient daylyWeatherWithQuery:@"Moscow, Russia" days:5 success:^(COOLDailyForecastAPIResponse *response) {
+//        
+//    } failure:^(COOLAPIResponse *response) {
+//        
+//    }];
+//    
+//    [apiClient searchCitiesWithQuery:@"Mosc" success:^(COOLSearchAPIResponse *response) {
+//        
+//    } failure:^(COOLAPIResponse *response) {
+//        
+//    }];
     
-    [apiClient daylyWeatherWithQuery:@"Moscow, Russia" days:5 success:^(COOLDailyForecastAPIResponse *response) {
-        
-    } failure:^(COOLAPIResponse *response) {
-        
-    }];
+    id<COOLForecastDataSource> dataSource = [factory forecastDataSource];
+    dataSource.delegate = self;
+//    [dataSource loadTodayForecastWithQuery:@"Moscow,Russia"];
     
-    [apiClient searchCitiesWithQuery:@"Mosc" success:^(COOLSearchAPIResponse *response) {
-        
-    } failure:^(COOLAPIResponse *response) {
-        
-    }];
+    id<COOLLocationsDataSource> lDataSource = [factory locationsDataSource];
+    lDataSource.delegate = self;
+    [lDataSource loadLocationsWithQuery:@"Mosc"];
     
     return YES;
+}
+
+- (void)dataSourceWillLoadContent:(id<COOLForecastDataSource>)dataSource
+{
+    
+}
+
+- (void)dataSource:(id<COOLForecastDataSource>)dataSource didLoadContentWithError:(NSError *)error
+{
+    
 }
 
 @end

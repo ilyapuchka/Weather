@@ -23,6 +23,8 @@ PODS:
   - AFNetworking/UIKit (2.5.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - COOLCompositions (0.0.1)
+  - COOLDataSource (0.0.1)
   - COOLNetworkStack (0.0.1):
     - AFNetworkActivityLogger (~> 2.0)
     - AFNetworking (~> 2.0)
@@ -33,12 +35,16 @@ PODS:
   - Typhoon/no-arc (2.3.0)
 
 DEPENDENCIES:
+  - COOLCompositions
+  - COOLDataSource
   - COOLNetworkStack
   - Typhoon
 
 SPEC CHECKSUMS:
   AFNetworkActivityLogger: d6a2d2755fada3a1fbf1f490ec0dd92224e092a4
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
+  COOLCompositions: 991e217f20ce6821861a4c043829b055a87b95d6
+  COOLDataSource: 5391730aecda59f53dd34206cefa7ff784e0ece9
   COOLNetworkStack: ff326116d856cbe399c4e7ace0db9fb9a8844334
   EasyMapping: bb3ca83bf207ad382a14202561dd93d393c05a13
   Typhoon: ee9b8c034b11746f8024a0487965c04965a6a4ee

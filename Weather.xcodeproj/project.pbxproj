@@ -39,6 +39,8 @@
 		092215261A25EFBC002A614A /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 092215201A25EFBC002A614A /* Location.m */; };
 		092215271A25EFBC002A614A /* Country.m in Sources */ = {isa = PBXBuildFile; fileRef = 092215221A25EFBC002A614A /* Country.m */; };
 		092215281A25EFBC002A614A /* Region.m in Sources */ = {isa = PBXBuildFile; fileRef = 092215241A25EFBC002A614A /* Region.m */; };
+		092215311A25F6BF002A614A /* COOLForecastDataSourceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 092215301A25F6BF002A614A /* COOLForecastDataSourceImpl.m */; };
+		092215341A25F6DC002A614A /* COOLLocationsDataSourceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 092215331A25F6DC002A614A /* COOLLocationsDataSourceImpl.m */; };
 		5F2E8026CF92388742E15B90 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6FA99A54B363D495378D33 /* libPods.a */; };
 		B72236D1D1643D1FD7D36065 /* libPods-Weather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B0B32FE5B0B6EB82894486 /* libPods-Weather.a */; };
 /* End PBXBuildFile section */
@@ -120,6 +122,12 @@
 		092215221A25EFBC002A614A /* Country.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Country.m; sourceTree = "<group>"; };
 		092215231A25EFBC002A614A /* Region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Region.h; sourceTree = "<group>"; };
 		092215241A25EFBC002A614A /* Region.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Region.m; sourceTree = "<group>"; };
+		0922152A1A25F589002A614A /* COOLLocationsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLLocationsDataSource.h; sourceTree = "<group>"; };
+		0922152B1A25F59C002A614A /* COOLForecastDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLForecastDataSource.h; sourceTree = "<group>"; };
+		0922152F1A25F6BF002A614A /* COOLForecastDataSourceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLForecastDataSourceImpl.h; sourceTree = "<group>"; };
+		092215301A25F6BF002A614A /* COOLForecastDataSourceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLForecastDataSourceImpl.m; sourceTree = "<group>"; };
+		092215321A25F6DC002A614A /* COOLLocationsDataSourceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLLocationsDataSourceImpl.h; sourceTree = "<group>"; };
+		092215331A25F6DC002A614A /* COOLLocationsDataSourceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLLocationsDataSourceImpl.m; sourceTree = "<group>"; };
 		148FA9D5671E73E74C2D367E /* Pods-Weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weather/Pods-Weather.debug.xcconfig"; sourceTree = "<group>"; };
 		6E6FA99A54B363D495378D33 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2B0B32FE5B0B6EB82894486 /* libPods-Weather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Weather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -250,6 +258,7 @@
 		0922149A1A25401C002A614A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				092215291A25F568002A614A /* Data Sources */,
 				092214B71A25411E002A614A /* Networking */,
 			);
 			path = Helpers;
@@ -274,6 +283,8 @@
 			children = (
 				092214C11A25412A002A614A /* COOLWeatherAPI.h */,
 				092214D81A2547BE002A614A /* COOLMapping.h */,
+				0922152A1A25F589002A614A /* COOLLocationsDataSource.h */,
+				0922152B1A25F59C002A614A /* COOLForecastDataSource.h */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -394,6 +405,17 @@
 				092215241A25EFBC002A614A /* Region.m */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		092215291A25F568002A614A /* Data Sources */ = {
+			isa = PBXGroup;
+			children = (
+				0922152F1A25F6BF002A614A /* COOLForecastDataSourceImpl.h */,
+				092215301A25F6BF002A614A /* COOLForecastDataSourceImpl.m */,
+				092215321A25F6DC002A614A /* COOLLocationsDataSourceImpl.h */,
+				092215331A25F6DC002A614A /* COOLLocationsDataSourceImpl.m */,
+			);
+			name = "Data Sources";
 			sourceTree = "<group>";
 		};
 		686D8539725BBAE68D191E5D /* Frameworks */ = {
@@ -557,6 +579,7 @@
 				092214AC1A25401C002A614A /* COOLAppDelegate.m in Sources */,
 				092214BF1A254125002A614A /* COOLForecast.m in Sources */,
 				092214C71A254215002A614A /* COOLTodayForecastAPIResponse.m in Sources */,
+				092215311A25F6BF002A614A /* COOLForecastDataSourceImpl.m in Sources */,
 				092215001A25E80A002A614A /* NetworkComponents.m in Sources */,
 				092215261A25EFBC002A614A /* Location.m in Sources */,
 				092214C41A2541F5002A614A /* COOLSearchAPIResponse.m in Sources */,
@@ -572,6 +595,7 @@
 				092215041A25E96D002A614A /* EKObjectMapping+Transfromers.m in Sources */,
 				092214BA1A25411E002A614A /* COOLWeatherAPIImpl.m in Sources */,
 				0922146D1A253F86002A614A /* main.m in Sources */,
+				092215341A25F6DC002A614A /* COOLLocationsDataSourceImpl.m in Sources */,
 				092214D51A254471002A614A /* COOLWeatherAPIRequestSerializer.m in Sources */,
 				092214D21A2543DF002A614A /* COOLDailyForecastAPIRequest.m in Sources */,
 				092215281A25EFBC002A614A /* Region.m in Sources */,

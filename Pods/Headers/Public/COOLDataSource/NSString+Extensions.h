@@ -1,0 +1,1 @@
+../../../COOLDataSource/COOLDataSource/Categories/NSString/NSString+Extensions.h

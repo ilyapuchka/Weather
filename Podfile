@@ -5,6 +5,8 @@ source 'https://github.com/ilyapuchka/Specs.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
 pod 'COOLNetworkStack'
+pod 'COOLDataSource'
+pod 'COOLCompositions'
 pod 'Typhoon'
 
 target 'Weather' do

@@ -17,6 +17,9 @@
 #import "COOLMapperImpl.h"
 #import "COOLNetworkActivityLoggerImpl.h"
 
+#import "COOLForecastDataSourceImpl.h"
+#import "COOLLocationsDataSourceImpl.h"
+
 #import "TyphoonConfigPostProcessor.h"
 #import "TyphoonDefinition+Infrastructure.h"
 
@@ -78,6 +81,20 @@
     return [TyphoonDefinition withClass:[COOLNetworkActivityLoggerImpl class] configuration:^(TyphoonDefinition *definition) {
         [definition useInitializer:@selector(sharedLogger)];
         [definition injectProperty:@selector(level) with:TyphoonConfig(@"Network Activity Logging Level")];
+    }];
+}
+
+- (id<COOLForecastDataSource>)forecastDataSource
+{
+    return [TyphoonDefinition withClass:[COOLForecastDataSourceImpl class] configuration:^(TyphoonDefinition *definition) {
+        [definition injectProperty:@selector(apiClient) with:[self apiClient]];
+    }];
+}
+
+- (id<COOLLocationsDataSource>)locationsDataSource
+{
+    return [TyphoonDefinition withClass:[COOLLocationsDataSourceImpl class] configuration:^(TyphoonDefinition *definition) {
+        [definition injectProperty:@selector(apiClient) with:[self apiClient]];
     }];
 }
 
