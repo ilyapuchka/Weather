@@ -78,6 +78,12 @@
 #define COCOAPODS_VERSION_MINOR_EasyMapping 6
 #define COCOAPODS_VERSION_PATCH_EasyMapping 3
 
+// INTULocationManager
+#define COCOAPODS_POD_AVAILABLE_INTULocationManager
+#define COCOAPODS_VERSION_MAJOR_INTULocationManager 1
+#define COCOAPODS_VERSION_MINOR_INTULocationManager 2
+#define COCOAPODS_VERSION_PATCH_INTULocationManager 0
+
 // Typhoon
 #define COCOAPODS_POD_AVAILABLE_Typhoon
 #define COCOAPODS_VERSION_MAJOR_Typhoon 2

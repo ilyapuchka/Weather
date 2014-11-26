@@ -22,12 +22,14 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string></string>
+	<key>Network Activity Logging Level</key>
+	<string>${NETWORK_ACTIVITY_LOG_LEVEL}</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
-	<key>Network Activity Logging Level</key>
-	<string>${NETWORK_ACTIVITY_LOG_LEVEL}</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

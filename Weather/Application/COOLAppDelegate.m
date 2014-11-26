@@ -12,6 +12,7 @@
 #import "COOLWeatherAPI.h"
 #import "COOLForecastDataSource.h"
 #import "COOLLocationsDataSource.h"
+#import "INTULocationManager.h"
 
 @interface COOLAppDelegate() <COOLDataSourceDelegate>
 
@@ -46,9 +47,15 @@
     dataSource.delegate = self;
 //    [dataSource loadTodayForecastWithQuery:@"Moscow,Russia"];
     
-    id<COOLLocationsDataSource> lDataSource = [factory locationsDataSource];
-    lDataSource.delegate = self;
-    [lDataSource loadLocationsWithQuery:@"Mosc"];
+    [[INTULocationManager sharedInstance] requestLocationWithDesiredAccuracy:INTULocationAccuracyCity timeout:10.f delayUntilAuthorized:YES block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
+       
+        if (status == INTULocationStatusSuccess) {
+            id<COOLLocationsDataSource> lDataSource = [factory locationsDataSource];
+            lDataSource.delegate = self;
+            [lDataSource loadLocationsWithLatitude:currentLocation.coordinate.latitude longituted:currentLocation.coordinate.longitude];
+        }
+        
+    }];
     
     return YES;
 }
