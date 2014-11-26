@@ -16,5 +16,6 @@
 @property (nonatomic, strong) NetworkComponents *networkComponents;
 
 - (UIViewController *)todayViewController;
+- (UIViewController *)dailyViewController;
 
 @end

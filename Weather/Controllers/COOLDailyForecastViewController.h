@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol COOLForecastDataSource;
+@protocol COOLLocationsDataSource;
+
 @interface COOLDailyForecastViewController : UIViewController
+
+@property (nonatomic, strong) id<COOLForecastDataSource> forecastDataSource;
+@property (nonatomic, strong) id<COOLLocationsDataSource> locationsDataSource;
 
 @end

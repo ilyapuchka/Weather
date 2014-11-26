@@ -14,7 +14,7 @@
 
 @interface COOLTodayViewController() <COOLDataSourceDelegate>
 
-@property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) Location *location;
 
 @end
 
@@ -32,6 +32,16 @@
 {
     [super viewWillAppear:animated];
     
+    if (!self.location) {
+        [self getLocationForCurrentLocation];
+    }
+    else {
+        [self loadForecastForLocation:self.location];
+    }
+}
+
+- (void)getLocationForCurrentLocation
+{
     __weak typeof(self) wself = self;
     [[INTULocationManager sharedInstance] requestLocationWithDesiredAccuracy:INTULocationAccuracyCity timeout:10.f delayUntilAuthorized:YES block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
         __weak typeof(self) sself = wself;
@@ -41,6 +51,14 @@
     }];
 }
 
+- (void)loadForecastForLocation:(Location *)location
+{
+    NSString *query = [location displayName];
+    [self.forecastDataSource loadTodayForecastWithQuery:query];
+}
+
+#pragma mark - COOLDataSourceDelegate
+
 - (void)dataSourceWillLoadContent:(id)dataSource
 {
     
@@ -49,12 +67,10 @@
 - (void)dataSource:(id)dataSource didLoadContentWithError:(NSError *)error
 {
     if (dataSource == self.locationsDataSource) {
-        Location *location = [[(id<COOLLocationsDataSource>)dataSource locations] firstObject];
-        NSString *query = [location displayName];
-        [self.forecastDataSource loadTodayForecastWithQuery:query];
+        self.location = [[(id<COOLLocationsDataSource>)dataSource locations] firstObject];
+        [self loadForecastForLocation:self.location];
     }
     else if (dataSource == self.forecastDataSource) {
-        [self.tableView reloadData];
     }
 }
 

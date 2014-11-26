@@ -58,10 +58,10 @@
             </objects>
             <point key="canvasLocation" x="1731" y="2056"/>
         </scene>
-        <!--View Controller-->
+        <!--Daily Forecast View Controller-->
         <scene sceneID="Ioe-0H-s8q">
             <objects>
-                <viewController id="Xkv-ja-1yz" sceneMemberID="viewController">
+                <viewController id="Xkv-ja-1yz" customClass="COOLDailyForecastViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a8u-qP-wfh"/>
                         <viewControllerLayoutGuide type="bottom" id="hJi-VU-mW7"/>
@@ -84,6 +84,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rbZ-5b-kem"/>
+                    <connections>
+                        <outlet property="tableView" destination="afl-9v-Cxh" id="UZ9-wF-mKQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hsl-HZ-M6b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
