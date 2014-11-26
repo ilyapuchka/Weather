@@ -10,7 +10,7 @@
 
 @class Location;
 
-@protocol COOLLocationsViewControllerInput <NSObject>
+@protocol COOLLocationsViewInput <NSObject>
 
 - (void)setCurrentLocation:(Location *)location;
 

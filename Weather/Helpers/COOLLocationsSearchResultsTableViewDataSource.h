@@ -7,7 +7,10 @@
 //
 
 @import UIKit;
+#import "COOLLocationsSelection.h"
 
-@interface COOLLocationsSearchResultsTableViewDataSource : NSObject <UITableViewDataSource, UITableViewDelegate>
+@interface COOLLocationsSearchResultsTableViewDataSource : NSObject <UITableViewDataSource, UITableViewDelegate, COOLLocationsSelection>
+
+@property (nonatomic, weak) IBOutlet id<COOLLocationsSelectionOutput> output;
 
 @end

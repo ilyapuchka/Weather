@@ -15,9 +15,10 @@
 #import "COOLStoryboardIdentifiers.h"
 #import "UIViewController+SegueUserInfo.h"
 
-#import "COOLLocationsViewControllerInput.h"
+#import "COOLLocationsViewInput.h"
+#import "COOLLocationsSelection.h"
 
-@interface COOLTodayViewController() <COOLDataSourceDelegate>
+@interface COOLTodayViewController() <COOLDataSourceDelegate, COOLLocationsSelectionOutput>
 
 @property (nonatomic, copy) Location *location;
 @property (nonatomic, copy) Location *userLocation;
@@ -38,6 +39,11 @@
 {
     [super viewWillAppear:animated];
     
+    [self reloadData];
+}
+
+- (void)reloadData
+{
     if (!self.location) {
         [self getLocationForCurrentLocation];
     }
@@ -88,8 +94,18 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:COOLShowLocations]) {
-        [(id<COOLLocationsViewControllerInput>)[(UINavigationController *)segue.destinationViewController topViewController] setCurrentLocation:self.location];
+        id vc = [(UINavigationController *)segue.destinationViewController topViewController];
+        [(id<COOLLocationsViewInput>)vc setCurrentLocation:self.location];
+        [(id<COOLLocationsSelection>)vc setOutput:self];
     }
+}
+
+#pragma mark - COOLLocationsSelectionOutput
+
+- (void)didSelectLocation:(Location *)location
+{
+    self.location = location;
+    [self reloadData];
 }
 
 @end

@@ -8,11 +8,19 @@
 
 #import "COOLLocationsTableViewDataSource.h"
 
+@interface COOLLocationsTableViewDataSource()
+
+@property (nonatomic, copy) NSArray *locations;
+
+@end
+
 @implementation COOLLocationsTableViewDataSource
+
+@synthesize output = _output;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return [self.locations count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -22,7 +30,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    [self.output didSelectLocation:self.locations[indexPath.row]];
 }
 
 @end

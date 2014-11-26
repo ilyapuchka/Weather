@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "COOLLocationsViewControllerInput.h"
+#import "COOLLocationsViewInput.h"
+#import "COOLLocationsSelection.h"
 
 @class Location;
 
@@ -15,15 +16,8 @@
 @protocol COOLForecastComposedDataSource;
 @protocol COOLUserLocationsRepository;
 
-@protocol COOLLocationsViewControllerOutput <NSObject>
+@interface COOLLocationsViewController : UIViewController <COOLLocationsViewInput, COOLLocationsSelection>
 
-- (void)locationsViewControllerSelectedLocation:(Location *)location;
-
-@end
-
-@interface COOLLocationsViewController : UIViewController <COOLLocationsViewControllerInput>
-
-@property (nonatomic, weak) id<COOLLocationsViewControllerOutput> output;
 @property (nonatomic, strong) id<COOLLocationsDataSource> locationsDataSource;
 @property (nonatomic, strong) id<COOLForecastComposedDataSource> forecastDataSource;
 @property (nonatomic, strong) id<COOLUserLocationsRepository> userLocationsRepository;

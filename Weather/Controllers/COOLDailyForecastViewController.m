@@ -13,7 +13,12 @@
 #import "Location.h"
 #import "AreaName.h"
 
-@interface COOLDailyForecastViewController() <COOLDataSourceDelegate>
+#import "COOLLocationsViewInput.h"
+#import "COOLLocationsSelection.h"
+
+#import "COOLStoryboardIdentifiers.h"
+
+@interface COOLDailyForecastViewController() <COOLDataSourceDelegate, COOLLocationsSelectionOutput>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, copy) Location *location;
@@ -34,6 +39,11 @@
 {
     [super viewWillAppear:animated];
     
+    [self reloadData];
+}
+
+- (void)reloadData
+{
     if (!self.location) {
         [self getLocationForCurrentLocation];
     }
@@ -81,6 +91,25 @@
     else if (dataSource == self.forecastDataSource) {
         [self.tableView reloadData];
     }
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:COOLShowLocations]) {
+        id vc = [(UINavigationController *)segue.destinationViewController topViewController];
+        [(id<COOLLocationsViewInput>)vc setCurrentLocation:self.location];
+        [(id<COOLLocationsSelection>)vc setOutput:self];
+    }
+}
+
+#pragma mark - COOLLocationsSelectionOutput
+
+- (void)didSelectLocation:(Location *)location
+{
+    self.location = location;
+    [self reloadData];
 }
 
 @end

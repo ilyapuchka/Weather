@@ -13,7 +13,7 @@
 
 #import "Location.h"
 
-@interface COOLLocationsViewController() <UISearchBarDelegate, COOLDataSourceDelegate>
+@interface COOLLocationsViewController() <UISearchBarDelegate, COOLDataSourceDelegate, COOLLocationsSelectionOutput>
 
 @property (nonatomic, weak) IBOutlet UITableView *locationsTableView;
 @property (nonatomic, weak) IBOutlet UITableView *searchTableView;
@@ -24,9 +24,13 @@
 @property (nonatomic, copy) NSArray *searchResults;
 @property (nonatomic, copy) NSArray *dailyForecasts;
 
+@property (nonatomic, weak) id currentDataSource;
+
 @end
 
 @implementation COOLLocationsViewController
+
+@synthesize output = _output;
 
 - (void)viewDidLoad
 {
@@ -60,7 +64,13 @@
 
 - (void)dismiss
 {
-    [self.output locationsViewControllerSelectedLocation:self.selectedLocation];
+    if ([[self.userLocationsRepository userLocations] containsObject:self.selectedLocation]) {
+        [self.output didSelectLocation:self.selectedLocation];
+    }
+    else {
+        //it means we selected current user location, not the location added by user
+        [self.output didSelectLocation:nil];
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -74,6 +84,7 @@
         self.locationsTableView.alpha = 1.0f;
     }];
     
+    self.currentDataSource = self.locationsTableView.dataSource;
     [self.forecastDataSource loadDailyForecastsWithQueries:self.locations days:1];
 }
 
@@ -89,6 +100,8 @@
         self.searchTableView.alpha = 1.0f;
         self.locationsTableView.alpha = 0.0f;
     }];
+    
+    self.currentDataSource = self.searchTableView.dataSource;
 }
 
 - (IBAction)addPlaceTapped:(id)sender
@@ -130,6 +143,21 @@
     else if (dataSource == self.forecastDataSource) {
         self.dailyForecasts = [self.forecastDataSource forecasts];
         [self.locationsTableView reloadData];
+    }
+}
+
+#pragma mark - COOLLocationsTableViewDataSourceOutput
+
+- (void)didSelectLocation:(Location *)location
+{
+    if (self.currentDataSource == self.searchTableView.dataSource) {
+        if (![[self.userLocationsRepository userLocations] containsObject:location]) {
+            [self.userLocationsRepository addUserLocation:location];
+        }
+    }
+    else {
+        self.selectedLocation = location;
+        [self dismiss];
     }
 }
 

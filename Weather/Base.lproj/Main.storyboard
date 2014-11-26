@@ -183,8 +183,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IME-0T-pqu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="5m5-zb-AvO" customClass="COOLLocationsTableViewDataSource"/>
-                <customObject id="C8b-Z9-YqE" customClass="COOLLocationsSearchResultsTableViewDataSource"/>
+                <customObject id="5m5-zb-AvO" customClass="COOLLocationsTableViewDataSource">
+                    <connections>
+                        <outlet property="output" destination="oia-M3-VU9" id="wi8-FI-ZpJ"/>
+                    </connections>
+                </customObject>
+                <customObject id="C8b-Z9-YqE" customClass="COOLLocationsSearchResultsTableViewDataSource">
+                    <connections>
+                        <outlet property="output" destination="oia-M3-VU9" id="k3r-Xz-Iss"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="553" y="2056"/>
         </scene>

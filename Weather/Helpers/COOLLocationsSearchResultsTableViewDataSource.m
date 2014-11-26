@@ -7,12 +7,21 @@
 //
 
 #import "COOLLocationsSearchResultsTableViewDataSource.h"
+#import "COOLUserLocationsRepository.h"
+
+@interface COOLLocationsSearchResultsTableViewDataSource()
+
+@property (nonatomic, copy) NSArray *searchResults;
+
+@end
 
 @implementation COOLLocationsSearchResultsTableViewDataSource
 
+@synthesize output = _output;
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return [self.searchResults count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -22,7 +31,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    [self.output didSelectLocation:self.searchResults[indexPath.row]];
 }
 
 @end
