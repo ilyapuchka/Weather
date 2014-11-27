@@ -5,5 +5,4 @@
 NSString * const COOLShowLocations = @"showLocations";
 
 
-NSString * const COOLForecastTableViewCell = @"COOLForecastTableViewCell";
 

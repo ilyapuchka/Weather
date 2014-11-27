@@ -12,7 +12,11 @@
 #import "COOLUserLocationsRepository.h"
 #import "COOLTableViewDataSource.h"
 
+#import "COOLLocationsTableViewDataSource.h"
+
 #import "Location.h"
+#import "Weather.h"
+#import "Forecast.h"
 
 @interface COOLLocationsViewController() <UISearchBarDelegate, COOLDataSourceDelegate, COOLLocationsSelectionOutput>
 
@@ -21,8 +25,9 @@
 
 @property (nonatomic, copy) Location *selectedLocation;
 @property (nonatomic, copy) NSArray *locations;
+@property (nonatomic, copy) Location *currentUserLocation;
 
-@property (nonatomic, weak) IBOutlet id<COOLTableViewDataSource> locationsTableViewDataSource;
+@property (nonatomic, weak) IBOutlet id<COOLTableViewDataSource, COOLLocationsTableViewDataSourceInput> locationsTableViewDataSource;
 @property (nonatomic, weak) IBOutlet id<COOLTableViewDataSource> searchResultsTableViewDataSource;
 @property (nonatomic, weak) id<COOLTableViewDataSource> currentDataSource;
 
@@ -39,6 +44,9 @@
     self.doneItem = self.navigationItem.rightBarButtonItem;
     self.locationsDataSource.delegate = self;
     self.forecastDataSource.delegate = self;
+    
+    UINib *nib = [UINib nibWithNibName:@"COOLForecastTableViewCell" bundle:[NSBundle mainBundle]];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"COOLForecastTableViewCell"];
 
     self.currentDataSource = self.locationsTableViewDataSource;
     [self reloadData];
@@ -55,10 +63,11 @@
 {
     self.tableView.dataSource = self.currentDataSource;
     self.tableView.delegate = self.currentDataSource;
+    
     [self.tableView reloadData];
 }
 
-- (void)setCurrentLocation:(Location *)location
+- (void)setCurrentUserLocation:(Location *)location
 {
     NSCParameterAssert(location);
     if (!location) {
@@ -146,9 +155,14 @@
     NSArray *items;
     if (dataSource == self.locationsDataSource) {
         items = [self.locationsDataSource locations];
+        [self.locationsTableViewDataSource setCurrentUserLocation:self.currentUserLocation];
     }
     else if (dataSource == self.forecastDataSource) {
-        items = [self.forecastDataSource forecasts];
+        NSMutableArray *mItems = [@[] mutableCopy];
+        [[self.forecastDataSource forecasts] enumerateObjectsUsingBlock:^(Forecast *forecast, NSUInteger idx, BOOL *stop) {
+            [mItems addObject:@[[forecast.weather lastObject], [self.forecastDataSource queries][idx]]];
+        }];
+        items = [mItems copy];
     }
     [self.currentDataSource setItems:items];
     [self.tableView reloadData];

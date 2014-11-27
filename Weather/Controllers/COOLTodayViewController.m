@@ -127,7 +127,7 @@
 {
     if ([segue.identifier isEqualToString:COOLShowLocations]) {
         id vc = [(UINavigationController *)segue.destinationViewController topViewController];
-        [(id<COOLLocationsViewInput>)vc setCurrentLocation:self.location];
+        [(id<COOLLocationsViewInput>)vc setCurrentUserLocation:self.location];
         [(id<COOLLocationsSelection>)vc setOutput:self];
     }
 }

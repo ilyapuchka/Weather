@@ -10,8 +10,17 @@
 #import "COOLLocationsSelection.h"
 #import "COOLTableViewDataSource.h"
 
-@interface COOLLocationsTableViewDataSource : NSObject <COOLTableViewDataSource, COOLLocationsSelection>
+@class Location;
+
+@protocol COOLLocationsTableViewDataSourceInput <NSObject>
+
+- (void)setCurrentUserLocation:(Location *)location;
+
+@end
+
+@interface COOLLocationsTableViewDataSource : NSObject <COOLTableViewDataSource, COOLLocationsSelection, COOLLocationsTableViewDataSourceInput>
 
 @property (nonatomic, weak) IBOutlet id<COOLLocationsSelectionOutput> output;
+@property (nonatomic, copy) Location *currentUserLocation;
 
 @end

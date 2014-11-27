@@ -12,6 +12,6 @@
 
 @protocol COOLLocationsViewInput <NSObject>
 
-- (void)setCurrentLocation:(Location *)location;
+- (void)setCurrentUserLocation:(Location *)location;
 
 @end

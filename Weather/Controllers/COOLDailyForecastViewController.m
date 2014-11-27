@@ -46,6 +46,9 @@
     
     self.forecastDataSource.delegate = self;
     self.locationsDataSource.delegate = self;
+    
+    UINib *nib = [UINib nibWithNibName:@"COOLForecastTableViewCell" bundle:[NSBundle mainBundle]];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"COOLForecastTableViewCell"];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -120,7 +123,7 @@
 {
     if ([segue.identifier isEqualToString:COOLShowLocations]) {
         id vc = [(UINavigationController *)segue.destinationViewController topViewController];
-        [(id<COOLLocationsViewInput>)vc setCurrentLocation:self.location];
+        [(id<COOLLocationsViewInput>)vc setCurrentUserLocation:self.location];
         [(id<COOLLocationsSelection>)vc setOutput:self];
     }
 }

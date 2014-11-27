@@ -7,6 +7,11 @@
 //
 
 #import "COOLLocationsTableViewDataSource.h"
+#import "COOLForecastTableViewCell.h"
+#import "COOLForecastTableViewCellModel.h"
+
+#import "Weather.h"
+#import "Location.h"
 
 @interface COOLLocationsTableViewDataSource()
 
@@ -26,12 +31,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    COOLForecastTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([COOLForecastTableViewCell class]) forIndexPath:indexPath];
+    
+    Weather *weather = [self.items[indexPath.row] objectAtIndex:0];
+    Location *location = [self.items[indexPath.row] objectAtIndex:1];
+    
+    COOLForecastTableViewCellModel *viewModel = [[COOLForecastTableViewCellModel alloc] initWithDailyWeather:weather forLocation:location isCurrentLocation:[location isEqual:self.currentUserLocation]];
+    [cell setWithViewModel:viewModel];
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.output didSelectLocation:self.items[indexPath.row]];
+    
 }
 
 @end

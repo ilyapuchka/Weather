@@ -58,6 +58,7 @@
 		09E894761A26AABB00D7B95B /* TimeZone.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E894751A26AABB00D7B95B /* TimeZone.m */; };
 		09ED70201A2764DF00BE573A /* COOLForecastTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09ED701F1A2764DF00BE573A /* COOLForecastTableViewCell.m */; };
 		09ED70231A276F1000BE573A /* COOLForecastTableViewCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09ED70221A276F1000BE573A /* COOLForecastTableViewCellModel.m */; };
+		09ED70251A277EC100BE573A /* COOLForecastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09ED70241A277EC100BE573A /* COOLForecastTableViewCell.xib */; };
 		5F2E8026CF92388742E15B90 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6FA99A54B363D495378D33 /* libPods.a */; };
 		B72236D1D1643D1FD7D36065 /* libPods-Weather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B0B32FE5B0B6EB82894486 /* libPods-Weather.a */; };
 /* End PBXBuildFile section */
@@ -180,6 +181,7 @@
 		09ED701F1A2764DF00BE573A /* COOLForecastTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLForecastTableViewCell.m; sourceTree = "<group>"; };
 		09ED70211A276F1000BE573A /* COOLForecastTableViewCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLForecastTableViewCellModel.h; sourceTree = "<group>"; };
 		09ED70221A276F1000BE573A /* COOLForecastTableViewCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLForecastTableViewCellModel.m; sourceTree = "<group>"; };
+		09ED70241A277EC100BE573A /* COOLForecastTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = COOLForecastTableViewCell.xib; sourceTree = "<group>"; };
 		148FA9D5671E73E74C2D367E /* Pods-Weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weather/Pods-Weather.debug.xcconfig"; sourceTree = "<group>"; };
 		6E6FA99A54B363D495378D33 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2B0B32FE5B0B6EB82894486 /* libPods-Weather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Weather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -373,6 +375,7 @@
 				09E894641A269B5200D7B95B /* COOLTodayView.m */,
 				09ED701E1A2764DF00BE573A /* COOLForecastTableViewCell.h */,
 				09ED701F1A2764DF00BE573A /* COOLForecastTableViewCell.m */,
+				09ED70241A277EC100BE573A /* COOLForecastTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -635,6 +638,7 @@
 				09E8946E1A26A65700D7B95B /* ProximaNova-Bold.otf in Resources */,
 				0922147B1A253F86002A614A /* LaunchScreen.xib in Resources */,
 				092214781A253F86002A614A /* Images.xcassets in Resources */,
+				09ED70251A277EC100BE573A /* COOLForecastTableViewCell.xib in Resources */,
 				09E894701A26A65700D7B95B /* ProximaNova-Regular.otf in Resources */,
 				09E894711A26A65700D7B95B /* ProximaNova-Semibold.otf in Resources */,
 			);
