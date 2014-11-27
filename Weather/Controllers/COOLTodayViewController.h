@@ -10,10 +10,12 @@
 
 @protocol COOLForecastDataSource;
 @protocol COOLLocationsDataSource;
+@protocol COOLUserLocationsRepository;
 
 @interface COOLTodayViewController : UIViewController
 
 @property (nonatomic, strong) id<COOLForecastDataSource> forecastDataSource;
 @property (nonatomic, strong) id<COOLLocationsDataSource> locationsDataSource;
+@property (nonatomic, strong) id<COOLUserLocationsRepository> userLocationsRepository;
 
 @end

@@ -9,7 +9,8 @@
 #import "COOLUserLocationsUserDefaultsImpl.h"
 #import "Location.h"
 
-static NSString *const COOLUserLocationsKey = @"userLocations";
+static NSString * const COOLUserLocationsKey = @"userLocations";
+static NSString * const COOLSelectedLocationKey = @"selectedLocation";
 
 @interface COOLUserLocationsUserDefaultsImpl()
 
@@ -60,6 +61,24 @@ static NSString *const COOLUserLocationsKey = @"userLocations";
         _userLocationsArray = [_userLocationsArray?:@[] mutableCopy];
     }
     return _userLocationsArray;
+}
+
+- (Location *)selectedLocation
+{
+    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:COOLSelectedLocationKey];
+    return [NSKeyedUnarchiver unarchiveObjectWithData:data];
+}
+
+- (void)setSelectedLocation:(Location *)location
+{
+    if (location) {
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:location];
+        [[NSUserDefaults standardUserDefaults] setObject:data forKey:COOLSelectedLocationKey];
+    }
+    else {
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:COOLSelectedLocationKey];
+    }
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 @end

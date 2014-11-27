@@ -20,6 +20,7 @@
     return [TyphoonDefinition withClass:[COOLTodayViewController class] configuration:^(TyphoonDefinition *definition) {
         [definition injectProperty:@selector(forecastDataSource) with:[self.networkComponents forecastDataSource]];
         [definition injectProperty:@selector(locationsDataSource) with:[self.networkComponents locationsDataSource]];
+        [definition injectProperty:@selector(userLocationsRepository) with:[self userLocationsRepository]];
     }];
 }
 
@@ -28,6 +29,7 @@
     return [TyphoonDefinition withClass:[COOLDailyForecastViewController class] configuration:^(TyphoonDefinition *definition) {
         [definition injectProperty:@selector(forecastDataSource) with:[self.networkComponents forecastDataSource]];
         [definition injectProperty:@selector(locationsDataSource) with:[self.networkComponents locationsDataSource]];
+        [definition injectProperty:@selector(userLocationsRepository) with:[self userLocationsRepository]];
     }];
 }
 
@@ -42,7 +44,9 @@
 
 - (id<COOLUserLocationsRepository>)userLocationsRepository
 {
-    return [TyphoonDefinition withClass:[COOLUserLocationsUserDefaultsImpl class]];
+    return [TyphoonDefinition withClass:[COOLUserLocationsUserDefaultsImpl class] configuration:^(TyphoonDefinition *definition) {
+        definition.scope = TyphoonScopeWeakSingleton;
+    }];
 }
 
 @end

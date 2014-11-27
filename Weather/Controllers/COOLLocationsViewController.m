@@ -18,7 +18,6 @@
 #import "Weather.h"
 #import "Forecast.h"
 
-#import "COOLNotifications.h"
 #import "COOLStoryboardIdentifiers.h"
 
 @interface COOLLocationsViewController() <UISearchBarDelegate, COOLDataSourceDelegate, COOLLocationsSelectionOutput>
@@ -38,6 +37,8 @@
 @end
 
 @implementation COOLLocationsViewController
+
+@synthesize output = _output;
 
 - (void)viewDidLoad
 {
@@ -98,11 +99,15 @@
 - (void)dismissAndNotify:(BOOL)notify
 {
     if (notify && self.selectedLocation) {
-        NSDictionary *userInfo = @{}; //no location means we selected current user location, not custom location added by user
         if ([[self.userLocationsRepository userLocations] containsObject:self.selectedLocation]) {
-            userInfo = @{COOLLocationSelectedNotificationLocationKey: self.selectedLocation};
+            [self.userLocationsRepository setSelectedLocation:self.selectedLocation];
+            [self.output didSelectLocation:self.selectedLocation];
         }
-        [[NSNotificationCenter defaultCenter] postNotificationName:COOLLocationSelectedNotification object:self userInfo:userInfo];
+        else {
+            //no location means we selected current user location, not custom location added by user
+            [self.userLocationsRepository setSelectedLocation:nil];
+            [self.output didSelectLocation:nil];
+        }
     }
     [self dismissViewControllerAnimated:YES completion:nil];
 }

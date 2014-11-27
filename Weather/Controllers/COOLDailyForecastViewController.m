@@ -14,14 +14,15 @@
 #import "AreaName.h"
 #import "Forecast.h"
 
+#import "COOLUserLocationsRepository.h"
+
 #import "COOLLocationsViewInput.h"
 #import "COOLLocationsSelection.h"
 #import "COOLTableViewDataSource.h"
 
 #import "COOLStoryboardIdentifiers.h"
-#import "COOLNotifications.h"
 
-@interface COOLDailyForecastViewController() <COOLDataSourceDelegate>
+@interface COOLDailyForecastViewController() <COOLDataSourceDelegate, COOLLocationsSelectionOutput>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, copy) Location *location;
@@ -38,8 +39,6 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Forecast" image:[[UIImage imageNamed:@"Forecast-normal"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"Forecast-selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didSelectLocation:) name:COOLLocationSelectedNotification object:nil];
     }
     return self;
 }
@@ -64,6 +63,7 @@
 {
     [super viewWillAppear:animated];
     
+    self.location = [self.userLocationsRepository selectedLocation];
     [self reloadData];
 }
 
@@ -164,12 +164,12 @@
         if (self.userLocation) {
             [(id<COOLLocationsViewInput>)vc setCurrentUserLocation:self.userLocation];
         }
+        [(id<COOLLocationsSelection>)vc setOutput:self];
     }
 }
 
-- (void)didSelectLocation:(NSNotification *)note
+- (void)didSelectLocation:(Location *)location
 {
-    Location *location = note.userInfo[COOLLocationSelectedNotificationLocationKey];
     if (![self.location isEqual:location]) {
         self.forecast = nil;
         [self reloadTableViewWithForecast:self.forecast];
