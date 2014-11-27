@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Ilya Puchka. All rights reserved.
 //
 
-#import "COOLTableViewModel.h"
+#import "COOLTodayViewModel.h"
 #import "Forecast.h"
 #import "Weather.h"
 #import "Hourly.h"
@@ -16,7 +16,7 @@
 
 #import "COOLTodayViewPresentation.h"
 
-@interface COOLTableViewModel()
+@interface COOLTodayViewModel()
 
 @property (nonatomic, copy) Forecast *forecast;
 @property (nonatomic, copy) Location *location;
@@ -25,7 +25,7 @@
 
 @end
 
-@implementation COOLTableViewModel
+@implementation COOLTodayViewModel
 
 - (instancetype)initWithForecast:(Forecast *)forecast location:(Location *)location isCurrentLocation:(BOOL)isCurrentLocation
 {
@@ -130,6 +130,19 @@
     return self.currentHourly.winddir16Point;
 }
 
+- (void)setup:(id<COOLTodayViewPresentation>)view
+{
+    view.weatherIconImageView.image = self.weatherIconImage;
+    view.locationLabel.attributedText = self.locationString;
+    view.weatherDescLabel.attributedText = self.weatherDescString;
+    view.chanceOfRainLabel.text = self.chanceOfRainString;
+    view.chanceOfRainIcon.image = self.chanceOfRainIcon;
+    view.precipLabel.text = self.precipString;
+    view.pressureLabel.text = self.pressureString;
+    view.windSpeedLabel.text = self.windSpeedString;
+    view.windDirectionLabel.text = self.windDirectionString;
+}
+
 #pragma mark - Private
 
 - (Hourly *)currentHourly
@@ -156,19 +169,5 @@
     }
     return _currentHourly;
 }
-
-- (void)setup:(id<COOLTodayViewPresentation>)view
-{
-    view.weatherIconImageView.image = self.weatherIconImage;
-    view.locationLabel.attributedText = self.locationString;
-    view.weatherDescLabel.attributedText = self.weatherDescString;
-    view.chanceOfRainLabel.text = self.chanceOfRainString;
-    view.chanceOfRainIcon.image = self.chanceOfRainIcon;
-    view.precipLabel.text = self.precipString;
-    view.pressureLabel.text = self.pressureString;
-    view.windSpeedLabel.text = self.windSpeedString;
-    view.windDirectionLabel.text = self.windDirectionString;
-}
-
 
 @end

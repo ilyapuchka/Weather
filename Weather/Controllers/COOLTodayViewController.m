@@ -21,7 +21,7 @@
 #import "COOLLocationsSelection.h"
 
 #import "COOLTodayView.h"
-#import "COOLTableViewModel.h"
+#import "COOLTodayViewModel.h"
 
 #import "CLLocation+Extensions.h"
 #import "INTULocationManager+Extensions.h"
@@ -176,12 +176,12 @@
         Forecast *forecast = [self.forecastDataSource todayForecast];
         if (!error && forecast) {
             self.view.contentView.hidden = NO;
-            COOLTableViewModel *model;
+            COOLTodayViewModel *model;
             if (self.selectedLocation) {
-                model = [[COOLTableViewModel alloc] initWithForecast:forecast location:self.selectedLocation isCurrentLocation:([self.selectedLocation isEqual: self.userLocation])];
+                model = [[COOLTodayViewModel alloc] initWithForecast:forecast location:self.selectedLocation isCurrentLocation:([self.selectedLocation isEqual: self.userLocation])];
             }
             else if (self.userLocation) {
-                model = [[COOLTableViewModel alloc] initWithForecast:forecast location:self.userLocation isCurrentLocation:YES];
+                model = [[COOLTodayViewModel alloc] initWithForecast:forecast location:self.userLocation isCurrentLocation:YES];
             }
             else {
                 return;

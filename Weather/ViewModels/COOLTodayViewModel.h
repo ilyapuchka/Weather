@@ -12,7 +12,7 @@
 @class Location;
 @protocol COOLTodayViewPresentation;
 
-@interface COOLTableViewModel : NSObject
+@interface COOLTodayViewModel : NSObject
 
 - (instancetype)initWithForecast:(Forecast *)forecast
                         location:(Location *)location
