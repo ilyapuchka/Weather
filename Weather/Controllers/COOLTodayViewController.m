@@ -18,12 +18,15 @@
 #import "COOLLocationsViewInput.h"
 #import "COOLLocationsSelection.h"
 
+#import "COOLTodayView.h"
+#import "COOLTableViewModel.h"
+
 @interface COOLTodayViewController() <COOLDataSourceDelegate, COOLLocationsSelectionOutput>
 
 @property (nonatomic, copy) Location *location;
 @property (nonatomic, copy) Location *userLocation;
 
-@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
+@property (nonatomic, retain) COOLTodayView *view;
 
 @end
 
@@ -50,14 +53,6 @@
 {
     [super viewWillAppear:animated];
     
-    [self.view setNeedsLayout];
-    [self.view layoutIfNeeded];
-    
-    if (self.scrollView.contentSize.height < self.scrollView.bounds.size.height) {
-        CGFloat top = (self.scrollView.bounds.size.height - self.scrollView.contentSize.height) / 2;
-        self.scrollView.contentInset = UIEdgeInsetsMake(top, 0, 0, 0);
-    }
-
     [self reloadData];
 }
 
@@ -74,6 +69,7 @@
 - (void)getLocationForCurrentLocation
 {
     __weak typeof(self) wself = self;
+    self.view.contentView.hidden = YES;
     [[INTULocationManager sharedInstance] requestLocationWithDesiredAccuracy:INTULocationAccuracyCity timeout:10.f delayUntilAuthorized:YES block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
         __weak typeof(self) sself = wself;
         if (status == INTULocationStatusSuccess) {
@@ -90,9 +86,13 @@
 
 #pragma mark - COOLDataSourceDelegate
 
+- (void)dataSourceDidEnterLoadingState:(id)dataSource
+{
+    self.view.contentView.hidden = YES;
+}
+
 - (void)dataSourceWillLoadContent:(id)dataSource
 {
-    
 }
 
 - (void)dataSource:(id)dataSource didLoadContentWithError:(NSError *)error
@@ -105,6 +105,9 @@
         [self loadForecastForLocation:self.location];
     }
     else if (dataSource == self.forecastDataSource) {
+        self.view.contentView.hidden = NO;
+        COOLTableViewModel *model = [[COOLTableViewModel alloc] initWithForecast:[self.forecastDataSource todayForecast] location:self.location isCurrentLocation:(self.location == self.userLocation)];
+        [(COOLTodayView *)self.view setWithViewModel:model];
     }
 }
 
@@ -125,6 +128,11 @@
 {
     self.location = location;
     [self reloadData];
+}
+
+- (IBAction)shareTapped:(id)sender
+{
+    
 }
 
 @end
