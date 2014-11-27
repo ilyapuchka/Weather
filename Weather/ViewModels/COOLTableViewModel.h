@@ -11,7 +11,7 @@
 @class Forecast;
 @class Location;
 
-@interface COOLTableViewModel : UIView
+@interface COOLTableViewModel : NSObject
 
 - (instancetype)initWithForecast:(Forecast *)forecast
                         location:(Location *)location

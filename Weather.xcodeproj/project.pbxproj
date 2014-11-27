@@ -56,6 +56,8 @@
 		09E894701A26A65700D7B95B /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 09E8946C1A26A65700D7B95B /* ProximaNova-Regular.otf */; };
 		09E894711A26A65700D7B95B /* ProximaNova-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 09E8946D1A26A65700D7B95B /* ProximaNova-Semibold.otf */; };
 		09E894761A26AABB00D7B95B /* TimeZone.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E894751A26AABB00D7B95B /* TimeZone.m */; };
+		09ED70201A2764DF00BE573A /* COOLForecastTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09ED701F1A2764DF00BE573A /* COOLForecastTableViewCell.m */; };
+		09ED70231A276F1000BE573A /* COOLForecastTableViewCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09ED70221A276F1000BE573A /* COOLForecastTableViewCellModel.m */; };
 		5F2E8026CF92388742E15B90 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6FA99A54B363D495378D33 /* libPods.a */; };
 		B72236D1D1643D1FD7D36065 /* libPods-Weather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B0B32FE5B0B6EB82894486 /* libPods-Weather.a */; };
 /* End PBXBuildFile section */
@@ -174,6 +176,10 @@
 		09E8946D1A26A65700D7B95B /* ProximaNova-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Semibold.otf"; sourceTree = "<group>"; };
 		09E894741A26AABB00D7B95B /* TimeZone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeZone.h; sourceTree = "<group>"; };
 		09E894751A26AABB00D7B95B /* TimeZone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeZone.m; sourceTree = "<group>"; };
+		09ED701E1A2764DF00BE573A /* COOLForecastTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLForecastTableViewCell.h; sourceTree = "<group>"; };
+		09ED701F1A2764DF00BE573A /* COOLForecastTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLForecastTableViewCell.m; sourceTree = "<group>"; };
+		09ED70211A276F1000BE573A /* COOLForecastTableViewCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLForecastTableViewCellModel.h; sourceTree = "<group>"; };
+		09ED70221A276F1000BE573A /* COOLForecastTableViewCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLForecastTableViewCellModel.m; sourceTree = "<group>"; };
 		148FA9D5671E73E74C2D367E /* Pods-Weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weather/Pods-Weather.debug.xcconfig"; sourceTree = "<group>"; };
 		6E6FA99A54B363D495378D33 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2B0B32FE5B0B6EB82894486 /* libPods-Weather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Weather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -354,6 +360,8 @@
 			children = (
 				09E894661A269D2D00D7B95B /* COOLTableViewModel.h */,
 				09E894671A269D2D00D7B95B /* COOLTableViewModel.m */,
+				09ED70211A276F1000BE573A /* COOLForecastTableViewCellModel.h */,
+				09ED70221A276F1000BE573A /* COOLForecastTableViewCellModel.m */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -363,6 +371,8 @@
 			children = (
 				09E894631A269B5200D7B95B /* COOLTodayView.h */,
 				09E894641A269B5200D7B95B /* COOLTodayView.m */,
+				09ED701E1A2764DF00BE573A /* COOLForecastTableViewCell.h */,
+				09ED701F1A2764DF00BE573A /* COOLForecastTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -714,6 +724,7 @@
 				092214CF1A2543CC002A614A /* COOLSearchAPIRequest.m in Sources */,
 				093876D21A26250300ADF480 /* COOLTodayViewController.m in Sources */,
 				093876D81A26252E00ADF480 /* COOLDailyForecastViewController.m in Sources */,
+				09ED70201A2764DF00BE573A /* COOLForecastTableViewCell.m in Sources */,
 				09E894681A269D2D00D7B95B /* COOLTableViewModel.m in Sources */,
 				092214F61A25E0E3002A614A /* Request.m in Sources */,
 				092214F51A25E0E3002A614A /* Hourly.m in Sources */,
@@ -731,6 +742,7 @@
 				092215341A25F6DC002A614A /* COOLLocationsDataSourceImpl.m in Sources */,
 				092214D51A254471002A614A /* COOLWeatherAPIRequestSerializer.m in Sources */,
 				092214D21A2543DF002A614A /* COOLDailyForecastAPIRequest.m in Sources */,
+				09ED70231A276F1000BE573A /* COOLForecastTableViewCellModel.m in Sources */,
 				092215281A25EFBC002A614A /* Region.m in Sources */,
 				092214F41A25E0E3002A614A /* Forecast.m in Sources */,
 				09E894651A269B5200D7B95B /* COOLTodayView.m in Sources */,

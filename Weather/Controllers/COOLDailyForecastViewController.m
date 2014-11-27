@@ -12,9 +12,11 @@
 #import "INTULocationManager.h"
 #import "Location.h"
 #import "AreaName.h"
+#import "Forecast.h"
 
 #import "COOLLocationsViewInput.h"
 #import "COOLLocationsSelection.h"
+#import "COOLTableViewDataSource.h"
 
 #import "COOLStoryboardIdentifiers.h"
 
@@ -22,6 +24,8 @@
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, copy) Location *location;
+@property (nonatomic, copy) Forecast *forecast;
+@property (nonatomic, strong) IBOutlet id<COOLTableViewDataSource> tableViewDataSource;
 
 @end
 
@@ -94,11 +98,19 @@
 - (void)dataSource:(id)dataSource didLoadContentWithError:(NSError *)error
 {
     if (dataSource == self.locationsDataSource) {
-        self.location = [[self.locationsDataSource locations] firstObject];
-        [self loadForecastForLocation:self.location];
+        Location *location = [[self.locationsDataSource locations] firstObject];
+        if (!error && location) {
+            self.location = location;
+            [self loadForecastForLocation:self.location];
+        }
     }
     else if (dataSource == self.forecastDataSource) {
-        [self.tableView reloadData];
+        Forecast *forecast = [self.forecastDataSource dailyForecast];
+        if (!error && forecast) {
+            self.forecast = forecast;
+            [self.tableViewDataSource setItems:self.forecast.weather];
+            [self.tableView reloadData];
+        }
     }
 }
 

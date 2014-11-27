@@ -49,7 +49,7 @@
         
     }
     NSString *weatherDesc = [[(WeatherDesc *)self.currentHourly.weatherDesc.lastObject value] lowercaseString];
-    __block NSString *imageName;
+    __block NSString *imageName = @"Cloudy_Big";
     [dict enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         if ([weatherDesc containsString:key]) {
             imageName = obj;

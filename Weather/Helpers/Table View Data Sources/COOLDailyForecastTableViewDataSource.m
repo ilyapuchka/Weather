@@ -7,17 +7,28 @@
 //
 
 #import "COOLDailyForecastTableViewDataSource.h"
+#import "COOLForecastTableViewCell.h"
+#import "COOLForecastTableViewCellModel.h"
+
+@interface COOLDailyForecastTableViewDataSource()
+
+@property (nonatomic, copy) NSArray *items;
+
+@end
 
 @implementation COOLDailyForecastTableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return [self.items count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    COOLForecastTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([COOLForecastTableViewCell class]) forIndexPath:indexPath];
+    COOLForecastTableViewCellModel *viewModel = [[COOLForecastTableViewCellModel alloc] initWithDailyWeather:self.items[indexPath.row]];
+    [cell setWithViewModel:viewModel];
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
