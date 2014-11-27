@@ -23,6 +23,7 @@ NSString *const kHourlyWeatherDesc = @"weatherDesc";
 NSString *const kHourlyTempC = @"tempC";
 NSString *const kHourlyPrecipMM = @"precipMM";
 NSString *const kHourlyChanceofsunshine = @"chanceofsunshine";
+NSString *const kHourlyTime = @"time";
 
 
 @interface Hourly ()
@@ -46,6 +47,7 @@ NSString *const kHourlyChanceofsunshine = @"chanceofsunshine";
 @synthesize tempC = _tempC;
 @synthesize precipMM = _precipMM;
 @synthesize chanceofsunshine = _chanceofsunshine;
+@synthesize time = _time;
 
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict
@@ -86,6 +88,7 @@ NSString *const kHourlyChanceofsunshine = @"chanceofsunshine";
         self.tempC = [self objectOrNilForKey:kHourlyTempC fromDictionary:dict];
         self.precipMM = [self objectOrNilForKey:kHourlyPrecipMM fromDictionary:dict];
         self.chanceofsunshine = [self objectOrNilForKey:kHourlyChanceofsunshine fromDictionary:dict];
+        self.time = [self objectOrNilForKey:kHourlyTime fromDictionary:dict];
     }
     
     return self;
@@ -117,6 +120,7 @@ NSString *const kHourlyChanceofsunshine = @"chanceofsunshine";
     [mutableDict setValue:self.tempC forKey:kHourlyTempC];
     [mutableDict setValue:self.precipMM forKey:kHourlyPrecipMM];
     [mutableDict setValue:self.chanceofsunshine forKey:kHourlyChanceofsunshine];
+    [mutableDict setValue:self.time forKey:kHourlyTime];
 
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
@@ -153,6 +157,7 @@ NSString *const kHourlyChanceofsunshine = @"chanceofsunshine";
     self.tempC = [aDecoder decodeObjectForKey:kHourlyTempC];
     self.precipMM = [aDecoder decodeObjectForKey:kHourlyPrecipMM];
     self.chanceofsunshine = [aDecoder decodeObjectForKey:kHourlyChanceofsunshine];
+    self.time = [aDecoder decodeObjectForKey:kHourlyTime];
     return self;
 }
 
@@ -172,6 +177,7 @@ NSString *const kHourlyChanceofsunshine = @"chanceofsunshine";
     [aCoder encodeObject:_tempC forKey:kHourlyTempC];
     [aCoder encodeObject:_precipMM forKey:kHourlyPrecipMM];
     [aCoder encodeObject:_chanceofsunshine forKey:kHourlyChanceofsunshine];
+    [aCoder encodeObject:_time forKey:kHourlyTime];
 }
 
 - (id)copyWithZone:(NSZone *)zone
@@ -193,6 +199,7 @@ NSString *const kHourlyChanceofsunshine = @"chanceofsunshine";
         copy.tempC = [self.tempC copyWithZone:zone];
         copy.precipMM = [self.precipMM copyWithZone:zone];
         copy.chanceofsunshine = [self.chanceofsunshine copyWithZone:zone];
+        copy.time = [self.time copyWithZone:zone];
     }
     
     return copy;

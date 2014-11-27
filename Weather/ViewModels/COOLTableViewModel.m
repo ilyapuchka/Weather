@@ -12,6 +12,7 @@
 #import "Hourly.h"
 #import "WeatherDesc.h"
 #import "Location.h"
+#import "TimeZone.h"
 
 @interface COOLTableViewModel()
 
@@ -37,12 +38,36 @@
 
 - (UIImage *)weatherIconImage
 {
-    return [UIImage imageNamed:@"Sun_Big"];
+    static NSDictionary *dict;
+    if (!dict) {
+        dict = @{
+                 @"sun": @"Sun_Big",
+                 @"cloud": @"Cloudy_Big",
+                 @"wind": @"Wind_Big",
+                 @"thunder": @"Lightning_Big"
+                 };
+        
+    }
+    NSString *weatherDesc = [[(WeatherDesc *)self.currentHourly.weatherDesc.lastObject value] lowercaseString];
+    __block NSString *imageName;
+    [dict enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        if ([weatherDesc containsString:key]) {
+            imageName = obj;
+            *stop = YES;
+        }
+    }];
+    return [UIImage imageNamed:imageName];
 }
 
 - (NSAttributedString *)locationString
 {
     NSMutableAttributedString *attrString = [NSMutableAttributedString new];
+    if (self.isCurrentLocation) {
+        NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
+        textAttachment.image = [UIImage imageNamed:@"Current"];
+        [attrString appendAttributedString:[NSAttributedString attributedStringWithAttachment:textAttachment]];
+        [attrString appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
+    }
     [attrString appendAttributedString:[[NSAttributedString alloc] initWithString:[self.location displayName]]];
     return [attrString copy];
 }
@@ -51,14 +76,34 @@
 {
     NSMutableAttributedString *attrString = [NSMutableAttributedString new];
     [attrString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@°C ", self.currentHourly.tempC]]];
+    NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
+    textAttachment.image = [UIImage imageNamed:@"Line-blue-devider"];
+    textAttachment.bounds = CGRectMake(0, 0, textAttachment.image.size.width, textAttachment.image.size.height);
+    textAttachment.bounds = CGRectOffset(textAttachment.bounds, 0, -2);
+
+    [attrString appendAttributedString:[NSAttributedString attributedStringWithAttachment:textAttachment]];
+
     [attrString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@" %@", [(WeatherDesc *)self.currentHourly.weatherDesc.lastObject value]]]];
     return [attrString copy];
 }
 
 - (NSString *)chanceOfRainString
 {
-#warning TODO: select max chance of rain, snow, etc
-    return [NSString stringWithFormat:@"%@%%", self.currentHourly.chanceofrain];
+    NSDictionary *chances = @{@"CR": @([self.currentHourly.chanceofrain integerValue]),
+                              @"CS": @([self.currentHourly.chanceofsunshine integerValue]),
+                              @"CL": @([self.currentHourly.chanceofthunder integerValue])};
+    NSNumber *chance = [chances.allValues valueForKeyPath:@"@max.self"];
+    return [NSString stringWithFormat:@"%@%%", chance];
+}
+
+- (UIImage *)chanceOfRainIcon
+{
+    NSDictionary *chances = @{@"CR": @([self.currentHourly.chanceofrain integerValue]),
+                              @"CS": @([self.currentHourly.chanceofsunshine integerValue]),
+                              @"CL": @([self.currentHourly.chanceofthunder integerValue])};
+    NSNumber *chance = [chances.allValues valueForKeyPath:@"@max.self"];
+    NSString *imageName = [[chances allKeysForObject:chance] lastObject];
+    return [UIImage imageNamed:imageName];
 }
 
 - (NSString *)precipString
@@ -89,11 +134,23 @@
 {
     if (!_currentHourly) {
         Weather *weather = [self.forecast.weather lastObject];
-        NSDate *date = [NSDate date];
+        static NSDateFormatter *dateFormatter;
+        if (!dateFormatter) {
+            dateFormatter = [[NSDateFormatter alloc] init];
+            dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm";
+        }
+        NSDate *date = [dateFormatter dateFromString:[(TimeZone *)self.forecast.timeZone.lastObject localtime]];
         NSInteger hour = [[NSCalendar currentCalendar] component:NSCalendarUnitHour fromDate:date];
-        hour = hour / 3;
-#warning TODO: how to get time in selected location
-        _currentHourly = [weather.hourly objectAtIndex:hour];
+        NSString *hourString = [NSString stringWithFormat:@"%li00", (long)hour];
+        NSInteger idx;
+        for (idx = 0; idx < weather.hourly.count; idx++) {
+            Hourly *hourly = weather.hourly[idx];
+            NSComparisonResult result = [hourly.time compare:hourString options:NSNumericSearch];
+            if (result == NSOrderedDescending) {
+                break;
+            }
+        }
+        _currentHourly = [weather.hourly objectAtIndex:MIN(MAX(0, idx - 1), weather.hourly.count - 1)];
     }
     return _currentHourly;
 }

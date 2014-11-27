@@ -41,6 +41,7 @@
     self.locationLabel.attributedText = viewModel.locationString;
     self.weatherDescLabel.attributedText = viewModel.weatherDescString;
     self.chanceOfRainLabel.text = viewModel.chanceOfRainString;
+    self.chanceOfRainIcon.image = viewModel.chanceOfRainIcon;
     self.precipLabel.text = viewModel.precipString;
     self.pressureLabel.text = viewModel.pressureString;
     self.windSpeedLabel.text = viewModel.windSpeedString;

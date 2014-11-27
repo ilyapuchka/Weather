@@ -21,6 +21,7 @@
 - (NSAttributedString *)locationString;
 - (NSAttributedString *)weatherDescString;
 - (NSString *)chanceOfRainString;
+- (UIImage *)chanceOfRainIcon;
 - (NSString *)precipString;
 - (NSString *)pressureString;
 - (NSString *)windSpeedString;

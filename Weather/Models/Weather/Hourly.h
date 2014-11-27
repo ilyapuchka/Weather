@@ -24,6 +24,7 @@
 @property (nonatomic, strong) NSArray *weatherDesc;
 @property (nonatomic, strong) NSString *tempC;
 @property (nonatomic, strong) NSString *precipMM;
+@property (nonatomic, strong) NSString *time;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;

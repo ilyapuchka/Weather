@@ -71,7 +71,7 @@
                                                     <constraint firstAttribute="height" constant="1" id="5ww-RQ-Q4f"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="syO-B5-Cfo">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="syO-B5-Cfo">
                                                 <rect key="frame" x="20" y="18" width="24" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="syO-B5-Cfo" secondAttribute="height" multiplier="1:1" id="VqM-K0-P9x"/>
@@ -468,9 +468,9 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="typhoonKey" value="locationsViewController"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <outlet property="locationsTableView" destination="VTP-gu-yzO" id="KZl-Z1-HOK"/>
                         <outlet property="locationsTableViewDataSource" destination="5m5-zb-AvO" id="tlS-bh-Y9D"/>
                         <outlet property="searchResultsTableViewDataSource" destination="C8b-Z9-YqE" id="Pgf-J9-7IF"/>
+                        <outlet property="tableView" destination="VTP-gu-yzO" id="SrL-Gl-ag3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IME-0T-pqu" userLabel="First Responder" sceneMemberID="firstResponder"/>
