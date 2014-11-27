@@ -50,6 +50,7 @@
 		093876FA1A26446D00ADF480 /* COOLLocationsSearchResultsTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 093876F91A26446D00ADF480 /* COOLLocationsSearchResultsTableViewDataSource.m */; };
 		093876FD1A26459D00ADF480 /* COOLUserLocationsUserDefaultsImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 093876FC1A26459D00ADF480 /* COOLUserLocationsUserDefaultsImpl.m */; };
 		09DA49FD1A27C15800BCDB37 /* ForecastForLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 09DA49FC1A27C15800BCDB37 /* ForecastForLocation.m */; };
+		09DA4A011A27CEBF00BCDB37 /* COOLLocationSearchCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09DA4A001A27CEBF00BCDB37 /* COOLLocationSearchCellModel.m */; };
 		09E894651A269B5200D7B95B /* COOLTodayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E894641A269B5200D7B95B /* COOLTodayView.m */; };
 		09E894681A269D2D00D7B95B /* COOLTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E894671A269D2D00D7B95B /* COOLTableViewModel.m */; };
 		09E8946E1A26A65700D7B95B /* ProximaNova-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 09E8946A1A26A65700D7B95B /* ProximaNova-Bold.otf */; };
@@ -171,6 +172,8 @@
 		09DA49FB1A27C15800BCDB37 /* ForecastForLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastForLocation.h; sourceTree = "<group>"; };
 		09DA49FC1A27C15800BCDB37 /* ForecastForLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastForLocation.m; sourceTree = "<group>"; };
 		09DA49FE1A27C54200BCDB37 /* COOLNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLNotifications.h; sourceTree = "<group>"; };
+		09DA49FF1A27CEBF00BCDB37 /* COOLLocationSearchCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLLocationSearchCellModel.h; sourceTree = "<group>"; };
+		09DA4A001A27CEBF00BCDB37 /* COOLLocationSearchCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLLocationSearchCellModel.m; sourceTree = "<group>"; };
 		09E894631A269B5200D7B95B /* COOLTodayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLTodayView.h; sourceTree = "<group>"; };
 		09E894641A269B5200D7B95B /* COOLTodayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLTodayView.m; sourceTree = "<group>"; };
 		09E894661A269D2D00D7B95B /* COOLTableViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLTableViewModel.h; sourceTree = "<group>"; };
@@ -369,6 +372,8 @@
 				09E894671A269D2D00D7B95B /* COOLTableViewModel.m */,
 				09ED70211A276F1000BE573A /* COOLForecastTableViewCellModel.h */,
 				09ED70221A276F1000BE573A /* COOLForecastTableViewCellModel.m */,
+				09DA49FF1A27CEBF00BCDB37 /* COOLLocationSearchCellModel.h */,
+				09DA4A001A27CEBF00BCDB37 /* COOLLocationSearchCellModel.m */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -738,6 +743,7 @@
 				09ED70201A2764DF00BE573A /* COOLForecastTableViewCell.m in Sources */,
 				09E894681A269D2D00D7B95B /* COOLTableViewModel.m in Sources */,
 				092214F61A25E0E3002A614A /* Request.m in Sources */,
+				09DA4A011A27CEBF00BCDB37 /* COOLLocationSearchCellModel.m in Sources */,
 				092214F51A25E0E3002A614A /* Hourly.m in Sources */,
 				09E894761A26AABB00D7B95B /* TimeZone.m in Sources */,
 				093876DB1A26256300ADF480 /* COOLLocationsViewController.m in Sources */,

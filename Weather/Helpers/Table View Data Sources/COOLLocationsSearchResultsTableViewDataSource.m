@@ -8,6 +8,7 @@
 
 #import "COOLLocationsSearchResultsTableViewDataSource.h"
 #import "COOLUserLocationsRepository.h"
+#import "COOLLocationSearchCellModel.h"
 
 #import "Location.h"
 
@@ -23,11 +24,6 @@
 
 @synthesize output = _output;
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 44.0f;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.items count];
@@ -37,7 +33,8 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:COOLSearchResultsTableViewCellReuseId forIndexPath:indexPath];
     Location *location = self.items[indexPath.row];
-    cell.textLabel.text = [location displayName];
+    COOLLocationSearchCellModel *model = [[COOLLocationSearchCellModel alloc] initWithLocation:location];
+    cell.textLabel.attributedText = model.titleString;
     return cell;
 }
 
