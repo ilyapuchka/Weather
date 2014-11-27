@@ -85,4 +85,17 @@
     [super resetContent];
 }
 
+- (NSString *)missingTransitionFromState:(NSString *)fromState toState:(NSString *)toState
+{
+    if ([toState isEqualToString:COOLStateUndefined]) {
+        if (self.dailyForecast || self.todayForecast) {
+            return COOLLoadingStateRefreshingContent;
+        }
+        else {
+            return COOLLoadingStateLoadingContent;
+        }
+    }
+    return toState;
+}
+
 @end

@@ -87,6 +87,19 @@
     [super resetContent];
 }
 
+- (NSString *)missingTransitionFromState:(NSString *)fromState toState:(NSString *)toState
+{
+    if ([toState isEqualToString:COOLStateUndefined]) {
+        if (self.forecasts) {
+            return COOLLoadingStateRefreshingContent;
+        }
+        else {
+            return COOLLoadingStateLoadingContent;
+        }
+    }
+    return toState;
+}
+
 - (void)dataSource:(COOLDataSource<COOLForecastDataSource> *)dataSource didLoadContentWithError:(NSError *)error
 {
     [self addForecast:[dataSource dailyForecast]];

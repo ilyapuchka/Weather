@@ -80,4 +80,17 @@
     [super resetContent];
 }
 
+- (NSString *)missingTransitionFromState:(NSString *)fromState toState:(NSString *)toState
+{
+    if ([toState isEqualToString:COOLStateUndefined]) {
+        if (self.locations) {
+            return COOLLoadingStateRefreshingContent;
+        }
+        else {
+            return COOLLoadingStateLoadingContent;
+        }
+    }
+    return toState;
+}
+
 @end
