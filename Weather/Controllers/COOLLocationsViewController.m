@@ -18,24 +18,25 @@
 #import "Weather.h"
 #import "Forecast.h"
 
+#import "COOLNotifications.h"
+
 @interface COOLLocationsViewController() <UISearchBarDelegate, COOLDataSourceDelegate, COOLLocationsSelectionOutput>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) IBOutlet UIButton *addButton;
 @property (nonatomic, strong) UIBarButtonItem *doneItem;
 
-@property (nonatomic, copy) Location *selectedLocation;
 @property (nonatomic, copy) NSArray *locations;
 @property (nonatomic, copy) Location *currentUserLocation;
+@property (nonatomic, copy) Location *selectedLocation;
 
-@property (nonatomic, weak) IBOutlet id<COOLTableViewDataSource, COOLLocationsTableViewDataSourceInput> locationsTableViewDataSource;
-@property (nonatomic, weak) IBOutlet id<COOLTableViewDataSource> searchResultsTableViewDataSource;
-@property (nonatomic, weak) id<COOLTableViewDataSource> currentDataSource;
+@property (nonatomic, weak) IBOutlet id<COOLTableViewDataSource, COOLLocationsSelection, COOLLocationsTableViewDataSourceInput> locationsTableViewDataSource;
+@property (nonatomic, weak) IBOutlet id<COOLTableViewDataSource, COOLLocationsSelection> searchResultsTableViewDataSource;
+@property (nonatomic, weak) id<COOLTableViewDataSource, COOLLocationsSelection> currentDataSource;
 
 @end
 
 @implementation COOLLocationsViewController
-
-@synthesize output = _output;
 
 - (void)viewDidLoad
 {
@@ -91,17 +92,17 @@
 
 - (IBAction)closeTapped:(id)sender
 {
-    [self dismiss];
+    [self dismissAndNotify:NO];
 }
 
-- (void)dismiss
+- (void)dismissAndNotify:(BOOL)notify
 {
-    if ([[self.userLocationsRepository userLocations] containsObject:self.selectedLocation]) {
-        [self.output didSelectLocation:self.selectedLocation];
-    }
-    else {
-        //it means we selected current user location, not the location added by user
-        [self.output didSelectLocation:nil];
+    if (notify && self.selectedLocation) {
+        NSDictionary *userInfo = @{}; //no location means we selected current user location, not custom location added by user
+        if ([[self.userLocationsRepository userLocations] containsObject:self.selectedLocation]) {
+            userInfo = @{COOLLocationSelectedNotificationLocationKey: self.selectedLocation};
+        }
+        [[NSNotificationCenter defaultCenter] postNotificationName:COOLLocationSelectedNotification object:self userInfo:userInfo];
     }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -110,6 +111,7 @@
 {
     [self.view endEditing:YES];
     self.navigationItem.titleView = nil;
+    self.addButton.hidden = NO;
     self.navigationItem.title = @"Locations";
     [self.navigationItem setRightBarButtonItem:self.doneItem animated:YES];
     [self.forecastDataSource loadDailyForecastsWithQueries:self.locations days:1];
@@ -125,6 +127,7 @@
     self.navigationItem.titleView = searchBar;
     [self.navigationItem setRightBarButtonItem:nil animated:YES];
     [searchBar becomeFirstResponder];
+    self.addButton.hidden = YES;
     self.currentDataSource = self.searchResultsTableViewDataSource;
     [self.currentDataSource setItems:nil];
     [self reloadData];
@@ -171,27 +174,11 @@
         items = [self.locationsDataSource locations];
     }
     else if (dataSource == self.forecastDataSource) {
-        items = [self forecastsAndLocationsFromDataSource:dataSource];
+        items = [self.forecastDataSource forecasts];
         [self.locationsTableViewDataSource setCurrentUserLocation:self.currentUserLocation];
     }
     [self.currentDataSource setItems:items];
     [self reloadData];
-}
-
-- (NSArray *)forecastsAndLocationsFromDataSource:(id<COOLForecastComposedDataSource>)dataSource
-{
-    NSArray *items;
-    NSMutableArray *mItems = [@[] mutableCopy];
-    [[self.forecastDataSource queriesToForecasts] enumerateKeysAndObjectsUsingBlock:^(Location *query, Forecast *forecast, BOOL *stop) {
-        Weather *weather = [forecast.weather lastObject];
-        NSInteger index = [self.locations indexOfObject:query];
-        [mItems addObject:@{@"index": @(index), @"value": @[weather, query]}];
-    }];
-    [mItems sortUsingComparator:^NSComparisonResult(NSDictionary *obj1, NSDictionary *obj2) {
-        return [obj1[@"index"] compare:obj2[@"index"]];
-    }];
-    items = [[mItems valueForKey:@"value"] copy];
-    return items;
 }
 
 #pragma mark - COOLLocationsTableViewDataSourceOutput
@@ -207,7 +194,7 @@
     }
     else {
         self.selectedLocation = location;
-        [self dismiss];
+        [self dismissAndNotify:YES];
     }
 }
 

@@ -19,8 +19,9 @@
 #import "COOLTableViewDataSource.h"
 
 #import "COOLStoryboardIdentifiers.h"
+#import "COOLNotifications.h"
 
-@interface COOLDailyForecastViewController() <COOLDataSourceDelegate, COOLLocationsSelectionOutput>
+@interface COOLDailyForecastViewController() <COOLDataSourceDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, copy) Location *location;
@@ -37,8 +38,15 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Forecast" image:[[UIImage imageNamed:@"Forecast-normal"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"Forecast-selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didSelectLocation:) name:COOLLocationSelectedNotification object:nil];
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)viewDidLoad
@@ -65,6 +73,7 @@
         [self getLocationForCurrentLocation];
     }
     else {
+        [self setTitleWithLocation:self.location];
         [self loadForecastForLocation:self.location];
     }
 }
@@ -72,6 +81,12 @@
 - (void)setTitleWithLocation:(Location *)location
 {
     self.navigationItem.title = [(AreaName *)location.areaName.lastObject value];
+}
+
+- (void)reloadTableViewWithForecast:(Forecast *)forecast
+{
+    [self.tableViewDataSource setItems:self.forecast.weather];
+    [self.tableView reloadData];
 }
 
 - (void)getLocationForCurrentLocation
@@ -126,8 +141,8 @@
         if (!error && location) {
             if (![self.userLocation isEqual:location]) {
                 self.userLocation = location;
-                [self setTitleWithLocation:self.userLocation];
             }
+            [self setTitleWithLocation:self.userLocation];
             [self loadForecastForLocation:self.userLocation];
         }
     }
@@ -135,8 +150,7 @@
         Forecast *forecast = [self.forecastDataSource dailyForecast];
         if (!error && forecast) {
             self.forecast = forecast;
-            [self.tableViewDataSource setItems:self.forecast.weather];
-            [self.tableView reloadData];
+            [self reloadTableViewWithForecast:self.forecast];
         }
     }
 }
@@ -150,16 +164,19 @@
         if (self.userLocation) {
             [(id<COOLLocationsViewInput>)vc setCurrentUserLocation:self.userLocation];
         }
-        [(id<COOLLocationsSelection>)vc setOutput:self];
     }
 }
 
-#pragma mark - COOLLocationsSelectionOutput
-
-- (void)didSelectLocation:(Location *)location
+- (void)didSelectLocation:(NSNotification *)note
 {
+    Location *location = note.userInfo[COOLLocationSelectedNotificationLocationKey];
+    if (![self.location isEqual:location]) {
+        self.forecast = nil;
+        [self reloadTableViewWithForecast:self.forecast];
+    }
+    
     self.location = location;
-    if (location) {
+    if (self.location) {
         [self setTitleWithLocation:self.location];
     }
     [self reloadData];

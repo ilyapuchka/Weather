@@ -10,6 +10,8 @@
 #import "COOLForecastTableViewCell.h"
 #import "COOLForecastTableViewCellModel.h"
 
+#import "ForecastForLocation.h"
+#import "Forecast.h"
 #import "Weather.h"
 #import "Location.h"
 
@@ -33,8 +35,9 @@
 {
     COOLForecastTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([COOLForecastTableViewCell class]) forIndexPath:indexPath];
     
-    Weather *weather = [self.items[indexPath.row] objectAtIndex:0];
-    Location *location = [self.items[indexPath.row] objectAtIndex:1];
+    ForecastForLocation *item = self.items[indexPath.row];
+    Weather *weather = [item.forecast.weather lastObject];
+    Location *location = item.location;
     
     COOLForecastTableViewCellModel *viewModel = [[COOLForecastTableViewCellModel alloc] initWithDailyWeather:weather forLocation:location isCurrentLocation:[location isEqual:self.currentUserLocation]];
     [cell setWithViewModel:viewModel];
@@ -43,7 +46,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Location *location = [self.items[indexPath.row] objectAtIndex:1];
+    ForecastForLocation *item = self.items[indexPath.row];
+    Location *location = item.location;
     [self.output didSelectLocation:location];
 }
 

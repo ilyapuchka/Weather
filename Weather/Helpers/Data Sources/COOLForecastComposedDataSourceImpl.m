@@ -8,6 +8,7 @@
 
 #import "COOLForecastComposedDataSourceImpl.h"
 #import "COOLForecastDataSource.h"
+#import "ForecastForLocation.h"
 #import "Forecast.h"
 #import "Location.h"
 #import "Typhoon.h"
@@ -15,7 +16,7 @@
 
 @interface COOLForecastComposedDataSourceImpl()
 
-@property (nonatomic, copy) NSMutableDictionary *queriesToForecasts;
+@property (nonatomic, copy) NSArray *forecasts;
 
 @end
 
@@ -63,6 +64,19 @@
     return _dataSources;
 }
 
+- (NSArray *)forecasts
+{
+    if (!_forecasts && self.queries) {
+        NSMutableArray *array = [@[] mutableCopy];
+        for (Location *location in self.queries) {
+            ForecastForLocation *forecastForLocation = [[ForecastForLocation alloc] initWithForecast:nil location:location];
+            [array addObject:forecastForLocation];
+        }
+        _forecasts = [array copy];
+    }
+    return _forecasts;
+}
+
 - (void)loadContent
 {
     [self loadDailyForecastsWithQueries:self.queries days:self.days];
@@ -85,14 +99,14 @@
 
 - (void)resetContent
 {
-    self.queriesToForecasts = nil;
+    self.forecasts = nil;
     [super resetContent];
 }
 
 - (NSString *)missingTransitionFromState:(NSString *)fromState toState:(NSString *)toState
 {
     if ([toState isEqualToString:COOLStateUndefined]) {
-        if (self.queriesToForecasts) {
+        if (self.forecasts) {
             return COOLLoadingStateRefreshingContent;
         }
         else {
@@ -104,20 +118,19 @@
 
 - (void)dataSource:(COOLDataSource<COOLForecastDataSource> *)dataSource didLoadContentWithError:(NSError *)error
 {
-    [self dataSource:dataSource addForecast:[dataSource dailyForecast]];
+    [self updateDataSourceForecast:dataSource];
     [super dataSource:dataSource didLoadContentWithError:error];
 }
 
-- (void)dataSource:(id<COOLForecastDataSource>)dataSource addForecast:(Forecast *)forecast
+- (void)updateDataSourceForecast:(id<COOLForecastDataSource>)dataSource
 {
-    NSCParameterAssert(forecast);
-    if (!forecast) {
-        return;
+    if ([dataSource dailyForecast]) {
+        NSMutableArray *array = [self.forecasts?:@[] mutableCopy];
+        ForecastForLocation *forecastForLocation = [[ForecastForLocation alloc] initWithForecast:[dataSource dailyForecast] location:[dataSource query]];
+        NSInteger idx = [self.dataSources indexOfObject:dataSource];
+        array[idx] = forecastForLocation;
+        self.forecasts = array;
     }
-    
-    NSMutableDictionary *dict = [self.queriesToForecasts?:@{} mutableCopy];
-    [dict setObject:forecast forKey:[dataSource query]];
-    self.queriesToForecasts = dict;
 }
 
 @end

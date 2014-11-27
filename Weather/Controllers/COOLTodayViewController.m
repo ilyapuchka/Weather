@@ -21,7 +21,9 @@
 #import "COOLTodayView.h"
 #import "COOLTableViewModel.h"
 
-@interface COOLTodayViewController() <COOLDataSourceDelegate, COOLLocationsSelectionOutput>
+#import "COOLNotifications.h"
+
+@interface COOLTodayViewController() <COOLDataSourceDelegate>
 
 @property (nonatomic, copy) Location *location;
 @property (nonatomic, copy) Location *userLocation;
@@ -37,8 +39,15 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Today" image:[[UIImage imageNamed:@"Today-normal"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"Today-selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didSelectLocation:) name:COOLLocationSelectedNotification object:nil];
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)viewDidLoad
@@ -157,15 +166,12 @@
         if (self.userLocation) {
             [(id<COOLLocationsViewInput>)vc setCurrentUserLocation:self.userLocation];
         }
-        [(id<COOLLocationsSelection>)vc setOutput:self];
     }
 }
 
-#pragma mark - COOLLocationsSelectionOutput
-
-- (void)didSelectLocation:(Location *)location
+- (void)didSelectLocation:(NSNotification *)note
 {
-    self.location = location;
+    self.location = note.userInfo[COOLLocationSelectedNotificationLocationKey];
     [self reloadData];
 }
 

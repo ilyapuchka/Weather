@@ -16,7 +16,7 @@
 @protocol COOLForecastComposedDataSource;
 @protocol COOLUserLocationsRepository;
 
-@interface COOLLocationsViewController : UIViewController <COOLLocationsViewInput, COOLLocationsSelection>
+@interface COOLLocationsViewController : UIViewController <COOLLocationsViewInput>
 
 @property (nonatomic, strong) id<COOLLocationsDataSource> locationsDataSource;
 @property (nonatomic, strong) id<COOLForecastComposedDataSource> forecastDataSource;

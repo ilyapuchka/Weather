@@ -482,6 +482,7 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="typhoonKey" value="locationsViewController"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
+                        <outlet property="addButton" destination="xsL-AG-Rsa" id="BtX-eb-8bq"/>
                         <outlet property="locationsTableViewDataSource" destination="5m5-zb-AvO" id="tlS-bh-Y9D"/>
                         <outlet property="searchResultsTableViewDataSource" destination="C8b-Z9-YqE" id="Pgf-J9-7IF"/>
                         <outlet property="tableView" destination="VTP-gu-yzO" id="SrL-Gl-ag3"/>

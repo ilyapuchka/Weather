@@ -25,6 +25,13 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    self.subtitleLabel.preferredMaxLayoutWidth = self.contentView.bounds.size.width - 87 - 104;
+    [super layoutSubviews];
+}
+
 - (void)setWithViewModel:(COOLForecastTableViewCellModel *)viewModel
 {
     self.weatherIconImageView.image = viewModel.weatherIconImage;
