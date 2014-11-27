@@ -208,8 +208,9 @@ NSString *const kBaseClassAreaName = @"areaName";
     if (![object isKindOfClass:[self class]]) {
         return NO;
     }
-    return (self.longitude == object.longitude &&
-            self.latitude == object.latitude);
+    return (object != nil &&
+            ((self.longitude == nil && object.longitude == nil) || [self.longitude isEqual:object.longitude]) &&
+            ((self.latitude == nil && object.latitude == nil) || [self.latitude isEqual:object.latitude]));
 }
 
 - (NSUInteger)hash

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 @class Location;
 
@@ -18,5 +19,7 @@
 
 - (Location *)selectedLocation;
 - (void)setSelectedLocation:(Location *)location;
+
+- (BOOL)updateCurrentUserLocation:(BOOL)force withCompletion:(void(^)(BOOL success, CLLocation *location, BOOL changed))completion;
 
 @end

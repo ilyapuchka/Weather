@@ -9,12 +9,17 @@
 #import "COOLUserLocationsUserDefaultsImpl.h"
 #import "Location.h"
 
+#import "INTULocationManager+Extensions.h"
+#import "CLLocation+Extensions.h"
+
 static NSString * const COOLUserLocationsKey = @"userLocations";
 static NSString * const COOLSelectedLocationKey = @"selectedLocation";
 
 @interface COOLUserLocationsUserDefaultsImpl()
 
 @property (nonatomic, strong) NSMutableArray *userLocationsArray;
+
+@property (nonatomic, strong) CLLocation *lastKnownUserLocation;
 
 @end
 
@@ -84,6 +89,44 @@ static NSString * const COOLSelectedLocationKey = @"selectedLocation";
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:COOLSelectedLocationKey];
     }
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (BOOL)updateCurrentUserLocation:(BOOL)force withCompletion:(void (^)(BOOL, CLLocation *, BOOL))completion
+{
+    if (force || [[INTULocationManager sharedInstance] needsUpdateCurrentLocation]) {
+        return [self _currentUserLocationWithCompletion:completion];
+    }
+    else {
+        if (completion) completion(YES, [[INTULocationManager sharedInstance] currentLocation], NO);
+        return NO;
+    }
+}
+
+- (BOOL)_currentUserLocationWithCompletion:(void (^)(BOOL, CLLocation *, BOOL))completion
+{
+    __weak typeof(self) wself = self;
+    static NSInteger locationRequestId;
+    if (locationRequestId == 0) {
+        locationRequestId = [[INTULocationManager sharedInstance] requestLocationWithDesiredAccuracy:INTULocationAccuracyCity timeout:10.f delayUntilAuthorized:YES block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
+            __weak typeof(self) sself = wself;
+            if (status == INTULocationStatusSuccess) {
+                if (!sself.lastKnownUserLocation ||
+                    [currentLocation differsSignificantly:sself.lastKnownUserLocation]) {
+                    sself.lastKnownUserLocation = currentLocation;
+                    if (completion) completion(YES, sself.lastKnownUserLocation, YES);
+                }
+                else {
+                    if (completion) completion(YES, sself.lastKnownUserLocation, NO);
+                }
+            }
+            else {
+                if (completion) completion(NO, sself.lastKnownUserLocation, NO);
+            }
+            locationRequestId = 0;
+        }];
+        return YES;
+    }
+    return NO;
 }
 
 @end

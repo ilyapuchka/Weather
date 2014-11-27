@@ -10,6 +10,8 @@
 
 @interface INTULocationManager (Extensions)
 
+@property (nonatomic, strong) CLLocation *currentLocation;
+
 - (BOOL)needsUpdateCurrentLocation;
 
 @end

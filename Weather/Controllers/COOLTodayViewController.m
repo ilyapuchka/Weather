@@ -23,15 +23,10 @@
 #import "COOLTodayView.h"
 #import "COOLTodayViewModel.h"
 
-#import "CLLocation+Extensions.h"
-#import "INTULocationManager+Extensions.h"
-
 @interface COOLTodayViewController() <COOLDataSourceDelegate, COOLLocationsSelectionOutput>
 
 @property (nonatomic, copy) Location *selectedLocation;
 @property (nonatomic, copy) Location *userLocation;
-
-@property (nonatomic, copy) CLLocation *lastKnownLocation;
 
 @property (nonatomic, retain) COOLTodayView *view;
 
@@ -75,53 +70,21 @@
         [self loadForecastForLocation:self.selectedLocation];
     }
     
-    if (!self.lastKnownLocation || [[INTULocationManager sharedInstance] needsUpdateCurrentLocation]) {
-        [self getUserLocation];
-    }
-    else if (!self.selectedLocation) {
-        [self loadForecastForLocation:self.userLocation];
-    }
-}
-
-- (void)getUserLocation
-{
-    __weak typeof(self) wself = self;
-    static NSInteger locationRequestId;
-    if (locationRequestId == 0) {
+    BOOL updatingLocation = [self.userLocationsRepository updateCurrentUserLocation:NO withCompletion:^(BOOL success, CLLocation *location, BOOL changed) {
+        if ((success && changed) || !self.userLocation) {
+            [self loadLocationsForLocation:location];
+        }
+    }];
+    
+    if (updatingLocation) {
         if (!self.userLocation) {
             self.view.contentView.hidden = YES;
         }
-        locationRequestId = [[INTULocationManager sharedInstance] requestLocationWithDesiredAccuracy:INTULocationAccuracyCity timeout:10.f delayUntilAuthorized:YES block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
-            __weak typeof(self) sself = wself;
-            if (status == INTULocationStatusSuccess) {
-                if (!sself.lastKnownLocation ||
-                    [currentLocation differsSignificantly:sself.lastKnownLocation]) {
-                    sself.lastKnownLocation = currentLocation;
-                    if (!sself.selectedLocation) {
-                        [sself loadLocationsForLocation:sself.lastKnownLocation];
-                    }
-                }
-            }
-            locationRequestId = 0;
-        }];
     }
-}
-
-- (void)getLocationForCurrentLocation
-{
-    __weak typeof(self) wself = self;
-    static NSInteger locationRequestId;
-    if (locationRequestId == 0) {
-        if (!self.userLocation) {
-            self.view.contentView.hidden = YES;
+    else {
+        if (!self.selectedLocation && self.userLocation) {
+            [self loadForecastForLocation:self.userLocation];
         }
-        locationRequestId = [[INTULocationManager sharedInstance] requestLocationWithDesiredAccuracy:INTULocationAccuracyCity timeout:10.f delayUntilAuthorized:YES block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
-            __weak typeof(self) sself = wself;
-            if (status == INTULocationStatusSuccess) {
-                [sself loadLocationsForLocation:currentLocation];
-            }
-            locationRequestId = 0;
-        }];
     }
 }
 

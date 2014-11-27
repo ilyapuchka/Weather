@@ -17,7 +17,7 @@
 
 - (BOOL)needsUpdate
 {
-    return self.timestamp == 0 || [[NSDate date] timeIntervalSinceDate:self.timestamp] > 10 * 60 * 0;
+    return self.timestamp == 0 || [[NSDate date] timeIntervalSinceDate:self.timestamp] > 10 * 60;
 }
 
 @end

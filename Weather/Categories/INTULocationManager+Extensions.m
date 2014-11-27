@@ -8,17 +8,14 @@
 
 #import "INTULocationManager+Extensions.h"
 
-@interface INTULocationManager()
-
-@property (nonatomic, strong) CLLocation *currentLocation;
-
-@end
-
 @implementation INTULocationManager (Extensions)
+
+@dynamic currentLocation;
 
 - (BOOL)needsUpdateCurrentLocation
 {
-    return [self.currentLocation.timestamp timeIntervalSinceDate:[NSDate date]] > 10 * 60 * 0;
+    return (!self.currentLocation ||
+            [self.currentLocation.timestamp timeIntervalSinceDate:[NSDate date]] > 10 * 60);
 }
 
 @end
