@@ -73,6 +73,7 @@
     if (!location) {
         return;
     }
+    _currentUserLocation = location;
     self.locations = [@[location] arrayByAddingObjectsFromArray:[self.userLocationsRepository userLocations]];
 }
 
@@ -155,7 +156,6 @@
     NSArray *items;
     if (dataSource == self.locationsDataSource) {
         items = [self.locationsDataSource locations];
-        [self.locationsTableViewDataSource setCurrentUserLocation:self.currentUserLocation];
     }
     else if (dataSource == self.forecastDataSource) {
         NSMutableArray *mItems = [@[] mutableCopy];
@@ -163,6 +163,7 @@
             [mItems addObject:@[[forecast.weather lastObject], [self.forecastDataSource queries][idx]]];
         }];
         items = [mItems copy];
+        [self.locationsTableViewDataSource setCurrentUserLocation:self.currentUserLocation];
     }
     [self.currentDataSource setItems:items];
     [self.tableView reloadData];

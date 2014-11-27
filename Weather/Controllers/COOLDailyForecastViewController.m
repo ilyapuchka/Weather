@@ -69,27 +69,48 @@
     }
 }
 
-- (void)setLocation:(Location *)location
+- (void)setTitleWithLocation:(Location *)location
 {
-    _location = location;
     self.navigationItem.title = [(AreaName *)location.areaName.lastObject value];
 }
 
 - (void)getLocationForCurrentLocation
 {
     __weak typeof(self) wself = self;
-    [[INTULocationManager sharedInstance] requestLocationWithDesiredAccuracy:INTULocationAccuracyCity timeout:10.f delayUntilAuthorized:YES block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
-        __weak typeof(self) sself = wself;
-        if (status == INTULocationStatusSuccess) {
-            [sself.locationsDataSource loadLocationsWithLatitude:currentLocation.coordinate.latitude longituted:currentLocation.coordinate.longitude];
-        }
-    }];
+    static NSInteger locationRequestId;
+    if (locationRequestId == 0) {
+        locationRequestId = [[INTULocationManager sharedInstance] requestLocationWithDesiredAccuracy:INTULocationAccuracyCity timeout:10.f delayUntilAuthorized:YES block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
+            __weak typeof(self) sself = wself;
+            if (status == INTULocationStatusSuccess) {
+                [sself loadLocationsForLocation:currentLocation];
+            }
+            locationRequestId = 0;
+        }];
+    }
+}
+
+- (void)loadLocationsForLocation:(CLLocation *)location
+{
+    static NSURLSessionDataTask *task;
+    if (task && task.state == NSURLSessionTaskStateRunning) {
+        return;
+    }
+    task = [self.locationsDataSource loadLocationsWithLatitude:location.coordinate.latitude
+                                                    longituted:location.coordinate.longitude];
 }
 
 - (void)loadForecastForLocation:(Location *)location
 {
+    if (!location) {
+        return;
+    }
+    
     NSString *query = [location displayName];
-    [self.forecastDataSource loadDailyForecastWithQuery:query days:5];
+    static NSURLSessionDataTask *task;
+    if (task && task.state == NSURLSessionTaskStateRunning) {
+        return;
+    }
+    task = [self.forecastDataSource loadDailyForecastWithQuery:query days:5];
 }
 
 #pragma mark - COOLDataSourceDelegate
@@ -104,11 +125,11 @@
     if (dataSource == self.locationsDataSource) {
         Location *location = [[self.locationsDataSource locations] firstObject];
         if (!error && location) {
-            self.userLocation = location;
-            if (!self.location) {
-                self.location = self.userLocation;
+            if (![self.userLocation isEqual:location]) {
+                self.userLocation = location;
+                [self setTitleWithLocation:self.userLocation];
             }
-            [self loadForecastForLocation:self.location];
+            [self loadForecastForLocation:self.userLocation];
         }
     }
     else if (dataSource == self.forecastDataSource) {
@@ -139,6 +160,10 @@
 - (void)didSelectLocation:(Location *)location
 {
     self.location = location;
+    if (location) {
+        [self setTitleWithLocation:self.location];
+    }
+    [self reloadData];
 }
 
 @end

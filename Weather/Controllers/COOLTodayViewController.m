@@ -124,18 +124,26 @@
     if (dataSource == self.locationsDataSource) {
         Location *location = [[self.locationsDataSource locations] firstObject];
         if (!error && location) {
-            self.userLocation = location;
-            if (!self.location) {
-                self.location = self.userLocation;
+            if (![self.userLocation isEqual:location]) {
+                self.userLocation = location;
             }
-            [self loadForecastForLocation:self.location];
+            [self loadForecastForLocation:self.userLocation];
         }
     }
     else if (dataSource == self.forecastDataSource) {
         Forecast *forecast = [self.forecastDataSource todayForecast];
         if (!error && forecast) {
             self.view.contentView.hidden = NO;
-            COOLTableViewModel *model = [[COOLTableViewModel alloc] initWithForecast:forecast location:self.location isCurrentLocation:([self.location isEqual: self.userLocation])];
+            COOLTableViewModel *model;
+            if (self.location) {
+                model = [[COOLTableViewModel alloc] initWithForecast:forecast location:self.location isCurrentLocation:([self.location isEqual: self.userLocation])];
+            }
+            else if (self.userLocation) {
+                model = [[COOLTableViewModel alloc] initWithForecast:forecast location:self.userLocation isCurrentLocation:YES];
+            }
+            else {
+                return;
+            }
             [(COOLTodayView *)self.view setWithViewModel:model];
         }
     }
@@ -159,7 +167,6 @@
 - (void)didSelectLocation:(Location *)location
 {
     self.location = location;
-    
     [self reloadData];
 }
 
