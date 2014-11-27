@@ -14,7 +14,6 @@
 NSString *const kBaseClassRegion = @"region";
 NSString *const kBaseClassCountry = @"country";
 NSString *const kBaseClassLongitude = @"longitude";
-NSString *const kBaseClassPopulation = @"population";
 NSString *const kBaseClassLatitude = @"latitude";
 NSString *const kBaseClassAreaName = @"areaName";
 
@@ -30,7 +29,6 @@ NSString *const kBaseClassAreaName = @"areaName";
 @synthesize region = _region;
 @synthesize country = _country;
 @synthesize longitude = _longitude;
-@synthesize population = _population;
 @synthesize latitude = _latitude;
 @synthesize areaName = _areaName;
 
@@ -74,7 +72,7 @@ NSString *const kBaseClassAreaName = @"areaName";
 
         self.country = [NSArray arrayWithArray:parsedCountry];
         self.longitude = [self objectOrNilForKey:kBaseClassLongitude fromDictionary:dict];
-        self.population = [self objectOrNilForKey:kBaseClassPopulation fromDictionary:dict];
+        self.latitude = [self objectOrNilForKey:kBaseClassLatitude fromDictionary:dict];
 
         NSObject *receivedAreaName = [dict objectForKey:kBaseClassAreaName];
         NSMutableArray *parsedAreaName = [NSMutableArray array];
@@ -120,7 +118,6 @@ NSString *const kBaseClassAreaName = @"areaName";
     }
     [mutableDict setValue:[NSArray arrayWithArray:tempArrayForCountry] forKey:kBaseClassCountry];
     [mutableDict setValue:self.longitude forKey:kBaseClassLongitude];
-    [mutableDict setValue:self.population forKey:kBaseClassPopulation];
     [mutableDict setValue:self.latitude forKey:kBaseClassLatitude];
     NSMutableArray *tempArrayForAreaName = [NSMutableArray array];
     for (NSObject *subArrayObject in self.areaName) {
@@ -159,7 +156,6 @@ NSString *const kBaseClassAreaName = @"areaName";
     self.region = [aDecoder decodeObjectForKey:kBaseClassRegion];
     self.country = [aDecoder decodeObjectForKey:kBaseClassCountry];
     self.longitude = [aDecoder decodeObjectForKey:kBaseClassLongitude];
-    self.population = [aDecoder decodeObjectForKey:kBaseClassPopulation];
     self.latitude = [aDecoder decodeObjectForKey:kBaseClassLatitude];
     self.areaName = [aDecoder decodeObjectForKey:kBaseClassAreaName];
     return self;
@@ -171,7 +167,6 @@ NSString *const kBaseClassAreaName = @"areaName";
     [aCoder encodeObject:_region forKey:kBaseClassRegion];
     [aCoder encodeObject:_country forKey:kBaseClassCountry];
     [aCoder encodeObject:_longitude forKey:kBaseClassLongitude];
-    [aCoder encodeObject:_population forKey:kBaseClassPopulation];
     [aCoder encodeObject:_latitude forKey:kBaseClassLatitude];
     [aCoder encodeObject:_areaName forKey:kBaseClassAreaName];
 }
@@ -185,7 +180,6 @@ NSString *const kBaseClassAreaName = @"areaName";
         copy.region = [self.region copyWithZone:zone];
         copy.country = [self.country copyWithZone:zone];
         copy.longitude = [self.longitude copyWithZone:zone];
-        copy.population = [self.population copyWithZone:zone];
         copy.latitude = [self.latitude copyWithZone:zone];
         copy.areaName = [self.areaName copyWithZone:zone];
     }
@@ -204,6 +198,22 @@ NSString *const kBaseClassAreaName = @"areaName";
     addBlock([self.areaName.lastObject value]);
     addBlock([self.region.lastObject value]);
     return [nameComponents componentsJoinedByString:@", "];
+}
+
+- (BOOL)isEqual:(Location *)object
+{
+    if (object == self) {
+        return YES;
+    }
+    if (![object isKindOfClass:[self class]]) {
+        return NO;
+    }
+    return self.longitude == object.longitude && self.latitude == object.latitude;
+}
+
+- (NSUInteger)hash
+{
+    return [self.longitude hash] ^ [self.latitude hash];
 }
 
 @end

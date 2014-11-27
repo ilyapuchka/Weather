@@ -14,7 +14,6 @@
 @property (nonatomic, strong) NSArray *region;
 @property (nonatomic, strong) NSArray *country;
 @property (nonatomic, strong) NSString *longitude;
-@property (nonatomic, strong) NSString *population;
 @property (nonatomic, strong) NSString *latitude;
 @property (nonatomic, strong) NSArray *areaName;
 

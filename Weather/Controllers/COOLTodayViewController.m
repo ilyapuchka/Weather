@@ -80,6 +80,10 @@
 
 - (void)loadForecastForLocation:(Location *)location
 {
+    if (!location) {
+        return;
+    }
+    
     NSString *query = [location displayName];
     [self.forecastDataSource loadTodayForecastWithQuery:query];
 }
@@ -98,16 +102,22 @@
 - (void)dataSource:(id)dataSource didLoadContentWithError:(NSError *)error
 {
     if (dataSource == self.locationsDataSource) {
-        self.userLocation = [[self.locationsDataSource locations] firstObject];
-        if (!self.location) {
-            self.location = self.userLocation;
+        Location *location = [[self.locationsDataSource locations] firstObject];
+        if (!error && location) {
+            self.userLocation = location;
+            if (!self.location) {
+                self.location = self.userLocation;
+            }
+            [self loadForecastForLocation:self.location];
         }
-        [self loadForecastForLocation:self.location];
     }
     else if (dataSource == self.forecastDataSource) {
-        self.view.contentView.hidden = NO;
-        COOLTableViewModel *model = [[COOLTableViewModel alloc] initWithForecast:[self.forecastDataSource todayForecast] location:self.location isCurrentLocation:(self.location == self.userLocation)];
-        [(COOLTodayView *)self.view setWithViewModel:model];
+        Forecast *forecast = [self.forecastDataSource todayForecast];
+        if (!error && forecast) {
+            self.view.contentView.hidden = NO;
+            COOLTableViewModel *model = [[COOLTableViewModel alloc] initWithForecast:forecast location:self.location isCurrentLocation:([self.location isEqual: self.userLocation])];
+            [(COOLTodayView *)self.view setWithViewModel:model];
+        }
     }
 }
 
