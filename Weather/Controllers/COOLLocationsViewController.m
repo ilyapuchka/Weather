@@ -138,7 +138,7 @@
 {
     static NSURLSessionDataTask *task;
     if (task && task.state == NSURLSessionTaskStateRunning) {
-        [task cancel];
+        return;
     }
     task = [self.locationsDataSource loadLocationsWithQuery:searchText];
 }

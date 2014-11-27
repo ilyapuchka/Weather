@@ -77,11 +77,21 @@
         locationRequestId = [[INTULocationManager sharedInstance] requestLocationWithDesiredAccuracy:INTULocationAccuracyCity timeout:10.f delayUntilAuthorized:YES block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
             __weak typeof(self) sself = wself;
             if (status == INTULocationStatusSuccess) {
-                [sself.locationsDataSource loadLocationsWithLatitude:currentLocation.coordinate.latitude longituted:currentLocation.coordinate.longitude];
+                [sself loadLocationsForLocation:currentLocation];
             }
             locationRequestId = 0;
         }];
     }
+}
+
+- (void)loadLocationsForLocation:(CLLocation *)location
+{
+    static NSURLSessionDataTask *task;
+    if (task && task.state == NSURLSessionTaskStateRunning) {
+        return;
+    }
+    task = [self.locationsDataSource loadLocationsWithLatitude:location.coordinate.latitude
+                                                    longituted:location.coordinate.longitude];
 }
 
 - (void)loadForecastForLocation:(Location *)location
@@ -91,7 +101,11 @@
     }
     
     NSString *query = [location displayName];
-    [self.forecastDataSource loadTodayForecastWithQuery:query];
+    static NSURLSessionDataTask *task;
+    if (task && task.state == NSURLSessionTaskStateRunning) {
+        return;
+    }
+    task = [self.forecastDataSource loadTodayForecastWithQuery:query];
 }
 
 #pragma mark - COOLDataSourceDelegate
