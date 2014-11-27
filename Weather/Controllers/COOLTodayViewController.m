@@ -69,13 +69,19 @@
 - (void)getLocationForCurrentLocation
 {
     __weak typeof(self) wself = self;
-    self.view.contentView.hidden = YES;
-    [[INTULocationManager sharedInstance] requestLocationWithDesiredAccuracy:INTULocationAccuracyCity timeout:10.f delayUntilAuthorized:YES block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
-        __weak typeof(self) sself = wself;
-        if (status == INTULocationStatusSuccess) {
-            [sself.locationsDataSource loadLocationsWithLatitude:currentLocation.coordinate.latitude longituted:currentLocation.coordinate.longitude];
+    static NSInteger locationRequestId;
+    if (locationRequestId == 0) {
+        if (!self.userLocation) {
+            self.view.contentView.hidden = YES;
         }
-    }];
+        locationRequestId = [[INTULocationManager sharedInstance] requestLocationWithDesiredAccuracy:INTULocationAccuracyCity timeout:10.f delayUntilAuthorized:YES block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
+            __weak typeof(self) sself = wself;
+            if (status == INTULocationStatusSuccess) {
+                [sself.locationsDataSource loadLocationsWithLatitude:currentLocation.coordinate.latitude longituted:currentLocation.coordinate.longitude];
+            }
+            locationRequestId = 0;
+        }];
+    }
 }
 
 - (void)loadForecastForLocation:(Location *)location
@@ -137,6 +143,7 @@
 - (void)didSelectLocation:(Location *)location
 {
     self.location = location;
+    
     [self reloadData];
 }
 
