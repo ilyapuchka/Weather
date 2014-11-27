@@ -92,7 +92,8 @@
     [self loadContentWithBlock:^(COOLLoadingProcess *loadingProcess) {
         for (NSInteger idx = 0; idx < [self.dataSources count]; idx++) {
             id<COOLForecastDataSource> dataSource = self.dataSources[idx];
-            [dataSource loadDailyForecastWithQuery:dataSource.query days:self.days];
+            [dataSource loadTodayForecastWithQuery:dataSource.query];
+//            [dataSource loadDailyForecastWithQuery:dataSource.query days:self.days];
         }
     }];
 }
@@ -124,9 +125,9 @@
 
 - (void)updateDataSourceForecast:(id<COOLForecastDataSource>)dataSource
 {
-    if ([dataSource dailyForecast]) {
+    if ([dataSource todayForecast]) {
         NSMutableArray *array = [self.forecasts?:@[] mutableCopy];
-        ForecastForLocation *forecastForLocation = [[ForecastForLocation alloc] initWithForecast:[dataSource dailyForecast] location:[dataSource query]];
+        ForecastForLocation *forecastForLocation = [[ForecastForLocation alloc] initWithForecast:[dataSource todayForecast] location:[dataSource query]];
         NSInteger idx = [self.dataSources indexOfObject:dataSource];
         array[idx] = forecastForLocation;
         self.forecasts = array;

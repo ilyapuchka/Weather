@@ -13,32 +13,36 @@
 #import "Hourly.h"
 #import "Weather.h"
 #import "AreaName.h"
+#import "TimeZone.h"
 
 #import "COOLForecastTableViewCell.h"
 
 @interface COOLForecastTableViewCellModel()
 
 @property (nonatomic, copy) Location *location;
-@property (nonatomic, copy) Weather *dailyForecast;
+@property (nonatomic, copy) Forecast *forecast;
+@property (nonatomic, copy) Weather *weather;
+@property (nonatomic, copy) Hourly *currentHourly;
 @property (nonatomic, assign) BOOL isCurrentLocation;
 
 @end
 
 @implementation COOLForecastTableViewCellModel
 
-- (instancetype)initWithDailyWeather:(Weather *)forecast
+- (instancetype)initWithWeather:(Weather *)weather
 {
     self = [super init];
     if (self) {
-        _dailyForecast = forecast;
+        _weather = weather;
     }
     return self;
 }
 
-- (instancetype)initWithDailyWeather:(Weather *)forecast forLocation:(Location *)location isCurrentLocation:(BOOL)isCurrentLocation
+- (instancetype)initWithDailyForecast:(Forecast *)forecast forLocation:(Location *)location isCurrentLocation:(BOOL)isCurrentLocation
 {
-    self = [self initWithDailyWeather:forecast];
+    self = [self init];
     if (self) {
+        _forecast = forecast;
         _location = location;
         _isCurrentLocation = isCurrentLocation;
     }
@@ -87,7 +91,7 @@
             dateFormatter = [[NSDateFormatter alloc] init];
         }
         dateFormatter.dateFormat = @"yyyy-MM-dd";
-        date = [dateFormatter dateFromString:self.dailyForecast.date];
+        date = [dateFormatter dateFromString:self.weather.date];
         dateFormatter.dateFormat = @"EEEE";
         NSString * dayString = [[dateFormatter stringFromDate:date] capitalizedString];
         [attrString appendAttributedString:[[NSAttributedString alloc] initWithString:dayString]];
@@ -106,11 +110,6 @@
     return [NSString stringWithFormat:@"%@°", self.currentHourly.tempC];
 }
 
-- (Hourly *)currentHourly
-{
-    return self.dailyForecast.hourly.lastObject;
-}
-
 - (void)setup:(id<COOLForecastTableViewCellPresentation>)view
 {
     view.weatherIconImageView.image = self.weatherIconImage;
@@ -119,5 +118,43 @@
     view.temperatureLabel.text = self.temperatureString;
 }
 
+#pragma mark - Private
+
+- (Weather *)weather
+{
+    if (!_weather) {
+        return self.forecast.weather.lastObject;
+    }
+    return _weather;
+}
+
+- (Hourly *)currentHourly
+{
+    if (!_currentHourly) {
+        if (!self.forecast) {
+            _currentHourly = self.weather.hourly.lastObject;
+            return _currentHourly;
+        }
+        
+        static NSDateFormatter *dateFormatter;
+        if (!dateFormatter) {
+            dateFormatter = [[NSDateFormatter alloc] init];
+            dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm";
+        }
+        NSDate *date = [dateFormatter dateFromString:[(TimeZone *)self.forecast.timeZone.lastObject localtime]];
+        NSInteger hour = [[NSCalendar currentCalendar] component:NSCalendarUnitHour fromDate:date];
+        NSString *hourString = [NSString stringWithFormat:@"%li00", (long)hour];
+        NSInteger idx;
+        for (idx = 0; idx < self.weather.hourly.count; idx++) {
+            Hourly *hourly = self.weather.hourly[idx];
+            NSComparisonResult result = [hourly.time compare:hourString options:NSNumericSearch];
+            if (result == NSOrderedDescending) {
+                break;
+            }
+        }
+        _currentHourly = [self.weather.hourly objectAtIndex:MIN(MAX(0, idx - 1), self.weather.hourly.count - 1)];
+    }
+    return _currentHourly;
+}
 
 @end

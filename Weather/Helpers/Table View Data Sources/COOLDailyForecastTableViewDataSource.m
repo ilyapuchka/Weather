@@ -28,7 +28,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     COOLForecastTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:COOLForecastTableViewCellReuseId forIndexPath:indexPath];
-    COOLForecastTableViewCellModel *viewModel = [[COOLForecastTableViewCellModel alloc] initWithDailyWeather:self.items[indexPath.row]];
+    COOLForecastTableViewCellModel *viewModel = [[COOLForecastTableViewCellModel alloc] initWithWeather:self.items[indexPath.row]];
     [viewModel setup:cell];
     return cell;
 }

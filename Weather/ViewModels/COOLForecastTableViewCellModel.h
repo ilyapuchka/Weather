@@ -8,15 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class Forecast;
 @class Weather;
 @class Location;
 @protocol COOLForecastTableViewCellPresentation;
 
 @interface COOLForecastTableViewCellModel : NSObject
 
-- (instancetype)initWithDailyWeather:(Weather *)forecast;
+- (instancetype)initWithWeather:(Weather *)weather;
 
-- (instancetype)initWithDailyWeather:(Weather *)forecast
+- (instancetype)initWithDailyForecast:(Forecast *)forecast
                          forLocation:(Location *)location
                    isCurrentLocation:(BOOL)isCurrentLocation;
 

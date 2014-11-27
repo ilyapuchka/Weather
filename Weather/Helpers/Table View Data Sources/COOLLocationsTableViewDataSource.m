@@ -43,10 +43,10 @@
     COOLForecastTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:COOLForecastTableViewCellReuseId forIndexPath:indexPath];
     
     ForecastForLocation *item = self.items[indexPath.row];
-    Weather *weather = [item.forecast.weather lastObject];
+    Forecast *forecast = item.forecast;
     Location *location = item.location;
     
-    COOLForecastTableViewCellModel *viewModel = [[COOLForecastTableViewCellModel alloc] initWithDailyWeather:weather forLocation:location isCurrentLocation:[location isEqual:self.currentUserLocation]];
+    COOLForecastTableViewCellModel *viewModel = [[COOLForecastTableViewCellModel alloc] initWithDailyForecast:forecast forLocation:location isCurrentLocation:[location isEqual:self.currentUserLocation]];
     [viewModel setup:cell];
     return cell;
 }
