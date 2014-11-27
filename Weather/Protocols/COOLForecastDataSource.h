@@ -10,16 +10,17 @@
 #import "COOLDataSourceDelegate.h"
 
 @class Forecast;
+@class Location;
 
 @protocol COOLForecastDataSource <NSObject>
 
 @property (nonatomic, weak) id<COOLDataSourceDelegate> delegate;
 
-@property (nonatomic, copy) NSString *query;
+@property (nonatomic, copy) Location *query;
 @property (nonatomic, assign) NSInteger days;
 
-- (NSURLSessionDataTask *)loadTodayForecastWithQuery:(NSString *)query;
-- (NSURLSessionDataTask *)loadDailyForecastWithQuery:(NSString *)query days:(NSInteger)days;
+- (NSURLSessionDataTask *)loadTodayForecastWithQuery:(Location *)query;
+- (NSURLSessionDataTask *)loadDailyForecastWithQuery:(Location *)query days:(NSInteger)days;
 
 - (Forecast *)dailyForecast;
 - (Forecast *)todayForecast;

@@ -15,7 +15,7 @@
 
 @interface COOLForecastComposedDataSourceImpl()
 
-@property (nonatomic, copy) NSArray *forecasts;
+@property (nonatomic, copy) NSMutableDictionary *queriesToForecasts;
 
 @end
 
@@ -54,7 +54,7 @@
         NetworkComponents *factory = [TyphoonBlockComponentFactory factoryWithAssembly:[NetworkComponents new]];
         for (Location *location in self.queries) {
             id<COOLForecastDataSource> dataSource = [factory forecastDataSource];
-            dataSource.query = [location displayName];
+            dataSource.query = location;
             dataSource.delegate = self;
             [array addObject:dataSource];
         }
@@ -85,14 +85,14 @@
 
 - (void)resetContent
 {
-    self.forecasts = nil;
+    self.queriesToForecasts = nil;
     [super resetContent];
 }
 
 - (NSString *)missingTransitionFromState:(NSString *)fromState toState:(NSString *)toState
 {
     if ([toState isEqualToString:COOLStateUndefined]) {
-        if (self.forecasts) {
+        if (self.queriesToForecasts) {
             return COOLLoadingStateRefreshingContent;
         }
         else {
@@ -104,20 +104,20 @@
 
 - (void)dataSource:(COOLDataSource<COOLForecastDataSource> *)dataSource didLoadContentWithError:(NSError *)error
 {
-    [self addForecast:[dataSource dailyForecast]];
+    [self dataSource:dataSource addForecast:[dataSource dailyForecast]];
     [super dataSource:dataSource didLoadContentWithError:error];
 }
 
-- (void)addForecast:(Forecast *)forecast
+- (void)dataSource:(id<COOLForecastDataSource>)dataSource addForecast:(Forecast *)forecast
 {
     NSCParameterAssert(forecast);
     if (!forecast) {
         return;
     }
     
-    NSMutableArray *array = [self.forecasts?:@[] mutableCopy];
-    [array addObject:forecast];
-    self.forecasts = array;
+    NSMutableDictionary *dict = [self.queriesToForecasts?:@{} mutableCopy];
+    [dict setObject:forecast forKey:[dataSource query]];
+    self.queriesToForecasts = dict;
 }
 
 @end

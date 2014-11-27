@@ -18,6 +18,6 @@
 
 - (void)loadDailyForecastsWithQueries:(NSArray *)queries days:(NSInteger)days;
 
-- (NSArray *)forecasts;
+- (NSDictionary *)queriesToForecasts;
 
 @end

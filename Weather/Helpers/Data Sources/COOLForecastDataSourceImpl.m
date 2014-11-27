@@ -11,6 +11,8 @@
 #import "COOLDailyForecastAPIResponse.h"
 #import "COOLTodayForecastAPIResponse.h"
 
+#import "Location.h"
+
 @interface COOLForecastDataSourceImpl()
 
 @property (nonatomic, strong) id<COOLWeatherAPI> apiClient;
@@ -48,11 +50,11 @@
     [self loadDailyForecastWithQuery:self.query days:self.days];
 }
 
-- (NSURLSessionDataTask *)loadDailyForecastWithQuery:(NSString *)query days:(NSInteger)days
+- (NSURLSessionDataTask *)loadDailyForecastWithQuery:(Location *)query days:(NSInteger)days
 {
     __block NSURLSessionDataTask *task;
     [super loadContentWithBlock:^(COOLLoadingProcess *loadingProcess) {
-        task = [self.apiClient daylyWeatherWithQuery:query days:days success:^(COOLDailyForecastAPIResponse *response) {
+        task = [self.apiClient daylyWeatherWithQuery:[query displayName] days:days success:^(COOLDailyForecastAPIResponse *response) {
             self.dailyForecast = response.forecast;
             [self completeLoadingWithTask:task response:response];
         } failure:^(COOLAPIResponse *response) {
@@ -63,11 +65,11 @@
     return task;
 }
 
-- (NSURLSessionDataTask *)loadTodayForecastWithQuery:(NSString *)query
+- (NSURLSessionDataTask *)loadTodayForecastWithQuery:(Location *)query
 {
     __block NSURLSessionDataTask *task;
     [super loadContentWithBlock:^(COOLLoadingProcess *loadingProcess) {
-        task = [self.apiClient todayWeatherWithQuery:query success:^(COOLTodayForecastAPIResponse *response) {
+        task = [self.apiClient todayWeatherWithQuery:[query displayName] success:^(COOLTodayForecastAPIResponse *response) {
             self.todayForecast = response.todayForecast;
             [self completeLoadingWithTask:task response:response];
         } failure:^(COOLAPIResponse *response) {

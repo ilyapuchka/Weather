@@ -52,6 +52,10 @@
             self.locations = response.locations;
             [self completeLoadingWithTask:task response:response];
         } failure:^(COOLAPIResponse *response) {
+            if ([response.error.domain isEqualToString:NSURLErrorDomain] &&
+                response.error.code == NSURLErrorCancelled) {
+                return;
+            }
             self.locations = nil;
             [self completeLoadingWithTask:task response:response];
         }];

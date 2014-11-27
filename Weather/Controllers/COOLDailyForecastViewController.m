@@ -105,12 +105,11 @@
         return;
     }
     
-    NSString *query = [location displayName];
     static NSURLSessionDataTask *task;
     if (task && task.state == NSURLSessionTaskStateRunning) {
         return;
     }
-    task = [self.forecastDataSource loadDailyForecastWithQuery:query days:5];
+    task = [self.forecastDataSource loadDailyForecastWithQuery:location days:5];
 }
 
 #pragma mark - COOLDataSourceDelegate

@@ -27,6 +27,7 @@ static NSString *const COOLUserLocationsKey = @"userLocations";
     }
     
     [self.userLocationsArray addObject:location];
+    [self saveUserLocations:self.userLocationsArray];
 }
 
 - (void)removeUserLocation:(Location *)location
@@ -36,11 +37,13 @@ static NSString *const COOLUserLocationsKey = @"userLocations";
     }
     
     [self.userLocationsArray removeObject:location];
+    [self saveUserLocations:self.userLocationsArray];
 }
 
 - (void)saveUserLocations:(NSArray *)locations
 {
-    [[NSUserDefaults standardUserDefaults] setObject:locations forKey:COOLUserLocationsKey];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:locations];
+    [[NSUserDefaults standardUserDefaults] setObject:data forKey:COOLUserLocationsKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
@@ -52,7 +55,9 @@ static NSString *const COOLUserLocationsKey = @"userLocations";
 - (NSMutableArray *)userLocationsArray
 {
     if (!_userLocationsArray) {
-        _userLocationsArray = [[[NSUserDefaults standardUserDefaults] objectForKey:COOLUserLocationsKey] mutableCopy];
+        NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:COOLUserLocationsKey];
+        _userLocationsArray = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        _userLocationsArray = [_userLocationsArray?:@[] mutableCopy];
     }
     return _userLocationsArray;
 }

@@ -75,7 +75,18 @@
         return;
     }
     _currentUserLocation = location;
-    self.locations = [@[location] arrayByAddingObjectsFromArray:[self.userLocationsRepository userLocations]];
+    _locations = nil;
+}
+
+- (NSArray *)locations
+{
+    if (!_locations) {
+        _locations = [self.userLocationsRepository userLocations];
+        if (self.currentUserLocation) {
+            _locations = [@[self.currentUserLocation] arrayByAddingObjectsFromArray:_locations];
+        }
+    }
+    return _locations;
 }
 
 - (IBAction)closeTapped:(id)sender
@@ -115,6 +126,7 @@
     [self.navigationItem setRightBarButtonItem:nil animated:YES];
     [searchBar becomeFirstResponder];
     self.currentDataSource = self.searchResultsTableViewDataSource;
+    [self.currentDataSource setItems:nil];
     [self reloadData];
 }
 
@@ -140,7 +152,7 @@
 {
     static NSURLSessionDataTask *task;
     if (task && task.state == NSURLSessionTaskStateRunning) {
-        return;
+        [task cancel];
     }
     task = [self.locationsDataSource loadLocationsWithQuery:searchText];
 }
@@ -159,15 +171,27 @@
         items = [self.locationsDataSource locations];
     }
     else if (dataSource == self.forecastDataSource) {
-        NSMutableArray *mItems = [@[] mutableCopy];
-        [[self.forecastDataSource forecasts] enumerateObjectsUsingBlock:^(Forecast *forecast, NSUInteger idx, BOOL *stop) {
-            [mItems addObject:@[[forecast.weather lastObject], [self.forecastDataSource queries][idx]]];
-        }];
-        items = [mItems copy];
+        items = [self forecastsAndLocationsFromDataSource:dataSource];
         [self.locationsTableViewDataSource setCurrentUserLocation:self.currentUserLocation];
     }
     [self.currentDataSource setItems:items];
     [self reloadData];
+}
+
+- (NSArray *)forecastsAndLocationsFromDataSource:(id<COOLForecastComposedDataSource>)dataSource
+{
+    NSArray *items;
+    NSMutableArray *mItems = [@[] mutableCopy];
+    [[self.forecastDataSource queriesToForecasts] enumerateKeysAndObjectsUsingBlock:^(Location *query, Forecast *forecast, BOOL *stop) {
+        Weather *weather = [forecast.weather lastObject];
+        NSInteger index = [self.locations indexOfObject:query];
+        [mItems addObject:@{@"index": @(index), @"value": @[weather, query]}];
+    }];
+    [mItems sortUsingComparator:^NSComparisonResult(NSDictionary *obj1, NSDictionary *obj2) {
+        return [obj1[@"index"] compare:obj2[@"index"]];
+    }];
+    items = [[mItems valueForKey:@"value"] copy];
+    return items;
 }
 
 #pragma mark - COOLLocationsTableViewDataSourceOutput
@@ -177,6 +201,7 @@
     if (self.currentDataSource == self.searchResultsTableViewDataSource) {
         if (![[self.userLocationsRepository userLocations] containsObject:location]) {
             [self.userLocationsRepository addUserLocation:location];
+            self.locations = nil;
             [self showLocations];
         }
     }
