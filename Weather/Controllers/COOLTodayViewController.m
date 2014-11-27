@@ -23,10 +23,15 @@
 #import "COOLTodayView.h"
 #import "COOLTableViewModel.h"
 
+#import "CLLocation+Extensions.h"
+#import "INTULocationManager+Extensions.h"
+
 @interface COOLTodayViewController() <COOLDataSourceDelegate, COOLLocationsSelectionOutput>
 
-@property (nonatomic, copy) Location *location;
+@property (nonatomic, copy) Location *selectedLocation;
 @property (nonatomic, copy) Location *userLocation;
+
+@property (nonatomic, copy) CLLocation *lastKnownLocation;
 
 @property (nonatomic, retain) COOLTodayView *view;
 
@@ -60,17 +65,45 @@
 {
     [super viewWillAppear:animated];
     
-    self.location = [self.userLocationsRepository selectedLocation];
+    self.selectedLocation = [self.userLocationsRepository selectedLocation];
     [self reloadData];
 }
 
 - (void)reloadData
 {
-    if (!self.location) {
-        [self getLocationForCurrentLocation];
+    if (self.selectedLocation) {
+        [self loadForecastForLocation:self.selectedLocation];
     }
-    else {
-        [self loadForecastForLocation:self.location];
+    
+    if (!self.lastKnownLocation || [[INTULocationManager sharedInstance] needsUpdateCurrentLocation]) {
+        [self getUserLocation];
+    }
+    else if (!self.selectedLocation) {
+        [self loadForecastForLocation:self.userLocation];
+    }
+}
+
+- (void)getUserLocation
+{
+    __weak typeof(self) wself = self;
+    static NSInteger locationRequestId;
+    if (locationRequestId == 0) {
+        if (!self.userLocation) {
+            self.view.contentView.hidden = YES;
+        }
+        locationRequestId = [[INTULocationManager sharedInstance] requestLocationWithDesiredAccuracy:INTULocationAccuracyCity timeout:10.f delayUntilAuthorized:YES block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
+            __weak typeof(self) sself = wself;
+            if (status == INTULocationStatusSuccess) {
+                if (!sself.lastKnownLocation ||
+                    [currentLocation differsSignificantly:sself.lastKnownLocation]) {
+                    sself.lastKnownLocation = currentLocation;
+                    if (!sself.selectedLocation) {
+                        [sself loadLocationsForLocation:sself.lastKnownLocation];
+                    }
+                }
+            }
+            locationRequestId = 0;
+        }];
     }
 }
 
@@ -134,7 +167,9 @@
             if (![self.userLocation isEqual:location]) {
                 self.userLocation = location;
             }
-            [self loadForecastForLocation:self.userLocation];
+            if (!self.selectedLocation) {
+                [self loadForecastForLocation:self.userLocation];
+            }
         }
     }
     else if (dataSource == self.forecastDataSource) {
@@ -142,8 +177,8 @@
         if (!error && forecast) {
             self.view.contentView.hidden = NO;
             COOLTableViewModel *model;
-            if (self.location) {
-                model = [[COOLTableViewModel alloc] initWithForecast:forecast location:self.location isCurrentLocation:([self.location isEqual: self.userLocation])];
+            if (self.selectedLocation) {
+                model = [[COOLTableViewModel alloc] initWithForecast:forecast location:self.selectedLocation isCurrentLocation:([self.selectedLocation isEqual: self.userLocation])];
             }
             else if (self.userLocation) {
                 model = [[COOLTableViewModel alloc] initWithForecast:forecast location:self.userLocation isCurrentLocation:YES];
@@ -171,8 +206,7 @@
 
 - (void)didSelectLocation:(Location *)location
 {
-    self.location = location;
-    [self reloadData];
+    self.selectedLocation = location;
 }
 
 - (IBAction)shareTapped:(id)sender

@@ -22,13 +22,18 @@
 
 #import "COOLStoryboardIdentifiers.h"
 
+#import "CLLocation+Extensions.h"
+#import "INTULocationManager+Extensions.h"
+
 @interface COOLDailyForecastViewController() <COOLDataSourceDelegate, COOLLocationsSelectionOutput>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
-@property (nonatomic, copy) Location *location;
+@property (nonatomic, copy) Location *selectedLocation;
 @property (nonatomic, copy) Location *userLocation;
 @property (nonatomic, copy) Forecast *forecast;
 @property (nonatomic, strong) IBOutlet id<COOLTableViewDataSource> tableViewDataSource;
+
+@property (nonatomic, copy) CLLocation *lastKnownLocation;
 
 @end
 
@@ -63,18 +68,23 @@
 {
     [super viewWillAppear:animated];
     
-    self.location = [self.userLocationsRepository selectedLocation];
+    self.selectedLocation = [self.userLocationsRepository selectedLocation];
     [self reloadData];
 }
 
 - (void)reloadData
 {
-    if (!self.location) {
-        [self getLocationForCurrentLocation];
+    if (self.selectedLocation) {
+        [self setTitleWithLocation:self.selectedLocation];
+        [self loadForecastForLocation:self.selectedLocation];
     }
-    else {
-        [self setTitleWithLocation:self.location];
-        [self loadForecastForLocation:self.location];
+    
+    if (!self.lastKnownLocation || [[INTULocationManager sharedInstance] needsUpdateCurrentLocation]) {
+        [self getUserLocation];
+    }
+    else if (!self.selectedLocation) {
+        [self setTitleWithLocation:self.userLocation];
+        [self loadForecastForLocation:self.userLocation];
     }
 }
 
@@ -89,7 +99,7 @@
     [self.tableView reloadData];
 }
 
-- (void)getLocationForCurrentLocation
+- (void)getUserLocation
 {
     __weak typeof(self) wself = self;
     static NSInteger locationRequestId;
@@ -97,7 +107,13 @@
         locationRequestId = [[INTULocationManager sharedInstance] requestLocationWithDesiredAccuracy:INTULocationAccuracyCity timeout:10.f delayUntilAuthorized:YES block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
             __weak typeof(self) sself = wself;
             if (status == INTULocationStatusSuccess) {
-                [sself loadLocationsForLocation:currentLocation];
+                if (!sself.lastKnownLocation ||
+                    [currentLocation differsSignificantly:sself.lastKnownLocation]) {
+                    sself.lastKnownLocation = currentLocation;
+                    if (!sself.selectedLocation) {
+                        [sself loadLocationsForLocation:sself.lastKnownLocation];
+                    }
+                }
             }
             locationRequestId = 0;
         }];
@@ -142,8 +158,10 @@
             if (![self.userLocation isEqual:location]) {
                 self.userLocation = location;
             }
-            [self setTitleWithLocation:self.userLocation];
-            [self loadForecastForLocation:self.userLocation];
+            if (!self.selectedLocation) {
+                [self setTitleWithLocation:self.userLocation];
+                [self loadForecastForLocation:self.userLocation];
+            }
         }
     }
     else if (dataSource == self.forecastDataSource) {
@@ -170,16 +188,13 @@
 
 - (void)didSelectLocation:(Location *)location
 {
-    if (![self.location isEqual:location]) {
+    if (![self.selectedLocation isEqual:location]) {
         self.forecast = nil;
         [self reloadTableViewWithForecast:self.forecast];
     }
     
-    self.location = location;
-    if (self.location) {
-        [self setTitleWithLocation:self.location];
-    }
-    [self reloadData];
+    self.selectedLocation = location;
+    [self setTitleWithLocation:self.selectedLocation];
 }
 
 @end

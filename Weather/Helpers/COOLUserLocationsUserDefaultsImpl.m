@@ -66,7 +66,12 @@ static NSString * const COOLSelectedLocationKey = @"selectedLocation";
 - (Location *)selectedLocation
 {
     NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:COOLSelectedLocationKey];
-    return [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    if (data) {
+        return [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    }
+    else {
+        return nil;
+    }
 }
 
 - (void)setSelectedLocation:(Location *)location

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09085CDC1A27DA7F00A01689 /* CLLocation+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 09085CDB1A27DA7F00A01689 /* CLLocation+Extensions.m */; };
+		09085CDF1A27DFC800A01689 /* INTULocationManager+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 09085CDE1A27DFC800A01689 /* INTULocationManager+Extensions.m */; };
 		0922146D1A253F86002A614A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0922146C1A253F86002A614A /* main.m */; };
 		092214761A253F86002A614A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 092214741A253F86002A614A /* Main.storyboard */; };
 		092214781A253F86002A614A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 092214771A253F86002A614A /* Images.xcassets */; };
@@ -76,6 +78,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09085CDA1A27DA7F00A01689 /* CLLocation+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocation+Extensions.h"; sourceTree = "<group>"; };
+		09085CDB1A27DA7F00A01689 /* CLLocation+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocation+Extensions.m"; sourceTree = "<group>"; };
+		09085CDD1A27DFC800A01689 /* INTULocationManager+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "INTULocationManager+Extensions.h"; sourceTree = "<group>"; };
+		09085CDE1A27DFC800A01689 /* INTULocationManager+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "INTULocationManager+Extensions.m"; sourceTree = "<group>"; };
 		092214671A253F86002A614A /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0922146B1A253F86002A614A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0922146C1A253F86002A614A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -218,6 +224,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09085CD91A27DA3800A01689 /* CLLocation */ = {
+			isa = PBXGroup;
+			children = (
+				09085CDA1A27DA7F00A01689 /* CLLocation+Extensions.h */,
+				09085CDB1A27DA7F00A01689 /* CLLocation+Extensions.m */,
+				09085CDD1A27DFC800A01689 /* INTULocationManager+Extensions.h */,
+				09085CDE1A27DFC800A01689 /* INTULocationManager+Extensions.m */,
+			);
+			name = CLLocation;
+			sourceTree = "<group>";
+		};
 		0922145E1A253F86002A614A = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +318,7 @@
 		092214941A25401C002A614A /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				09085CD91A27DA3800A01689 /* CLLocation */,
 				093876DC1A26258900ADF480 /* ViewController */,
 				092215011A25E96D002A614A /* EKObjectMapping */,
 			);
@@ -737,6 +755,7 @@
 				093876FD1A26459D00ADF480 /* COOLUserLocationsUserDefaultsImpl.m in Sources */,
 				092214C71A254215002A614A /* COOLTodayForecastAPIResponse.m in Sources */,
 				093876F41A26444C00ADF480 /* COOLDailyForecastTableViewDataSource.m in Sources */,
+				09085CDC1A27DA7F00A01689 /* CLLocation+Extensions.m in Sources */,
 				092215311A25F6BF002A614A /* COOLForecastDataSourceImpl.m in Sources */,
 				092215001A25E80A002A614A /* NetworkComponents.m in Sources */,
 				093876E11A26258900ADF480 /* UIViewController+SegueUserInfo.m in Sources */,
@@ -744,6 +763,7 @@
 				092214C41A2541F5002A614A /* COOLSearchAPIResponse.m in Sources */,
 				092214F81A25E0E3002A614A /* WeatherDesc.m in Sources */,
 				092214CF1A2543CC002A614A /* COOLSearchAPIRequest.m in Sources */,
+				09085CDF1A27DFC800A01689 /* INTULocationManager+Extensions.m in Sources */,
 				093876D21A26250300ADF480 /* COOLTodayViewController.m in Sources */,
 				093876D81A26252E00ADF480 /* COOLDailyForecastViewController.m in Sources */,
 				09ED70201A2764DF00BE573A /* COOLForecastTableViewCell.m in Sources */,
