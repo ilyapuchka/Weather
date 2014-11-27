@@ -24,6 +24,7 @@
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, copy) Location *location;
+@property (nonatomic, copy) Location *userLocation;
 @property (nonatomic, copy) Forecast *forecast;
 @property (nonatomic, strong) IBOutlet id<COOLTableViewDataSource> tableViewDataSource;
 
@@ -103,7 +104,10 @@
     if (dataSource == self.locationsDataSource) {
         Location *location = [[self.locationsDataSource locations] firstObject];
         if (!error && location) {
-            self.location = location;
+            self.userLocation = location;
+            if (!self.location) {
+                self.location = self.userLocation;
+            }
             [self loadForecastForLocation:self.location];
         }
     }
@@ -123,7 +127,9 @@
 {
     if ([segue.identifier isEqualToString:COOLShowLocations]) {
         id vc = [(UINavigationController *)segue.destinationViewController topViewController];
-        [(id<COOLLocationsViewInput>)vc setCurrentUserLocation:self.location];
+        if (self.userLocation) {
+            [(id<COOLLocationsViewInput>)vc setCurrentUserLocation:self.userLocation];
+        }
         [(id<COOLLocationsSelection>)vc setOutput:self];
     }
 }
@@ -133,7 +139,6 @@
 - (void)didSelectLocation:(Location *)location
 {
     self.location = location;
-    [self reloadData];
 }
 
 @end
