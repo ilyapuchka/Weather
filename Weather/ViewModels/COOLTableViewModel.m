@@ -90,8 +90,10 @@
     if (!_currentHourly) {
         Weather *weather = [self.forecast.weather lastObject];
         NSDate *date = [NSDate date];
-#warning TODO: find hourly for current time
-        _currentHourly = [weather.hourly lastObject];
+        NSInteger hour = [[NSCalendar currentCalendar] component:NSCalendarUnitHour fromDate:date];
+        hour = hour / 3;
+#warning TODO: how to get time in selected location
+        _currentHourly = [weather.hourly objectAtIndex:hour];
     }
     return _currentHourly;
 }

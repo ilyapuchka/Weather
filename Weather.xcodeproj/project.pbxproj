@@ -59,6 +59,7 @@
 		09E8946F1A26A65700D7B95B /* ProximaNova-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 09E8946B1A26A65700D7B95B /* ProximaNova-Light.otf */; };
 		09E894701A26A65700D7B95B /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 09E8946C1A26A65700D7B95B /* ProximaNova-Regular.otf */; };
 		09E894711A26A65700D7B95B /* ProximaNova-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 09E8946D1A26A65700D7B95B /* ProximaNova-Semibold.otf */; };
+		09E894761A26AABB00D7B95B /* TimeZone.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E894751A26AABB00D7B95B /* TimeZone.m */; };
 		5F2E8026CF92388742E15B90 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6FA99A54B363D495378D33 /* libPods.a */; };
 		B72236D1D1643D1FD7D36065 /* libPods-Weather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B0B32FE5B0B6EB82894486 /* libPods-Weather.a */; };
 /* End PBXBuildFile section */
@@ -183,6 +184,8 @@
 		09E8946B1A26A65700D7B95B /* ProximaNova-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Light.otf"; sourceTree = "<group>"; };
 		09E8946C1A26A65700D7B95B /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.otf"; sourceTree = "<group>"; };
 		09E8946D1A26A65700D7B95B /* ProximaNova-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Semibold.otf"; sourceTree = "<group>"; };
+		09E894741A26AABB00D7B95B /* TimeZone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeZone.h; sourceTree = "<group>"; };
+		09E894751A26AABB00D7B95B /* TimeZone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeZone.m; sourceTree = "<group>"; };
 		148FA9D5671E73E74C2D367E /* Pods-Weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weather/Pods-Weather.debug.xcconfig"; sourceTree = "<group>"; };
 		6E6FA99A54B363D495378D33 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2B0B32FE5B0B6EB82894486 /* libPods-Weather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Weather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -466,6 +469,8 @@
 				092214F11A25E0E3002A614A /* Weather.m */,
 				092214F21A25E0E3002A614A /* WeatherDesc.h */,
 				092214F31A25E0E3002A614A /* WeatherDesc.m */,
+				09E894741A26AABB00D7B95B /* TimeZone.h */,
+				09E894751A26AABB00D7B95B /* TimeZone.m */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -742,6 +747,7 @@
 				09E894681A269D2D00D7B95B /* COOLTableViewModel.m in Sources */,
 				092214F61A25E0E3002A614A /* Request.m in Sources */,
 				092214F51A25E0E3002A614A /* Hourly.m in Sources */,
+				09E894761A26AABB00D7B95B /* TimeZone.m in Sources */,
 				093876DB1A26256300ADF480 /* COOLLocationsViewController.m in Sources */,
 				092214E21A254B41002A614A /* COOLTodayForecastAPIRequest.m in Sources */,
 				092215271A25EFBC002A614A /* Country.m in Sources */,

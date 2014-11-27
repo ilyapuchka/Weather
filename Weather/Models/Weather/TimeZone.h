@@ -1,7 +1,7 @@
 //
-//  BaseClass.h
+//  TimeZone.h
 //
-//  Created by Ilya Puchka on 26.11.14
+//  Created by Ilya Puchka on 27.11.14
 //  Copyright (c) 2014 Rambler&Co. All rights reserved.
 //
 
@@ -9,11 +9,10 @@
 
 
 
-@interface Forecast : NSObject <NSCoding, NSCopying>
+@interface TimeZone : NSObject <NSCoding, NSCopying>
 
-@property (nonatomic, strong) NSArray *request;
-@property (nonatomic, strong) NSArray *weather;
-@property (nonatomic, strong) NSArray *timeZone;
+@property (nonatomic, strong) NSString *utcOffset;
+@property (nonatomic, strong) NSString *localtime;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;

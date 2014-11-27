@@ -8,10 +8,12 @@
 #import "Forecast.h"
 #import "Request.h"
 #import "Weather.h"
+#import "TimeZone.h"
 
 
 NSString *const kBaseClassRequest = @"request";
 NSString *const kBaseClassWeather = @"weather";
+NSString *const kBaseClassTimeZone = @"time_zone";
 
 
 @interface Forecast ()
@@ -64,6 +66,19 @@ NSString *const kBaseClassWeather = @"weather";
         }
 
         self.weather = [NSArray arrayWithArray:parsedWeather];
+        
+        NSObject *receivedTimeZone = [dict objectForKey:kBaseClassTimeZone];
+        NSMutableArray *parsedTimeZone = [NSMutableArray array];
+        if ([receivedTimeZone isKindOfClass:[NSArray class]]) {
+            for (NSDictionary *item in (NSArray *)receivedTimeZone) {
+                if ([item isKindOfClass:[NSDictionary class]]) {
+                    [parsedTimeZone addObject:[TimeZone modelObjectWithDictionary:item]];
+                }
+            }
+        } else if ([receivedTimeZone isKindOfClass:[NSDictionary class]]) {
+            [parsedTimeZone addObject:[TimeZone modelObjectWithDictionary:(NSDictionary *)receivedTimeZone]];
+        }
+        self.timeZone = [NSArray arrayWithArray:parsedTimeZone];
     }
     
     return self;
@@ -95,6 +110,18 @@ NSString *const kBaseClassWeather = @"weather";
         }
     }
     [mutableDict setValue:[NSArray arrayWithArray:tempArrayForWeather] forKey:kBaseClassWeather];
+    
+    NSMutableArray *tempArrayForTimeZone = [NSMutableArray array];
+    for (NSObject *subArrayObject in self.timeZone) {
+        if([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
+            // This class is a model object
+            [tempArrayForTimeZone addObject:[subArrayObject performSelector:@selector(dictionaryRepresentation)]];
+        } else {
+            // Generic object
+            [tempArrayForTimeZone addObject:subArrayObject];
+        }
+    }
+    [mutableDict setValue:[NSArray arrayWithArray:tempArrayForTimeZone] forKey:kBaseClassTimeZone];
 
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
@@ -120,6 +147,8 @@ NSString *const kBaseClassWeather = @"weather";
 
     self.request = [aDecoder decodeObjectForKey:kBaseClassRequest];
     self.weather = [aDecoder decodeObjectForKey:kBaseClassWeather];
+    self.timeZone = [aDecoder decodeObjectForKey:kBaseClassTimeZone];
+
     return self;
 }
 
@@ -127,6 +156,8 @@ NSString *const kBaseClassWeather = @"weather";
 {
     [aCoder encodeObject:_request forKey:kBaseClassRequest];
     [aCoder encodeObject:_weather forKey:kBaseClassWeather];
+    [aCoder encodeObject:_timeZone forKey:kBaseClassTimeZone];
+
 }
 
 - (id)copyWithZone:(NSZone *)zone
@@ -136,6 +167,7 @@ NSString *const kBaseClassWeather = @"weather";
     if (copy) {
         copy.request = [self.request copyWithZone:zone];
         copy.weather = [self.weather copyWithZone:zone];
+        copy.timeZone = [self.timeZone copyWithZone:zone];
     }
     
     return copy;

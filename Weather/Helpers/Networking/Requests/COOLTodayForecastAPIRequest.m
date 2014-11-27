@@ -17,7 +17,7 @@
         return nil;
     }
     
-    return [self initWithMethod:COOLAPIGETRequest path:@"weather.ashx" parameters:@{@"q": query, @"tp": @"3", @"num_of_days":@"1", @"date":@"today", @"cc": @"no"}];
+    return [self initWithMethod:COOLAPIGETRequest path:@"weather.ashx" parameters:@{@"q": query, @"tp": @"3", @"num_of_days":@"1", @"date":@"today", @"cc": @"no", @"showlocaltime": @"yes"}];
 }
 
 @end

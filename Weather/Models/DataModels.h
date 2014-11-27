@@ -14,4 +14,5 @@
 #import "AreaName.h"
 #import "Country.h"
 #import "Region.h"
+#import "TimeZone.h"
 
