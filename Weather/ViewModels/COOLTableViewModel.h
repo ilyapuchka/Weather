@@ -10,6 +10,7 @@
 
 @class Forecast;
 @class Location;
+@protocol COOLTodayViewPresentation;
 
 @interface COOLTableViewModel : NSObject
 
@@ -26,5 +27,7 @@
 - (NSString *)pressureString;
 - (NSString *)windSpeedString;
 - (NSString *)windDirectionString;
+
+- (void)setup:(id<COOLTodayViewPresentation>)view;
 
 @end

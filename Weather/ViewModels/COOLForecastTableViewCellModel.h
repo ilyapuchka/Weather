@@ -10,6 +10,7 @@
 
 @class Weather;
 @class Location;
+@protocol COOLForecastTableViewCellPresentation;
 
 @interface COOLForecastTableViewCellModel : NSObject
 
@@ -23,5 +24,7 @@
 - (NSAttributedString *)titleString;
 - (NSString *)subtitleString;
 - (NSString *)temperatureString;
+
+- (void)setup:(id<COOLForecastTableViewCellPresentation>)view;
 
 @end

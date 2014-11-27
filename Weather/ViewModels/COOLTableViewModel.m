@@ -1,5 +1,5 @@
 //
-//  COOLTableViewModel.m
+//  COOLTableself.m
 //  Weather
 //
 //  Created by Ilya Puchka on 27.11.14.
@@ -13,6 +13,8 @@
 #import "WeatherDesc.h"
 #import "Location.h"
 #import "TimeZone.h"
+
+#import "COOLTodayViewPresentation.h"
 
 @interface COOLTableViewModel()
 
@@ -153,6 +155,19 @@
         _currentHourly = [weather.hourly objectAtIndex:MIN(MAX(0, idx - 1), weather.hourly.count - 1)];
     }
     return _currentHourly;
+}
+
+- (void)setup:(id<COOLTodayViewPresentation>)view
+{
+    view.weatherIconImageView.image = self.weatherIconImage;
+    view.locationLabel.attributedText = self.locationString;
+    view.weatherDescLabel.attributedText = self.weatherDescString;
+    view.chanceOfRainLabel.text = self.chanceOfRainString;
+    view.chanceOfRainIcon.image = self.chanceOfRainIcon;
+    view.precipLabel.text = self.precipString;
+    view.pressureLabel.text = self.pressureString;
+    view.windSpeedLabel.text = self.windSpeedString;
+    view.windDirectionLabel.text = self.windDirectionString;
 }
 
 

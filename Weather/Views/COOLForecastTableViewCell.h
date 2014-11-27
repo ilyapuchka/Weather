@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "COOLForecastTableViewCellPresentation.h"
 
-@class COOLForecastTableViewCellModel;
+@interface COOLForecastTableViewCell : UITableViewCell <COOLForecastTableViewCellPresentation>
 
-@interface COOLForecastTableViewCell : UITableViewCell
-
-- (void)setWithViewModel:(COOLForecastTableViewCellModel *)viewModel;
+@property (nonatomic, weak) IBOutlet UIImageView *weatherIconImageView;
+@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
+@property (nonatomic, weak) IBOutlet UILabel *subtitleLabel;
+@property (nonatomic, weak) IBOutlet UILabel *temperatureLabel;
 
 @end

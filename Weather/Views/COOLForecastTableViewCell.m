@@ -11,11 +11,6 @@
 
 @interface COOLForecastTableViewCell()
 
-@property (nonatomic, weak) IBOutlet UIImageView *weatherIconImageView;
-@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
-@property (nonatomic, weak) IBOutlet UILabel *subtitleLabel;
-@property (nonatomic, weak) IBOutlet UILabel *temperatureLabel;
-
 @end
 
 @implementation COOLForecastTableViewCell
@@ -30,14 +25,6 @@
     [super layoutSubviews];
     self.subtitleLabel.preferredMaxLayoutWidth = self.contentView.bounds.size.width - 87 - 104;
     [super layoutSubviews];
-}
-
-- (void)setWithViewModel:(COOLForecastTableViewCellModel *)viewModel
-{
-    self.weatherIconImageView.image = viewModel.weatherIconImage;
-    self.titleLabel.attributedText = viewModel.titleString;
-    self.subtitleLabel.text = viewModel.subtitleString;
-    self.temperatureLabel.text = viewModel.temperatureString;
 }
 
 @end

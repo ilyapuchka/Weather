@@ -152,7 +152,7 @@
             else {
                 return;
             }
-            [(COOLTodayView *)self.view setWithViewModel:model];
+            [model setup:self.view];
         }
     }
 }

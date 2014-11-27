@@ -47,7 +47,7 @@
     Location *location = item.location;
     
     COOLForecastTableViewCellModel *viewModel = [[COOLForecastTableViewCellModel alloc] initWithDailyWeather:weather forLocation:location isCurrentLocation:[location isEqual:self.currentUserLocation]];
-    [cell setWithViewModel:viewModel];
+    [viewModel setup:cell];
     return cell;
 }
 

@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Ilya Puchka. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "COOLLocationSearchCellModel.h"
+#import "COOLocationSearchCellPresentation.h"
 
 #import "Location.h"
 #import "AreaName.h"
@@ -42,6 +42,11 @@
     [attr appendAttributedString:[[NSAttributedString alloc] initWithString:areaNameString attributes:@{NSFontAttributeName: [UIFont fontWithName:@"ProximaNova-Semibold" size:16.0f]}]];
     [attr appendAttributedString:[[NSAttributedString alloc] initWithString:region.value attributes:@{NSFontAttributeName: [UIFont fontWithName:@"ProximaNova-Light" size:16.0f]}]];
     return [attr copy];
+}
+
+- (void)setup:(id<COOLocationSearchCellPresentation>)view
+{
+    view.textLabel.attributedText = self.titleString;
 }
 
 @end

@@ -29,7 +29,7 @@
 {
     COOLForecastTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:COOLForecastTableViewCellReuseId forIndexPath:indexPath];
     COOLForecastTableViewCellModel *viewModel = [[COOLForecastTableViewCellModel alloc] initWithDailyWeather:self.items[indexPath.row]];
-    [cell setWithViewModel:viewModel];
+    [viewModel setup:cell];
     return cell;
 }
 

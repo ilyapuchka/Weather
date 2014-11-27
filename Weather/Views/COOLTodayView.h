@@ -7,12 +7,19 @@
 //
 
 @import UIKit;
-#import "COOLTableViewModel.h"
+#import "COOLTodayViewPresentation.h"
 
-@interface COOLTodayView : UIView
+@interface COOLTodayView : UIView <COOLTodayViewPresentation>
 
-@property (nonatomic, weak) IBOutlet UIScrollView *contentView;
-
-- (void)setWithViewModel:(COOLTableViewModel *)viewModel;
+@property (weak, nonatomic) IBOutlet UIScrollView *contentView;
+@property (weak, nonatomic) IBOutlet UIImageView *weatherIconImageView;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *weatherDescLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *chanceOfRainIcon;
+@property (weak, nonatomic) IBOutlet UILabel *chanceOfRainLabel;
+@property (weak, nonatomic) IBOutlet UILabel *precipLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pressureLabel;
+@property (weak, nonatomic) IBOutlet UILabel *windSpeedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *windDirectionLabel;
 
 @end

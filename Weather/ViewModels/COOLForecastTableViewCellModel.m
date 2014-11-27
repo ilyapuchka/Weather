@@ -14,6 +14,8 @@
 #import "Weather.h"
 #import "AreaName.h"
 
+#import "COOLForecastTableViewCell.h"
+
 @interface COOLForecastTableViewCellModel()
 
 @property (nonatomic, copy) Location *location;
@@ -107,6 +109,14 @@
 - (Hourly *)currentHourly
 {
     return self.dailyForecast.hourly.lastObject;
+}
+
+- (void)setup:(id<COOLForecastTableViewCellPresentation>)view
+{
+    view.weatherIconImageView.image = self.weatherIconImage;
+    view.titleLabel.attributedText = self.titleString;
+    view.subtitleLabel.text = self.subtitleString;
+    view.temperatureLabel.text = self.temperatureString;
 }
 
 

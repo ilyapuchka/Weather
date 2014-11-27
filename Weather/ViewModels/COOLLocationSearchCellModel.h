@@ -6,14 +6,17 @@
 //  Copyright (c) 2014 Ilya Puchka. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @class Location;
+@protocol COOLocationSearchCellPresentation;
 
 @interface COOLLocationSearchCellModel : NSObject
 
 - (instancetype)initWithLocation:(Location *)location;
 
 - (NSAttributedString *)titleString;
+
+- (void)setup:(id<COOLocationSearchCellPresentation>)view;
 
 @end

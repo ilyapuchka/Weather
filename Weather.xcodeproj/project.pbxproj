@@ -174,6 +174,9 @@
 		09DA49FE1A27C54200BCDB37 /* COOLNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLNotifications.h; sourceTree = "<group>"; };
 		09DA49FF1A27CEBF00BCDB37 /* COOLLocationSearchCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLLocationSearchCellModel.h; sourceTree = "<group>"; };
 		09DA4A001A27CEBF00BCDB37 /* COOLLocationSearchCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLLocationSearchCellModel.m; sourceTree = "<group>"; };
+		09DA4A021A27D14100BCDB37 /* COOLForecastTableViewCellPresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLForecastTableViewCellPresentation.h; sourceTree = "<group>"; };
+		09DA4A031A27D22000BCDB37 /* COOLTodayViewPresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLTodayViewPresentation.h; sourceTree = "<group>"; };
+		09DA4A041A27D36400BCDB37 /* COOLocationSearchCellPresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLocationSearchCellPresentation.h; sourceTree = "<group>"; };
 		09E894631A269B5200D7B95B /* COOLTodayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLTodayView.h; sourceTree = "<group>"; };
 		09E894641A269B5200D7B95B /* COOLTodayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLTodayView.m; sourceTree = "<group>"; };
 		09E894661A269D2D00D7B95B /* COOLTableViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLTableViewModel.h; sourceTree = "<group>"; };
@@ -361,6 +364,9 @@
 				093876F01A263D7600ADF480 /* COOLUserLocationsRepository.h */,
 				093876FE1A26485000ADF480 /* COOLLocationsSelection.h */,
 				09A473891A2663A5000A1B2D /* COOLTableViewDataSource.h */,
+				09DA4A021A27D14100BCDB37 /* COOLForecastTableViewCellPresentation.h */,
+				09DA4A031A27D22000BCDB37 /* COOLTodayViewPresentation.h */,
+				09DA4A041A27D36400BCDB37 /* COOLocationSearchCellPresentation.h */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
