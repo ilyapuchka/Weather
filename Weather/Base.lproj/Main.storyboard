@@ -450,6 +450,9 @@
                                 <state key="normal" backgroundImage="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="addPlaceTapped:" destination="oia-M3-VU9" eventType="touchUpInside" id="V8N-bI-5Jp"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -70,6 +70,8 @@
 
 - (void)loadDailyForecastsWithQueries:(NSArray *)queries days:(NSInteger)days
 {
+    [self resetContent];
+    
     self.queries = queries;
     NSAssert([queries count] == [self.dataSources count], @"Queries array should be the same size as datasources array");
     

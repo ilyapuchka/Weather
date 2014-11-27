@@ -9,6 +9,8 @@
 #import "COOLLocationsSearchResultsTableViewDataSource.h"
 #import "COOLUserLocationsRepository.h"
 
+#import "Location.h"
+
 @interface COOLLocationsSearchResultsTableViewDataSource()
 
 @property (nonatomic, copy) NSArray *items;
@@ -26,7 +28,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
+    Location *location = self.items[indexPath.row];
+    cell.textLabel.text = [location displayName];
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

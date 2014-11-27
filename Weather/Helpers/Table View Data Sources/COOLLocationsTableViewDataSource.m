@@ -43,7 +43,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    Location *location = [self.items[indexPath.row] objectAtIndex:1];
+    [self.output didSelectLocation:location];
 }
 
 @end

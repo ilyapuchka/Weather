@@ -47,6 +47,7 @@
     
     UINib *nib = [UINib nibWithNibName:@"COOLForecastTableViewCell" bundle:[NSBundle mainBundle]];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"COOLForecastTableViewCell"];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
 
     self.currentDataSource = self.locationsTableViewDataSource;
     [self reloadData];
@@ -102,7 +103,7 @@
     [self.navigationItem setRightBarButtonItem:self.doneItem animated:YES];
     [self.forecastDataSource loadDailyForecastsWithQueries:self.locations days:1];
     self.currentDataSource = self.locationsTableViewDataSource;
-    [self.tableView reloadData];
+    [self reloadData];
 }
 
 - (void)showSearch
@@ -166,7 +167,7 @@
         [self.locationsTableViewDataSource setCurrentUserLocation:self.currentUserLocation];
     }
     [self.currentDataSource setItems:items];
-    [self.tableView reloadData];
+    [self reloadData];
 }
 
 #pragma mark - COOLLocationsTableViewDataSourceOutput
