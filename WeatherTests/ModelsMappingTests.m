@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import "EKMapper.h"
-#import "COOLForecast+Mapping.h"
-#import "COOLTodayForecast+Mapping.h"
 #import "DataModels.h"
 
 @interface ModelsMappingTests : XCTestCase
@@ -35,26 +33,14 @@
     NSData *data = [NSData dataWithContentsOfFile:path];
     NSError *error;
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-    COOLForecast *forecast = [EKMapper objectFromExternalRepresentation:[json valueForKey:@"data"] withMapping:[COOLForecast mapping]];
+    Forecast *forecast = [Forecast modelObjectWithDictionary:[json valueForKey:@"data"]];
     
     XCTAssertNotNil(forecast, @"Mapped forecast should not be nil");
 }
 
 - (void)testTodayForecastMapping {
-    NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"todayforecast" ofType:@"json"];
-    NSData *data = [NSData dataWithContentsOfFile:path];
-    NSError *error;
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-    COOLTodayForecast *forecast = [EKMapper objectFromExternalRepresentation:[json valueForKey:@"data"] withMapping:[COOLTodayForecast mapping]];
-
-    XCTAssertNotNil(forecast, @"Mapped forecast should not be nil");
-    XCTAssertNotNil(forecast.currentCondition, @"Mapped forecast current condition should not be nil");
-    XCTAssertNotNil(forecast.weather, @"Mapped forecast weather should not be nil");
-}
-
-- (void)testForecastMapping1 {
     // This is an example of a functional test case.
-    NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"forecast" ofType:@"json"];
+    NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"todayforecast" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:path];
     NSError *error;
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];

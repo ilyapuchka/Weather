@@ -8,11 +8,11 @@
 
 #import "COOLTodayForecastAPIResponse.h"
 #import "EKObjectMapping.h"
-#import "COOLTodayForecast+Mapping.h"
+#import "Forecast.h"
 
 @implementation COOLTodayForecastAPIResponse
 
-- (COOLTodayForecast *)todayForecast
+- (Forecast *)todayForecast
 {
     return [self.mappedResponseObject valueForKey:@"forecast"];
 }
