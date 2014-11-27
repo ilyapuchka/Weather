@@ -11,6 +11,8 @@
 
 #import "Location.h"
 
+#import "COOLStoryboardIdentifiers.h"
+
 @interface COOLLocationsSearchResultsTableViewDataSource()
 
 @property (nonatomic, copy) NSArray *items;
@@ -33,7 +35,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:COOLSearchResultsTableViewCellReuseId forIndexPath:indexPath];
     Location *location = self.items[indexPath.row];
     cell.textLabel.text = [location displayName];
     return cell;

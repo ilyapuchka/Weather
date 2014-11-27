@@ -57,7 +57,7 @@
     self.locationsDataSource.delegate = self;
     
     UINib *nib = [UINib nibWithNibName:@"COOLForecastTableViewCell" bundle:[NSBundle mainBundle]];
-    [self.tableView registerNib:nib forCellReuseIdentifier:@"COOLForecastTableViewCell"];
+    [self.tableView registerNib:nib forCellReuseIdentifier:COOLForecastTableViewCellReuseId];
 }
 
 - (void)viewWillAppear:(BOOL)animated

@@ -15,6 +15,8 @@
 #import "Weather.h"
 #import "Location.h"
 
+#import "COOLStoryboardIdentifiers.h"
+
 @interface COOLLocationsTableViewDataSource()
 
 @property (nonatomic, copy) NSArray *locations;
@@ -33,7 +35,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    COOLForecastTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([COOLForecastTableViewCell class]) forIndexPath:indexPath];
+    COOLForecastTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:COOLForecastTableViewCellReuseId forIndexPath:indexPath];
     
     ForecastForLocation *item = self.items[indexPath.row];
     Weather *weather = [item.forecast.weather lastObject];

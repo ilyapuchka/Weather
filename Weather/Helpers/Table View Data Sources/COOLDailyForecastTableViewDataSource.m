@@ -10,6 +10,8 @@
 #import "COOLForecastTableViewCell.h"
 #import "COOLForecastTableViewCellModel.h"
 
+#import "COOLStoryboardIdentifiers.h"
+
 @interface COOLDailyForecastTableViewDataSource()
 
 @property (nonatomic, copy) NSArray *items;
@@ -25,7 +27,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    COOLForecastTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([COOLForecastTableViewCell class]) forIndexPath:indexPath];
+    COOLForecastTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:COOLForecastTableViewCellReuseId forIndexPath:indexPath];
     COOLForecastTableViewCellModel *viewModel = [[COOLForecastTableViewCellModel alloc] initWithDailyWeather:self.items[indexPath.row]];
     [cell setWithViewModel:viewModel];
     return cell;

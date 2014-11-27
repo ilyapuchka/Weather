@@ -19,6 +19,7 @@
 #import "Forecast.h"
 
 #import "COOLNotifications.h"
+#import "COOLStoryboardIdentifiers.h"
 
 @interface COOLLocationsViewController() <UISearchBarDelegate, COOLDataSourceDelegate, COOLLocationsSelectionOutput>
 
@@ -47,8 +48,7 @@
     self.forecastDataSource.delegate = self;
     
     UINib *nib = [UINib nibWithNibName:@"COOLForecastTableViewCell" bundle:[NSBundle mainBundle]];
-    [self.tableView registerNib:nib forCellReuseIdentifier:@"COOLForecastTableViewCell"];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
+    [self.tableView registerNib:nib forCellReuseIdentifier:COOLForecastTableViewCellReuseId];
 
     self.currentDataSource = self.locationsTableViewDataSource;
     [self reloadData];
