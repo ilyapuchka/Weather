@@ -47,26 +47,28 @@
                                             <constraint firstAttribute="height" constant="75" id="xIO-qW-1XE"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="oNc-eC-BpM">
-                                        <rect key="frame" x="30" y="135" width="260" height="22"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="260" translatesAutoresizingMaskIntoConstraints="NO" id="oNc-eC-BpM">
+                                        <rect key="frame" x="30" y="135" width="260" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="4jz-PZ-IGJ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="18"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="4jz-PZ-IGJ"/>
+                                            </mask>
+                                        </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="UgQ-eA-7oM">
-                                        <rect key="frame" x="30" y="163" width="260" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="BjS-kz-vdN"/>
-                                        </constraints>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="260" translatesAutoresizingMaskIntoConstraints="NO" id="UgQ-eA-7oM">
+                                        <rect key="frame" x="30" y="162" width="260" height="25"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="25"/>
                                         <color key="textColor" red="0.1843137255" green="0.56862745100000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D1r-ZM-xbh">
-                                        <rect key="frame" x="30" y="217" width="260" height="164"/>
+                                        <rect key="frame" x="30" y="213" width="260" height="164"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider-short" translatesAutoresizingMaskIntoConstraints="NO" id="TOd-Ar-BVm">
                                                 <rect key="frame" x="67" y="0.0" width="127" height="1"/>
@@ -260,7 +262,7 @@
                                         </variation>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yb0-Df-tjZ">
-                                        <rect key="frame" x="95" y="389" width="130" height="44"/>
+                                        <rect key="frame" x="95" y="385" width="130" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Yb0-Df-tjZ" secondAttribute="height" multiplier="127:30" id="4FX-Ck-CC4"/>
                                             <constraint firstAttribute="height" constant="44" id="OrT-yJ-Xtr"/>
@@ -283,16 +285,16 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="D1r-ZM-xbh" firstAttribute="top" secondItem="UgQ-eA-7oM" secondAttribute="centerY" constant="39" id="0O2-OH-rjn"/>
                                     <constraint firstAttribute="centerX" secondItem="D1r-ZM-xbh" secondAttribute="centerX" id="0q3-Im-TGe"/>
                                     <constraint firstItem="h7x-fs-l54" firstAttribute="top" secondItem="hEg-SN-qN2" secondAttribute="top" constant="37" id="1LI-Ki-iHh"/>
-                                    <constraint firstItem="UgQ-eA-7oM" firstAttribute="centerY" secondItem="oNc-eC-BpM" secondAttribute="centerY" constant="32" id="4B2-DE-DVo"/>
                                     <constraint firstAttribute="centerX" secondItem="h7x-fs-l54" secondAttribute="centerX" id="BDj-Hx-yL6"/>
+                                    <constraint firstItem="UgQ-eA-7oM" firstAttribute="top" secondItem="oNc-eC-BpM" secondAttribute="bottom" constant="9" id="IWi-7n-kZp"/>
                                     <constraint firstItem="UgQ-eA-7oM" firstAttribute="leading" secondItem="hEg-SN-qN2" secondAttribute="leading" constant="30" id="Pkn-6W-x6a"/>
                                     <constraint firstItem="oNc-eC-BpM" firstAttribute="leading" secondItem="hEg-SN-qN2" secondAttribute="leading" constant="30" id="QoE-bu-Aov"/>
                                     <constraint firstAttribute="trailing" secondItem="UgQ-eA-7oM" secondAttribute="trailing" constant="30" id="Tyr-bC-v2e"/>
                                     <constraint firstItem="Yb0-Df-tjZ" firstAttribute="centerY" secondItem="D1r-ZM-xbh" secondAttribute="bottom" constant="30" id="UHL-OD-OJd"/>
                                     <constraint firstAttribute="centerX" secondItem="oNc-eC-BpM" secondAttribute="centerX" id="WXE-LN-ZYn"/>
+                                    <constraint firstItem="D1r-ZM-xbh" firstAttribute="top" secondItem="UgQ-eA-7oM" secondAttribute="bottom" constant="26" id="ZIo-RQ-BHu"/>
                                     <constraint firstAttribute="trailing" secondItem="oNc-eC-BpM" secondAttribute="trailing" constant="30" id="dgb-eQ-Oxu"/>
                                     <constraint firstAttribute="centerX" secondItem="Yb0-Df-tjZ" secondAttribute="centerX" id="hSl-jt-GwW"/>
                                     <constraint firstItem="oNc-eC-BpM" firstAttribute="top" secondItem="h7x-fs-l54" secondAttribute="bottom" constant="23" id="oLQ-cC-mje"/>
@@ -702,6 +704,6 @@
         <image name="divider-short" width="127" height="1"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hvY-bh-no2"/>
+        <segue reference="BTb-jC-ohr"/>
     </inferredMetricsTieBreakers>
 </document>
