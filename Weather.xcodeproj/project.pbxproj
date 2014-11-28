@@ -232,7 +232,7 @@
 				09085CDD1A27DFC800A01689 /* INTULocationManager+Extensions.h */,
 				09085CDE1A27DFC800A01689 /* INTULocationManager+Extensions.m */,
 			);
-			name = CLLocation;
+			path = CLLocation;
 			sourceTree = "<group>";
 		};
 		0922145E1A253F86002A614A = {
