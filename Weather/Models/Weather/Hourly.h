@@ -6,29 +6,24 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MTLModel.h"
 
+@interface Hourly : MTLModel
 
-
-@interface Hourly : NSObject <NSCoding, NSCopying>
-
-@property (nonatomic, strong) NSString *winddir16Point;
-@property (nonatomic, strong) NSString *humidity;
-@property (nonatomic, strong) NSString *tempF;
-@property (nonatomic, strong) NSString *chanceofthunder;
-@property (nonatomic, strong) NSString *chanceofsnow;
-@property (nonatomic, strong) NSString *chanceofrain;
-@property (nonatomic, strong) NSString *chanceofsunshine;
-@property (nonatomic, strong) NSString *windspeedKmph;
-@property (nonatomic, strong) NSString *pressure;
-@property (nonatomic, strong) NSString *windspeedMiles;
-@property (nonatomic, strong) NSArray *weatherDesc;
-@property (nonatomic, strong) NSArray *localizedWeatherDesc;
-@property (nonatomic, strong) NSString *tempC;
-@property (nonatomic, strong) NSString *precipMM;
-@property (nonatomic, strong) NSString *time;
-
-+ (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
-- (instancetype)initWithDictionary:(NSDictionary *)dict;
-- (NSDictionary *)dictionaryRepresentation;
+@property (nonatomic, copy, readonly) NSString *winddir16Point;
+@property (nonatomic, copy, readonly) NSString *humidity;
+@property (nonatomic, copy, readonly) NSString *tempF;
+@property (nonatomic, copy, readonly) NSString *chanceofthunder;
+@property (nonatomic, copy, readonly) NSString *chanceofsnow;
+@property (nonatomic, copy, readonly) NSString *chanceofrain;
+@property (nonatomic, copy, readonly) NSString *chanceofsunshine;
+@property (nonatomic, copy, readonly) NSString *windspeedKmph;
+@property (nonatomic, copy, readonly) NSString *pressure;
+@property (nonatomic, copy, readonly) NSString *windspeedMiles;
+@property (nonatomic, copy, readonly) NSArray *weatherDesc;
+@property (nonatomic, copy, readonly) NSArray *localizedWeatherDesc;
+@property (nonatomic, copy, readonly) NSString *tempC;
+@property (nonatomic, copy, readonly) NSString *precipMM;
+@property (nonatomic, copy, readonly) NSString *time;
 
 @end

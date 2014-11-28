@@ -6,7 +6,6 @@
 //
 
 #import "Hourly.h"
-#import "Request.h"
 #import "Weather.h"
 #import "WeatherDesc.h"
 #import "Forecast.h"

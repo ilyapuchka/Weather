@@ -8,15 +8,12 @@ pod 'COOLNetworkStack'
 pod 'COOLDataSource'
 pod 'COOLCompositions'
 pod 'INTULocationManager'
+pod 'Mantle'
+
 pod 'Typhoon'
 
 pod 'MSCMoreOptionTableViewCell'
 
-target 'Weather' do
-
-end
-
-target 'WeatherTests' do
-
+target 'WeatherTests', :exclusive => true do
 end
 

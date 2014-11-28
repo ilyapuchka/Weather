@@ -31,6 +31,9 @@ PODS:
     - EasyMapping (~> 0.6)
   - EasyMapping (0.6.3)
   - INTULocationManager (1.2.0)
+  - Mantle (1.5.1):
+    - Mantle/extobjc
+  - Mantle/extobjc (1.5.1)
   - MSCMoreOptionTableViewCell (2.2)
   - Typhoon (2.3.0):
     - Typhoon/no-arc
@@ -41,6 +44,7 @@ DEPENDENCIES:
   - COOLDataSource
   - COOLNetworkStack
   - INTULocationManager
+  - Mantle
   - MSCMoreOptionTableViewCell
   - Typhoon
 
@@ -52,6 +56,7 @@ SPEC CHECKSUMS:
   COOLNetworkStack: ff326116d856cbe399c4e7ace0db9fb9a8844334
   EasyMapping: bb3ca83bf207ad382a14202561dd93d393c05a13
   INTULocationManager: 596c57e35a00ca1ee9d59bf4cc2b63dc299b580e
+  Mantle: d7c5ac734579ec751c58fecbf56189853056c58c
   MSCMoreOptionTableViewCell: 5b102a68d0e97af17438c5823089955b1ed509dd
   Typhoon: ee9b8c034b11746f8024a0487965c04965a6a4ee
 

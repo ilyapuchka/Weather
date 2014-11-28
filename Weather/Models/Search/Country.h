@@ -6,15 +6,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MTLModel.h"
 
+@interface Country : MTLModel
 
-
-@interface Country : NSObject <NSCoding, NSCopying>
-
-@property (nonatomic, strong) NSString *value;
-
-+ (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
-- (instancetype)initWithDictionary:(NSDictionary *)dict;
-- (NSDictionary *)dictionaryRepresentation;
+@property (nonatomic, copy, readonly) NSString *value;
 
 @end

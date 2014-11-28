@@ -6,14 +6,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MTLModel.h"
 
-@interface Weather : NSObject <NSCoding, NSCopying>
+@interface Weather : MTLModel
 
-@property (nonatomic, strong) NSArray *hourly;
-@property (nonatomic, strong) NSString *date;
-
-+ (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
-- (instancetype)initWithDictionary:(NSDictionary *)dict;
-- (NSDictionary *)dictionaryRepresentation;
+@property (nonatomic, copy, readonly) NSArray *hourly;
+@property (nonatomic, copy, readonly) NSString *date;
 
 @end

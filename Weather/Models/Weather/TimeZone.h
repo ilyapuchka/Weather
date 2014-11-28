@@ -6,16 +6,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MTLModel.h"
 
+@interface TimeZone : MTLModel
 
-
-@interface TimeZone : NSObject <NSCoding, NSCopying>
-
-@property (nonatomic, strong) NSString *utcOffset;
-@property (nonatomic, strong) NSString *localtime;
-
-+ (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
-- (instancetype)initWithDictionary:(NSDictionary *)dict;
-- (NSDictionary *)dictionaryRepresentation;
+@property (nonatomic, copy, readonly) NSString *utcOffset;
+@property (nonatomic, copy, readonly) NSString *localtime;
 
 @end

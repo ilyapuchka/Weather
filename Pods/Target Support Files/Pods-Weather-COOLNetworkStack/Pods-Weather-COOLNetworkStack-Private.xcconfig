@@ -1,5 +1,0 @@
-#include "Pods-Weather-COOLNetworkStack.xcconfig"
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Build" "${PODS_ROOT}/Headers/Build/COOLNetworkStack" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworkActivityLogger" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/COOLCompositions" "${PODS_ROOT}/Headers/Public/COOLDataSource" "${PODS_ROOT}/Headers/Public/COOLNetworkStack" "${PODS_ROOT}/Headers/Public/EasyMapping" "${PODS_ROOT}/Headers/Public/INTULocationManager" "${PODS_ROOT}/Headers/Public/MSCMoreOptionTableViewCell" "${PODS_ROOT}/Headers/Public/Typhoon"
-OTHER_LDFLAGS = -ObjC
-PODS_ROOT = ${SRCROOT}

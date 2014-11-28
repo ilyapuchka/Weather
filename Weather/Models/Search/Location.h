@@ -6,21 +6,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MTLModel.h"
 
+@interface Location : MTLModel
 
-
-@interface Location : NSObject <NSCoding, NSCopying>
-
-@property (nonatomic, strong) NSArray *region;
-@property (nonatomic, strong) NSArray *country;
-@property (nonatomic, strong) NSString *longitude;
-@property (nonatomic, strong) NSString *latitude;
-@property (nonatomic, strong) NSArray *areaName;
+@property (nonatomic, copy, readonly) NSArray *region;
+@property (nonatomic, copy, readonly) NSArray *country;
+@property (nonatomic, copy, readonly) NSString *longitude;
+@property (nonatomic, copy, readonly) NSString *latitude;
+@property (nonatomic, copy, readonly) NSArray *areaName;
 
 - (NSString *)displayName;
-
-+ (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
-- (instancetype)initWithDictionary:(NSDictionary *)dict;
-- (NSDictionary *)dictionaryRepresentation;
 
 @end

@@ -6,18 +6,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MTLModel.h"
 
 @class Hourly;
 
-@interface Forecast : NSObject <NSCoding, NSCopying>
+@interface Forecast : MTLModel
 
-@property (nonatomic, strong) NSArray *request;
-@property (nonatomic, strong) NSArray *weather;
-@property (nonatomic, strong) NSArray *timeZone;
-
-+ (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
-- (instancetype)initWithDictionary:(NSDictionary *)dict;
-- (NSDictionary *)dictionaryRepresentation;
+@property (nonatomic, copy, readonly) NSArray *weather;
+@property (nonatomic, copy, readonly) NSArray *timeZone;
 
 - (Hourly *)currentHourly;
 

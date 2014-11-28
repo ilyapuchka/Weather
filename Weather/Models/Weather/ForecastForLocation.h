@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MTLModel.h"
 
 @class Forecast;
 @class Location;
 
-@interface ForecastForLocation : NSObject <NSCopying>
+@interface ForecastForLocation : MTLModel
 
 - (instancetype)initWithForecast:(Forecast *)forecast location:(Location *)location;
 

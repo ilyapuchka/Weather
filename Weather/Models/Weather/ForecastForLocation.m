@@ -29,10 +29,4 @@
     return self;
 }
 
-- (id)copyWithZone:(NSZone *)zone
-{
-    typeof(self) copy = [[[self class] allocWithZone:zone] initWithForecast:_forecast location:_location];
-    return copy;
-}
-
 @end
