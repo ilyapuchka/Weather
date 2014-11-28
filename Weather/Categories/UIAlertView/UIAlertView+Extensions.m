@@ -16,12 +16,17 @@ static NSMutableArray *showAlertsHashes;
 
 + (instancetype)showLocationErrorWithStatus:(NSInteger)status force:(BOOL)force
 {
+    NSString *title;
+    NSString *message;
     if (status == INTULocationStatusServicesDenied) {
-        return [self showError:YES force:force withTitle:@"App Permission Denied" message:@"To re-enable, please go to Settings and turn on Location Service for this app." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        title = NSLocalizedStringFromTable(@"App Permission Denied", @"Errors", @"Location Denied Alert Title");
+        message = NSLocalizedStringFromTable(@"To re-enable, please go to Settings and turn on Location Service for this app.", @"Errors", @"Location Denied Alert Message");
     }
     else {
-        return [self showError:YES force:force withTitle:@"Location Services Unavailable" message:@"The location services seems to be disabled from the settings." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        title = NSLocalizedStringFromTable(@"Location Services Unavailable", @"Errors", @"Location Denied Alert Title");
+        message = NSLocalizedStringFromTable(@"The location services seems to be disabled from the settings.", @"Errors", @"Location Denied Alert Message");
     }
+    return [self showError:YES force:force withTitle:title message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
 }
 
 + (void)clearShowAlertsCache

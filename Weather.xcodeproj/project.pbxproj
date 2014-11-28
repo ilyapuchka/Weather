@@ -16,6 +16,7 @@
 		09085CFF1A28BDF500A01689 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09085CFD1A28BDF500A01689 /* Localizable.strings */; };
 		09085D071A28C4AB00A01689 /* UIImage+Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = 09085D061A28C4AB00A01689 /* UIImage+Weather.m */; };
 		09085D0B1A28C5A600A01689 /* NSDate+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 09085D0A1A28C5A600A01689 /* NSDate+Extensions.m */; };
+		09085D0E1A28C8D000A01689 /* Errors.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09085D101A28C8D000A01689 /* Errors.strings */; };
 		0922146D1A253F86002A614A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0922146C1A253F86002A614A /* main.m */; };
 		092214761A253F86002A614A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 092214741A253F86002A614A /* Main.storyboard */; };
 		092214781A253F86002A614A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 092214771A253F86002A614A /* Images.xcassets */; };
@@ -106,6 +107,8 @@
 		09085D061A28C4AB00A01689 /* UIImage+Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Weather.m"; sourceTree = "<group>"; };
 		09085D091A28C5A600A01689 /* NSDate+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extensions.h"; sourceTree = "<group>"; };
 		09085D0A1A28C5A600A01689 /* NSDate+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extensions.m"; sourceTree = "<group>"; };
+		09085D0F1A28C8D000A01689 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Errors.strings; sourceTree = "<group>"; };
+		09085D111A28C8D200A01689 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Errors.strings; sourceTree = "<group>"; };
 		092214671A253F86002A614A /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0922146B1A253F86002A614A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0922146C1A253F86002A614A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -324,6 +327,7 @@
 				092214741A253F86002A614A /* Main.storyboard */,
 				09085CFD1A28BDF500A01689 /* Localizable.strings */,
 				09085CF81A28BC1F00A01689 /* Settings.strings */,
+				09085D101A28C8D000A01689 /* Errors.strings */,
 				092214771A253F86002A614A /* Images.xcassets */,
 				092214791A253F86002A614A /* LaunchScreen.xib */,
 				0922146A1A253F86002A614A /* Supporting Files */,
@@ -741,6 +745,7 @@
 				092214781A253F86002A614A /* Images.xcassets in Resources */,
 				09ED70251A277EC100BE573A /* COOLForecastTableViewCell.xib in Resources */,
 				09E894701A26A65700D7B95B /* ProximaNova-Regular.otf in Resources */,
+				09085D0E1A28C8D000A01689 /* Errors.strings in Resources */,
 				09E894711A26A65700D7B95B /* ProximaNova-Semibold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -899,6 +904,15 @@
 				09085D011A28BDFF00A01689 /* ru */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		09085D101A28C8D000A01689 /* Errors.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				09085D0F1A28C8D000A01689 /* Base */,
+				09085D111A28C8D200A01689 /* ru */,
+			);
+			name = Errors.strings;
 			sourceTree = "<group>";
 		};
 		092214741A253F86002A614A /* Main.storyboard */ = {
