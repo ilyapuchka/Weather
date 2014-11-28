@@ -27,6 +27,11 @@
     [[UISearchBar appearance] setImage:[UIImage imageNamed:@"Search"] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
     [[UISearchBar appearance] setImage:[UIImage imageNamed:@"Close"] forSearchBarIcon:UISearchBarIconClear state:UIControlStateNormal];
     [[UISearchBar appearance] setSearchTextPositionAdjustment:UIOffsetMake(5, 0)];
+    
+    NSURLCache *cache = [[NSURLCache alloc] initWithMemoryCapacity:10*1024*1024
+                                                      diskCapacity:20*1024*1024
+                                                          diskPath:nil];
+    [NSURLCache setSharedURLCache:cache];
 
     return YES;
 }
