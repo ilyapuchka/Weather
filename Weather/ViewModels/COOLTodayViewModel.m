@@ -132,7 +132,7 @@
 {
     NSString *unitString;
     switch (distanceUnit) {
-        case COOLDistanceUnitMiles:
+        case COOLDistanceMiles:
             unitString = @"m/h";
             break;
         default:

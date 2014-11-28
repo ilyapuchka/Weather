@@ -25,6 +25,9 @@ typedef NS_ENUM(NSInteger, COOLSettings){
     self = [super initWithCoder:aDecoder];
     if (self) {
         self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Settings" image:[[UIImage imageNamed:@"Settings-normal"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"Settings-selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        
+        [[UILabel appearanceWhenContainedIn:[UITableViewHeaderFooterView class], nil] setTextColor:[UIColor colorWithRed:47.0f/255.0f green:145.0f/255.0f blue:255.0f/255.0f alpha:1.0f]];
+        [[UILabel appearanceWhenContainedIn:[UITableViewHeaderFooterView class], nil] setFont:[UIFont fontWithName:@"ProximaNova-Semibold" size:14]];
     }
     return self;
 }
@@ -64,6 +67,8 @@ typedef NS_ENUM(NSInteger, COOLSettings){
             cell.detailTextLabel.text = [self temperatureUnitString];
             break;
     }
+    cell.detailTextLabel.textColor = [UIColor colorWithRed:47.0f/255.0f green:145.0f/255.0f blue:255.0f/255.0f alpha:1.0f];
+    cell.detailTextLabel.font = [UIFont fontWithName:@"ProximaNova-Regular" size:17];
     return cell;
 }
 
