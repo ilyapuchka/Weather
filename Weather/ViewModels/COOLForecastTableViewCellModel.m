@@ -64,7 +64,7 @@
     NSString *weatherDesc = [[(WeatherDesc *)self.currentHourly.weatherDesc.lastObject value] lowercaseString];
     __block NSString *imageName = @"Cloudy_Big";
     [dict enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        if ([weatherDesc containsString:key]) {
+        if ([weatherDesc rangeOfString:key].location != NSNotFound) {
             imageName = obj;
             *stop = YES;
         }
@@ -142,7 +142,8 @@
             dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm";
         }
         NSDate *date = [dateFormatter dateFromString:[(TimeZone *)self.forecast.timeZone.lastObject localtime]];
-        NSInteger hour = [[NSCalendar currentCalendar] component:NSCalendarUnitHour fromDate:date];
+        NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitHour fromDate:date];
+        NSInteger hour = [components hour];
         NSString *hourString = [NSString stringWithFormat:@"%li00", (long)hour];
         NSInteger idx;
         for (idx = 0; idx < self.weather.hourly.count; idx++) {

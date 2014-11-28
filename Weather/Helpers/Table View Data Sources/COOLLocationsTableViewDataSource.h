@@ -18,9 +18,16 @@
 
 @end
 
+@protocol COOLLocationsTableViewDataSourceEditingDelegate <NSObject>
+
+- (void)didDeleteLocation:(Location *)location;
+
+@end
+
 @interface COOLLocationsTableViewDataSource : NSObject <COOLTableViewDataSource, COOLLocationsSelection, COOLLocationsTableViewDataSourceInput>
 
 @property (nonatomic, weak) IBOutlet id<COOLLocationsSelectionOutput> output;
 @property (nonatomic, copy) Location *currentUserLocation;
+@property (nonatomic, weak) IBOutlet id<COOLLocationsTableViewDataSourceEditingDelegate> editingDelegate;
 
 @end

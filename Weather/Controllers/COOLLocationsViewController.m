@@ -20,7 +20,7 @@
 
 #import "COOLStoryboardIdentifiers.h"
 
-@interface COOLLocationsViewController() <UISearchBarDelegate, COOLDataSourceDelegate, COOLLocationsSelectionOutput>
+@interface COOLLocationsViewController() <UISearchBarDelegate, COOLDataSourceDelegate, COOLLocationsSelectionOutput, COOLLocationsTableViewDataSourceEditingDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) IBOutlet UIButton *addButton;
@@ -195,14 +195,20 @@
         if (![[self.userLocationsRepository userLocations] containsObject:location]) {
             [self.userLocationsRepository addUserLocation:location];
             self.locations = nil;
-            [self showLocations];
         }
+        [self showLocations];
     }
     else {
         self.selectedLocation = location;
         //there is a strange bug in UITableView that sometimes makes it freeze for short time before dismissing, if dismiss is called from didSelectRowAtIndexPath...
         [self dismissAndNotify:YES];
     }
+}
+
+- (void)didDeleteLocation:(Location *)location
+{
+    [self.userLocationsRepository removeUserLocation:location];
+    _locations = nil;
 }
 
 @end

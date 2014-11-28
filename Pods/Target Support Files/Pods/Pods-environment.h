@@ -84,6 +84,12 @@
 #define COCOAPODS_VERSION_MINOR_INTULocationManager 2
 #define COCOAPODS_VERSION_PATCH_INTULocationManager 0
 
+// MSCMoreOptionTableViewCell
+#define COCOAPODS_POD_AVAILABLE_MSCMoreOptionTableViewCell
+#define COCOAPODS_VERSION_MAJOR_MSCMoreOptionTableViewCell 2
+#define COCOAPODS_VERSION_MINOR_MSCMoreOptionTableViewCell 2
+#define COCOAPODS_VERSION_PATCH_MSCMoreOptionTableViewCell 0
+
 // Typhoon
 #define COCOAPODS_POD_AVAILABLE_Typhoon
 #define COCOAPODS_VERSION_MAJOR_Typhoon 2

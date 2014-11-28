@@ -11,6 +11,8 @@
 
 @interface COOLForecastTableViewCell()
 
+@property (nonatomic, strong) UIButton *deleteButton;
+
 @end
 
 @implementation COOLForecastTableViewCell
@@ -18,6 +20,13 @@
 - (void)awakeFromNib
 {
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    [self setConfigurationBlock:^(UIButton *deleteButton, UIButton *moreOptionButton, CGFloat *deleteButtonWitdh, CGFloat *moreOptionButtonWidth) {
+        *deleteButtonWitdh = 87;
+        *moreOptionButtonWidth = 0;
+        deleteButton.backgroundColor = [UIColor colorWithRed:255.0f/255.0f green:136.0f/255.0f blue:71.0f/255.0f alpha:1.0f];
+        [deleteButton setTitle:nil forState:UIControlStateNormal];
+        [deleteButton setImage:[UIImage imageNamed:@"DeleteIcon"] forState:UIControlStateNormal];
+    }];
 }
 
 - (void)layoutSubviews

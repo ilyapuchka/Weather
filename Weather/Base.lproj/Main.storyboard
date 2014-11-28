@@ -525,6 +525,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IME-0T-pqu" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="5m5-zb-AvO" customClass="COOLLocationsTableViewDataSource">
                     <connections>
+                        <outlet property="editingDelegate" destination="oia-M3-VU9" id="CdP-VB-ehy"/>
                         <outlet property="output" destination="oia-M3-VU9" id="wi8-FI-ZpJ"/>
                     </connections>
                 </customObject>

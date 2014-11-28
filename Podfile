@@ -10,6 +10,8 @@ pod 'COOLCompositions'
 pod 'INTULocationManager'
 pod 'Typhoon'
 
+pod 'MSCMoreOptionTableViewCell'
+
 target 'Weather' do
 
 end

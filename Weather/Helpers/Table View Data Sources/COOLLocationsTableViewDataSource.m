@@ -17,7 +17,7 @@
 
 #import "COOLStoryboardIdentifiers.h"
 
-@interface COOLLocationsTableViewDataSource()
+@interface COOLLocationsTableViewDataSource() <MSCMoreOptionTableViewCellDelegate>
 
 @property (nonatomic, copy) NSArray *locations;
 @property (nonatomic, copy) NSArray *items;
@@ -49,6 +49,7 @@
     COOLForecastTableViewCellModel *viewModel = [[COOLForecastTableViewCellModel alloc] initWithDailyForecast:forecast forLocation:location isCurrentLocation:[location isEqual:self.currentUserLocation]];
     [viewModel setup:cell];
     cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+    cell.delegate = self;
     return cell;
 }
 
@@ -57,6 +58,28 @@
     ForecastForLocation *item = self.items[indexPath.row];
     Location *location = item.location;
     [self.output didSelectLocation:location];
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return indexPath.row != 0;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        ForecastForLocation *item = self.items[indexPath.row];
+        Location *location = item.location;
+        [self.editingDelegate didDeleteLocation:location];
+        
+        NSMutableArray *mItems = [self.items mutableCopy];
+        [mItems removeObject:item];
+        self.items = mItems;
+        
+        [tableView beginUpdates];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [tableView endUpdates];
+    }
 }
 
 @end

@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "COOLForecastTableViewCellPresentation.h"
 
-@interface COOLForecastTableViewCell : UITableViewCell <COOLForecastTableViewCellPresentation>
+#import "MSCMoreOptionTableViewCell.h"
+
+@interface COOLForecastTableViewCell : MSCMoreOptionTableViewCell <COOLForecastTableViewCellPresentation>
 
 @property (nonatomic, weak) IBOutlet UIImageView *weatherIconImageView;
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
