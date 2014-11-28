@@ -101,13 +101,13 @@
 
 - (NSString *)subtitleString
 {
-    return [(WeatherDesc *)self.currentHourly.weatherDesc.lastObject value];
+    return [(WeatherDesc *)self.currentHourly.weatherDesc.lastObject value]?:@"--";
 }
 
 - (NSString *)temperatureString
 {
 #warning TODO: settings
-    return [NSString stringWithFormat:@"%@°", self.currentHourly.tempC];
+    return self.currentHourly.tempC?[NSString stringWithFormat:@"%@°", self.currentHourly.tempC]:@"--";
 }
 
 - (void)setup:(id<COOLForecastTableViewCellPresentation>)view

@@ -93,7 +93,6 @@
         for (NSInteger idx = 0; idx < [self.dataSources count]; idx++) {
             id<COOLForecastDataSource> dataSource = self.dataSources[idx];
             [dataSource loadTodayForecastWithQuery:dataSource.query];
-//            [dataSource loadDailyForecastWithQuery:dataSource.query days:self.days];
         }
     }];
 }
