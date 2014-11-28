@@ -15,7 +15,8 @@
 {
     NSMutableDictionary *basicParams = [@{
                                           @"key": @"a2da856bae9633016095f8a97a472",
-                                          @"format": @"json"} mutableCopy];
+                                          @"format": @"json",
+                                          @"lang": [[NSLocale preferredLanguages] firstObject]?:@"en"} mutableCopy];
     
     [basicParams addEntriesFromDictionary:request.parameters];
     request = [[[request class] alloc] initWithMethod:request.method path:request.path parameters:[basicParams copy]];

@@ -73,6 +73,10 @@ NSString *const kHourlyTime = @"time";
         self.chanceofrain = [self objectOrNilForKey:kHourlyChanceofrain fromDictionary:dict];
 
         NSObject *receivedWeatherDesc = [dict objectForKey:kHourlyWeatherDesc];
+        NSObject *localizedWeatherDesc = [dict objectForKey:[NSString stringWithFormat:@"lang_%@", [[NSLocale preferredLanguages] firstObject]?:@"en"]];
+        if (localizedWeatherDesc) {
+            receivedWeatherDesc = localizedWeatherDesc;
+        }
         NSMutableArray *parsedWeatherDesc = [NSMutableArray array];
         if ([receivedWeatherDesc isKindOfClass:[NSArray class]]) {
             for (NSDictionary *item in (NSArray *)receivedWeatherDesc) {
