@@ -1,0 +1,14 @@
+/* 
+  LocalizedStrings.strings
+  Weather
+
+  Created by Ilya Puchka on 28.11.14.
+  Copyright (c) 2014 Ilya Puchka. All rights reserved.
+*/
+
+"Units of distance" = "Мера расстояния";
+"Units of temperature" = "Мера температуры";
+"Celsius" = "Цельсии";
+"Fahrenheit" = "Фаренгейты";
+"Miles" = "Мили";
+"Kilometres" = "Километры";

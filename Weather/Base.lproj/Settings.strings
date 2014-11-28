@@ -1,0 +1,14 @@
+/* 
+  LocalizedStrings.strings
+  Weather
+
+  Created by Ilya Puchka on 28.11.14.
+  Copyright (c) 2014 Ilya Puchka. All rights reserved.
+*/
+
+"Units of distance" = "Units of distance";
+"Units of temperature" = "Units of temperature";
+"Celsius" = "Celsius";
+"Fahrenheit" = "Fahrenheit";
+"Miles" = "Miles";
+"Kilometres" = "Kilometres";

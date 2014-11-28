@@ -12,6 +12,8 @@
 		09085CE41A2889E000A01689 /* UIAlertView+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 09085CE31A2889E000A01689 /* UIAlertView+Extensions.m */; };
 		09085CE81A2893E000A01689 /* COOLUserSettingsUserDefaultsImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 09085CE71A2893E000A01689 /* COOLUserSettingsUserDefaultsImpl.m */; };
 		09085CEC1A28A82500A01689 /* COOLForecastShareModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09085CEB1A28A82500A01689 /* COOLForecastShareModel.m */; };
+		09085CFA1A28BC1F00A01689 /* Settings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09085CF81A28BC1F00A01689 /* Settings.strings */; };
+		09085CFF1A28BDF500A01689 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09085CFD1A28BDF500A01689 /* Localizable.strings */; };
 		0922146D1A253F86002A614A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0922146C1A253F86002A614A /* main.m */; };
 		092214761A253F86002A614A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 092214741A253F86002A614A /* Main.storyboard */; };
 		092214781A253F86002A614A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 092214771A253F86002A614A /* Images.xcassets */; };
@@ -93,6 +95,11 @@
 		09085CE91A28941500A01689 /* COOLUnits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLUnits.h; sourceTree = "<group>"; };
 		09085CEA1A28A82500A01689 /* COOLForecastShareModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLForecastShareModel.h; sourceTree = "<group>"; };
 		09085CEB1A28A82500A01689 /* COOLForecastShareModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLForecastShareModel.m; sourceTree = "<group>"; };
+		09085CF91A28BC1F00A01689 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Settings.strings; sourceTree = "<group>"; };
+		09085CFC1A28BC2C00A01689 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Settings.strings; sourceTree = "<group>"; };
+		09085D001A28BDFB00A01689 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		09085D011A28BDFF00A01689 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		09085D031A28BF1D00A01689 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		092214671A253F86002A614A /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0922146B1A253F86002A614A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0922146C1A253F86002A614A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -291,6 +298,8 @@
 				092214A91A25401C002A614A /* Views */,
 				09E894691A26A63B00D7B95B /* Resources */,
 				092214741A253F86002A614A /* Main.storyboard */,
+				09085CFD1A28BDF500A01689 /* Localizable.strings */,
+				09085CF81A28BC1F00A01689 /* Settings.strings */,
 				092214771A253F86002A614A /* Images.xcassets */,
 				092214791A253F86002A614A /* LaunchScreen.xib */,
 				0922146A1A253F86002A614A /* Supporting Files */,
@@ -679,6 +688,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 0922145E1A253F86002A614A;
 			productRefGroup = 092214681A253F86002A614A /* Products */;
@@ -697,9 +707,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				09E8946F1A26A65700D7B95B /* ProximaNova-Light.otf in Resources */,
+				09085CFF1A28BDF500A01689 /* Localizable.strings in Resources */,
 				092214761A253F86002A614A /* Main.storyboard in Resources */,
 				09E8946E1A26A65700D7B95B /* ProximaNova-Bold.otf in Resources */,
 				0922147B1A253F86002A614A /* LaunchScreen.xib in Resources */,
+				09085CFA1A28BC1F00A01689 /* Settings.strings in Resources */,
 				092214781A253F86002A614A /* Images.xcassets in Resources */,
 				09ED70251A277EC100BE573A /* COOLForecastTableViewCell.xib in Resources */,
 				09E894701A26A65700D7B95B /* ProximaNova-Regular.otf in Resources */,
@@ -843,10 +855,29 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		09085CF81A28BC1F00A01689 /* Settings.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				09085CF91A28BC1F00A01689 /* ru */,
+				09085CFC1A28BC2C00A01689 /* Base */,
+			);
+			name = Settings.strings;
+			sourceTree = "<group>";
+		};
+		09085CFD1A28BDF500A01689 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				09085D001A28BDFB00A01689 /* en */,
+				09085D011A28BDFF00A01689 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		092214741A253F86002A614A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				092214751A253F86002A614A /* Base */,
+				09085D031A28BF1D00A01689 /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

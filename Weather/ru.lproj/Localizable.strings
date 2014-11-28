@@ -1,0 +1,12 @@
+/* 
+  LocalizedStrings.strings
+  Weather
+
+  Created by Ilya Puchka on 28.11.14.
+  Copyright (c) 2014 Ilya Puchka. All rights reserved.
+*/
+
+"Locations" = "Места";
+"Today" = "Сегодня";
+"Settings" = "Настройки";
+"Forecast" = "Проноз";

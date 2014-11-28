@@ -24,7 +24,8 @@ typedef NS_ENUM(NSInteger, COOLSettings){
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Settings" image:[[UIImage imageNamed:@"Settings-normal"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"Settings-selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        self.title = NSLocalizedString(@"Settings", nil);
+        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:self.title image:[[UIImage imageNamed:@"Settings-normal"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"Settings-selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
         
         [[UILabel appearanceWhenContainedIn:[UITableViewHeaderFooterView class], nil] setTextColor:[UIColor colorWithRed:47.0f/255.0f green:145.0f/255.0f blue:255.0f/255.0f alpha:1.0f]];
         [[UILabel appearanceWhenContainedIn:[UITableViewHeaderFooterView class], nil] setFont:[UIFont fontWithName:@"ProximaNova-Semibold" size:14]];
@@ -36,10 +37,10 @@ typedef NS_ENUM(NSInteger, COOLSettings){
 {
     switch ([self.userSettingsRepository defaultDistanceUnit]) {
         case COOLDistanceMiles:
-            return @"Miles";
+            return NSLocalizedStringFromTable(@"Miles", @"Settings", nil);
             break;
         default:
-            return @"Kilometres";
+            return NSLocalizedStringFromTable(@"Kilometres", @"Settings", nil);
             break;
     }
 }
@@ -48,10 +49,10 @@ typedef NS_ENUM(NSInteger, COOLSettings){
 {
     switch ([self.userSettingsRepository defaultTemperatureUnit]) {
         case COOLTemperatureFahrenheit:
-            return @"Fahrenheit";
+            return NSLocalizedStringFromTable(@"Fahrenheit", @"Settings", nil);
             break;
         default:
-            return @"Celsius";
+            return NSLocalizedStringFromTable(@"Celsius", @"Settings", nil);
             break;
     }
 }
@@ -62,9 +63,11 @@ typedef NS_ENUM(NSInteger, COOLSettings){
     switch (indexPath.row) {
         case COOLSettingsDistance:
             cell.detailTextLabel.text = [self distanceUnitString];
+            cell.textLabel.text = NSLocalizedStringFromTable(@"Units of distance", @"Settings", nil);
             break;
         case COOLSettingsTemperature:
             cell.detailTextLabel.text = [self temperatureUnitString];
+            cell.textLabel.text = NSLocalizedStringFromTable(@"Units of temperature", @"Settings", nil);
             break;
     }
     cell.detailTextLabel.textColor = [UIColor colorWithRed:47.0f/255.0f green:145.0f/255.0f blue:255.0f/255.0f alpha:1.0f];
