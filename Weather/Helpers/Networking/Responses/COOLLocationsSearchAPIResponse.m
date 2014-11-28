@@ -6,12 +6,10 @@
 //  Copyright (c) 2014 Ilya Puchka. All rights reserved.
 //
 
-#import "COOLSearchAPIResponse.h"
-#import "EKObjectMapping+Transfromers.h"
-#import "Location.h"
-#import "EKMapper.h"
+#import "COOLLocationsSearchAPIResponse.h"
+#import "Location+Mapping.h"
 
-@implementation COOLSearchAPIResponse
+@implementation COOLLocationsSearchAPIResponse
 
 - (NSArray *)locations
 {
@@ -21,14 +19,7 @@
 + (id)responseMapping
 {
     return [EKObjectMapping mappingForClass:[NSMutableDictionary class] withRootPath:@"search_api" withBlock:^(EKObjectMapping *mapping) {
-        [mapping mapKey:@"result" toField:@"locations" withValueBlock:^id(NSString *key, NSArray *value) {
-            NSMutableArray *locations = [@[] mutableCopy];
-            for (NSDictionary *dict in value) {
-                Location *loc = [Location modelObjectWithDictionary:dict];
-                if (loc) [locations addObject:loc];
-            }
-            return [locations copy];
-        }];
+        [mapping hasManyMapping:[Location mapping] forKey:@"result" forField:@"locations"];
     }];
 }
 

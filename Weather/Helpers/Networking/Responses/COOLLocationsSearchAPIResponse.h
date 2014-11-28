@@ -8,7 +8,7 @@
 
 #import "COOLAPIResponse.h"
 
-@interface COOLSearchAPIResponse : COOLAPIResponse
+@interface COOLLocationsSearchAPIResponse : COOLAPIResponse
 
 - (NSArray *)locations;
 

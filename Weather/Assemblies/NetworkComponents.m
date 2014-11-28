@@ -63,12 +63,10 @@
 
 - (NSDictionary *)responsesDefinition
 {
-    return @{NSStringFromClass([COOLTodayForecastAPIRequest class]):
-                 NSStringFromClass([COOLTodayForecastAPIResponse class]),
-             NSStringFromClass([COOLDailyForecastAPIRequest class]):
+    return @{NSStringFromClass([COOLDailyForecastAPIRequest class]):
                  NSStringFromClass([COOLDailyForecastAPIResponse class]),
              NSStringFromClass([COOLSearchAPIRequest class]):
-                 NSStringFromClass([COOLSearchAPIResponse class])};
+                 NSStringFromClass([COOLLocationsSearchAPIResponse class])};
 }
 
 - (id<COOLMapper>)responseMapper

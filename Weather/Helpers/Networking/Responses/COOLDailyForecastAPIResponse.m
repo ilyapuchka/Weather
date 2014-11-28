@@ -7,7 +7,7 @@
 //
 
 #import "COOLDailyForecastAPIResponse.h"
-#import "EKObjectMapping.h"
+#import "Forecast+Mapping.h"
 
 @implementation COOLDailyForecastAPIResponse
 
@@ -19,10 +19,7 @@
 + (id)responseMapping
 {
     return [EKObjectMapping mappingForClass:[NSMutableDictionary class] withBlock:^(EKObjectMapping *mapping) {
-        [mapping mapKey:@"data" toField:@"forecast" withValueBlock:^id(NSString *key, NSDictionary *value) {
-            Forecast *forecast = [Forecast modelObjectWithDictionary:value];
-            return forecast;
-        }];
+        [mapping hasOneMapping:[Forecast mapping] forKey:@"data" forField:@"forecast"];
     }];
 }
 

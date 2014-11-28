@@ -16,8 +16,16 @@
     if (!query) {
         return nil;
     }
-    
-    return [self initWithMethod:COOLAPIGETRequest path:@"weather.ashx" parameters:@{@"q": query, @"tp": @"24", @"cc": @"no", @"date": @"today", @"num_of_days": [@(MAX(0, days)) stringValue]}];
+    return [self initWithMethod:COOLAPIGETRequest
+                           path:@"weather.ashx"
+                     parameters:@{
+                                  @"q": query,
+                                  @"tp": (days == 1)? @"24": @"3",
+                                  @"cc": @"no",
+                                  @"date": @"today",
+                                  @"num_of_days": [@(MAX(0, days)) stringValue],
+                                  @"showlocaltime": @"yes"
+                                  }];
 }
 
 @end

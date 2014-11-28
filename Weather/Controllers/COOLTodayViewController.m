@@ -90,7 +90,7 @@
     if (task && task.state == NSURLSessionTaskStateRunning) {
         return;
     }
-    task = [self.forecastDataSource loadTodayForecastWithQuery:location];
+    task = [self.forecastDataSource loadDailyForecastWithQuery:location days:1];
 }
 
 #pragma mark - COOLDataSourceDelegate
@@ -105,7 +105,7 @@
     [super dataSource:dataSource didLoadContentWithError:error];
     
     if (dataSource == self.forecastDataSource) {
-        Forecast *forecast = [self.forecastDataSource todayForecast];
+        Forecast *forecast = [self.forecastDataSource dailyForecast];
         if (!error && forecast) {
             self.view.contentView.hidden = NO;
             COOLTodayViewModel *model;

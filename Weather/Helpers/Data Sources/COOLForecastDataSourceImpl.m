@@ -9,7 +9,6 @@
 #import "COOLForecastDataSourceImpl.h"
 #import "COOLWeatherAPI.h"
 #import "COOLDailyForecastAPIResponse.h"
-#import "COOLTodayForecastAPIResponse.h"
 
 #import "Location.h"
 
@@ -17,7 +16,6 @@
 
 @property (nonatomic, strong) id<COOLWeatherAPI> apiClient;
 @property (nonatomic, copy) Forecast *dailyForecast;
-@property (nonatomic, copy) Forecast *todayForecast;
 
 @end
 
@@ -65,32 +63,16 @@
     return task;
 }
 
-- (NSURLSessionDataTask *)loadTodayForecastWithQuery:(Location *)query
-{
-    __block NSURLSessionDataTask *task;
-    [super loadContentWithBlock:^(COOLLoadingProcess *loadingProcess) {
-        task = [self.apiClient todayWeatherWithQuery:[query displayName] success:^(COOLTodayForecastAPIResponse *response) {
-            self.todayForecast = response.todayForecast;
-            [self completeLoadingWithTask:task response:response];
-        } failure:^(COOLAPIResponse *response) {
-            self.todayForecast = nil;
-            [self completeLoadingWithTask:task response:response];
-        }];
-    }];
-    return task;
-}
-
 - (void)resetContent
 {
     self.dailyForecast = nil;
-    self.todayForecast = nil;
     [super resetContent];
 }
 
 - (NSString *)missingTransitionFromState:(NSString *)fromState toState:(NSString *)toState
 {
     if ([toState isEqualToString:COOLStateUndefined]) {
-        if (self.dailyForecast || self.todayForecast) {
+        if (self.dailyForecast) {
             return COOLLoadingStateRefreshingContent;
         }
         else {

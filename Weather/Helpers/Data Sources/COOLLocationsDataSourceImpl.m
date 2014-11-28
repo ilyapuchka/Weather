@@ -8,7 +8,7 @@
 
 #import "COOLLocationsDataSourceImpl.h"
 #import "COOLWeatherAPI.h"
-#import "COOLSearchAPIResponse.h"
+#import "COOLLocationsSearchAPIResponse.h"
 
 @interface COOLLocationsDataSourceImpl()
 
@@ -48,7 +48,7 @@
 {
     __block NSURLSessionDataTask *task;
     [super loadContentWithBlock:^(COOLLoadingProcess *loadingProcess) {
-        task = [self.apiClient searchCitiesWithQuery:query success:^(COOLSearchAPIResponse *response) {
+        task = [self.apiClient searchCitiesWithQuery:query success:^(COOLLocationsSearchAPIResponse *response) {
             self.locations = response.locations;
             [self completeLoadingWithTask:task response:response];
         } failure:^(COOLAPIResponse *response) {
@@ -67,7 +67,7 @@
 {
     __block NSURLSessionDataTask *task;
     [super loadContentWithBlock:^(COOLLoadingProcess *loadingProcess) {
-        task = [self.apiClient searchCitiesWithLatitude:latitude longitude:longitude success:^(COOLSearchAPIResponse *response) {
+        task = [self.apiClient searchCitiesWithLatitude:latitude longitude:longitude success:^(COOLLocationsSearchAPIResponse *response) {
             self.locations = response.locations;
             [self completeLoadingWithTask:task response:response];
         } failure:^(COOLAPIResponse *response) {

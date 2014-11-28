@@ -23,12 +23,6 @@
     return [self dataTaskWithRequest:request success:(COOLAPIClientSuccessBlock)succes failure:failure];
 }
 
-- (NSURLSessionDataTask *)todayWeatherWithQuery:(NSString *)query success:(COOLWeatherAPITodayForecastSuccessBlock)success failure:(COOLAPIClientFailureBlock)failure
-{
-    COOLTodayForecastAPIRequest *request = [[COOLTodayForecastAPIRequest alloc] initWithQuery:query];
-    return [self dataTaskWithRequest:request success:(COOLAPIClientSuccessBlock)success failure:failure];
-}
-
 - (NSURLSessionDataTask *)daylyWeatherWithQuery:(NSString *)query days:(NSInteger)days success:(COOLWeatherAPIDailyForecastSuccessBlock)success failure:(COOLAPIClientFailureBlock)failure
 {
     COOLDailyForecastAPIRequest *request = [[COOLDailyForecastAPIRequest alloc] initWithQuery:query days:days];

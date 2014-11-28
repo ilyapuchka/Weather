@@ -10,7 +10,6 @@
 #define Weather_COOLWeatherAPIRequests_h
 
 #import "COOLSearchAPIRequest.h"
-#import "COOLTodayForecastAPIRequest.h"
 #import "COOLDailyForecastAPIRequest.h"
 
 #endif

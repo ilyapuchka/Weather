@@ -19,10 +19,8 @@
 @property (nonatomic, copy) Location *query;
 @property (nonatomic, assign) NSInteger days;
 
-- (NSURLSessionDataTask *)loadTodayForecastWithQuery:(Location *)query;
 - (NSURLSessionDataTask *)loadDailyForecastWithQuery:(Location *)query days:(NSInteger)days;
 
 - (Forecast *)dailyForecast;
-- (Forecast *)todayForecast;
 
 @end
