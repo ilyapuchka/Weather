@@ -20,6 +20,7 @@ NSString *const kHourlyWindspeedMiles = @"windspeedMiles";
 NSString *const kHourlyChanceofsnow = @"chanceofsnow";
 NSString *const kHourlyChanceofrain = @"chanceofrain";
 NSString *const kHourlyWeatherDesc = @"weatherDesc";
+NSString *const kHourlyLocalizedWeatherDesc = @"localizedWeatherDesc";
 NSString *const kHourlyTempC = @"tempC";
 NSString *const kHourlyPrecipMM = @"precipMM";
 NSString *const kHourlyChanceofsunshine = @"chanceofsunshine";
@@ -44,6 +45,7 @@ NSString *const kHourlyTime = @"time";
 @synthesize chanceofsnow = _chanceofsnow;
 @synthesize chanceofrain = _chanceofrain;
 @synthesize weatherDesc = _weatherDesc;
+@synthesize localizedWeatherDesc = _localizedWeatherDesc;
 @synthesize tempC = _tempC;
 @synthesize precipMM = _precipMM;
 @synthesize chanceofsunshine = _chanceofsunshine;
@@ -73,10 +75,6 @@ NSString *const kHourlyTime = @"time";
         self.chanceofrain = [self objectOrNilForKey:kHourlyChanceofrain fromDictionary:dict];
 
         NSObject *receivedWeatherDesc = [dict objectForKey:kHourlyWeatherDesc];
-        NSObject *localizedWeatherDesc = [dict objectForKey:[NSString stringWithFormat:@"lang_%@", [[NSLocale preferredLanguages] firstObject]?:@"en"]];
-        if (localizedWeatherDesc) {
-            receivedWeatherDesc = localizedWeatherDesc;
-        }
         NSMutableArray *parsedWeatherDesc = [NSMutableArray array];
         if ([receivedWeatherDesc isKindOfClass:[NSArray class]]) {
             for (NSDictionary *item in (NSArray *)receivedWeatherDesc) {
@@ -86,6 +84,25 @@ NSString *const kHourlyTime = @"time";
            }
         } else if ([receivedWeatherDesc isKindOfClass:[NSDictionary class]]) {
            [parsedWeatherDesc addObject:[WeatherDesc modelObjectWithDictionary:(NSDictionary *)receivedWeatherDesc]];
+        }
+        self.weatherDesc = [NSArray arrayWithArray:parsedWeatherDesc];
+
+        NSObject *localizedWeatherDesc = [dict objectForKey:[NSString stringWithFormat:@"lang_%@", [[NSLocale preferredLanguages] firstObject]?:@"en"]];
+        if (localizedWeatherDesc) {
+            NSMutableArray *parsedLocalizedWeatherDesc = [NSMutableArray array];
+            if ([localizedWeatherDesc isKindOfClass:[NSArray class]]) {
+                for (NSDictionary *item in (NSArray *)localizedWeatherDesc) {
+                    if ([item isKindOfClass:[NSDictionary class]]) {
+                        [parsedLocalizedWeatherDesc addObject:[WeatherDesc modelObjectWithDictionary:item]];
+                    }
+                }
+            } else if ([localizedWeatherDesc isKindOfClass:[NSDictionary class]]) {
+                [parsedLocalizedWeatherDesc addObject:[WeatherDesc modelObjectWithDictionary:(NSDictionary *)localizedWeatherDesc]];
+            }
+            self.localizedWeatherDesc = [NSArray arrayWithArray:parsedLocalizedWeatherDesc];
+        }
+        else {
+            self.localizedWeatherDesc = self.weatherDesc;
         }
 
         self.weatherDesc = [NSArray arrayWithArray:parsedWeatherDesc];
@@ -118,6 +135,16 @@ NSString *const kHourlyTime = @"time";
         } else {
             // Generic object
             [tempArrayForWeatherDesc addObject:subArrayObject];
+        }
+    }
+    NSMutableArray *tempArrayForLocalizedWeatherDesc = [NSMutableArray array];
+    for (NSObject *subArrayObject in self.localizedWeatherDesc) {
+        if([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
+            // This class is a model object
+            [tempArrayForLocalizedWeatherDesc addObject:[subArrayObject performSelector:@selector(dictionaryRepresentation)]];
+        } else {
+            // Generic object
+            [tempArrayForLocalizedWeatherDesc addObject:subArrayObject];
         }
     }
     [mutableDict setValue:[NSArray arrayWithArray:tempArrayForWeatherDesc] forKey:kHourlyWeatherDesc];
@@ -158,6 +185,7 @@ NSString *const kHourlyTime = @"time";
     self.chanceofsnow = [aDecoder decodeObjectForKey:kHourlyChanceofsnow];
     self.chanceofrain = [aDecoder decodeObjectForKey:kHourlyChanceofrain];
     self.weatherDesc = [aDecoder decodeObjectForKey:kHourlyWeatherDesc];
+    self.localizedWeatherDesc = [aDecoder decodeObjectForKey:kHourlyLocalizedWeatherDesc];
     self.tempC = [aDecoder decodeObjectForKey:kHourlyTempC];
     self.precipMM = [aDecoder decodeObjectForKey:kHourlyPrecipMM];
     self.chanceofsunshine = [aDecoder decodeObjectForKey:kHourlyChanceofsunshine];
@@ -178,6 +206,7 @@ NSString *const kHourlyTime = @"time";
     [aCoder encodeObject:_chanceofsnow forKey:kHourlyChanceofsnow];
     [aCoder encodeObject:_chanceofrain forKey:kHourlyChanceofrain];
     [aCoder encodeObject:_weatherDesc forKey:kHourlyWeatherDesc];
+    [aCoder encodeObject:_localizedWeatherDesc forKey:kHourlyLocalizedWeatherDesc];
     [aCoder encodeObject:_tempC forKey:kHourlyTempC];
     [aCoder encodeObject:_precipMM forKey:kHourlyPrecipMM];
     [aCoder encodeObject:_chanceofsunshine forKey:kHourlyChanceofsunshine];
@@ -200,6 +229,7 @@ NSString *const kHourlyTime = @"time";
         copy.chanceofsnow = [self.chanceofsnow copyWithZone:zone];
         copy.chanceofrain = [self.chanceofrain copyWithZone:zone];
         copy.weatherDesc = [self.weatherDesc copyWithZone:zone];
+        copy.localizedWeatherDesc = [self.localizedWeatherDesc copyWithZone:zone];
         copy.tempC = [self.tempC copyWithZone:zone];
         copy.precipMM = [self.precipMM copyWithZone:zone];
         copy.chanceofsunshine = [self.chanceofsunshine copyWithZone:zone];

@@ -80,7 +80,7 @@
 
     [attrString appendAttributedString:[NSAttributedString attributedStringWithAttachment:textAttachment]];
 
-    [attrString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@" %@", [(WeatherDesc *)self.currentHourly.weatherDesc.lastObject value]]]];
+    [attrString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@" %@", [(WeatherDesc *)self.currentHourly.localizedWeatherDesc.lastObject value]]]];
     return [attrString copy];
 }
 

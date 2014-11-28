@@ -55,7 +55,7 @@
 
 - (NSString *)weatherDesc:(Forecast *)forecast
 {
-    NSString *weatherDesc = [(WeatherDesc *)forecast.currentHourly.weatherDesc.lastObject value];
+    NSString *weatherDesc = [(WeatherDesc *)forecast.currentHourly.localizedWeatherDesc.lastObject value];
     return weatherDesc;
 }
 

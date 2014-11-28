@@ -22,6 +22,7 @@
 @property (nonatomic, strong) NSString *pressure;
 @property (nonatomic, strong) NSString *windspeedMiles;
 @property (nonatomic, strong) NSArray *weatherDesc;
+@property (nonatomic, strong) NSArray *localizedWeatherDesc;
 @property (nonatomic, strong) NSString *tempC;
 @property (nonatomic, strong) NSString *precipMM;
 @property (nonatomic, strong) NSString *time;

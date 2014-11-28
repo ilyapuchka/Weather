@@ -80,7 +80,7 @@
 
 - (NSString *)subtitleString
 {
-    return [(WeatherDesc *)self.currentHourly.weatherDesc.lastObject value]?:@"--";
+    return [(WeatherDesc *)self.currentHourly.localizedWeatherDesc.lastObject value]?:@"--";
 }
 
 - (NSString *)temperatureStringWithUnit:(COOLTemperatureUnit)tempUnit
