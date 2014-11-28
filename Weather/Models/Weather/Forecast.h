@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-
+@class Hourly;
 
 @interface Forecast : NSObject <NSCoding, NSCopying>
 
@@ -18,5 +18,7 @@
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;
 - (NSDictionary *)dictionaryRepresentation;
+
+- (Hourly *)currentHourly;
 
 @end

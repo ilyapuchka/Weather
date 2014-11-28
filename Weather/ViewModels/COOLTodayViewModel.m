@@ -80,11 +80,11 @@
     NSMutableAttributedString *attrString = [NSMutableAttributedString new];
     switch (tempUnit) {
         case COOLTemperatureFahrenheit:
-            [attrString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@°F ", self.currentHourly.tempF]]];
+            [attrString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ °F ", self.currentHourly.tempF]]];
             break;
             
         default:
-            [attrString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@°C ", self.currentHourly.tempC]]];
+            [attrString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ °C ", self.currentHourly.tempC]]];
             break;
     }
     
@@ -165,25 +165,7 @@
 - (Hourly *)currentHourly
 {
     if (!_currentHourly) {
-        Weather *weather = [self.forecast.weather lastObject];
-        static NSDateFormatter *dateFormatter;
-        if (!dateFormatter) {
-            dateFormatter = [[NSDateFormatter alloc] init];
-            dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm";
-        }
-        NSDate *date = [dateFormatter dateFromString:[(TimeZone *)self.forecast.timeZone.lastObject localtime]];
-        NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitHour fromDate:date];
-        NSInteger hour = [components hour];
-        NSString *hourString = [NSString stringWithFormat:@"%li00", (long)hour];
-        NSInteger idx;
-        for (idx = 0; idx < weather.hourly.count; idx++) {
-            Hourly *hourly = weather.hourly[idx];
-            NSComparisonResult result = [hourly.time compare:hourString options:NSNumericSearch];
-            if (result == NSOrderedDescending) {
-                break;
-            }
-        }
-        _currentHourly = [weather.hourly objectAtIndex:MIN(MAX(0, idx - 1), weather.hourly.count - 1)];
+        _currentHourly = self.forecast.currentHourly;
     }
     return _currentHourly;
 }

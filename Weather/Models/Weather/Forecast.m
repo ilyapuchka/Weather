@@ -9,6 +9,7 @@
 #import "Request.h"
 #import "Weather.h"
 #import "TimeZone.h"
+#import "Hourly.h"
 
 
 NSString *const kBaseClassRequest = @"request";
@@ -171,6 +172,29 @@ NSString *const kBaseClassTimeZone = @"time_zone";
     }
     
     return copy;
+}
+
+- (Hourly *)currentHourly
+{
+    Weather *weather = self.weather.lastObject;
+    static NSDateFormatter *dateFormatter;
+    if (!dateFormatter) {
+        dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm";
+    }
+    NSDate *date = [dateFormatter dateFromString:[(TimeZone *)self.timeZone.lastObject localtime]];
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitHour fromDate:date];
+    NSInteger hour = [components hour];
+    NSString *hourString = [NSString stringWithFormat:@"%li00", (long)hour];
+    NSInteger idx;
+    for (idx = 0; idx < weather.hourly.count; idx++) {
+        Hourly *hourly = weather.hourly[idx];
+        NSComparisonResult result = [hourly.time compare:hourString options:NSNumericSearch];
+        if (result == NSOrderedDescending) {
+            break;
+        }
+    }
+    return [weather.hourly objectAtIndex:MIN(MAX(0, idx - 1), weather.hourly.count - 1)];
 }
 
 

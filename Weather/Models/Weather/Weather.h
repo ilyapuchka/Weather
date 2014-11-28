@@ -7,8 +7,6 @@
 
 #import <Foundation/Foundation.h>
 
-
-
 @interface Weather : NSObject <NSCoding, NSCopying>
 
 @property (nonatomic, strong) NSArray *hourly;

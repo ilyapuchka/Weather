@@ -11,6 +11,7 @@
 		09085CDF1A27DFC800A01689 /* INTULocationManager+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 09085CDE1A27DFC800A01689 /* INTULocationManager+Extensions.m */; };
 		09085CE41A2889E000A01689 /* UIAlertView+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 09085CE31A2889E000A01689 /* UIAlertView+Extensions.m */; };
 		09085CE81A2893E000A01689 /* COOLUserSettingsUserDefaultsImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 09085CE71A2893E000A01689 /* COOLUserSettingsUserDefaultsImpl.m */; };
+		09085CEC1A28A82500A01689 /* COOLForecastShareModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09085CEB1A28A82500A01689 /* COOLForecastShareModel.m */; };
 		0922146D1A253F86002A614A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0922146C1A253F86002A614A /* main.m */; };
 		092214761A253F86002A614A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 092214741A253F86002A614A /* Main.storyboard */; };
 		092214781A253F86002A614A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 092214771A253F86002A614A /* Images.xcassets */; };
@@ -90,6 +91,8 @@
 		09085CE61A2893E000A01689 /* COOLUserSettingsUserDefaultsImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLUserSettingsUserDefaultsImpl.h; sourceTree = "<group>"; };
 		09085CE71A2893E000A01689 /* COOLUserSettingsUserDefaultsImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLUserSettingsUserDefaultsImpl.m; sourceTree = "<group>"; };
 		09085CE91A28941500A01689 /* COOLUnits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLUnits.h; sourceTree = "<group>"; };
+		09085CEA1A28A82500A01689 /* COOLForecastShareModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = COOLForecastShareModel.h; path = ../ViewModels/COOLForecastShareModel.h; sourceTree = "<group>"; };
+		09085CEB1A28A82500A01689 /* COOLForecastShareModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = COOLForecastShareModel.m; path = ../ViewModels/COOLForecastShareModel.m; sourceTree = "<group>"; };
 		092214671A253F86002A614A /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0922146B1A253F86002A614A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0922146C1A253F86002A614A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -385,6 +388,8 @@
 			isa = PBXGroup;
 			children = (
 				092214EB1A25E0E3002A614A /* DataModels.h */,
+				09085CEA1A28A82500A01689 /* COOLForecastShareModel.h */,
+				09085CEB1A28A82500A01689 /* COOLForecastShareModel.m */,
 				092215061A25EF05002A614A /* Search */,
 				092215051A25EEF6002A614A /* Weather */,
 			);
@@ -779,6 +784,7 @@
 				093876F41A26444C00ADF480 /* COOLDailyForecastTableViewDataSource.m in Sources */,
 				09085CDC1A27DA7F00A01689 /* CLLocation+Extensions.m in Sources */,
 				092215311A25F6BF002A614A /* COOLForecastDataSourceImpl.m in Sources */,
+				09085CEC1A28A82500A01689 /* COOLForecastShareModel.m in Sources */,
 				092215001A25E80A002A614A /* NetworkComponents.m in Sources */,
 				093876E11A26258900ADF480 /* UIViewController+SegueUserInfo.m in Sources */,
 				092215261A25EFBC002A614A /* Location.m in Sources */,

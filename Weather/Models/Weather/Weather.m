@@ -118,5 +118,4 @@ NSString *const kWeatherDate = @"date";
     return copy;
 }
 
-
 @end

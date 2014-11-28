@@ -20,6 +20,9 @@
                         location:(Location *)location
                isCurrentLocation:(BOOL)isCurrentLocation;
 
+- (Forecast *)forecast;
+- (Location *)location;
+
 - (UIImage *)weatherIconImage;
 - (NSAttributedString *)locationString;
 - (NSAttributedString *)weatherDescStringWithUnit:(COOLTemperatureUnit)tempUnit;

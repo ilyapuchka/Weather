@@ -13,6 +13,7 @@
 
 #import "INTULocationManager.h"
 #import "Location.h"
+#import "COOLForecastShareModel.h"
 
 #import "COOLStoryboardIdentifiers.h"
 #import "UIViewController+SegueUserInfo.h"
@@ -187,7 +188,10 @@
 
 - (IBAction)shareTapped:(id)sender
 {
+    COOLForecastShareModel *model = [[COOLForecastShareModel alloc] initWithForecast:self.viewModel.forecast location:self.viewModel.location settings:self.userSettingsRepository];
     
+    UIActivityViewController *controller = [[UIActivityViewController alloc] initWithActivityItems:@[model.shareText] applicationActivities:nil];
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 - (void)defaultsChanged:(NSNotification *)note

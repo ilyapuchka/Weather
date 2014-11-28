@@ -142,27 +142,10 @@
     if (!_currentHourly) {
         if (!self.forecast) {
             _currentHourly = self.weather.hourly.lastObject;
-            return _currentHourly;
         }
-        
-        static NSDateFormatter *dateFormatter;
-        if (!dateFormatter) {
-            dateFormatter = [[NSDateFormatter alloc] init];
-            dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm";
+        else {
+            _currentHourly = self.forecast.currentHourly;
         }
-        NSDate *date = [dateFormatter dateFromString:[(TimeZone *)self.forecast.timeZone.lastObject localtime]];
-        NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitHour fromDate:date];
-        NSInteger hour = [components hour];
-        NSString *hourString = [NSString stringWithFormat:@"%li00", (long)hour];
-        NSInteger idx;
-        for (idx = 0; idx < self.weather.hourly.count; idx++) {
-            Hourly *hourly = self.weather.hourly[idx];
-            NSComparisonResult result = [hourly.time compare:hourString options:NSNumericSearch];
-            if (result == NSOrderedDescending) {
-                break;
-            }
-        }
-        _currentHourly = [self.weather.hourly objectAtIndex:MIN(MAX(0, idx - 1), self.weather.hourly.count - 1)];
     }
     return _currentHourly;
 }
