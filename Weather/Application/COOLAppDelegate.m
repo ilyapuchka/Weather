@@ -7,14 +7,10 @@
 //
 
 #import "COOLAppDelegate.h"
-#import "Typhoon.h"
-#import "NetworkComponents.h"
-#import "COOLWeatherAPI.h"
-#import "COOLForecastDataSource.h"
-#import "COOLLocationsDataSource.h"
-#import "INTULocationManager.h"
+#import "UIColor+Weather.h"
+#import "UIFont+Weather.h"
 
-@interface COOLAppDelegate() <COOLDataSourceDelegate>
+@interface COOLAppDelegate()
 
 @end
 
@@ -22,42 +18,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    NetworkComponents *factory = (NetworkComponents *)[TyphoonBlockComponentFactory factoryWithAssembly:[NetworkComponents new]];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName: [UIFont semiboldFontOfSize:18], NSForegroundColorAttributeName: [UIColor darkBlackTextColor]}];
+
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName: [UIFont semiboldFontOfSize:10], NSForegroundColorAttributeName: [UIColor darkBlackTextColor]} forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName: [UIFont semiboldFontOfSize:10], NSForegroundColorAttributeName: [UIColor blueTextColor]} forState:UIControlStateSelected];
     
-//    id<COOLWeatherAPI> apiClient = [factory apiClient];
-//    [apiClient todayWeatherWithQuery:@"Moscow, Russia" success:^(COOLTodayForecastAPIResponse *response) {
-//        
-//    } failure:^(COOLAPIResponse *response) {
-//        
-//    }];
-//    
-//    [apiClient daylyWeatherWithQuery:@"Moscow, Russia" days:5 success:^(COOLDailyForecastAPIResponse *response) {
-//        
-//    } failure:^(COOLAPIResponse *response) {
-//        
-//    }];
-//    
-//    [apiClient searchCitiesWithQuery:@"Mosc" success:^(COOLSearchAPIResponse *response) {
-//        
-//    } failure:^(COOLAPIResponse *response) {
-//        
-//    }];
-    
-    id<COOLForecastDataSource> dataSource = [factory forecastDataSource];
-    dataSource.delegate = self;
-//    [dataSource loadTodayForecastWithQuery:@"Moscow,Russia"];
-    
+    [[UISearchBar appearance] setSearchFieldBackgroundImage:[UIImage imageNamed:@"Input"] forState:UIControlStateNormal];
+    [[UISearchBar appearance] setImage:[UIImage imageNamed:@"Search"] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
+    [[UISearchBar appearance] setImage:[UIImage imageNamed:@"Close"] forSearchBarIcon:UISearchBarIconClear state:UIControlStateNormal];
+    [[UISearchBar appearance] setSearchTextPositionAdjustment:UIOffsetMake(5, 0)];
+
     return YES;
-}
-
-- (void)dataSourceWillLoadContent:(id<COOLForecastDataSource>)dataSource
-{
-    
-}
-
-- (void)dataSource:(id<COOLForecastDataSource>)dataSource didLoadContentWithError:(NSError *)error
-{
-    
 }
 
 @end

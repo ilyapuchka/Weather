@@ -31,6 +31,7 @@
     COOLForecastTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:COOLForecastTableViewCellReuseId forIndexPath:indexPath];
     COOLForecastTableViewCellModel *viewModel = [[COOLForecastTableViewCellModel alloc] initWithWeather:self.items[indexPath.row]];
     [viewModel setup:cell setting:self.settings];
+    cell.separatorInset = UIEdgeInsetsMake(0, 87, 0, 0);
     return cell;
 }
 

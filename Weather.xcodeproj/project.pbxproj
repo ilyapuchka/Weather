@@ -17,6 +17,8 @@
 		09085D071A28C4AB00A01689 /* UIImage+Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = 09085D061A28C4AB00A01689 /* UIImage+Weather.m */; };
 		09085D0B1A28C5A600A01689 /* NSDate+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 09085D0A1A28C5A600A01689 /* NSDate+Extensions.m */; };
 		09085D0E1A28C8D000A01689 /* Errors.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09085D101A28C8D000A01689 /* Errors.strings */; };
+		09085D151A28CFEC00A01689 /* UIColor+Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = 09085D141A28CFEC00A01689 /* UIColor+Weather.m */; };
+		09085D191A28D01200A01689 /* UIFont+Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = 09085D181A28D01200A01689 /* UIFont+Weather.m */; };
 		0922146D1A253F86002A614A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0922146C1A253F86002A614A /* main.m */; };
 		092214761A253F86002A614A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 092214741A253F86002A614A /* Main.storyboard */; };
 		092214781A253F86002A614A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 092214771A253F86002A614A /* Images.xcassets */; };
@@ -109,6 +111,10 @@
 		09085D0A1A28C5A600A01689 /* NSDate+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extensions.m"; sourceTree = "<group>"; };
 		09085D0F1A28C8D000A01689 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Errors.strings; sourceTree = "<group>"; };
 		09085D111A28C8D200A01689 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Errors.strings; sourceTree = "<group>"; };
+		09085D131A28CFEC00A01689 /* UIColor+Weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Weather.h"; sourceTree = "<group>"; };
+		09085D141A28CFEC00A01689 /* UIColor+Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Weather.m"; sourceTree = "<group>"; };
+		09085D171A28D01200A01689 /* UIFont+Weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Weather.h"; sourceTree = "<group>"; };
+		09085D181A28D01200A01689 /* UIFont+Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Weather.m"; sourceTree = "<group>"; };
 		092214671A253F86002A614A /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0922146B1A253F86002A614A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0922146C1A253F86002A614A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -289,6 +295,24 @@
 			path = NSDate;
 			sourceTree = "<group>";
 		};
+		09085D121A28CFD600A01689 /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				09085D131A28CFEC00A01689 /* UIColor+Weather.h */,
+				09085D141A28CFEC00A01689 /* UIColor+Weather.m */,
+			);
+			name = UIColor;
+			sourceTree = "<group>";
+		};
+		09085D161A28CFFD00A01689 /* UIFont */ = {
+			isa = PBXGroup;
+			children = (
+				09085D171A28D01200A01689 /* UIFont+Weather.h */,
+				09085D181A28D01200A01689 /* UIFont+Weather.m */,
+			);
+			name = UIFont;
+			sourceTree = "<group>";
+		};
 		0922145E1A253F86002A614A = {
 			isa = PBXGroup;
 			children = (
@@ -375,6 +399,8 @@
 		092214941A25401C002A614A /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				09085D161A28CFFD00A01689 /* UIFont */,
+				09085D121A28CFD600A01689 /* UIColor */,
 				09085D081A28C59700A01689 /* NSDate */,
 				09085D041A28C49900A01689 /* UIImage */,
 				09085CE11A2889CC00A01689 /* UIAlertView */,
@@ -838,6 +864,8 @@
 				092214CF1A2543CC002A614A /* COOLSearchAPIRequest.m in Sources */,
 				09085CDF1A27DFC800A01689 /* INTULocationManager+Extensions.m in Sources */,
 				093876D21A26250300ADF480 /* COOLTodayViewController.m in Sources */,
+				09085D151A28CFEC00A01689 /* UIColor+Weather.m in Sources */,
+				09085D191A28D01200A01689 /* UIFont+Weather.m in Sources */,
 				093876D81A26252E00ADF480 /* COOLDailyForecastViewController.m in Sources */,
 				09ED70201A2764DF00BE573A /* COOLForecastTableViewCell.m in Sources */,
 				09E894681A269D2D00D7B95B /* COOLTodayViewModel.m in Sources */,

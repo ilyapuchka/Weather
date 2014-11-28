@@ -35,6 +35,7 @@
     Location *location = self.items[indexPath.row];
     COOLLocationSearchCellModel *model = [[COOLLocationSearchCellModel alloc] initWithLocation:location];
     [model setup:(id<COOLocationSearchCellPresentation>)cell];
+    cell.separatorInset = UIEdgeInsetsMake(0, 34, 0, 0);
     return cell;
 }
 

@@ -76,7 +76,7 @@
     NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
     textAttachment.image = [UIImage imageNamed:@"Line-blue-devider"];
     textAttachment.bounds = CGRectMake(0, 0, textAttachment.image.size.width, textAttachment.image.size.height);
-    textAttachment.bounds = CGRectOffset(textAttachment.bounds, 0, -2);
+    textAttachment.bounds = CGRectOffset(textAttachment.bounds, 0, -4);
 
     [attrString appendAttributedString:[NSAttributedString attributedStringWithAttachment:textAttachment]];
 

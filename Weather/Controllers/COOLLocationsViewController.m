@@ -65,6 +65,8 @@
     self.locationsDataSource.delegate = self;
     self.forecastDataSource.delegate = self;
     
+    self.tableView.tableFooterView = [UIView new];
+    
     [self.locationsTableViewDataSource setSettings:self.userSettingsRepository];
     
     UINib *nib = [UINib nibWithNibName:@"COOLForecastTableViewCell" bundle:[NSBundle mainBundle]];
@@ -141,6 +143,7 @@
     [self.navigationItem setRightBarButtonItem:self.doneItem animated:YES];
     [self.forecastDataSource loadDailyForecastsWithQueries:self.locations days:1];
     self.currentDataSource = self.locationsTableViewDataSource;
+    self.tableView.tableFooterView = [UIView new];
     [self reloadData];
 }
 
@@ -155,6 +158,7 @@
     self.addButton.hidden = YES;
     self.currentDataSource = self.searchResultsTableViewDataSource;
     [self.currentDataSource setItems:nil];
+    self.tableView.tableFooterView = nil;
     [self reloadData];
 }
 

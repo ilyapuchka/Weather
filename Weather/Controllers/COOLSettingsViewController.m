@@ -9,6 +9,9 @@
 #import "COOLSettingsViewController.h"
 #import "COOLUserSettingsRepository.h"
 
+#import "UIColor+Weather.h"
+#import "UIFont+Weather.h"
+
 typedef NS_ENUM(NSInteger, COOLSettings){
     COOLSettingsDistance,
     COOLSettingsTemperature
@@ -27,8 +30,8 @@ typedef NS_ENUM(NSInteger, COOLSettings){
         self.title = NSLocalizedString(@"Settings", nil);
         self.tabBarItem = [[UITabBarItem alloc] initWithTitle:self.title image:[[UIImage imageNamed:@"Settings-normal"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"Settings-selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
         
-        [[UILabel appearanceWhenContainedIn:[UITableViewHeaderFooterView class], nil] setTextColor:[UIColor colorWithRed:47.0f/255.0f green:145.0f/255.0f blue:255.0f/255.0f alpha:1.0f]];
-        [[UILabel appearanceWhenContainedIn:[UITableViewHeaderFooterView class], nil] setFont:[UIFont fontWithName:@"ProximaNova-Semibold" size:14]];
+        [[UILabel appearanceWhenContainedIn:[UITableViewHeaderFooterView class], nil] setTextColor:[UIColor blueTextColor]];
+        [[UILabel appearanceWhenContainedIn:[UITableViewHeaderFooterView class], nil] setFont:[UIFont semiboldFontOfSize:14]];
     }
     return self;
 }
@@ -70,8 +73,8 @@ typedef NS_ENUM(NSInteger, COOLSettings){
             cell.textLabel.text = NSLocalizedStringFromTable(@"Units of temperature", @"Settings", nil);
             break;
     }
-    cell.detailTextLabel.textColor = [UIColor colorWithRed:47.0f/255.0f green:145.0f/255.0f blue:255.0f/255.0f alpha:1.0f];
-    cell.detailTextLabel.font = [UIFont fontWithName:@"ProximaNova-Regular" size:17];
+    cell.detailTextLabel.textColor = [UIColor blueTextColor];
+    cell.detailTextLabel.font = [UIFont regularFontOfSize:17];
     return cell;
 }
 

@@ -60,6 +60,8 @@
     self.locationsDataSource.delegate = self;
     [self.tableViewDataSource setSettings:self.userSettingsRepository];
     
+    self.tableView.tableFooterView = [UIView new];
+    
     UINib *nib = [UINib nibWithNibName:@"COOLForecastTableViewCell" bundle:[NSBundle mainBundle]];
     [self.tableView registerNib:nib forCellReuseIdentifier:COOLForecastTableViewCellReuseId];
     

@@ -13,6 +13,8 @@
 #import "AreaName.h"
 #import "Region.h"
 
+#import "UIFont+Weather.h"
+
 @interface COOLLocationSearchCellModel()
 
 @property (nonatomic, copy) Location *location;
@@ -39,8 +41,8 @@
     if ([region value].length > 0) {
         areaNameString = [areaNameString stringByAppendingString:@", "];
     }
-    [attr appendAttributedString:[[NSAttributedString alloc] initWithString:areaNameString attributes:@{NSFontAttributeName: [UIFont fontWithName:@"ProximaNova-Semibold" size:16.0f]}]];
-    [attr appendAttributedString:[[NSAttributedString alloc] initWithString:region.value attributes:@{NSFontAttributeName: [UIFont fontWithName:@"ProximaNova-Light" size:16.0f]}]];
+    [attr appendAttributedString:[[NSAttributedString alloc] initWithString:areaNameString attributes:@{NSFontAttributeName: [UIFont semiboldFontOfSize:16.0f]}]];
+    [attr appendAttributedString:[[NSAttributedString alloc] initWithString:region.value attributes:@{NSFontAttributeName: [UIFont lightFontOfSize:16.0f]}]];
     return [attr copy];
 }
 
