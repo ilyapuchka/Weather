@@ -17,6 +17,8 @@
 #import "COOLTodayViewPresentation.h"
 #import "COOLUserSettingsRepository.h"
 
+#import "UIImage+Weather.h"
+
 @interface COOLTodayViewModel()
 
 @property (nonatomic, copy) Forecast *forecast;
@@ -41,25 +43,8 @@
 
 - (UIImage *)weatherIconImage
 {
-    static NSDictionary *dict;
-    if (!dict) {
-        dict = @{
-                 @"sun": @"Sun_Big",
-                 @"cloud": @"Cloudy_Big",
-                 @"wind": @"Wind_Big",
-                 @"thunder": @"Lightning_Big"
-                 };
-        
-    }
     NSString *weatherDesc = [[(WeatherDesc *)self.currentHourly.weatherDesc.lastObject value] lowercaseString];
-    __block NSString *imageName = @"Cloudy_Big";
-    [dict enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        if ([weatherDesc rangeOfString:key].location != NSNotFound) {
-            imageName = obj;
-            *stop = YES;
-        }
-    }];
-    return [UIImage imageNamed:imageName];
+    return [UIImage weatherIconImage:weatherDesc];
 }
 
 - (NSAttributedString *)locationString

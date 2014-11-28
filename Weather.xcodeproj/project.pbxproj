@@ -14,6 +14,8 @@
 		09085CEC1A28A82500A01689 /* COOLForecastShareModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09085CEB1A28A82500A01689 /* COOLForecastShareModel.m */; };
 		09085CFA1A28BC1F00A01689 /* Settings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09085CF81A28BC1F00A01689 /* Settings.strings */; };
 		09085CFF1A28BDF500A01689 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09085CFD1A28BDF500A01689 /* Localizable.strings */; };
+		09085D071A28C4AB00A01689 /* UIImage+Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = 09085D061A28C4AB00A01689 /* UIImage+Weather.m */; };
+		09085D0B1A28C5A600A01689 /* NSDate+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 09085D0A1A28C5A600A01689 /* NSDate+Extensions.m */; };
 		0922146D1A253F86002A614A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0922146C1A253F86002A614A /* main.m */; };
 		092214761A253F86002A614A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 092214741A253F86002A614A /* Main.storyboard */; };
 		092214781A253F86002A614A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 092214771A253F86002A614A /* Images.xcassets */; };
@@ -100,6 +102,10 @@
 		09085D001A28BDFB00A01689 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		09085D011A28BDFF00A01689 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		09085D031A28BF1D00A01689 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		09085D051A28C4AB00A01689 /* UIImage+Weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Weather.h"; sourceTree = "<group>"; };
+		09085D061A28C4AB00A01689 /* UIImage+Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Weather.m"; sourceTree = "<group>"; };
+		09085D091A28C5A600A01689 /* NSDate+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extensions.h"; sourceTree = "<group>"; };
+		09085D0A1A28C5A600A01689 /* NSDate+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extensions.m"; sourceTree = "<group>"; };
 		092214671A253F86002A614A /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0922146B1A253F86002A614A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0922146C1A253F86002A614A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -262,6 +268,24 @@
 			path = UIAlertView;
 			sourceTree = "<group>";
 		};
+		09085D041A28C49900A01689 /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				09085D051A28C4AB00A01689 /* UIImage+Weather.h */,
+				09085D061A28C4AB00A01689 /* UIImage+Weather.m */,
+			);
+			path = UIImage;
+			sourceTree = "<group>";
+		};
+		09085D081A28C59700A01689 /* NSDate */ = {
+			isa = PBXGroup;
+			children = (
+				09085D091A28C5A600A01689 /* NSDate+Extensions.h */,
+				09085D0A1A28C5A600A01689 /* NSDate+Extensions.m */,
+			);
+			path = NSDate;
+			sourceTree = "<group>";
+		};
 		0922145E1A253F86002A614A = {
 			isa = PBXGroup;
 			children = (
@@ -347,6 +371,8 @@
 		092214941A25401C002A614A /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				09085D081A28C59700A01689 /* NSDate */,
+				09085D041A28C49900A01689 /* UIImage */,
 				09085CE11A2889CC00A01689 /* UIAlertView */,
 				09085CD91A27DA3800A01689 /* CLLocation */,
 				093876DC1A26258900ADF480 /* ViewController */,
@@ -797,7 +823,9 @@
 				09085CDC1A27DA7F00A01689 /* CLLocation+Extensions.m in Sources */,
 				092215311A25F6BF002A614A /* COOLForecastDataSourceImpl.m in Sources */,
 				09085CEC1A28A82500A01689 /* COOLForecastShareModel.m in Sources */,
+				09085D071A28C4AB00A01689 /* UIImage+Weather.m in Sources */,
 				092215001A25E80A002A614A /* NetworkComponents.m in Sources */,
+				09085D0B1A28C5A600A01689 /* NSDate+Extensions.m in Sources */,
 				093876E11A26258900ADF480 /* UIViewController+SegueUserInfo.m in Sources */,
 				092215261A25EFBC002A614A /* Location.m in Sources */,
 				092214C41A2541F5002A614A /* COOLSearchAPIResponse.m in Sources */,

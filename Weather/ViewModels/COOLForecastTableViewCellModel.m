@@ -18,6 +18,9 @@
 #import "COOLForecastTableViewCellPresentation.h"
 #import "COOLUserSettingsRepository.h"
 
+#import "UIImage+Weather.h"
+#import "NSDate+Extensions.h"
+
 @interface COOLForecastTableViewCellModel()
 
 @property (nonatomic, copy) Location *location;
@@ -52,25 +55,8 @@
 
 - (UIImage *)weatherIconImage
 {
-    static NSDictionary *dict;
-    if (!dict) {
-        dict = @{
-                 @"sun": @"Sun_Big",
-                 @"cloud": @"Cloudy_Big",
-                 @"wind": @"Wind_Big",
-                 @"thunder": @"Lightning_Big"
-                 };
-        
-    }
     NSString *weatherDesc = [[(WeatherDesc *)self.currentHourly.weatherDesc.lastObject value] lowercaseString];
-    __block NSString *imageName = @"Cloudy_Big";
-    [dict enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        if ([weatherDesc rangeOfString:key].location != NSNotFound) {
-            imageName = obj;
-            *stop = YES;
-        }
-    }];
-    return [UIImage imageNamed:imageName];
+    return [UIImage weatherIconImage:weatherDesc];
 }
 
 - (NSAttributedString *)titleString
@@ -86,15 +72,7 @@
         }
     }
     else {
-        NSDate *date;
-        static NSDateFormatter *dateFormatter;
-        if (!dateFormatter) {
-            dateFormatter = [[NSDateFormatter alloc] init];
-        }
-        dateFormatter.dateFormat = @"yyyy-MM-dd";
-        date = [dateFormatter dateFromString:self.weather.date];
-        dateFormatter.dateFormat = @"EEEE";
-        NSString * dayString = [[dateFormatter stringFromDate:date] capitalizedString];
+        NSString *dayString = [NSDate weekDayFromDateString:self.weather.date dateFormat:@"yyyy-MM-dd"];
         [attrString appendAttributedString:[[NSAttributedString alloc] initWithString:dayString]];
     }
     return [attrString copy];
