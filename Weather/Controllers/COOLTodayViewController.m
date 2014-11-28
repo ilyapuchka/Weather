@@ -11,12 +11,11 @@
 #import "COOLLocationsDataSource.h"
 #import "COOLUserLocationsRepository.h"
 
-#import "INTULocationManager.h"
+#import "INTULocationRequestDefines.h"
 #import "Location.h"
 #import "COOLForecastShareModel.h"
 
 #import "COOLStoryboardIdentifiers.h"
-#import "UIViewController+SegueUserInfo.h"
 
 #import "COOLLocationsViewInput.h"
 #import "COOLLocationsSelection.h"
@@ -27,10 +26,7 @@
 #import "UIAlertView+Extensions.h"
 #import "COOLNotifications.h"
 
-@interface COOLTodayViewController() <COOLDataSourceDelegate, COOLLocationsSelectionOutput>
-
-@property (nonatomic, copy) Location *selectedLocation;
-@property (nonatomic, copy) Location *userLocation;
+@interface COOLTodayViewController()
 
 @property (nonatomic, retain) COOLTodayView *view;
 @property (nonatomic, strong) COOLTodayViewModel *viewModel;
@@ -49,19 +45,12 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     self.forecastDataSource.delegate = self;
     self.locationsDataSource.delegate = self;
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(defaultsChanged:) name:COOLUserSettingsChangedNotification object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -74,23 +63,12 @@
 
 - (void)reloadData
 {
-    if (self.selectedLocation) {
-        [self loadForecastForLocation:self.selectedLocation];
-    }
-    
-    BOOL updatingLocation = [self.userLocationsRepository updateCurrentUserLocation:NO withCompletion:^(INTULocationStatus status, CLLocation *location, BOOL changed) {
-        if (status != INTULocationStatusSuccess) {
-            [UIAlertView showLocationErrorWithStatus:status force:NO];
-            self.selectedLocation = [[self.userLocationsRepository userLocations] firstObject];
-            [self.userLocationsRepository setSelectedLocation:self.selectedLocation];
-            [self loadForecastForLocation:self.selectedLocation];
-        }
-        else if (changed || !self.userLocation) {
-            [self loadLocationsForLocation:location];
-        }
-    }];
-    
-    if (updatingLocation) {
+    [super reloadData];
+}
+
+- (void)willUpdateUserLocation:(BOOL)willUpdateUserLocation
+{
+    if (willUpdateUserLocation) {
         if (!self.userLocation) {
             self.view.contentView.hidden = YES;
         }
@@ -100,16 +78,6 @@
             [self loadForecastForLocation:self.userLocation];
         }
     }
-}
-
-- (void)loadLocationsForLocation:(CLLocation *)location
-{
-    static NSURLSessionDataTask *task;
-    if (task && task.state == NSURLSessionTaskStateRunning) {
-        return;
-    }
-    task = [self.locationsDataSource loadLocationsWithLatitude:location.coordinate.latitude
-                                                    longituted:location.coordinate.longitude];
 }
 
 - (void)loadForecastForLocation:(Location *)location
@@ -132,24 +100,11 @@
     self.view.contentView.hidden = YES;
 }
 
-- (void)dataSourceWillLoadContent:(id)dataSource
-{
-}
-
 - (void)dataSource:(id)dataSource didLoadContentWithError:(NSError *)error
 {
-    if (dataSource == self.locationsDataSource) {
-        Location *location = [[self.locationsDataSource locations] firstObject];
-        if (!error && location) {
-            if (![self.userLocation isEqual:location]) {
-                self.userLocation = location;
-            }
-            if (!self.selectedLocation) {
-                [self loadForecastForLocation:self.userLocation];
-            }
-        }
-    }
-    else if (dataSource == self.forecastDataSource) {
+    [super dataSource:dataSource didLoadContentWithError:error];
+    
+    if (dataSource == self.forecastDataSource) {
         Forecast *forecast = [self.forecastDataSource todayForecast];
         if (!error && forecast) {
             self.view.contentView.hidden = NO;

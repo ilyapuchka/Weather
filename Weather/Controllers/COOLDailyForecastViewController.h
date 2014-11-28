@@ -7,17 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "COOLForecastViewController.h"
 
-@protocol COOLForecastDataSource;
-@protocol COOLLocationsDataSource;
-@protocol COOLUserLocationsRepository;
-@protocol COOLUserSettingsRepository;
-
-@interface COOLDailyForecastViewController : UIViewController
-
-@property (nonatomic, strong) id<COOLForecastDataSource> forecastDataSource;
-@property (nonatomic, strong) id<COOLLocationsDataSource> locationsDataSource;
-@property (nonatomic, strong) id<COOLUserLocationsRepository> userLocationsRepository;
-@property (nonatomic, strong) id<COOLUserSettingsRepository> userSettingsRepository;
+@interface COOLDailyForecastViewController : COOLForecastViewController
 
 @end

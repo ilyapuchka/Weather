@@ -25,11 +25,9 @@
 
 #import "UIAlertView+Extensions.h"
 
-@interface COOLDailyForecastViewController() <COOLDataSourceDelegate, COOLLocationsSelectionOutput>
+@interface COOLDailyForecastViewController()
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
-@property (nonatomic, copy) Location *selectedLocation;
-@property (nonatomic, copy) Location *userLocation;
 @property (nonatomic, copy) Forecast *forecast;
 @property (nonatomic, strong) IBOutlet id<COOLForecastTableViewDataSource> tableViewDataSource;
 
@@ -47,11 +45,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -64,8 +57,6 @@
     
     UINib *nib = [UINib nibWithNibName:@"COOLForecastTableViewCell" bundle:[NSBundle mainBundle]];
     [self.tableView registerNib:nib forCellReuseIdentifier:COOLForecastTableViewCellReuseId];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(defaultsChanged:) name:COOLUserSettingsChangedNotification object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -84,25 +75,13 @@
 - (void)reloadData
 {
     [self setTitleWithLocation:self.selectedLocation?:self.userLocation];
+    
+    [super reloadData];
+}
 
-    if (self.selectedLocation) {
-        [self loadForecastForLocation:self.selectedLocation];
-    }
-    
-    BOOL updatingLocation = [self.userLocationsRepository updateCurrentUserLocation:NO withCompletion:^(INTULocationStatus status, CLLocation *location, BOOL changed) {
-        if (status != INTULocationStatusSuccess) {
-            [UIAlertView showLocationErrorWithStatus:status force:NO];
-            self.selectedLocation = [[self.userLocationsRepository userLocations] firstObject];
-            [self.userLocationsRepository setSelectedLocation:self.selectedLocation];
-            [self setTitleWithLocation:self.selectedLocation];
-            [self loadForecastForLocation:self.selectedLocation];
-        }
-        else if (changed || !self.userLocation) {
-            [self loadLocationsForLocation:location];
-        }
-    }];
-    
-    if (updatingLocation) {
+- (void)willUpdateUserLocation:(BOOL)willUpdateUserLocation
+{
+    if (willUpdateUserLocation) {
         if (!self.selectedLocation) {
             self.forecast = nil;
             [self reloadTableViewWithForecast:self.forecast];
@@ -126,18 +105,10 @@
     [self.tableView reloadData];
 }
 
-- (void)loadLocationsForLocation:(CLLocation *)location
-{
-    static NSURLSessionDataTask *task;
-    if (task && task.state == NSURLSessionTaskStateRunning) {
-        return;
-    }
-    task = [self.locationsDataSource loadLocationsWithLatitude:location.coordinate.latitude
-                                                    longituted:location.coordinate.longitude];
-}
-
 - (void)loadForecastForLocation:(Location *)location
 {
+    [self setTitleWithLocation:location];
+
     if (!location) {
         return;
     }
@@ -149,28 +120,11 @@
     task = [self.forecastDataSource loadDailyForecastWithQuery:location days:5];
 }
 
-#pragma mark - COOLDataSourceDelegate
-
-- (void)dataSourceWillLoadContent:(id)dataSource
-{
-    
-}
-
 - (void)dataSource:(id)dataSource didLoadContentWithError:(NSError *)error
 {
-    if (dataSource == self.locationsDataSource) {
-        Location *location = [[self.locationsDataSource locations] firstObject];
-        if (!error && location) {
-            if (![self.userLocation isEqual:location]) {
-                self.userLocation = location;
-            }
-            if (!self.selectedLocation) {
-                [self setTitleWithLocation:self.userLocation];
-                [self loadForecastForLocation:self.userLocation];
-            }
-        }
-    }
-    else if (dataSource == self.forecastDataSource) {
+    [super dataSource:dataSource didLoadContentWithError:error];
+    
+    if (dataSource == self.forecastDataSource) {
         Forecast *forecast = [self.forecastDataSource dailyForecast];
         if (!error && forecast) {
             self.forecast = forecast;
@@ -202,6 +156,8 @@
     self.selectedLocation = location;
     [self setTitleWithLocation:self.selectedLocation];
 }
+
+#pragma mark - Private
 
 - (BOOL)shouldClearTableViewForLocation:(Location *)location
 {

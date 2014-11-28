@@ -19,6 +19,7 @@
 		09085D0E1A28C8D000A01689 /* Errors.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09085D101A28C8D000A01689 /* Errors.strings */; };
 		09085D151A28CFEC00A01689 /* UIColor+Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = 09085D141A28CFEC00A01689 /* UIColor+Weather.m */; };
 		09085D191A28D01200A01689 /* UIFont+Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = 09085D181A28D01200A01689 /* UIFont+Weather.m */; };
+		09085D1C1A28DC4000A01689 /* COOLForecastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09085D1B1A28DC4000A01689 /* COOLForecastViewController.m */; };
 		0922146D1A253F86002A614A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0922146C1A253F86002A614A /* main.m */; };
 		092214761A253F86002A614A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 092214741A253F86002A614A /* Main.storyboard */; };
 		092214781A253F86002A614A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 092214771A253F86002A614A /* Images.xcassets */; };
@@ -115,6 +116,8 @@
 		09085D141A28CFEC00A01689 /* UIColor+Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Weather.m"; sourceTree = "<group>"; };
 		09085D171A28D01200A01689 /* UIFont+Weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Weather.h"; sourceTree = "<group>"; };
 		09085D181A28D01200A01689 /* UIFont+Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Weather.m"; sourceTree = "<group>"; };
+		09085D1A1A28DC4000A01689 /* COOLForecastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLForecastViewController.h; sourceTree = "<group>"; };
+		09085D1B1A28DC4000A01689 /* COOLForecastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLForecastViewController.m; sourceTree = "<group>"; };
 		092214671A253F86002A614A /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0922146B1A253F86002A614A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0922146C1A253F86002A614A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -414,6 +417,8 @@
 		092214961A25401C002A614A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				09085D1A1A28DC4000A01689 /* COOLForecastViewController.h */,
+				09085D1B1A28DC4000A01689 /* COOLForecastViewController.m */,
 				093876D01A26250300ADF480 /* COOLTodayViewController.h */,
 				093876D11A26250300ADF480 /* COOLTodayViewController.m */,
 				093876D61A26252E00ADF480 /* COOLDailyForecastViewController.h */,
@@ -894,6 +899,7 @@
 				092214F41A25E0E3002A614A /* Forecast.m in Sources */,
 				09E894651A269B5200D7B95B /* COOLTodayView.m in Sources */,
 				093876D51A26251900ADF480 /* COOLSettingsViewController.m in Sources */,
+				09085D1C1A28DC4000A01689 /* COOLForecastViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
