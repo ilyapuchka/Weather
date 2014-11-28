@@ -109,6 +109,7 @@
             [self.output didSelectLocation:nil];
         }
     }
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -199,6 +200,7 @@
     }
     else {
         self.selectedLocation = location;
+        //there is a strange bug in UITableView that sometimes makes it freeze for short time before dismissing, if dismiss is called from didSelectRowAtIndexPath...
         [self dismissAndNotify:YES];
     }
 }

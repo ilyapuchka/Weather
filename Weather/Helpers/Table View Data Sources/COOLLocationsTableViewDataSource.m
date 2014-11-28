@@ -48,6 +48,7 @@
     
     COOLForecastTableViewCellModel *viewModel = [[COOLForecastTableViewCellModel alloc] initWithDailyForecast:forecast forLocation:location isCurrentLocation:[location isEqual:self.currentUserLocation]];
     [viewModel setup:cell];
+    cell.selectionStyle = UITableViewCellSelectionStyleDefault;
     return cell;
 }
 
