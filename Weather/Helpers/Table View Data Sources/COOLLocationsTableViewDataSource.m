@@ -21,6 +21,7 @@
 
 @property (nonatomic, copy) NSArray *locations;
 @property (nonatomic, copy) NSArray *items;
+@property (nonatomic, strong) id<COOLUserSettingsRepository> settings;
 
 @end
 
@@ -47,7 +48,7 @@
     Location *location = item.location;
     
     COOLForecastTableViewCellModel *viewModel = [[COOLForecastTableViewCellModel alloc] initWithDailyForecast:forecast forLocation:location isCurrentLocation:[location isEqual:self.currentUserLocation]];
-    [viewModel setup:cell];
+    [viewModel setup:cell setting:self.settings];
     cell.selectionStyle = UITableViewCellSelectionStyleDefault;
     cell.delegate = self;
     return cell;

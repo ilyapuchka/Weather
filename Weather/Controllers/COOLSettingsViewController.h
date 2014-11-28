@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface COOLSettingsViewController : UIViewController
+@protocol COOLUserSettingsRepository;
+
+@interface COOLSettingsViewController : UITableViewController
+
+@property (nonatomic, strong) id<COOLUserSettingsRepository> userSettingsRepository;
 
 @end

@@ -8,8 +8,16 @@
 
 @import UIKit;
 
+@protocol COOLUserSettingsRepository;
+
 @protocol COOLTableViewDataSource <UITableViewDataSource, UITableViewDelegate>
 
 - (void)setItems:(NSArray *)items;
+
+@end
+
+@protocol COOLForecastTableViewDataSource <COOLTableViewDataSource>
+
+- (void)setSettings:(id<COOLUserSettingsRepository>)settings;
 
 @end

@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "COOLUnits.h"
 
 @class Forecast;
 @class Location;
 @protocol COOLTodayViewPresentation;
+@protocol COOLUserSettingsRepository;
 
 @interface COOLTodayViewModel : NSObject
 
@@ -20,14 +22,15 @@
 
 - (UIImage *)weatherIconImage;
 - (NSAttributedString *)locationString;
-- (NSAttributedString *)weatherDescString;
+- (NSAttributedString *)weatherDescStringWithUnit:(COOLTemperatureUnit)tempUnit;
 - (NSString *)chanceOfRainString;
 - (UIImage *)chanceOfRainIcon;
 - (NSString *)precipString;
 - (NSString *)pressureString;
-- (NSString *)windSpeedString;
+- (NSString *)windSpeedStringWithUnit:(COOLDistanceUnit)distanceUnit;
 - (NSString *)windDirectionString;
 
-- (void)setup:(id<COOLTodayViewPresentation>)view;
+- (void)setup:(id<COOLTodayViewPresentation>)view
+      setting:(id<COOLUserSettingsRepository>)settings;
 
 @end

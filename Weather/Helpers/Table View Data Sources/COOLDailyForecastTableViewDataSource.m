@@ -15,6 +15,7 @@
 @interface COOLDailyForecastTableViewDataSource()
 
 @property (nonatomic, copy) NSArray *items;
+@property (nonatomic, strong) id<COOLUserSettingsRepository> settings;
 
 @end
 
@@ -29,7 +30,7 @@
 {
     COOLForecastTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:COOLForecastTableViewCellReuseId forIndexPath:indexPath];
     COOLForecastTableViewCellModel *viewModel = [[COOLForecastTableViewCellModel alloc] initWithWeather:self.items[indexPath.row]];
-    [viewModel setup:cell];
+    [viewModel setup:cell setting:self.settings];
     return cell;
 }
 

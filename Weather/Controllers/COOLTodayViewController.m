@@ -24,6 +24,7 @@
 #import "COOLTodayViewModel.h"
 
 #import "UIAlertView+Extensions.h"
+#import "COOLNotifications.h"
 
 @interface COOLTodayViewController() <COOLDataSourceDelegate, COOLLocationsSelectionOutput>
 
@@ -31,6 +32,7 @@
 @property (nonatomic, copy) Location *userLocation;
 
 @property (nonatomic, retain) COOLTodayView *view;
+@property (nonatomic, strong) COOLTodayViewModel *viewModel;
 
 @end
 
@@ -56,6 +58,8 @@
     
     self.forecastDataSource.delegate = self;
     self.locationsDataSource.delegate = self;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(defaultsChanged:) name:COOLUserSettingsChangedNotification object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -157,7 +161,8 @@
             else {
                 return;
             }
-            [model setup:self.view];
+            [model setup:self.view setting:self.userSettingsRepository];
+            self.viewModel = model;
         }
     }
 }
@@ -183,6 +188,11 @@
 - (IBAction)shareTapped:(id)sender
 {
     
+}
+
+- (void)defaultsChanged:(NSNotification *)note
+{
+    [self.viewModel setup:self.view setting:self.userSettingsRepository];
 }
 
 @end

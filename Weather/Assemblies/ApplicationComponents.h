@@ -17,5 +17,7 @@
 
 - (UIViewController *)todayViewController;
 - (UIViewController *)dailyViewController;
+- (UIViewController *)locationsViewController;
+- (UIViewController *)settingsViewController;
 
 @end

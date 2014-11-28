@@ -9,7 +9,6 @@
 #ifndef Weather_COOLNotifications_h
 #define Weather_COOLNotifications_h
 
-static NSString * const COOLLocationSelectedNotification = @"COOLLocationSelectedNotification";
-static NSString * const COOLLocationSelectedNotificationLocationKey = @"Location";
+static NSString * const COOLUserSettingsChangedNotification = @"COOLUserSettingsChangedNotification";
 
 #endif

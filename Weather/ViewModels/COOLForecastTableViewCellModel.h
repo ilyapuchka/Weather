@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "COOLUnits.h"
 
 @class Forecast;
 @class Weather;
 @class Location;
 @protocol COOLForecastTableViewCellPresentation;
+@protocol COOLUserSettingsRepository;
 
 @interface COOLForecastTableViewCellModel : NSObject
 
@@ -24,8 +26,9 @@
 - (UIImage *)weatherIconImage;
 - (NSAttributedString *)titleString;
 - (NSString *)subtitleString;
-- (NSString *)temperatureString;
+- (NSString *)temperatureStringWithUnit:(COOLTemperatureUnit)tempUnit;
 
-- (void)setup:(id<COOLForecastTableViewCellPresentation>)view;
+- (void)setup:(id<COOLForecastTableViewCellPresentation>)view
+      setting:(id<COOLUserSettingsRepository>)settings;
 
 @end

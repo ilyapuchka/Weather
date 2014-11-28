@@ -333,35 +333,69 @@
             <point key="canvasLocation" x="1731" y="311"/>
         </scene>
         <!--Settings-->
-        <scene sceneID="D9K-l7-5ng">
+        <scene sceneID="L4Q-uZ-Upp">
             <objects>
-                <viewController title="Settings" id="neN-kz-wWz" customClass="COOLSettingsViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="24g-8P-c1O"/>
-                        <viewControllerLayoutGuide type="bottom" id="VYA-Jy-LaD"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kyA-qL-T3d">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                <tableViewController title="Settings" id="JAC-5j-Z46" customClass="COOLSettingsViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="LOz-Gu-ZCQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="K7R-n1-rqj">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="VYA-Jy-LaD" firstAttribute="top" secondItem="K7R-n1-rqj" secondAttribute="bottom" id="CFe-OY-0EB"/>
-                            <constraint firstItem="K7R-n1-rqj" firstAttribute="leading" secondItem="kyA-qL-T3d" secondAttribute="leading" id="lQ3-1i-aOH"/>
-                            <constraint firstAttribute="trailing" secondItem="K7R-n1-rqj" secondAttribute="trailing" id="pc7-PS-tCL"/>
-                            <constraint firstItem="K7R-n1-rqj" firstAttribute="top" secondItem="24g-8P-c1O" secondAttribute="bottom" id="xW2-kI-Gr1"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Settings" id="IJe-Ba-deS"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="I0Q-rH-0QB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <sections>
+                            <tableViewSection headerTitle="GENERAL" id="T1z-Ji-dfQ">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="distance" textLabel="nom-dZ-oem" detailTextLabel="pOM-82-2Hl" style="IBUITableViewCellStyleValue1" id="Pfy-NQ-7gB">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Pfy-NQ-7gB" id="SaC-AS-8BN">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Units of distance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nom-dZ-oem">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pOM-82-2Hl">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="temperature" textLabel="VBk-55-jr1" detailTextLabel="VBW-KY-APU" style="IBUITableViewCellStyleValue1" id="6Si-Aq-ov3">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6Si-Aq-ov3" id="O7a-Te-rGg">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Units of temperature" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VBk-55-jr1">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VBW-KY-APU">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="JAC-5j-Z46" id="05A-SA-4FZ"/>
+                            <outlet property="delegate" destination="JAC-5j-Z46" id="ZIX-wk-Wq7"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Settings" id="neb-mM-acj"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tEe-ae-dtd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1731" y="2056"/>
+            <point key="canvasLocation" x="1598" y="2056"/>
         </scene>
         <!--Daily Forecast View Controller-->
         <scene sceneID="Ioe-0H-s8q">
@@ -587,7 +621,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="neN-kz-wWz" kind="relationship" relationship="rootViewController" id="4Yn-6J-iIH"/>
+                        <segue destination="JAC-5j-Z46" kind="relationship" relationship="rootViewController" id="fZu-Aj-Fae"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="18N-Ww-SbL" userLabel="First Responder" sceneMemberID="firstResponder"/>

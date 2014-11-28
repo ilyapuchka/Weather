@@ -15,6 +15,7 @@
 #import "TimeZone.h"
 
 #import "COOLTodayViewPresentation.h"
+#import "COOLUserSettingsRepository.h"
 
 @interface COOLTodayViewModel()
 
@@ -74,10 +75,19 @@
     return [attrString copy];
 }
 
-- (NSAttributedString *)weatherDescString
+- (NSAttributedString *)weatherDescStringWithUnit:(COOLTemperatureUnit)tempUnit
 {
     NSMutableAttributedString *attrString = [NSMutableAttributedString new];
-    [attrString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@°C ", self.currentHourly.tempC]]];
+    switch (tempUnit) {
+        case COOLTemperatureFahrenheit:
+            [attrString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@°F ", self.currentHourly.tempF]]];
+            break;
+            
+        default:
+            [attrString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@°C ", self.currentHourly.tempC]]];
+            break;
+    }
+    
     NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
     textAttachment.image = [UIImage imageNamed:@"Line-blue-devider"];
     textAttachment.bounds = CGRectMake(0, 0, textAttachment.image.size.width, textAttachment.image.size.height);
@@ -118,11 +128,18 @@
     return [NSString stringWithFormat:@"%@ hPa", self.currentHourly.pressure];
 }
 
-- (NSString *)windSpeedString
+- (NSString *)windSpeedStringWithUnit:(COOLDistanceUnit)distanceUnit
 {
-#warning TODO: settings
-    NSString *unit = @"km/h";
-    return [NSString stringWithFormat:@"%@ %@", self.currentHourly.windspeedKmph, unit];
+    NSString *unitString;
+    switch (distanceUnit) {
+        case COOLDistanceUnitMiles:
+            unitString = @"m/h";
+            break;
+        default:
+            unitString = @"km/h";
+            break;
+    }
+    return [NSString stringWithFormat:@"%@ %@", self.currentHourly.windspeedKmph, unitString];
 }
 
 - (NSString *)windDirectionString
@@ -130,16 +147,16 @@
     return self.currentHourly.winddir16Point;
 }
 
-- (void)setup:(id<COOLTodayViewPresentation>)view
+- (void)setup:(id<COOLTodayViewPresentation>)view setting:(id<COOLUserSettingsRepository>)settings
 {
     view.weatherIconImageView.image = self.weatherIconImage;
     view.locationLabel.attributedText = self.locationString;
-    view.weatherDescLabel.attributedText = self.weatherDescString;
+    view.weatherDescLabel.attributedText = [self weatherDescStringWithUnit:[settings defaultTemperatureUnit]];
     view.chanceOfRainLabel.text = self.chanceOfRainString;
     view.chanceOfRainIcon.image = self.chanceOfRainIcon;
     view.precipLabel.text = self.precipString;
     view.pressureLabel.text = self.pressureString;
-    view.windSpeedLabel.text = self.windSpeedString;
+    view.windSpeedLabel.text = [self windSpeedStringWithUnit:[settings defaultDistanceUnit]];
     view.windDirectionLabel.text = self.windDirectionString;
 }
 

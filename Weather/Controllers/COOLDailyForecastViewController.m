@@ -21,6 +21,7 @@
 #import "COOLTableViewDataSource.h"
 
 #import "COOLStoryboardIdentifiers.h"
+#import "COOLNotifications.h"
 
 #import "UIAlertView+Extensions.h"
 
@@ -30,7 +31,7 @@
 @property (nonatomic, copy) Location *selectedLocation;
 @property (nonatomic, copy) Location *userLocation;
 @property (nonatomic, copy) Forecast *forecast;
-@property (nonatomic, strong) IBOutlet id<COOLTableViewDataSource> tableViewDataSource;
+@property (nonatomic, strong) IBOutlet id<COOLForecastTableViewDataSource> tableViewDataSource;
 
 @end
 
@@ -56,9 +57,12 @@
     
     self.forecastDataSource.delegate = self;
     self.locationsDataSource.delegate = self;
+    [self.tableViewDataSource setSettings:self.userSettingsRepository];
     
     UINib *nib = [UINib nibWithNibName:@"COOLForecastTableViewCell" bundle:[NSBundle mainBundle]];
     [self.tableView registerNib:nib forCellReuseIdentifier:COOLForecastTableViewCellReuseId];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(defaultsChanged:) name:COOLUserSettingsChangedNotification object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -202,6 +206,13 @@
                    (!self.selectedLocation && location) ||
                    (!self.selectedLocation && !self.userLocation));
     return should;
+}
+
+- (void)defaultsChanged:(NSNotification *)note
+{
+    if (self.forecast) {
+        [self reloadTableViewWithForecast:self.forecast];
+    }
 }
 
 @end

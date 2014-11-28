@@ -15,7 +15,8 @@
 #import "AreaName.h"
 #import "TimeZone.h"
 
-#import "COOLForecastTableViewCell.h"
+#import "COOLForecastTableViewCellPresentation.h"
+#import "COOLUserSettingsRepository.h"
 
 @interface COOLForecastTableViewCellModel()
 
@@ -104,18 +105,26 @@
     return [(WeatherDesc *)self.currentHourly.weatherDesc.lastObject value]?:@"--";
 }
 
-- (NSString *)temperatureString
+- (NSString *)temperatureStringWithUnit:(COOLTemperatureUnit)tempUnit
 {
-#warning TODO: settings
-    return self.currentHourly.tempC?[NSString stringWithFormat:@"%@°", self.currentHourly.tempC]:@"--";
+    NSString *tempString;
+    switch (tempUnit) {
+        case COOLTemperatureFahrenheit:
+            tempString = self.currentHourly.tempF;
+            break;
+        default:
+            tempString = self.currentHourly.tempC;
+            break;
+    }
+    return tempString?[NSString stringWithFormat:@"%@°", tempString]:@"--";
 }
 
-- (void)setup:(id<COOLForecastTableViewCellPresentation>)view
+- (void)setup:(id<COOLForecastTableViewCellPresentation>)view setting:(id<COOLUserSettingsRepository>)settings
 {
     view.weatherIconImageView.image = self.weatherIconImage;
     view.titleLabel.attributedText = self.titleString;
     view.subtitleLabel.text = self.subtitleString;
-    view.temperatureLabel.text = self.temperatureString;
+    view.temperatureLabel.text = [self temperatureStringWithUnit:[settings defaultTemperatureUnit]];
 }
 
 #pragma mark - Private

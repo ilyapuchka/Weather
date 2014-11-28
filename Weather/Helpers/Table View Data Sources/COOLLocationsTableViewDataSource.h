@@ -24,7 +24,7 @@
 
 @end
 
-@interface COOLLocationsTableViewDataSource : NSObject <COOLTableViewDataSource, COOLLocationsSelection, COOLLocationsTableViewDataSourceInput>
+@interface COOLLocationsTableViewDataSource : NSObject <COOLForecastTableViewDataSource, COOLLocationsSelection, COOLLocationsTableViewDataSourceInput>
 
 @property (nonatomic, weak) IBOutlet id<COOLLocationsSelectionOutput> output;
 @property (nonatomic, copy) Location *currentUserLocation;

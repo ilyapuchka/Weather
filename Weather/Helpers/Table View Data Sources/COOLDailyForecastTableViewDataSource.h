@@ -9,6 +9,6 @@
 @import UIKit;
 #import "COOLTableViewDataSource.h"
 
-@interface COOLDailyForecastTableViewDataSource : NSObject <COOLTableViewDataSource>
+@interface COOLDailyForecastTableViewDataSource : NSObject <COOLForecastTableViewDataSource>
 
 @end

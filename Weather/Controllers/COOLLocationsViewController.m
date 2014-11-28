@@ -19,6 +19,7 @@
 #import "Forecast.h"
 
 #import "COOLStoryboardIdentifiers.h"
+#import "COOLNotifications.h"
 
 @interface COOLLocationsViewController() <UISearchBarDelegate, COOLDataSourceDelegate, COOLLocationsSelectionOutput, COOLLocationsTableViewDataSourceEditingDelegate>
 
@@ -30,7 +31,7 @@
 @property (nonatomic, copy) Location *currentUserLocation;
 @property (nonatomic, copy) Location *selectedLocation;
 
-@property (nonatomic, weak) IBOutlet id<COOLTableViewDataSource, COOLLocationsSelection, COOLLocationsTableViewDataSourceInput> locationsTableViewDataSource;
+@property (nonatomic, weak) IBOutlet id<COOLForecastTableViewDataSource, COOLLocationsSelection, COOLLocationsTableViewDataSourceInput> locationsTableViewDataSource;
 @property (nonatomic, weak) IBOutlet id<COOLTableViewDataSource, COOLLocationsSelection> searchResultsTableViewDataSource;
 @property (nonatomic, weak) id<COOLTableViewDataSource, COOLLocationsSelection> currentDataSource;
 
@@ -40,13 +41,22 @@
 
 @synthesize output = _output;
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(defaultsChanged:) name:COOLUserSettingsChangedNotification object:nil];
+    
     self.doneItem = self.navigationItem.rightBarButtonItem;
     self.locationsDataSource.delegate = self;
     self.forecastDataSource.delegate = self;
+    
+    [self.locationsTableViewDataSource setSettings:self.userSettingsRepository];
     
     UINib *nib = [UINib nibWithNibName:@"COOLForecastTableViewCell" bundle:[NSBundle mainBundle]];
     [self.tableView registerNib:nib forCellReuseIdentifier:COOLForecastTableViewCellReuseId];
@@ -209,6 +219,13 @@
 {
     [self.userLocationsRepository removeUserLocation:location];
     _locations = nil;
+}
+
+- (void)defaultsChanged:(NSNotification *)note
+{
+    if (self.currentDataSource == self.locationsTableViewDataSource) {
+        [self reloadData];
+    }
 }
 
 @end
