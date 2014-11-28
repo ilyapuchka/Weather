@@ -91,8 +91,8 @@
 		09085CE61A2893E000A01689 /* COOLUserSettingsUserDefaultsImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLUserSettingsUserDefaultsImpl.h; sourceTree = "<group>"; };
 		09085CE71A2893E000A01689 /* COOLUserSettingsUserDefaultsImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLUserSettingsUserDefaultsImpl.m; sourceTree = "<group>"; };
 		09085CE91A28941500A01689 /* COOLUnits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLUnits.h; sourceTree = "<group>"; };
-		09085CEA1A28A82500A01689 /* COOLForecastShareModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = COOLForecastShareModel.h; path = ../ViewModels/COOLForecastShareModel.h; sourceTree = "<group>"; };
-		09085CEB1A28A82500A01689 /* COOLForecastShareModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = COOLForecastShareModel.m; path = ../ViewModels/COOLForecastShareModel.m; sourceTree = "<group>"; };
+		09085CEA1A28A82500A01689 /* COOLForecastShareModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLForecastShareModel.h; sourceTree = "<group>"; };
+		09085CEB1A28A82500A01689 /* COOLForecastShareModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLForecastShareModel.m; sourceTree = "<group>"; };
 		092214671A253F86002A614A /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0922146B1A253F86002A614A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0922146C1A253F86002A614A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -252,7 +252,7 @@
 				09085CE21A2889E000A01689 /* UIAlertView+Extensions.h */,
 				09085CE31A2889E000A01689 /* UIAlertView+Extensions.m */,
 			);
-			name = UIAlertView;
+			path = UIAlertView;
 			sourceTree = "<group>";
 		};
 		0922145E1A253F86002A614A = {
