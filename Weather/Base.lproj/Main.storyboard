@@ -546,8 +546,11 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="White-Overlay" translatesAutoresizingMaskIntoConstraints="NO" id="fg6-f8-qUV">
+                                <rect key="frame" x="0.0" y="309" width="320" height="195"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xsL-AG-Rsa">
-                                <rect key="frame" x="128" y="419" width="65" height="65"/>
+                                <rect key="frame" x="128" y="422" width="65" height="65"/>
                                 <state key="normal" backgroundImage="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -559,14 +562,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="VTP-gu-yzO" firstAttribute="leading" secondItem="Rmf-P2-bcf" secondAttribute="leading" id="0E1-CX-XvF"/>
+                            <constraint firstAttribute="trailing" secondItem="fg6-f8-qUV" secondAttribute="trailing" id="4iv-Up-D95"/>
                             <constraint firstAttribute="trailing" secondItem="Y1W-uM-dTK" secondAttribute="trailing" id="62f-G4-kBu"/>
-                            <constraint firstItem="PjM-g8-QSE" firstAttribute="top" secondItem="xsL-AG-Rsa" secondAttribute="bottom" constant="20" id="8lp-gd-rlw"/>
+                            <constraint firstItem="PjM-g8-QSE" firstAttribute="top" secondItem="xsL-AG-Rsa" secondAttribute="centerY" constant="50" id="8lp-gd-rlw"/>
                             <constraint firstItem="Y1W-uM-dTK" firstAttribute="leading" secondItem="Rmf-P2-bcf" secondAttribute="leading" id="D97-rA-S2n"/>
+                            <constraint firstItem="PjM-g8-QSE" firstAttribute="top" secondItem="fg6-f8-qUV" secondAttribute="bottom" id="DR1-Pc-6fp"/>
                             <constraint firstItem="yY0-KM-c36" firstAttribute="top" secondItem="VTP-gu-yzO" secondAttribute="bottom" id="JRK-RL-6Mw"/>
                             <constraint firstItem="Y1W-uM-dTK" firstAttribute="top" secondItem="yY0-KM-c36" secondAttribute="bottom" id="MGr-x4-LB9"/>
                             <constraint firstAttribute="trailing" secondItem="VTP-gu-yzO" secondAttribute="trailing" id="QLj-zN-8E3"/>
                             <constraint firstAttribute="centerX" secondItem="xsL-AG-Rsa" secondAttribute="centerX" constant="-0.5" id="cVE-Qr-0LV"/>
                             <constraint firstItem="PjM-g8-QSE" firstAttribute="top" secondItem="VTP-gu-yzO" secondAttribute="bottom" id="hBT-OG-m7x"/>
+                            <constraint firstItem="fg6-f8-qUV" firstAttribute="leading" secondItem="Rmf-P2-bcf" secondAttribute="leading" id="mC5-19-2xb"/>
                             <constraint firstItem="VTP-gu-yzO" firstAttribute="top" secondItem="yY0-KM-c36" secondAttribute="bottom" constant="2" id="wo7-5G-TBb"/>
                         </constraints>
                         <variation key="default">
@@ -691,6 +697,7 @@
         <image name="Line-loading" width="320" height="2"/>
         <image name="Location" width="22" height="14"/>
         <image name="Rain" width="16" height="19"/>
+        <image name="White-Overlay" width="320" height="195"/>
         <image name="Wind-small" width="25" height="16"/>
         <image name="divider-short" width="127" height="1"/>
     </resources>
