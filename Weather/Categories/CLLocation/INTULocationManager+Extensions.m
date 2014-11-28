@@ -7,6 +7,7 @@
 //
 
 #import "INTULocationManager+Extensions.h"
+#import "CLLocation+Extensions.h"
 
 @implementation INTULocationManager (Extensions)
 
@@ -14,8 +15,7 @@
 
 - (BOOL)needsUpdateCurrentLocation
 {
-    return (!self.currentLocation ||
-            [self.currentLocation.timestamp timeIntervalSinceDate:[NSDate date]] > 10 * 60);
+    return (!self.currentLocation || [self.currentLocation needsUpdate]);
 }
 
 @end

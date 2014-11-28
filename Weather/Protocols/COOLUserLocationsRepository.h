@@ -20,6 +20,6 @@
 - (Location *)selectedLocation;
 - (void)setSelectedLocation:(Location *)location;
 
-- (BOOL)updateCurrentUserLocation:(BOOL)force withCompletion:(void(^)(BOOL success, CLLocation *location, BOOL changed))completion;
+- (BOOL)updateCurrentUserLocation:(BOOL)force withCompletion:(void(^)(NSInteger status, CLLocation *location, BOOL changed))completion;
 
 @end

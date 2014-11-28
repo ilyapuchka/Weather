@@ -91,18 +91,18 @@ static NSString * const COOLSelectedLocationKey = @"selectedLocation";
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-- (BOOL)updateCurrentUserLocation:(BOOL)force withCompletion:(void (^)(BOOL, CLLocation *, BOOL))completion
+- (BOOL)updateCurrentUserLocation:(BOOL)force withCompletion:(void (^)(NSInteger, CLLocation *, BOOL))completion
 {
     if (force || [[INTULocationManager sharedInstance] needsUpdateCurrentLocation]) {
         return [self _currentUserLocationWithCompletion:completion];
     }
     else {
-        if (completion) completion(YES, [[INTULocationManager sharedInstance] currentLocation], NO);
+        if (completion) completion(INTULocationStatusSuccess, [[INTULocationManager sharedInstance] currentLocation], NO);
         return NO;
     }
 }
 
-- (BOOL)_currentUserLocationWithCompletion:(void (^)(BOOL, CLLocation *, BOOL))completion
+- (BOOL)_currentUserLocationWithCompletion:(void (^)(NSInteger, CLLocation *, BOOL))completion
 {
     __weak typeof(self) wself = self;
     static NSInteger locationRequestId;
@@ -113,14 +113,14 @@ static NSString * const COOLSelectedLocationKey = @"selectedLocation";
                 if (!sself.lastKnownUserLocation ||
                     [currentLocation differsSignificantly:sself.lastKnownUserLocation]) {
                     sself.lastKnownUserLocation = currentLocation;
-                    if (completion) completion(YES, sself.lastKnownUserLocation, YES);
+                    if (completion) completion(status, sself.lastKnownUserLocation, YES);
                 }
                 else {
-                    if (completion) completion(YES, sself.lastKnownUserLocation, NO);
+                    if (completion) completion(status, sself.lastKnownUserLocation, NO);
                 }
             }
             else {
-                if (completion) completion(NO, sself.lastKnownUserLocation, NO);
+                if (completion) completion(status, sself.lastKnownUserLocation, NO);
             }
             locationRequestId = 0;
         }];

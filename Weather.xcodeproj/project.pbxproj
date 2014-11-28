@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		09085CDC1A27DA7F00A01689 /* CLLocation+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 09085CDB1A27DA7F00A01689 /* CLLocation+Extensions.m */; };
 		09085CDF1A27DFC800A01689 /* INTULocationManager+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 09085CDE1A27DFC800A01689 /* INTULocationManager+Extensions.m */; };
+		09085CE41A2889E000A01689 /* UIAlertView+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 09085CE31A2889E000A01689 /* UIAlertView+Extensions.m */; };
 		0922146D1A253F86002A614A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0922146C1A253F86002A614A /* main.m */; };
 		092214761A253F86002A614A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 092214741A253F86002A614A /* Main.storyboard */; };
 		092214781A253F86002A614A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 092214771A253F86002A614A /* Images.xcassets */; };
@@ -82,6 +83,8 @@
 		09085CDB1A27DA7F00A01689 /* CLLocation+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocation+Extensions.m"; sourceTree = "<group>"; };
 		09085CDD1A27DFC800A01689 /* INTULocationManager+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "INTULocationManager+Extensions.h"; sourceTree = "<group>"; };
 		09085CDE1A27DFC800A01689 /* INTULocationManager+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "INTULocationManager+Extensions.m"; sourceTree = "<group>"; };
+		09085CE21A2889E000A01689 /* UIAlertView+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Extensions.h"; sourceTree = "<group>"; };
+		09085CE31A2889E000A01689 /* UIAlertView+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Extensions.m"; sourceTree = "<group>"; };
 		092214671A253F86002A614A /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0922146B1A253F86002A614A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0922146C1A253F86002A614A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -235,6 +238,15 @@
 			path = CLLocation;
 			sourceTree = "<group>";
 		};
+		09085CE11A2889CC00A01689 /* UIAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				09085CE21A2889E000A01689 /* UIAlertView+Extensions.h */,
+				09085CE31A2889E000A01689 /* UIAlertView+Extensions.m */,
+			);
+			name = UIAlertView;
+			sourceTree = "<group>";
+		};
 		0922145E1A253F86002A614A = {
 			isa = PBXGroup;
 			children = (
@@ -318,6 +330,7 @@
 		092214941A25401C002A614A /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				09085CE11A2889CC00A01689 /* UIAlertView */,
 				09085CD91A27DA3800A01689 /* CLLocation */,
 				093876DC1A26258900ADF480 /* ViewController */,
 				092215011A25E96D002A614A /* EKObjectMapping */,
@@ -777,6 +790,7 @@
 				09DA49FD1A27C15800BCDB37 /* ForecastForLocation.m in Sources */,
 				092215271A25EFBC002A614A /* Country.m in Sources */,
 				093876E21A26258900ADF480 /* UIViewController+Typhoon.m in Sources */,
+				09085CE41A2889E000A01689 /* UIAlertView+Extensions.m in Sources */,
 				093876FA1A26446D00ADF480 /* COOLLocationsSearchResultsTableViewDataSource.m in Sources */,
 				092215251A25EFBC002A614A /* AreaName.m in Sources */,
 				092215041A25E96D002A614A /* EKObjectMapping+Transfromers.m in Sources */,

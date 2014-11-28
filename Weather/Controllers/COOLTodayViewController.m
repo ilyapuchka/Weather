@@ -23,6 +23,8 @@
 #import "COOLTodayView.h"
 #import "COOLTodayViewModel.h"
 
+#import "UIAlertView+Extensions.h"
+
 @interface COOLTodayViewController() <COOLDataSourceDelegate, COOLLocationsSelectionOutput>
 
 @property (nonatomic, copy) Location *selectedLocation;
@@ -70,8 +72,14 @@
         [self loadForecastForLocation:self.selectedLocation];
     }
     
-    BOOL updatingLocation = [self.userLocationsRepository updateCurrentUserLocation:NO withCompletion:^(BOOL success, CLLocation *location, BOOL changed) {
-        if ((success && changed) || !self.userLocation) {
+    BOOL updatingLocation = [self.userLocationsRepository updateCurrentUserLocation:NO withCompletion:^(INTULocationStatus status, CLLocation *location, BOOL changed) {
+        if (status != INTULocationStatusSuccess) {
+            [UIAlertView showLocationErrorWithStatus:status force:NO];
+            self.selectedLocation = [[self.userLocationsRepository userLocations] firstObject];
+            [self.userLocationsRepository setSelectedLocation:self.selectedLocation];
+            [self loadForecastForLocation:self.selectedLocation];
+        }
+        else if (changed || !self.userLocation) {
             [self loadLocationsForLocation:location];
         }
     }];

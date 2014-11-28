@@ -373,7 +373,10 @@ static id _sharedInstance;
  */
 - (INTULocationStatus)statusForLocationRequest:(INTULocationRequest *)locationRequest
 {
-    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined) {
+    if ([CLLocationManager locationServicesEnabled] == NO) {
+        return INTULocationStatusServicesDisabled;
+    }
+    else if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined) {
         return INTULocationStatusServicesNotDetermined;
     }
     else if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied) {
@@ -381,9 +384,6 @@ static id _sharedInstance;
     }
     else if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusRestricted) {
         return INTULocationStatusServicesRestricted;
-    }
-    else if ([CLLocationManager locationServicesEnabled] == NO) {
-        return INTULocationStatusServicesDisabled;
     }
     else if (self.updateFailed) {
         return INTULocationStatusError;
