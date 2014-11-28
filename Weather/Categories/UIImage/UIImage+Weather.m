@@ -16,9 +16,11 @@
     if (!dict) {
         dict = @{
                  @"sun": @"Sun_Big",
+                 @"clear": @"Sun_Big",
                  @"cloud": @"Cloudy_Big",
                  @"wind": @"Wind_Big",
-                 @"thunder": @"Lightning_Big"
+                 @"thunder": @"Lightning_Big",
+                 @"rain": @"CR"
                  };
         
     }
