@@ -13,7 +13,3 @@ pod 'Mantle'
 pod 'Typhoon'
 
 pod 'MSCMoreOptionTableViewCell'
-
-target 'WeatherTests', :exclusive => true do
-end
-

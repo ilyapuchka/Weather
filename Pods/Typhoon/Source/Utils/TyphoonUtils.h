@@ -10,20 +10,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 
+#define CStringEquals(stringA, stringB) (stringA == stringB || strcmp(stringA, stringB) == 0)
 
-#import <Foundation/Foundation.h>
-#import "TyphoonPatcher.h"
-
-
-@interface TyphoonPatchObjectFactory : NSObject
-{
-    id _patchObject;
-}
-
-
-- (instancetype)initWithCreationBlock:(TyphoonPatchObjectCreationBlock)creationBlock;
-
-- (id)patchObject;
-
-
-@end
+#define TyphoonHashByAppendingInteger(hash, integer) ((hash << 5) - hash + integer)

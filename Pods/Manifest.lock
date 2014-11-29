@@ -35,9 +35,9 @@ PODS:
     - Mantle/extobjc
   - Mantle/extobjc (1.5.1)
   - MSCMoreOptionTableViewCell (2.2)
-  - Typhoon (2.3.0):
+  - Typhoon (2.3.1):
     - Typhoon/no-arc
-  - Typhoon/no-arc (2.3.0)
+  - Typhoon/no-arc (2.3.1)
 
 DEPENDENCIES:
   - COOLCompositions
@@ -58,6 +58,6 @@ SPEC CHECKSUMS:
   INTULocationManager: 596c57e35a00ca1ee9d59bf4cc2b63dc299b580e
   Mantle: d7c5ac734579ec751c58fecbf56189853056c58c
   MSCMoreOptionTableViewCell: 5b102a68d0e97af17438c5823089955b1ed509dd
-  Typhoon: ee9b8c034b11746f8024a0487965c04965a6a4ee
+  Typhoon: e676d1bcda4c59ad5171b611a7aaaeb17cc58a72
 
 COCOAPODS: 0.34.4

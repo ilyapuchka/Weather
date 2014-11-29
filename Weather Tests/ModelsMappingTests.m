@@ -11,6 +11,7 @@
 #import "EKMapper.h"
 #import "DataModels.h"
 #import "Forecast+Mapping.h"
+#import "Mantle.h"
 
 @interface ModelsMappingTests : XCTestCase
 
@@ -35,6 +36,8 @@
     NSError *error;
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     Forecast *forecast = [EKMapper objectFromExternalRepresentation:[json valueForKey:@"data"] withMapping:[Forecast mapping]];
+    
+    Forecast *mantle = [MTLJSONAdapter modelOfClass:[Forecast class] fromJSONDictionary:[json valueForKey:@"data"] error:&error];
     
     XCTAssertNotNil(forecast, @"Mapped forecast should not be nil");
 }
