@@ -20,4 +20,21 @@
     }];
 }
 
+#pragma mark - Mantle
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey
+{
+    return @{@"timeZone": @"time_zone"};
+}
+
++ (NSValueTransformer *)weatherJSONTransformer
+{
+    return [MTLValueTransformer mtl_JSONArrayTransformerWithModelClass:[Weather class]];
+}
+
++ (NSValueTransformer *)timeZoneJSONTransformer
+{
+    return [MTLValueTransformer mtl_JSONArrayTransformerWithModelClass:[TimeZone class]];
+}
+
 @end

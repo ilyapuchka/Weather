@@ -8,8 +8,9 @@
 
 #import "Forecast.h"
 #import "EKObjectMapping.h"
+#import "Mantle.h"
 
-@interface Forecast (Mapping)
+@interface Forecast (Mapping) <MTLJSONSerializing>
 
 + (EKObjectMapping *)mapping;
 

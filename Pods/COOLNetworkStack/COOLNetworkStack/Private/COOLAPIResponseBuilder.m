@@ -19,9 +19,7 @@
 
 - (COOLAPIResponse *)build:(Class)classToBuild
 {
-    self.mappedResponseObject = [[self.responseMapper class]
-                                 objectFromExternalRepresentation:self.responseObject
-                                 withMapping:self.responseMapping];
+    self.mappedResponseObject = [[self.responseMapper class] objectFromExternalRepresentation:self.responseObject ofClass:self.responseClass];
     
     return [[classToBuild alloc] initWithBuilder:self];
 }

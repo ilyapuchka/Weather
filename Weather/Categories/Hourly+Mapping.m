@@ -18,17 +18,32 @@
     return [EKObjectMapping mappingForClass:self withBlock:^(EKObjectMapping *mapping) {
         [mapping mapFieldsFromArray:@[@"winddir16Point", @"humidity", @"tempF", @"chanceofthunder", @"chanceofsnow", @"chanceofrain", @"chanceofsunshine", @"windspeedKmph", @"pressure", @"windspeedMiles", @"tempC", @"precipMM", @"time"]];
         [mapping hasManyMapping:[SimpleValue mapping] forKey:@"weatherDesc"];
-        [mapping mapKey:@"@self" toField:@"localizedWeatherDesc" withValueBlock:^id(NSString *key, NSDictionary *value) {
-            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF beginswith[c] 'lang_'"];
-            key = [[value.allKeys filteredArrayUsingPredicate:predicate] lastObject];
-            if (key) {
-                return [[EKObjectMapping defaultMapperClass] objectFromExternalRepresentation:value[key] withMapping:[SimpleValue mapping]];
-            }
-            else {
-                return [[EKObjectMapping defaultMapperClass] objectFromExternalRepresentation:value[@"weatherDesc"] withMapping:[SimpleValue mapping]];
-            }
-        }];
+        
+        NSString *localizedWeatherDescKey = [NSString stringWithFormat:@"lang_%@", [[NSLocale preferredLanguages] firstObject]];
+        [mapping hasManyMapping:[SimpleValue mapping] forKey:localizedWeatherDescKey forField:@"localizedWeatherDesc"];
     }];
+}
+
+#pragma mark - Mantle
+
++ (NSString *)localizedWeatherDescKey
+{
+    NSString *localizedWeatherDescKey = [NSString stringWithFormat:@"lang_%@", [[NSLocale preferredLanguages] firstObject]];
+    return localizedWeatherDescKey;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey
+{
+    return @{@"localizedWeatherDesc": [self localizedWeatherDescKey]};
+}
+
++ (NSValueTransformer *)JSONTransformerForKey:(NSString *)key
+{
+    if ([key isEqualToString:@"weatherDesc"] ||
+        [key isEqualToString:@"localizedWeatherDesc"]) {
+        return [MTLValueTransformer mtl_JSONArrayTransformerWithModelClass:[SimpleValue class]];
+    }
+    return nil;
 }
 
 @end

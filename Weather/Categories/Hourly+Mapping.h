@@ -8,8 +8,9 @@
 
 #import "Hourly.h"
 #import "EKObjectMapping.h"
+#import "Mantle.h"
 
-@interface Hourly (Mapping)
+@interface Hourly (Mapping) <MTLJSONSerializing>
 
 + (EKObjectMapping *)mapping;
 

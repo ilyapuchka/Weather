@@ -30,4 +30,21 @@
 
 @implementation Hourly
 
+- (instancetype)initWithDictionary:(NSDictionary *)dictionaryValue error:(NSError *__autoreleasing *)error
+{
+    self = [super initWithDictionary:dictionaryValue error:error];
+    if (self) {
+        self.localizedWeatherDesc = self.localizedWeatherDesc?:self.weatherDesc;
+    }
+    return self;
+}
+
+- (NSArray *)localizedWeatherDesc
+{
+    if (!_localizedWeatherDesc) {
+        return _weatherDesc;
+    }
+    return _localizedWeatherDesc;
+}
+
 @end

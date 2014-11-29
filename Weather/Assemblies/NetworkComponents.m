@@ -15,6 +15,7 @@
 
 #import "EKObjectMapping+Transfromers.h"
 #import "COOLMapperImpl.h"
+#import "MTLJSONAdapter.h"
 #import "COOLNetworkActivityLoggerImpl.h"
 
 #import "COOLForecastDataSourceImpl.h"
@@ -57,7 +58,7 @@
         }];
         
         [definition injectProperty:@selector(removesKeysWithNullValues) with:@(YES)];
-        [definition injectProperty:@selector(responseMapper)];
+        [definition injectProperty:@selector(responseMapper) with:[self responseMapper]];
     }];
 }
 

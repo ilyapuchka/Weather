@@ -8,8 +8,9 @@
 
 #import "SimpleValue.h"
 #import "EKObjectMapping.h"
+#import "Mantle.h"
 
-@interface SimpleValue (Mapping)
+@interface SimpleValue (Mapping) <MTLJSONSerializing>
 
 + (EKObjectMapping *)mapping;
 

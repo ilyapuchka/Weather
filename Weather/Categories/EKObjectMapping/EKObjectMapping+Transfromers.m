@@ -12,7 +12,7 @@
 
 @implementation EKObjectMapping (Transfromers)
 
-- (void)mapKey:(NSString *)key toField:(NSString *)field withTransformerClass:(__unsafe_unretained Class)transformerClass
+- (void)mapKey:(NSString *)key toField:(NSString *)field withTransformerClass:(Class)transformerClass
 {
     NSValueTransformer *transformer = [NSValueTransformer valueTransformerForName:NSStringFromClass(transformerClass)];
     [self mapKey:key toField:field withTransformer:transformer];

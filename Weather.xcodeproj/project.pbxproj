@@ -85,6 +85,7 @@
 		099D6D2D1A293FFD00776469 /* Region.m in Sources */ = {isa = PBXBuildFile; fileRef = 092215241A25EFBC002A614A /* Region.m */; };
 		099D6D2E1A293FFF00776469 /* SimpleValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 09085D2B1A29058600A01689 /* SimpleValue.m */; };
 		099D6D2F1A29400D00776469 /* EKObjectMapping+Transfromers.m in Sources */ = {isa = PBXBuildFile; fileRef = 092215031A25E96D002A614A /* EKObjectMapping+Transfromers.m */; };
+		099D6D331A2947E400776469 /* MTLJSONAdapter+COOLMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 099D6D321A2947E400776469 /* MTLJSONAdapter+COOLMapper.m */; };
 		09DA49FD1A27C15800BCDB37 /* ForecastForLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 09DA49FC1A27C15800BCDB37 /* ForecastForLocation.m */; };
 		09DA4A011A27CEBF00BCDB37 /* COOLLocationSearchCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09DA4A001A27CEBF00BCDB37 /* COOLLocationSearchCellModel.m */; };
 		09E894651A269B5200D7B95B /* COOLTodayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E894641A269B5200D7B95B /* COOLTodayView.m */; };
@@ -177,7 +178,6 @@
 		092214D41A254471002A614A /* COOLWeatherAPIRequestSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLWeatherAPIRequestSerializer.m; sourceTree = "<group>"; };
 		092214D61A2545AD002A614A /* COOLWeatherAPIRequests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLWeatherAPIRequests.h; sourceTree = "<group>"; };
 		092214D71A2545BB002A614A /* COOLWeatherAPIResponses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLWeatherAPIResponses.h; sourceTree = "<group>"; };
-		092214D81A2547BE002A614A /* COOLMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLMapping.h; sourceTree = "<group>"; };
 		092214E91A25E0E3002A614A /* Forecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Forecast.h; sourceTree = "<group>"; };
 		092214EA1A25E0E3002A614A /* Forecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forecast.m; sourceTree = "<group>"; };
 		092214EB1A25E0E3002A614A /* DataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModels.h; sourceTree = "<group>"; };
@@ -242,6 +242,8 @@
 		099D6D181A293FB700776469 /* forecast.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = forecast.json; sourceTree = "<group>"; };
 		099D6D191A293FB700776469 /* ModelsMappingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelsMappingTests.m; sourceTree = "<group>"; };
 		099D6D1A1A293FB700776469 /* todayforecast.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = todayforecast.json; sourceTree = "<group>"; };
+		099D6D311A2947E400776469 /* MTLJSONAdapter+COOLMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MTLJSONAdapter+COOLMapper.h"; sourceTree = "<group>"; };
+		099D6D321A2947E400776469 /* MTLJSONAdapter+COOLMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MTLJSONAdapter+COOLMapper.m"; sourceTree = "<group>"; };
 		09A473891A2663A5000A1B2D /* COOLTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLTableViewDataSource.h; sourceTree = "<group>"; };
 		09DA49FB1A27C15800BCDB37 /* ForecastForLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastForLocation.h; sourceTree = "<group>"; };
 		09DA49FC1A27C15800BCDB37 /* ForecastForLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastForLocation.m; sourceTree = "<group>"; };
@@ -441,6 +443,7 @@
 		092214941A25401C002A614A /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				099D6D301A2947CA00776469 /* MTLJSONAdapter */,
 				09085D201A2904F500A01689 /* Models Mapping */,
 				09085D161A28CFFD00A01689 /* UIFont */,
 				09085D121A28CFD600A01689 /* UIColor */,
@@ -512,7 +515,6 @@
 			isa = PBXGroup;
 			children = (
 				092214C11A25412A002A614A /* COOLWeatherAPI.h */,
-				092214D81A2547BE002A614A /* COOLMapping.h */,
 				0922152A1A25F589002A614A /* COOLLocationsDataSource.h */,
 				0922152B1A25F59C002A614A /* COOLForecastDataSource.h */,
 				093876EB1A26331100ADF480 /* COOLLocationsViewInput.h */,
@@ -709,6 +711,15 @@
 				099D6D101A293F9900776469 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		099D6D301A2947CA00776469 /* MTLJSONAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				099D6D311A2947E400776469 /* MTLJSONAdapter+COOLMapper.h */,
+				099D6D321A2947E400776469 /* MTLJSONAdapter+COOLMapper.m */,
+			);
+			name = MTLJSONAdapter;
 			sourceTree = "<group>";
 		};
 		09E894691A26A63B00D7B95B /* Resources */ = {
@@ -924,6 +935,7 @@
 				093876D81A26252E00ADF480 /* COOLDailyForecastViewController.m in Sources */,
 				09ED70201A2764DF00BE573A /* COOLForecastTableViewCell.m in Sources */,
 				09E894681A269D2D00D7B95B /* COOLTodayViewModel.m in Sources */,
+				099D6D331A2947E400776469 /* MTLJSONAdapter+COOLMapper.m in Sources */,
 				09085CE81A2893E000A01689 /* COOLUserSettingsUserDefaultsImpl.m in Sources */,
 				09DA4A011A27CEBF00BCDB37 /* COOLLocationSearchCellModel.m in Sources */,
 				092214F51A25E0E3002A614A /* Hourly.m in Sources */,
@@ -1204,6 +1216,7 @@
 				099D6D171A293F9900776469 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -17,4 +17,9 @@
     }];
 }
 
++ (NSDictionary *)JSONKeyPathsByPropertyKey
+{
+    return @{};
+}
+
 @end

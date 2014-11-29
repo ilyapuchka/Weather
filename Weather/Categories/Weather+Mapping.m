@@ -19,4 +19,16 @@
     }];
 }
 
+#pragma mark - Mantle
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey
+{
+    return @{};
+}
+
++ (NSValueTransformer *)hourlyJSONTransformer
+{
+    return [MTLValueTransformer mtl_JSONArrayTransformerWithModelClass:[Hourly class]];
+}
+
 @end

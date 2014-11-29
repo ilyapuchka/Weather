@@ -8,6 +8,7 @@
 
 #import "COOLDailyForecastAPIResponse.h"
 #import "Forecast+Mapping.h"
+#import "Mantle.h"
 
 @implementation COOLDailyForecastAPIResponse
 
@@ -16,10 +17,12 @@
     return [self.mappedResponseObject valueForKey:@"forecast"];
 }
 
-+ (id)responseMapping
++ (id)mapping
 {
     return [EKObjectMapping mappingForClass:[NSMutableDictionary class] withBlock:^(EKObjectMapping *mapping) {
-        [mapping hasOneMapping:[Forecast mapping] forKey:@"data" forField:@"forecast"];
+        [mapping mapKey:@"data" toField:@"forecast" withValueBlock:^id(NSString *key, id value) {
+            return [MTLJSONAdapter modelOfClass:[Forecast class] fromJSONDictionary:value error:NULL];
+        }];
     }];
 }
 

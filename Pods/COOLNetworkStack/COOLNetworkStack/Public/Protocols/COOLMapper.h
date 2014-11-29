@@ -10,7 +10,7 @@
 
 @protocol COOLMapper <NSObject>
 
-+ (id)objectFromExternalRepresentation:(id)externalRepresentation withMapping:(id)mapping;
-+ (NSArray *)arrayOfObjectsFromExternalRepresentation:(NSArray *)externalRepresentation withMapping:(id)mapping;
++ (id)objectFromExternalRepresentation:(id)externalRepresentation ofClass:(Class)mappedClass;
++ (NSArray *)arrayOfObjectsFromExternalRepresentation:(NSArray *)externalRepresentation ofClass:(Class)mappedClass;
 
 @end

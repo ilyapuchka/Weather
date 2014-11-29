@@ -17,7 +17,7 @@
 @property (nonatomic, strong) NSError *error;
 @property (nonatomic, strong) id responseObject;
 @property (nonatomic, strong) id<COOLMapper> responseMapper;
-@property (nonatomic, strong) id responseMapping;
+@property (nonatomic, strong) Class responseClass;
 @property (nonatomic, strong, readonly) id mappedResponseObject;
 
 - (COOLAPIResponse *)build:(Class)classToBuild;

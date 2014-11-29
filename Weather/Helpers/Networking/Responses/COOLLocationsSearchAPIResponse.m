@@ -8,6 +8,7 @@
 
 #import "COOLLocationsSearchAPIResponse.h"
 #import "Location+Mapping.h"
+#import "Mantle.h"
 
 @implementation COOLLocationsSearchAPIResponse
 
@@ -16,10 +17,12 @@
     return [self.mappedResponseObject valueForKey:@"locations"];
 }
 
-+ (id)responseMapping
++ (id)mapping
 {
     return [EKObjectMapping mappingForClass:[NSMutableDictionary class] withRootPath:@"search_api" withBlock:^(EKObjectMapping *mapping) {
-        [mapping hasManyMapping:[Location mapping] forKey:@"result" forField:@"locations"];
+        [mapping mapKey:@"result" toField:@"locations" withValueBlock:^id(NSString *key, id value) {
+            return [MTLJSONAdapter modelsOfClass:[Location class] fromJSONArray:value error:NULL];
+        }];
     }];
 }
 

@@ -77,7 +77,7 @@
         builder.error = httpError;
         builder.responseObject = responseObject;
         builder.responseMapper = self.responseMapper;
-        builder.responseMapping = [responseClass responseMapping];
+        builder.responseClass = responseClass;
     }];
     
     return apiResponse;

@@ -21,4 +21,18 @@
     }];
 }
 
++ (NSDictionary *)JSONKeyPathsByPropertyKey
+{
+    return @{};
+}
+
++ (NSValueTransformer *)JSONTransformerForKey:(NSString *)key
+{
+    if ([key isEqualToString:@"longitude"] ||
+        [key isEqualToString:@"latitude"]) {
+        return nil;
+    }
+    return [MTLValueTransformer mtl_JSONArrayTransformerWithModelClass:[SimpleValue class]];
+}
+
 @end

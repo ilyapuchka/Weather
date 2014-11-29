@@ -8,8 +8,9 @@
 
 #import "Location.h"
 #import "EKObjectMapping.h"
+#import "Mantle.h"
 
-@interface Location (Mapping)
+@interface Location (Mapping) <MTLJSONSerializing>
 
 + (EKObjectMapping *)mapping;
 

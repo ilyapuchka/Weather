@@ -8,8 +8,9 @@
 
 #import "TimeZone.h"
 #import "EKObjectMapping.h"
+#import "Mantle.h"
 
-@interface TimeZone (Mapping)
+@interface TimeZone (Mapping) <MTLJSONSerializing>
 
 + (EKObjectMapping *)mapping;
 

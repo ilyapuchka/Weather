@@ -8,8 +8,9 @@
 
 #import "Weather.h"
 #import "EKObjectMapping.h"
+#import "Mantle.h"
 
-@interface Weather (Mapping)
+@interface Weather (Mapping) <MTLJSONSerializing>
 
 + (EKObjectMapping *)mapping;
 
