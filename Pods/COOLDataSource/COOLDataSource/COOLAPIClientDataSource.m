@@ -13,8 +13,6 @@
 
 @interface COOLAPIClientDataSource()
 
-@property (nonatomic, strong) COOLAPIResponse *response;
-
 @end
 
 @implementation COOLAPIClientDataSource
@@ -29,12 +27,14 @@
     return [self.response noContent];
 }
 
-- (void)completeLoadingWithTask:(NSURLSessionDataTask *)task response:(COOLAPIResponse *)response
+- (void)completeLoadingWithTask:(NSURLSessionDataTask *)task response:(id<COOLAPIResponse>)response
 {
-    if (![response.task.originalRequest isEqual:task.originalRequest]) {
+    if (![response.task.originalRequest isEqual:task.originalRequest] ||
+        [response cancelled]) {
         [self.loadingProcess ignore];
         return;
     }
+
     self.response = response;
     if ([self didCompleteLoadingWithSuccess]) {
         [self.loadingProcess doneWithContent:self.onContentBlock];

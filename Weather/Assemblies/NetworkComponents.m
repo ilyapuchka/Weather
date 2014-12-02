@@ -56,9 +56,6 @@
         [definition useInitializer:@selector(initWithResponsesRegisteredForRequests:) parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:[self responsesDefinition]];
         }];
-        
-        [definition injectProperty:@selector(removesKeysWithNullValues) with:@(YES)];
-        [definition injectProperty:@selector(responseMapper) with:[self responseMapper]];
     }];
 }
 
@@ -68,12 +65,6 @@
                  NSStringFromClass([COOLDailyForecastAPIResponse class]),
              NSStringFromClass([COOLSearchAPIRequest class]):
                  NSStringFromClass([COOLLocationsSearchAPIResponse class])};
-}
-
-- (id<COOLMapper>)responseMapper
-{
-    [EKObjectMapping setDefaultMapperClass:[COOLMapperImpl class]];
-    return [TyphoonDefinition withClass:[EKObjectMapping defaultMapperClass]];
 }
 
 - (COOLNetworkActivityLoggerImpl *)networkActivityLogger

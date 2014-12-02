@@ -9,7 +9,6 @@
 #import "COOLJSONResponseSerializer.h"
 #import "COOLAPIRequest.h"
 #import "COOLAPIResponse.h"
-#import "COOLAPIResponseBuilder.h"
 
 @interface COOLJSONResponseSerializer()
 
@@ -34,21 +33,6 @@
     return self;
 }
 
-- (instancetype)initWithResponsesAndRequests:(Class)firstObject, ...
-{
-    NSMutableDictionary *responsesRegisteredForRequests = [@{} mutableCopy];
-    va_list args;
-    va_start(args, firstObject);
-    for (Class respClass = firstObject; respClass != nil; respClass = va_arg(args, Class))
-    {
-        Class reqClass = va_arg(args, Class);
-        [responsesRegisteredForRequests setObject:NSStringFromClass(reqClass) forKey:NSStringFromClass(respClass)];
-    }
-    va_end(args);
-    
-    return [self initWithResponsesRegisteredForRequests:responsesRegisteredForRequests];
-}
-
 - (void)registerAPIResponseClass:(Class)apiResponseClass forAPIRequestClass:(Class)apiRequestClass
 {
     NSAssert([apiRequestClass isSubclassOfClass:[COOLAPIRequest class]], @"apiRequestClass should be subclass of COOLAPIRequest");
@@ -66,20 +50,12 @@
     return NSClassFromString(self.responsesRegisteredForRequests[NSStringFromClass(apiRequestClass)]);
 }
 
-- (id)responseForRequest:(COOLAPIRequest *)request task:(NSURLSessionDataTask *)task httpResponse:(NSHTTPURLResponse *)httpResponse responseObject:(id)responseObject httpError:(NSError *)httpError error:(NSError *__autoreleasing *)error
+- (id<COOLAPIResponse>)responseForRequest:(COOLAPIRequest *)request task:(NSURLSessionDataTask *)task httpResponse:(NSHTTPURLResponse *)httpResponse responseObject:(id)responseObject httpError:(NSError *)httpError error:(NSError *__autoreleasing *)error
 {
     Class responseClass = [self APIResponseClassForAPIRequestClass:[request class]];
     if (responseClass == Nil) responseClass = [COOLAPIResponse class];
     
-    COOLAPIResponse *apiResponse = [responseClass responseWithBlock:^(COOLAPIResponseBuilder *builder) {
-        builder.task = task;
-        builder.response = httpResponse;
-        builder.error = httpError;
-        builder.responseObject = responseObject;
-        builder.responseMapper = self.responseMapper;
-        builder.responseClass = responseClass;
-    }];
-    
+    id<COOLAPIResponse> apiResponse = [[responseClass alloc] initWithTask:task response:httpResponse responseObject:responseObject error:httpError];
     return apiResponse;
 }
 

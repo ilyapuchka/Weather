@@ -12,18 +12,18 @@
 
 @implementation COOLLocationsSearchAPIResponse
 
-- (NSArray *)locations
+- (instancetype)initWithTask:(NSURLSessionDataTask *)task response:(NSHTTPURLResponse *)response responseObject:(id)responseObject error:(NSError *)error
 {
-    return [self.mappedResponseObject valueForKey:@"locations"];
+    self = [super initWithTask:task response:response responseObject:responseObject error:error];
+    if (self) {
+        _mappedResponseObject = [MTLJSONAdapter modelsOfClass:[Location class] fromJSONArray:[self.responseObject valueForKeyPath:@"search_api.result"] error:NULL];
+    }
+    return self;
 }
 
-+ (id)mapping
+- (NSArray *)locations
 {
-    return [EKObjectMapping mappingForClass:[NSMutableDictionary class] withRootPath:@"search_api" withBlock:^(EKObjectMapping *mapping) {
-        [mapping mapKey:@"result" toField:@"locations" withValueBlock:^id(NSString *key, id value) {
-            return [MTLJSONAdapter modelsOfClass:[Location class] fromJSONArray:value error:NULL];
-        }];
-    }];
+    return self.mappedResponseObject;
 }
 
 - (BOOL)succes

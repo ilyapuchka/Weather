@@ -13,11 +13,11 @@
 
 @protocol COOLAPIResponseSerialization <AFURLResponseSerialization>
 
-- (COOLAPIResponse *)responseForRequest:(COOLAPIRequest *)request
-                                   task:(NSURLSessionDataTask *)task
-                           httpResponse:(NSHTTPURLResponse *)httpResponse
-                         responseObject:(id)responseObject
-                              httpError:(NSError *)httpError
-                                  error:(NSError *__autoreleasing *)error;
+- (id<COOLAPIResponse>)responseForRequest:(COOLAPIRequest *)request
+                                     task:(NSURLSessionDataTask *)task
+                             httpResponse:(NSHTTPURLResponse *)httpResponse
+                           responseObject:(id)responseObject
+                                httpError:(NSError *)httpError
+                                    error:(NSError *__autoreleasing *)error;
 
 @end

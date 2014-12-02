@@ -12,18 +12,18 @@
 
 @implementation COOLDailyForecastAPIResponse
 
-- (Forecast *)forecast
+- (instancetype)initWithTask:(NSURLSessionDataTask *)task response:(NSHTTPURLResponse *)response responseObject:(id)responseObject error:(NSError *)error
 {
-    return [self.mappedResponseObject valueForKey:@"forecast"];
+    self = [super initWithTask:task response:response responseObject:responseObject error:error];
+    if (self) {
+        _mappedResponseObject = [MTLJSONAdapter modelOfClass:[Forecast class] fromJSONDictionary:[self.responseObject valueForKey:@"data"] error:NULL];
+    }
+    return self;
 }
 
-+ (id)mapping
+- (Forecast *)forecast
 {
-    return [EKObjectMapping mappingForClass:[NSMutableDictionary class] withBlock:^(EKObjectMapping *mapping) {
-        [mapping mapKey:@"data" toField:@"forecast" withValueBlock:^id(NSString *key, id value) {
-            return [MTLJSONAdapter modelOfClass:[Forecast class] fromJSONDictionary:value error:NULL];
-        }];
-    }];
+    return self.mappedResponseObject;
 }
 
 - (BOOL)succes

@@ -49,14 +49,14 @@
     [_networkActivityLogger startLogging];
 }
 
-- (NSURLSessionDataTask *)dataTaskWithRequest:(COOLAPIRequest *)request success:(void(^)(COOLAPIResponse *))success failure:(void(^)(COOLAPIResponse *))failure
+- (NSURLSessionDataTask *)dataTaskWithRequest:(COOLAPIRequest *)request success:(COOLAPIClientSuccessBlock)success failure:(COOLAPIClientFailureBlock)failure
 {
     NSError *requestBuildError;
     NSURLRequest *httpRequest = [self.requestSerializer requestBySerializingAPIRequest:request basePath:self.baseURL error:&requestBuildError];
     
     __block NSURLSessionDataTask *task = [self dataTaskWithRequest:httpRequest completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            COOLAPIResponse *apiResponse;
+            id<COOLAPIResponse> apiResponse;
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
             NSError *responseBuildError;
             apiResponse = [self.responseSerializer responseForRequest:request task:task httpResponse:httpResponse responseObject:responseObject httpError:error error:&responseBuildError];

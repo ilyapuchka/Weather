@@ -9,10 +9,9 @@
 #ifndef COOLNetworkStack_COOLAPIClientBlocks_h
 #define COOLNetworkStack_COOLAPIClientBlocks_h
 
-@class COOLAPIRequest;
-@class COOLAPIResponse;
+@protocol COOLAPIResponse;
 
-typedef void(^COOLAPIClientSuccessBlock)(COOLAPIResponse *response);
-typedef void(^COOLAPIClientFailureBlock)(COOLAPIResponse *response);
+typedef void(^COOLAPIClientSuccessBlock)(id<COOLAPIResponse> response);
+typedef void(^COOLAPIClientFailureBlock)(id<COOLAPIResponse> response);
 
 #endif

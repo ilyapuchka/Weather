@@ -7,22 +7,41 @@
 //
 
 #import "COOLAPIResponse.h"
-#import "COOLAPIResponse_Private.h"
-#import "COOLAPIResponse+Package.h"
-#import "COOLAPIResponseBuilder.h"
+
+@interface COOLAPIResponse ()
+
+@property (nonatomic, copy, readwrite) NSURLSessionDataTask *task;
+@property (nonatomic, copy, readwrite) NSHTTPURLResponse *response;
+@property (nonatomic, copy, readwrite) NSError *error;
+@property (nonatomic, strong, readwrite) id responseObject;
+
+@end
 
 @implementation COOLAPIResponse
 
-+ (instancetype)responseWithBlock:(void (^)(COOLAPIResponseBuilder *))buildBlock
+- (instancetype)initWithTask:(NSURLSessionDataTask *)task
+                    response:(NSHTTPURLResponse *)response
+              responseObject:(id)responseObject
+                       error:(NSError *)error
 {
-    COOLAPIResponseBuilder *builder = [COOLAPIResponseBuilder new];
-    buildBlock(builder);
-    return [builder build:self];
+    self = [super init];
+    if (self) {
+        self.task = task;
+        self.responseObject = responseObject;
+        self.response = response;
+        self.error = error;
+    }
+    return self;
 }
 
-+ (id)responseMapping
+- (id)copyWithZone:(NSZone *)zone
 {
-    return nil;
+    return [[[self class] allocWithZone:zone] initWithTask:self.task response:self.response responseObject:self.responseObject error:self.error];
+}
+
+- (id)mappedResponseObject
+{
+    return self.responseObject;
 }
 
 - (BOOL)succes
@@ -33,6 +52,12 @@
 - (BOOL)noContent
 {
     return self.error == nil && self.mappedResponseObject == nil;
+}
+
+- (BOOL)cancelled
+{
+    return ([self.error.domain isEqualToString:NSURLErrorDomain] &&
+            self.error.code == NSURLErrorCancelled);
 }
 
 @end

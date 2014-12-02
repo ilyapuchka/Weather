@@ -23,6 +23,8 @@
  */
 @property (nonatomic, strong) COOLAPIClientImpl *apiClient;
 
+@property (nonatomic, copy) id<COOLAPIResponse> response;
+
 /**
  *  Performs basic completion of loading. Calls COOLAPIClientDataSource methods. Then based on these methods return values calls it's loadingProcess instance methods to transit to corresponding state.
  
@@ -31,6 +33,6 @@
  *  @param task
  *  @param response
  */
-- (void)completeLoadingWithTask:(NSURLSessionDataTask *)task response:(COOLAPIResponse *)response;
+- (void)completeLoadingWithTask:(NSURLSessionDataTask *)task response:(id<COOLAPIResponse>)response;
 
 @end

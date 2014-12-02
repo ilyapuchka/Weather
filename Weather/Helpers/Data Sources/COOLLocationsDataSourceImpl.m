@@ -13,7 +13,6 @@
 @interface COOLLocationsDataSourceImpl()
 
 @property (nonatomic, strong) id<COOLWeatherAPI> apiClient;
-@property (nonatomic, copy) NSArray *locations;
 
 @end
 
@@ -49,14 +48,8 @@
     __block NSURLSessionDataTask *task;
     [super loadContentWithBlock:^(COOLLoadingProcess *loadingProcess) {
         task = [self.apiClient searchCitiesWithQuery:query success:^(COOLLocationsSearchAPIResponse *response) {
-            self.locations = response.locations;
             [self completeLoadingWithTask:task response:response];
-        } failure:^(COOLAPIResponse *response) {
-            if ([response.error.domain isEqualToString:NSURLErrorDomain] &&
-                response.error.code == NSURLErrorCancelled) {
-                return;
-            }
-            self.locations = nil;
+        } failure:^(id<COOLAPIResponse> response) {
             [self completeLoadingWithTask:task response:response];
         }];
     }];
@@ -68,19 +61,22 @@
     __block NSURLSessionDataTask *task;
     [super loadContentWithBlock:^(COOLLoadingProcess *loadingProcess) {
         task = [self.apiClient searchCitiesWithLatitude:latitude longitude:longitude success:^(COOLLocationsSearchAPIResponse *response) {
-            self.locations = response.locations;
             [self completeLoadingWithTask:task response:response];
         } failure:^(COOLAPIResponse *response) {
-            self.locations = nil;
             [self completeLoadingWithTask:task response:response];
         }];
     }];
     return task;
 }
 
+- (NSArray *)locations
+{
+    return self.response.locations;
+}
+
 - (void)resetContent
 {
-    self.locations = nil;
+    self.response = nil;
     [super resetContent];
 }
 

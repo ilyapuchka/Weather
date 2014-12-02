@@ -15,7 +15,6 @@
 @interface COOLForecastDataSourceImpl()
 
 @property (nonatomic, strong) id<COOLWeatherAPI> apiClient;
-@property (nonatomic, copy) Forecast *dailyForecast;
 
 @end
 
@@ -53,19 +52,22 @@
     __block NSURLSessionDataTask *task;
     [super loadContentWithBlock:^(COOLLoadingProcess *loadingProcess) {
         task = [self.apiClient daylyWeatherWithQuery:[query displayName] days:days success:^(COOLDailyForecastAPIResponse *response) {
-            self.dailyForecast = response.forecast;
             [self completeLoadingWithTask:task response:response];
-        } failure:^(COOLAPIResponse *response) {
-            self.dailyForecast = nil;
+        } failure:^(id<COOLAPIResponse> response) {
             [self completeLoadingWithTask:task response:response];
         }];
     }];
     return task;
 }
 
+- (Forecast *)dailyForecast
+{
+    return self.response.forecast;
+}
+
 - (void)resetContent
 {
-    self.dailyForecast = nil;
+    self.response = nil;
     [super resetContent];
 }
 

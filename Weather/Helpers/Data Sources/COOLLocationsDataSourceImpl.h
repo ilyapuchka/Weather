@@ -8,7 +8,10 @@
 
 #import "COOLAPIClientDataSource.h"
 #import "COOLLocationsDataSource.h"
+#import "COOLLocationsSearchAPIResponse.h"
 
 @interface COOLLocationsDataSourceImpl : COOLAPIClientDataSource <COOLLocationsDataSource>
+
+@property (nonatomic, copy) COOLLocationsSearchAPIResponse *response;
 
 @end

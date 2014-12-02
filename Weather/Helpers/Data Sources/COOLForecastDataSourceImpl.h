@@ -8,7 +8,10 @@
 
 #import "COOLAPIClientDataSource.h"
 #import "COOLForecastDataSource.h"
+#import "COOLDailyForecastAPIResponse.h"
 
 @interface COOLForecastDataSourceImpl : COOLAPIClientDataSource <COOLForecastDataSource>
+
+@property (nonatomic, copy) COOLDailyForecastAPIResponse *response;
 
 @end
