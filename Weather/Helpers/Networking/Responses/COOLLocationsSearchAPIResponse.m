@@ -10,15 +10,21 @@
 #import "Location+Mapping.h"
 #import "Mantle.h"
 
+@interface COOLLocationsSearchAPIResponse()
+
+@property (nonatomic, strong) NSArray *mappedResponseObject;
+
+@end
+
 @implementation COOLLocationsSearchAPIResponse
 
-- (instancetype)initWithTask:(NSURLSessionDataTask *)task response:(NSHTTPURLResponse *)response responseObject:(id)responseObject error:(NSError *)error
+- (BOOL)mapResponseObject:(NSError *__autoreleasing *)error
 {
-    self = [super initWithTask:task response:response responseObject:responseObject error:error];
-    if (self) {
-        _mappedResponseObject = [MTLJSONAdapter modelsOfClass:[Location class] fromJSONArray:[self.responseObject valueForKeyPath:@"search_api.result"] error:NULL];
-    }
-    return self;
+    NSError *mappingError;
+    NSArray *array = [MTLJSONAdapter modelsOfClass:[Location class] fromJSONArray:[self.responseObject valueForKeyPath:@"search_api.result"] error:&mappingError];
+    self.mappedResponseObject = array;
+    if (error) *error = mappingError;
+    return (mappingError == nil);
 }
 
 - (NSArray *)locations

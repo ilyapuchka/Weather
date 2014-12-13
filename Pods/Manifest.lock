@@ -23,13 +23,22 @@ PODS:
   - AFNetworking/UIKit (2.5.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - COOLCompositions (0.0.1)
-  - COOLDataSource (0.0.1)
-  - COOLNetworkStack (0.0.1):
-    - AFNetworkActivityLogger (~> 2.0)
-    - AFNetworking (~> 2.0)
-    - EasyMapping (~> 0.6)
-  - EasyMapping (0.6.3)
+  - COOLKit (0.0.1):
+    - COOLKit/Compositions
+    - COOLKit/DataSources
+    - COOLKit/Decorators
+    - COOLKit/NetworkStack
+  - COOLKit/Compositions (0.0.1)
+  - COOLKit/DataSources (0.0.1):
+    - COOLKit/Compositions
+    - COOLKit/NetworkStack
+  - COOLKit/Decorators (0.0.1):
+    - COOLKit/Compositions
+  - COOLKit/NetworkStack (0.0.1):
+    - AFNetworkActivityLogger (~> 2.0.x)
+    - AFNetworking (~> 2.5.x)
+    - EasyMapping (~> 0.8.x)
+  - EasyMapping (0.8.0)
   - INTULocationManager (1.2.0)
   - Mantle (1.5.1):
     - Mantle/extobjc
@@ -40,21 +49,21 @@ PODS:
   - Typhoon/no-arc (2.3.1)
 
 DEPENDENCIES:
-  - COOLCompositions
-  - COOLDataSource
-  - COOLNetworkStack
+  - COOLKit (from `../CoolConnections/COOLKit`)
   - INTULocationManager
   - Mantle
   - MSCMoreOptionTableViewCell
   - Typhoon
 
+EXTERNAL SOURCES:
+  COOLKit:
+    :path: ../CoolConnections/COOLKit
+
 SPEC CHECKSUMS:
   AFNetworkActivityLogger: d6a2d2755fada3a1fbf1f490ec0dd92224e092a4
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
-  COOLCompositions: 991e217f20ce6821861a4c043829b055a87b95d6
-  COOLDataSource: 5391730aecda59f53dd34206cefa7ff784e0ece9
-  COOLNetworkStack: ff326116d856cbe399c4e7ace0db9fb9a8844334
-  EasyMapping: bb3ca83bf207ad382a14202561dd93d393c05a13
+  COOLKit: 2d6feee8acdbd5dc03cc30376ce9ebe788c25f75
+  EasyMapping: 5299c22bab6192d1e3cdf2bac330dc959a41b444
   INTULocationManager: 596c57e35a00ca1ee9d59bf4cc2b63dc299b580e
   Mantle: d7c5ac734579ec751c58fecbf56189853056c58c
   MSCMoreOptionTableViewCell: 5b102a68d0e97af17438c5823089955b1ed509dd

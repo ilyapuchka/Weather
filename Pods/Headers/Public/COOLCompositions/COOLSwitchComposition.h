@@ -1,1 +1,0 @@
-../../../COOLCompositions/COOLCompositions/COOLSwitchComposition.h

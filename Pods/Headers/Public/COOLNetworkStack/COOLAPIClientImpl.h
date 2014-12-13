@@ -1,1 +1,0 @@
-../../../COOLNetworkStack/COOLNetworkStack/Public/APIClient/COOLAPIClientImpl.h

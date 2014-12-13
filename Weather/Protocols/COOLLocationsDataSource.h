@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "COOLAPIClientDataSource.h"
 #import "COOLDataSourceDelegate.h"
 
 @class Location;

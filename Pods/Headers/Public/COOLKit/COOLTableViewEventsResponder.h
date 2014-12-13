@@ -1,0 +1,1 @@
+../../../../../CoolConnections/COOLKit/COOLKit/COOLDecorators/Public/COOLTableViewEventsResponder.h

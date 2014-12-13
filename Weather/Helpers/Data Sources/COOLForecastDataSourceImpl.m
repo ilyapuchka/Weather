@@ -52,9 +52,9 @@
     __block NSURLSessionDataTask *task;
     [super loadContentWithBlock:^(COOLLoadingProcess *loadingProcess) {
         task = [self.apiClient daylyWeatherWithQuery:[query displayName] days:days success:^(COOLDailyForecastAPIResponse *response) {
-            [self completeLoadingWithTask:task response:response];
+            [self completeLoadingWithTask:task response:response loadingProcess:loadingProcess];
         } failure:^(id<COOLAPIResponse> response) {
-            [self completeLoadingWithTask:task response:response];
+            [self completeLoadingWithTask:task response:response loadingProcess:loadingProcess];
         }];
     }];
     return task;

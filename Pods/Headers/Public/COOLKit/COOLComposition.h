@@ -1,0 +1,1 @@
+../../../../../CoolConnections/COOLKit/COOLKit/COOLCompositions/COOLComposition.h

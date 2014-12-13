@@ -1,1 +1,0 @@
-../../../COOLNetworkStack/COOLNetworkStack/Public/Protocols/COOLMapping.h

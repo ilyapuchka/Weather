@@ -12,6 +12,6 @@
 
 @interface COOLForecastDataSourceImpl : COOLAPIClientDataSource <COOLForecastDataSource>
 
-@property (nonatomic, copy) COOLDailyForecastAPIResponse *response;
+@property (nonatomic, strong) COOLDailyForecastAPIResponse *response;
 
 @end

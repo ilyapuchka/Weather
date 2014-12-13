@@ -8,7 +8,6 @@
 
 #import "EKObjectMapping+Transfromers.h"
 #import "EKMapper.h"
-#import "EKFieldMapping.h"
 
 @implementation EKObjectMapping (Transfromers)
 
@@ -21,14 +20,14 @@
 - (void)mapKey:(NSString *)key toField:(NSString *)field withTransformer:(NSValueTransformer *)transformer
 {
     if ([[transformer class] allowsReverseTransformation]) {
-        [self mapKey:key toField:field withValueBlock:^id(NSString *aKey, id value) {
+        [self mapKeyPath:key toProperty:field withValueBlock:^id(NSString *key, id value) {
             return [transformer transformedValue:value];
-        } withReverseBlock:^id(id value) {
+        } reverseBlock:^id(id value) {
             return [transformer reverseTransformedValue:value];
         }];
     }
     else {
-        [self mapKey:key toField:field withValueBlock:^id(NSString *aKey, id value) {
+        [self mapKeyPath:key toProperty:field withValueBlock:^id(NSString *key, id value) {
             return [transformer transformedValue:value];
         }];
     }
@@ -59,14 +58,14 @@ static Class _defaultMapper;
 - (id)copyWithZone:(NSZone *)zone
 {
     EKObjectMapping *copy = [EKObjectMapping mappingForClass:[self objectClass] withRootPath:[self rootPath] withBlock:^(EKObjectMapping *newMapping) {
-        [newMapping mapFieldsFromMappingObject:self];
+        [newMapping mapPropertiesFromMappingObject:self];
     }];
     return copy;
 }
 
 - (void)hasManyMappingForClass:(Class<COOLMapping>)mappedClass forKey:(NSString *)key forField:(NSString *)field
 {
-    [self mapKey:key toField:field withValueBlock:^id(NSString *aKey, id value) {
+    [self mapKeyPath:key toProperty:field withValueBlock:^id(NSString *key, id value) {
         return [[EKObjectMapping defaultMapperClass] arrayOfObjectsFromExternalRepresentation:value withMapping:[mappedClass mapping]];
     }];
 }
@@ -78,7 +77,7 @@ static Class _defaultMapper;
 
 - (void)hasOneMappingForClass:(Class<COOLMapping>)mappedClass forKey:(NSString *)key forField:(NSString *)field
 {
-    [self mapKey:key toField:field withValueBlock:^id(NSString *aKey, id value) {
+    [self mapKeyPath:key toProperty:field withValueBlock:^id(NSString *key, id value) {
         return [[EKObjectMapping defaultMapperClass] objectFromExternalRepresentation:value withMapping:[mappedClass mapping]];
     }];
 }

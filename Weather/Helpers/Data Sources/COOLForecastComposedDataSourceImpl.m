@@ -45,7 +45,7 @@
 - (void)setQueries:(NSArray *)queries
 {
     _queries = [queries copy];
-    self.dataSources = nil;
+    _dataSources = nil;
 }
 
 - (COOLComposition *)dataSources

@@ -10,15 +10,20 @@
 #import "Forecast+Mapping.h"
 #import "Mantle.h"
 
+@interface COOLDailyForecastAPIResponse()
+
+@property (nonatomic, strong) Forecast *mappedResponseObject;
+
+@end
+
 @implementation COOLDailyForecastAPIResponse
 
-- (instancetype)initWithTask:(NSURLSessionDataTask *)task response:(NSHTTPURLResponse *)response responseObject:(id)responseObject error:(NSError *)error
+- (BOOL)mapResponseObject:(NSError *__autoreleasing *)error
 {
-    self = [super initWithTask:task response:response responseObject:responseObject error:error];
-    if (self) {
-        _mappedResponseObject = [MTLJSONAdapter modelOfClass:[Forecast class] fromJSONDictionary:[self.responseObject valueForKey:@"data"] error:NULL];
-    }
-    return self;
+    NSError *mappingError;
+    _mappedResponseObject = [MTLJSONAdapter modelOfClass:[Forecast class] fromJSONDictionary:[self.responseObject valueForKey:@"data"] error:&mappingError];
+    if (error) *error = mappingError;
+    return (mappingError == nil);
 }
 
 - (Forecast *)forecast

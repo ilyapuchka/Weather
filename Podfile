@@ -4,12 +4,14 @@
 source 'https://github.com/ilyapuchka/Specs.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
-pod 'COOLNetworkStack'
-pod 'COOLDataSource'
-pod 'COOLCompositions'
+#pod 'COOLNetworkStack'
+#pod 'COOLDataSource'
+#pod 'COOLCompositions'
 pod 'INTULocationManager'
 pod 'Mantle'
 
 pod 'Typhoon'
 
 pod 'MSCMoreOptionTableViewCell'
+
+pod 'COOLKit', :path => "../CoolConnections/COOLKit"

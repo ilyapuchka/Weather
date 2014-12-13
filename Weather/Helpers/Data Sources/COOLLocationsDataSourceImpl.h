@@ -12,6 +12,6 @@
 
 @interface COOLLocationsDataSourceImpl : COOLAPIClientDataSource <COOLLocationsDataSource>
 
-@property (nonatomic, copy) COOLLocationsSearchAPIResponse *response;
+@property (nonatomic, strong) COOLLocationsSearchAPIResponse *response;
 
 @end

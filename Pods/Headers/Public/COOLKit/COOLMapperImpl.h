@@ -1,0 +1,1 @@
+../../../../../CoolConnections/COOLKit/COOLKit/COOLNetworkStack/Mapper/COOLMapperImpl.h

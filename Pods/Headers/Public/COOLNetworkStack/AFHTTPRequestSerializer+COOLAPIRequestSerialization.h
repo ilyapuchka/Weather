@@ -1,1 +1,0 @@
-../../../COOLNetworkStack/COOLNetworkStack/Public/APIClient/AFHTTPRequestSerializer+COOLAPIRequestSerialization.h

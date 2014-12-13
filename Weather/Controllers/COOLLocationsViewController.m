@@ -1,4 +1,4 @@
-//
+ //
 //  COOLLocationsViewController.m
 //  Weather
 //
@@ -169,8 +169,15 @@
 
 #pragma mark - UISearchBarDelegate
 
+static NSURLSessionDataTask *task;
+
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
+    if (task && task.state == NSURLSessionTaskStateRunning) {
+        [task cancel];
+        [self.locationsDataSource cancelLoading];
+    }
+
     [self showLocations];
 }
 
@@ -182,12 +189,15 @@
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    static NSURLSessionDataTask *task;
-    if (task && task.state == NSURLSessionTaskStateRunning) {
-        [task cancel];
+    if (![[self.locationsDataSource query] isEqualToString:searchText]) {
+        if (task && task.state == NSURLSessionTaskStateRunning) {
+            [task cancel];
+            [self.locationsDataSource cancelLoading];
+        }
+        task = [self.locationsDataSource loadLocationsWithQuery:searchText];
     }
-    task = [self.locationsDataSource loadLocationsWithQuery:searchText];
 }
+
 
 #pragma mark - COOLDataSourceDelegate
 

@@ -46,11 +46,12 @@
 - (NSURLSessionDataTask *)loadLocationsWithQuery:(NSString *)query
 {
     __block NSURLSessionDataTask *task;
+    self.query = query;
     [super loadContentWithBlock:^(COOLLoadingProcess *loadingProcess) {
         task = [self.apiClient searchCitiesWithQuery:query success:^(COOLLocationsSearchAPIResponse *response) {
-            [self completeLoadingWithTask:task response:response];
+            [self completeLoadingWithTask:task response:response loadingProcess:loadingProcess];
         } failure:^(id<COOLAPIResponse> response) {
-            [self completeLoadingWithTask:task response:response];
+            [self completeLoadingWithTask:task response:response loadingProcess:loadingProcess];
         }];
     }];
     return task;
@@ -61,9 +62,9 @@
     __block NSURLSessionDataTask *task;
     [super loadContentWithBlock:^(COOLLoadingProcess *loadingProcess) {
         task = [self.apiClient searchCitiesWithLatitude:latitude longitude:longitude success:^(COOLLocationsSearchAPIResponse *response) {
-            [self completeLoadingWithTask:task response:response];
+            [self completeLoadingWithTask:task response:response loadingProcess:loadingProcess];
         } failure:^(COOLAPIResponse *response) {
-            [self completeLoadingWithTask:task response:response];
+            [self completeLoadingWithTask:task response:response loadingProcess:loadingProcess];
         }];
     }];
     return task;
