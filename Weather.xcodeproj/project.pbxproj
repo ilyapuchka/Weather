@@ -98,6 +98,7 @@
 		09ED70201A2764DF00BE573A /* COOLForecastTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09ED701F1A2764DF00BE573A /* COOLForecastTableViewCell.m */; };
 		09ED70231A276F1000BE573A /* COOLForecastTableViewCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09ED70221A276F1000BE573A /* COOLForecastTableViewCellModel.m */; };
 		09ED70251A277EC100BE573A /* COOLForecastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09ED70241A277EC100BE573A /* COOLForecastTableViewCell.xib */; };
+		09EF1D9E1A3CBFB50045DFFE /* UIApplication+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EF1D9D1A3CBFB50045DFFE /* UIApplication+Extensions.m */; };
 		4316D0801F1A329CB90D1E53 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A3CC1CCAD5DE0DFDF9A83CD /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -149,8 +150,8 @@
 		09085D251A29052800A01689 /* Hourly+Mapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Hourly+Mapping.m"; sourceTree = "<group>"; };
 		09085D271A29056000A01689 /* Weather+Mapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Weather+Mapping.h"; sourceTree = "<group>"; };
 		09085D281A29056000A01689 /* Weather+Mapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Weather+Mapping.m"; sourceTree = "<group>"; };
-		09085D2A1A29058600A01689 /* SimpleValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleValue.h; path = Weather/SimpleValue.h; sourceTree = "<group>"; };
-		09085D2B1A29058600A01689 /* SimpleValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SimpleValue.m; path = Weather/SimpleValue.m; sourceTree = "<group>"; };
+		09085D2A1A29058600A01689 /* SimpleValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleValue.h; sourceTree = "<group>"; };
+		09085D2B1A29058600A01689 /* SimpleValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleValue.m; sourceTree = "<group>"; };
 		09085D2D1A2905CF00A01689 /* SimpleValue+Mapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SimpleValue+Mapping.h"; sourceTree = "<group>"; };
 		09085D2E1A2905CF00A01689 /* SimpleValue+Mapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SimpleValue+Mapping.m"; sourceTree = "<group>"; };
 		09085D301A2905E900A01689 /* TimeZone+Mapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TimeZone+Mapping.h"; sourceTree = "<group>"; };
@@ -268,6 +269,10 @@
 		09ED70211A276F1000BE573A /* COOLForecastTableViewCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLForecastTableViewCellModel.h; sourceTree = "<group>"; };
 		09ED70221A276F1000BE573A /* COOLForecastTableViewCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLForecastTableViewCellModel.m; sourceTree = "<group>"; };
 		09ED70241A277EC100BE573A /* COOLForecastTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = COOLForecastTableViewCell.xib; sourceTree = "<group>"; };
+		09EF1D9A1A3C550D0045DFFE /* InfoPlistPrefix.Debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoPlistPrefix.Debug.h; sourceTree = "<group>"; };
+		09EF1D9B1A3C55180045DFFE /* InfoPlistPrefix.Release.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfoPlistPrefix.Release.h; sourceTree = "<group>"; };
+		09EF1D9C1A3CBFB50045DFFE /* UIApplication+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+Extensions.h"; sourceTree = "<group>"; };
+		09EF1D9D1A3CBFB50045DFFE /* UIApplication+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+Extensions.m"; sourceTree = "<group>"; };
 		6A3CC1CCAD5DE0DFDF9A83CD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F862640908586DE68591331 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		A8CAB8E4D5C7CF2753E8992D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -345,7 +350,7 @@
 				09085D131A28CFEC00A01689 /* UIColor+Weather.h */,
 				09085D141A28CFEC00A01689 /* UIColor+Weather.m */,
 			);
-			name = UIColor;
+			path = UIColor;
 			sourceTree = "<group>";
 		};
 		09085D161A28CFFD00A01689 /* UIFont */ = {
@@ -354,7 +359,7 @@
 				09085D171A28D01200A01689 /* UIFont+Weather.h */,
 				09085D181A28D01200A01689 /* UIFont+Weather.m */,
 			);
-			name = UIFont;
+			path = UIFont;
 			sourceTree = "<group>";
 		};
 		09085D201A2904F500A01689 /* Models Mapping */ = {
@@ -373,7 +378,7 @@
 				09085D331A29060700A01689 /* Location+Mapping.h */,
 				09085D341A29060700A01689 /* Location+Mapping.m */,
 			);
-			name = "Models Mapping";
+			path = "Models Mapping";
 			sourceTree = "<group>";
 		};
 		0922145E1A253F86002A614A = {
@@ -426,6 +431,8 @@
 			isa = PBXGroup;
 			children = (
 				0922146B1A253F86002A614A /* Info.plist */,
+				09EF1D9A1A3C550D0045DFFE /* InfoPlistPrefix.Debug.h */,
+				09EF1D9B1A3C55180045DFFE /* InfoPlistPrefix.Release.h */,
 				0922146C1A253F86002A614A /* main.m */,
 			);
 			path = "Supporting Files";
@@ -453,6 +460,8 @@
 				09085CD91A27DA3800A01689 /* CLLocation */,
 				093876DC1A26258900ADF480 /* ViewController */,
 				092215011A25E96D002A614A /* EKObjectMapping */,
+				09EF1D9C1A3CBFB50045DFFE /* UIApplication+Extensions.h */,
+				09EF1D9D1A3CBFB50045DFFE /* UIApplication+Extensions.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -710,7 +719,7 @@
 			children = (
 				099D6D101A293F9900776469 /* Info.plist */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		099D6D301A2947CA00776469 /* MTLJSONAdapter */ = {
@@ -719,7 +728,7 @@
 				099D6D311A2947E400776469 /* MTLJSONAdapter+COOLMapper.h */,
 				099D6D321A2947E400776469 /* MTLJSONAdapter+COOLMapper.m */,
 			);
-			name = MTLJSONAdapter;
+			path = MTLJSONAdapter;
 			sourceTree = "<group>";
 		};
 		09E894691A26A63B00D7B95B /* Resources */ = {
@@ -922,6 +931,7 @@
 				09085D0B1A28C5A600A01689 /* NSDate+Extensions.m in Sources */,
 				093876E11A26258900ADF480 /* UIViewController+SegueUserInfo.m in Sources */,
 				092215261A25EFBC002A614A /* Location.m in Sources */,
+				09EF1D9E1A3CBFB50045DFFE /* UIApplication+Extensions.m in Sources */,
 				09085D291A29056000A01689 /* Weather+Mapping.m in Sources */,
 				092214C41A2541F5002A614A /* COOLLocationsSearchAPIResponse.m in Sources */,
 				092214F81A25E0E3002A614A /* WeatherDesc.m in Sources */,
@@ -1133,9 +1143,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "Weather/Supporting Files/Info.plist";
+				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "";
+				INFOPLIST_PREFIX_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/Supporting Files/InfoPlistPrefix.$(CONFIGURATION).h";
+				INFOPLIST_PREPROCESS = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				NETWORK_ACTIVITY_LOG_LEVEL = 1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1147,9 +1159,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "Weather/Supporting Files/Info.plist";
+				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "";
+				INFOPLIST_PREFIX_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/Supporting Files/InfoPlistPrefix.$(CONFIGURATION).h";
+				INFOPLIST_PREPROCESS = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				NETWORK_ACTIVITY_LOG_LEVEL = 0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -1166,7 +1180,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "Weather Tests/Info.plist";
+				INFOPLIST_FILE = "Weather Tests/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1181,7 +1195,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "Weather Tests/Info.plist";
+				INFOPLIST_FILE = "Weather Tests/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -16,11 +16,11 @@
 + (EKObjectMapping *)mapping
 {
     return [EKObjectMapping mappingForClass:self withBlock:^(EKObjectMapping *mapping) {
-        [mapping mapFieldsFromArray:@[@"winddir16Point", @"humidity", @"tempF", @"chanceofthunder", @"chanceofsnow", @"chanceofrain", @"chanceofsunshine", @"windspeedKmph", @"pressure", @"windspeedMiles", @"tempC", @"precipMM", @"time"]];
-        [mapping hasManyMapping:[SimpleValue mapping] forKey:@"weatherDesc"];
+        [mapping mapPropertiesFromArray:@[@"winddir16Point", @"humidity", @"tempF", @"chanceofthunder", @"chanceofsnow", @"chanceofrain", @"chanceofsunshine", @"windspeedKmph", @"pressure", @"windspeedMiles", @"tempC", @"precipMM", @"time"]];
+        [mapping hasMany:[SimpleValue class] forKeyPath:@"weatherDesc" forProperty:@"weatherDesc" withObjectMapping:[SimpleValue mapping]];
         
         NSString *localizedWeatherDescKey = [NSString stringWithFormat:@"lang_%@", [[NSLocale preferredLanguages] firstObject]];
-        [mapping hasManyMapping:[SimpleValue mapping] forKey:localizedWeatherDescKey forField:@"localizedWeatherDesc"];
+        [mapping hasMany:[SimpleValue class] forKeyPath:localizedWeatherDescKey forProperty:@"localizedWeatherDesc" withObjectMapping:[SimpleValue mapping]];
     }];
 }
 

@@ -14,10 +14,11 @@
 + (EKObjectMapping *)mapping
 {
     return [EKObjectMapping mappingForClass:self withBlock:^(EKObjectMapping *mapping) {
-        [mapping hasManyMapping:[SimpleValue mapping] forKey:@"region"];
-        [mapping hasManyMapping:[SimpleValue mapping] forKey:@"country"];
-        [mapping hasManyMapping:[SimpleValue mapping] forKey:@"areaName"];
-        [mapping mapFieldsFromArray:@[@"longitude", @"latitude"]];
+        [mapping hasMany:[SimpleValue class] forKeyPath:@"region" forProperty:@"region" withObjectMapping:[SimpleValue mapping]];
+        [mapping hasMany:[SimpleValue class] forKeyPath:@"country" forProperty:@"country" withObjectMapping:[SimpleValue mapping]];
+        [mapping hasMany:[SimpleValue class] forKeyPath:@"areaName" forProperty:@"areaName" withObjectMapping:[SimpleValue mapping]];
+        [mapping hasMany:[SimpleValue class] forKeyPath:@"region" forProperty:@"region" withObjectMapping:[SimpleValue mapping]];
+        [mapping mapPropertiesFromArray:@[@"longitude", @"latitude"]];
     }];
 }
 

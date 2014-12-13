@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -22,10 +24,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSHumanReadableCopyright</key>
+	<string>COPYRIGHT</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
 	<key>Network Activity Logging Level</key>
-	<string>${NETWORK_ACTIVITY_LOG_LEVEL}</string>
+	<string>NETWORK_ACTIVITY_LOG_LEVEL</string>
 	<key>TyphoonInitialAssemblies</key>
 	<array>
 		<string>ApplicationComponents</string>

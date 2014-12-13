@@ -11,6 +11,7 @@
 
 #import "UIColor+Weather.h"
 #import "UIFont+Weather.h"
+#import "UIApplication+Extensions.h"
 
 typedef NS_ENUM(NSInteger, COOLSettings){
     COOLSettingsDistance,
@@ -89,6 +90,11 @@ typedef NS_ENUM(NSInteger, COOLSettings){
             break;
     }
     [tableView reloadData];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+{
+    return [NSString stringWithFormat:@"%@\nVersion %@", [UIApplication copyright], [UIApplication appFullVersion]];
 }
 
 @end

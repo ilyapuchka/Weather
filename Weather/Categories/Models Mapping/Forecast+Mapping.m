@@ -15,8 +15,15 @@
 + (EKObjectMapping *)mapping
 {
     return [EKObjectMapping mappingForClass:self withBlock:^(EKObjectMapping *mapping) {
-        [mapping hasManyMapping:[TimeZone mapping] forKey:@"time_zone" forField:@"timeZone"];
-        [mapping hasManyMapping:[Weather mapping] forKey:@"weather"];
+        [mapping hasMany:[TimeZone class]
+              forKeyPath:@"time_zone"
+             forProperty:@"timeZone"
+       withObjectMapping:[TimeZone mapping]];
+        
+        [mapping hasMany:[Weather class]
+              forKeyPath:@"weather"
+             forProperty:@"weather"
+       withObjectMapping:[Weather mapping]];
     }];
 }
 

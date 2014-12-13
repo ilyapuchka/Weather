@@ -14,8 +14,8 @@
 + (EKObjectMapping *)mapping
 {
     return [EKObjectMapping mappingForClass:self withBlock:^(EKObjectMapping *mapping) {
-        [mapping hasManyMapping:[Hourly mapping] forKey:@"hourly"];
-        [mapping mapKey:@"date" toField:@"date"];
+        [mapping hasMany:[Hourly class] forKeyPath:@"hourly" forProperty:@"hourly" withObjectMapping:[Hourly mapping]];
+        [mapping mapPropertiesFromArray:@[@"date"]];
     }];
 }
 

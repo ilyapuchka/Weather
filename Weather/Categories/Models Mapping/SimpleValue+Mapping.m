@@ -13,7 +13,7 @@
 + (EKObjectMapping *)mapping
 {
     return [EKObjectMapping mappingForClass:self withBlock:^(EKObjectMapping *mapping) {
-        [mapping mapFieldsFromArray:@[@"value"]];
+        [mapping mapPropertiesFromArray:@[@"value"]];
     }];
 }
 
