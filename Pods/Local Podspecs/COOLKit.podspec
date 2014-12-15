@@ -14,7 +14,6 @@ COOL application components. Contains compositions, data sources, network stack 
   s.source       = { :git => "git@github.com:ilyapuchka/COOLKit.git", :tag => "0.0.1" }
   s.requires_arc = true
 
-  #s.default_subspec = "Kit"
   s.source_files = "COOLKit/COOLKit.h"
 
   s.subspec 'Compositions' do |cmp|
@@ -23,9 +22,9 @@ COOL application components. Contains compositions, data sources, network stack 
 
   s.subspec 'NetworkStack' do |ns|
     ns.source_files = "COOLKit/COOLNetworkStack/**/*.{h,m}"
-    ns.dependency 'AFNetworking', '~>2.5.x'
-    ns.dependency 'AFNetworkActivityLogger', '~>2.0.x'
-    ns.dependency 'EasyMapping', '~>0.8.x'
+    ns.dependency 'AFNetworking', '~>2.5.0'
+    ns.dependency 'AFNetworkActivityLogger', '~>2.0.0'
+    ns.dependency 'EasyMapping', '~>0.8.0'
   end
 
   s.subspec 'DataSources' do |ds|
@@ -39,15 +38,5 @@ COOL application components. Contains compositions, data sources, network stack 
     dec.public_header_files = 'COOLKit/COOLDecorators/Public/**/*.h'
     dec.dependency 'COOLKit/Compositions'
   end
-
-=begin
-  s.subspec 'Kit' do |kit|
-    #kit.source_files = "COOLKit/COOLKit.h"
-    kit.dependency 'COOLKit/Compositions'
-    kit.dependency 'COOLKit/NetworkStack'
-    kit.dependency 'COOLKit/DataSources'
-    kit.dependency 'COOLKit/Decorators'
-  end
-=end 
   
 end
