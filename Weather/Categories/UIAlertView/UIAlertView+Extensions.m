@@ -10,6 +10,10 @@
 #import <CoreLocation/CoreLocation.h>
 #import "INTULocationRequestDefines.h"
 
+@interface UIAlertView()<UIAlertViewDelegate>
+
+@end
+
 @implementation UIAlertView (Extensions)
 
 static NSMutableArray *showAlertsHashes;
@@ -26,7 +30,7 @@ static NSMutableArray *showAlertsHashes;
         title = NSLocalizedStringFromTable(@"Location Services Unavailable", @"Errors", @"Location Denied Alert Title");
         message = NSLocalizedStringFromTable(@"The location services seems to be disabled from the settings.", @"Errors", @"Location Denied Alert Message");
     }
-    return [self showError:YES force:force withTitle:title message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    return [self showError:YES force:force withTitle:title message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
 }
 
 + (void)clearShowAlertsCache
@@ -39,16 +43,34 @@ static NSMutableArray *showAlertsHashes;
     if (!showAlertsHashes) {
         showAlertsHashes = [@[] mutableCopy];
     }
-    if (!force) {
-        NSInteger hash = [title hash] ^ [message hash];
-        if ([showAlertsHashes containsObject:@(hash)]) {
-            return nil;
-        }
-        [showAlertsHashes addObject:@(hash)];
+    
+    if ([self shouldShowAlertWithTitle:title message:message force:force]) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
+                                                            message:message
+                                                           delegate:nil
+                                                  cancelButtonTitle:cancelButtonTitle
+                                                  otherButtonTitles:otherButtonTitles, nil];
+        alertView.delegate = alertView;
+        [alertView show];
+        return alertView;
     }
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:delegate cancelButtonTitle:cancelButtonTitle otherButtonTitles:otherButtonTitles, nil];
-    [alertView show];
-    return alertView;
+    return nil;
+}
+
++ (BOOL)shouldShowAlertWithTitle:(NSString *)title message:(NSString *)message force:(BOOL)force
+{
+    NSInteger hash = [title hash] ^ [message hash];
+    if ([showAlertsHashes containsObject:@(hash)]) {
+        if (!force) return NO;
+    }
+    [showAlertsHashes addObject:@(hash)];
+    return YES;
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSInteger hash = [alertView.title hash] ^ [alertView.message hash];
+    [showAlertsHashes removeObject:@(hash)];
 }
 
 @end
