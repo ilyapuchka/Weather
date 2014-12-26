@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Ilya Puchka. All rights reserved.
 //
 
-#import "COOLTodayView.h"
+#import "COOLTodayContentView.h"
 
-@interface COOLTodayView()
+@interface COOLTodayContentView()
 
 @end
 
-@implementation COOLTodayView
+@implementation COOLTodayContentView
 
 - (void)awakeFromNib
 {
@@ -22,9 +22,9 @@
     self.weatherDescLabel.preferredMaxLayoutWidth =
     self.locationLabel.preferredMaxLayoutWidth = self.bounds.size.width - 30 * 2;
     
-    if (self.contentView.contentSize.height < self.contentView.bounds.size.height) {
-        CGFloat top = (self.contentView.bounds.size.height - self.contentView.contentSize.height) / 2;
-        self.contentView.contentInset = UIEdgeInsetsMake(top, 0, 0, 0);
+    if (self.contentSize.height < self.bounds.size.height) {
+        CGFloat top = (self.bounds.size.height - self.contentSize.height) / 2;
+        self.contentInset = UIEdgeInsetsMake(top, 0, 0, 0);
     }
 }
 

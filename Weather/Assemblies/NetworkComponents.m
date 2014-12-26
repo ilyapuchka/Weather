@@ -9,12 +9,11 @@
 #import "NetworkComponents.h"
 #import "COOLWeatherAPIImpl.h"
 #import "COOLWeatherAPIRequestSerializer.h"
-#import "COOLHTTPResponseSerializer.h"
 #import "COOLWeatherAPIRequests.h"
 #import "COOLWeatherAPIResponses.h"
 
+#import "AFHTTPResponseSerializer+COOLAPIResponseSerialization.h"
 #import "EKObjectMapping+Transfromers.h"
-#import "COOLMapperImpl.h"
 #import "MTLJSONAdapter.h"
 #import "COOLNetworkActivityLoggerImpl.h"
 
@@ -52,7 +51,7 @@
 
 - (id<COOLAPIResponseSerialization>)responseSerializer
 {
-    return [TyphoonDefinition withClass:[COOLHTTPResponseSerializer class] configuration:^(TyphoonDefinition *definition) {
+    return [TyphoonDefinition withClass:[AFJSONResponseSerializer class] configuration:^(TyphoonDefinition *definition) {
         [definition useInitializer:@selector(initWithResponsesRegisteredForRequests:) parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:[self responsesDefinition]];
         }];

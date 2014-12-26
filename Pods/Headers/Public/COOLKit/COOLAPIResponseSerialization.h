@@ -1,1 +1,1 @@
-../../../../../CoolConnections/COOLKit/COOLKit/COOLNetworkStack/Protocols/COOLAPIResponseSerialization.h
+../../../../../COOLKit/COOLKit/COOLNetworkStack/Protocols/COOLAPIResponseSerialization.h

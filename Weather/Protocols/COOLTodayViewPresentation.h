@@ -10,7 +10,7 @@
 
 @protocol COOLTodayViewPresentation <NSObject>
 
-- (UIScrollView *)contentView;
+//- (UIScrollView *)contentView;
 - (UIImageView *)weatherIconImageView;
 - (UILabel *)locationLabel;
 - (UILabel *)weatherDescLabel;

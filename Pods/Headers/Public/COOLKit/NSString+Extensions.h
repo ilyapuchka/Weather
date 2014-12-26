@@ -1,1 +1,1 @@
-../../../../../CoolConnections/COOLKit/COOLKit/COOLDataSources/Categories/NSString/NSString+Extensions.h
+../../../../../COOLKit/COOLKit/COOLDataSources/Categories/NSString/NSString+Extensions.h

@@ -1,1 +1,1 @@
-../../../../../CoolConnections/COOLKit/COOLKit/COOLCompositions/COOLCompositions.h
+../../../../../COOLKit/COOLKit/COOLCompositions/COOLCompositions.h

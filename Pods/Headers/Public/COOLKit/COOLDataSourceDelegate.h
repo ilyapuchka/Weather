@@ -1,1 +1,1 @@
-../../../../../CoolConnections/COOLKit/COOLKit/COOLDataSources/COOLDataSourceDelegate.h
+../../../../../COOLKit/COOLKit/COOLDataSources/COOLDataSourceDelegate.h

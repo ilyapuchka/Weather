@@ -1,1 +1,1 @@
-../../../../../CoolConnections/COOLKit/COOLKit/COOLDecorators/Public/COOLComposedTableViewDataSource.h
+../../../../../COOLKit/COOLKit/COOLDecorators/Public/COOLComposedTableViewDataSource.h

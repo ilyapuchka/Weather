@@ -9,9 +9,8 @@
 @import UIKit;
 #import "COOLTodayViewPresentation.h"
 
-@interface COOLTodayView : UIView <COOLTodayViewPresentation>
+@interface COOLTodayContentView : UIScrollView <COOLTodayViewPresentation>
 
-@property (weak, nonatomic) IBOutlet UIScrollView *contentView;
 @property (weak, nonatomic) IBOutlet UIImageView *weatherIconImageView;
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *weatherDescLabel;

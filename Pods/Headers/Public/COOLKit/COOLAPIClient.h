@@ -1,1 +1,1 @@
-../../../../../CoolConnections/COOLKit/COOLKit/COOLNetworkStack/Protocols/COOLAPIClient.h
+../../../../../COOLKit/COOLKit/COOLNetworkStack/Protocols/COOLAPIClient.h

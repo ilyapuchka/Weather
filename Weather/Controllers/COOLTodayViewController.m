@@ -20,7 +20,7 @@
 #import "COOLLocationsViewInput.h"
 #import "COOLLocationsSelection.h"
 
-#import "COOLTodayView.h"
+#import "COOLTodayContentView.h"
 #import "COOLTodayViewModel.h"
 
 #import "UIAlertView+Extensions.h"
@@ -28,7 +28,7 @@
 
 @interface COOLTodayViewController()
 
-@property (nonatomic, retain) COOLTodayView *view;
+@property (nonatomic, retain) IBOutlet COOLTodayContentView *todayView;
 @property (nonatomic, strong) COOLTodayViewModel *viewModel;
 
 @end
@@ -70,7 +70,7 @@
 {
     if (willUpdateUserLocation) {
         if (!self.userLocation) {
-            self.view.contentView.hidden = YES;
+            [self.loadableContentView beginUpdateContent];
         }
     }
     else {
@@ -97,7 +97,7 @@
 
 - (void)dataSourceDidEnterLoadingState:(id)dataSource
 {
-    self.view.contentView.hidden = YES;
+    [self.loadableContentView beginUpdateContent];
 }
 
 - (void)dataSource:(id)dataSource didLoadContentWithError:(NSError *)error
@@ -107,7 +107,7 @@
     if (dataSource == self.forecastDataSource) {
         Forecast *forecast = [self.forecastDataSource dailyForecast];
         if (!error && forecast) {
-            self.view.contentView.hidden = NO;
+            [self.loadableContentView endUpdateContentWithNewState:COOLLoadingStateContentLoaded];
             COOLTodayViewModel *model;
             if (self.selectedLocation) {
                 model = [[COOLTodayViewModel alloc] initWithForecast:forecast location:self.selectedLocation isCurrentLocation:([self.selectedLocation isEqual: self.userLocation])];
@@ -118,8 +118,14 @@
             else {
                 return;
             }
-            [model setup:self.view setting:self.userSettingsRepository];
+            [model setup:self.todayView setting:self.userSettingsRepository];
             self.viewModel = model;
+        }
+        else if (error) {
+            [self.loadableContentView endUpdateContentWithNewState:COOLLoadingStateError];
+        }
+        else {
+            [self.loadableContentView endUpdateContentWithNewState:COOLLoadingStateNoContent];
         }
     }
 }
@@ -142,6 +148,16 @@
     self.selectedLocation = location;
 }
 
+@synthesize selectedLocation = _selectedLocation;
+
+- (void)setSelectedLocation:(Location *)selectedLocation
+{
+    if (![_selectedLocation isEqual:selectedLocation]) {
+        _selectedLocation = selectedLocation;
+        [self.loadableContentView beginUpdateContent];
+    }
+}
+
 - (IBAction)shareTapped:(id)sender
 {
     COOLForecastShareModel *model = [[COOLForecastShareModel alloc] initWithForecast:self.viewModel.forecast location:self.viewModel.location settings:self.userSettingsRepository];
@@ -153,7 +169,7 @@
 
 - (void)defaultsChanged:(NSNotification *)note
 {
-    [self.viewModel setup:self.view setting:self.userSettingsRepository];
+    [self.viewModel setup:self.todayView setting:self.userSettingsRepository];
 }
 
 @end

@@ -6,9 +6,10 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 pod 'INTULocationManager'
 pod 'Mantle'
+pod 'EasyMapping'
 
 pod 'Typhoon'
 
 pod 'MSCMoreOptionTableViewCell'
 
-pod 'COOLKit', :path => "../CoolConnections/COOLKit"
+pod 'COOLKit', :path => "../COOLKit"

@@ -1,1 +1,1 @@
-../../../../../CoolConnections/COOLKit/COOLKit/COOLDecorators/Public/COOLTableViewDelegatingWrapper.h
+../../../../../COOLKit/COOLKit/COOLDecorators/Public/COOLTableViewDelegatingWrapper.h

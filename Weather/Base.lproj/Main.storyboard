@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3Mw-JI-ARy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3Mw-JI-ARy">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
@@ -30,14 +29,14 @@
                         <viewControllerLayoutGuide type="top" id="EXu-7s-WSn"/>
                         <viewControllerLayoutGuide type="bottom" id="vzB-pc-8Xe"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="2Rc-X8-0F7" customClass="COOLTodayView">
+                    <view key="view" contentMode="scaleToFill" id="2Rc-X8-0F7" customClass="COOLLoadableContentView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Line-loading" translatesAutoresizingMaskIntoConstraints="NO" id="JXo-NZ-mJR">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="2"/>
                             </imageView>
-                            <scrollView contentMode="scaleToFill" restorationIdentifier="" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEg-SN-qN2">
+                            <scrollView contentMode="scaleToFill" restorationIdentifier="" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEg-SN-qN2" customClass="COOLTodayContentView">
                                 <rect key="frame" x="0.0" y="2" width="320" height="453"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="h7x-fs-l54">
@@ -300,6 +299,17 @@
                                     <constraint firstItem="oNc-eC-BpM" firstAttribute="top" secondItem="h7x-fs-l54" secondAttribute="bottom" constant="23" id="oLQ-cC-mje"/>
                                     <constraint firstAttribute="bottom" secondItem="Yb0-Df-tjZ" secondAttribute="bottom" constant="23" id="qKU-VL-Ubq"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="chanceOfRainIcon" destination="syO-B5-Cfo" id="ZVe-Gr-2D2"/>
+                                    <outlet property="chanceOfRainLabel" destination="0ls-2w-vlU" id="GBW-iH-My0"/>
+                                    <outlet property="locationLabel" destination="oNc-eC-BpM" id="Sag-X4-aEB"/>
+                                    <outlet property="precipLabel" destination="Fq6-tz-IPK" id="mbx-dE-2qG"/>
+                                    <outlet property="pressureLabel" destination="acU-bp-vS1" id="p2G-iE-iYy"/>
+                                    <outlet property="weatherDescLabel" destination="UgQ-eA-7oM" id="g6G-Bq-qzf"/>
+                                    <outlet property="weatherIconImageView" destination="h7x-fs-l54" id="FPZ-uT-stt"/>
+                                    <outlet property="windDirectionLabel" destination="GyQ-Wu-Osv" id="P0w-Jv-B0c"/>
+                                    <outlet property="windSpeedLabel" destination="Y5N-Yp-OTn" id="w5f-HF-CP8"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -319,16 +329,7 @@
                             </mask>
                         </variation>
                         <connections>
-                            <outlet property="chanceOfRainIcon" destination="syO-B5-Cfo" id="A2x-pY-DsS"/>
-                            <outlet property="chanceOfRainLabel" destination="0ls-2w-vlU" id="m5F-D2-oY3"/>
-                            <outlet property="contentView" destination="hEg-SN-qN2" id="bjj-p2-8B3"/>
-                            <outlet property="locationLabel" destination="oNc-eC-BpM" id="w6F-mf-3cn"/>
-                            <outlet property="precipLabel" destination="Fq6-tz-IPK" id="CvY-Yc-Gm1"/>
-                            <outlet property="pressureLabel" destination="acU-bp-vS1" id="h4Z-iD-9wD"/>
-                            <outlet property="weatherDescLabel" destination="UgQ-eA-7oM" id="Lzw-5x-RcW"/>
-                            <outlet property="weatherIconImageView" destination="h7x-fs-l54" id="z5n-lY-CaE"/>
-                            <outlet property="windDirectionLabel" destination="GyQ-Wu-Osv" id="0Za-hS-6eG"/>
-                            <outlet property="windSpeedLabel" destination="Y5N-Yp-OTn" id="bUD-tR-nUJ"/>
+                            <outlet property="contentView" destination="hEg-SN-qN2" id="7Ta-7Y-fL3"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Today" id="jbr-e8-eSU">
@@ -341,6 +342,9 @@
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="typhoonKey" value="todayViewController"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="todayView" destination="hEg-SN-qN2" id="jJL-Cg-4Nc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

@@ -1,1 +1,0 @@
-../../../../../CoolConnections/COOLKit/COOLKit/COOLNetworkStack/APIClient/COOLHTTPResponseSerializer.h

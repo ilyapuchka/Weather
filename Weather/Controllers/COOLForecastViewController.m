@@ -20,7 +20,7 @@
 #import "COOLLocationsViewInput.h"
 #import "COOLLocationsSelection.h"
 
-#import "COOLTodayView.h"
+#import "COOLTodayContentView.h"
 #import "COOLTodayViewModel.h"
 
 #import "UIAlertView+Extensions.h"
@@ -28,7 +28,7 @@
 
 @interface COOLForecastViewController()
 
-@property (nonatomic, retain) COOLTodayView *view;
+@property (nonatomic, retain) COOLTodayContentView *view;
 @property (nonatomic, strong) COOLTodayViewModel *viewModel;
 
 @end

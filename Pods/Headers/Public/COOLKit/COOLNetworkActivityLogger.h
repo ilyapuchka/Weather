@@ -1,1 +1,1 @@
-../../../../../CoolConnections/COOLKit/COOLKit/COOLNetworkStack/Protocols/COOLNetworkActivityLogger.h
+../../../../../COOLKit/COOLKit/COOLNetworkStack/Protocols/COOLNetworkActivityLogger.h
