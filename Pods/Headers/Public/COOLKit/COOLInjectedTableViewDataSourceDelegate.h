@@ -1,0 +1,1 @@
+../../../../../COOLKit/COOLKit/COOLDecorators/Wrappers/COOLInjectedTableViewDataSourceDelegate.h

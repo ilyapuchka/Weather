@@ -1,1 +1,1 @@
-../../../../../COOLKit/COOLKit/COOLDecorators/Public/COOLDecorators.h
+../../../../../COOLKit/COOLKit/COOLDecorators/Decorators/COOLDecorators.h

@@ -3,12 +3,12 @@ PODS:
     - AFNetworking/NSURLConnection (~> 2.0)
     - AFNetworking/NSURLSession (~> 2.0)
   - AFNetworking (2.5.0):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-    - AFNetworking/UIKit
+    - AFNetworking/NSURLConnection (= 2.5.0)
+    - AFNetworking/NSURLSession (= 2.5.0)
+    - AFNetworking/Reachability (= 2.5.0)
+    - AFNetworking/Security (= 2.5.0)
+    - AFNetworking/Serialization (= 2.5.0)
+    - AFNetworking/UIKit (= 2.5.0)
   - AFNetworking/NSURLConnection (2.5.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
@@ -24,12 +24,12 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - COOLKit (0.0.2):
-    - COOLKit/Compositions
-    - COOLKit/DataSources
-    - COOLKit/Decorators
-    - COOLKit/NetworkStack
-    - COOLKit/StateMachines
-    - COOLKit/UI
+    - COOLKit/Compositions (= 0.0.2)
+    - COOLKit/DataSources (= 0.0.2)
+    - COOLKit/Decorators (= 0.0.2)
+    - COOLKit/NetworkStack (= 0.0.2)
+    - COOLKit/StateMachines (= 0.0.2)
+    - COOLKit/UI (= 0.0.2)
   - COOLKit/Compositions (0.0.2)
   - COOLKit/DataSources (0.0.2):
     - COOLKit/Compositions
@@ -46,11 +46,11 @@ PODS:
   - EasyMapping (0.8.1)
   - INTULocationManager (1.2.0)
   - Mantle (1.5.1):
-    - Mantle/extobjc
+    - Mantle/extobjc (= 1.5.1)
   - Mantle/extobjc (1.5.1)
   - MSCMoreOptionTableViewCell (2.2)
   - Typhoon (2.3.1):
-    - Typhoon/no-arc
+    - Typhoon/no-arc (= 2.3.1)
   - Typhoon/no-arc (2.3.1)
 
 DEPENDENCIES:
@@ -68,11 +68,11 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworkActivityLogger: d6a2d2755fada3a1fbf1f490ec0dd92224e092a4
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
-  COOLKit: f6e45605f907d5c9416c878cdf25c87c6503b073
+  COOLKit: 8efe7b75ff754e77e766a51c0f0893e998c06551
   EasyMapping: 6e2c783c58f36f7c27e7791a974d7c9cb4df8291
   INTULocationManager: 596c57e35a00ca1ee9d59bf4cc2b63dc299b580e
   Mantle: d7c5ac734579ec751c58fecbf56189853056c58c
   MSCMoreOptionTableViewCell: 5b102a68d0e97af17438c5823089955b1ed509dd
   Typhoon: e676d1bcda4c59ad5171b611a7aaaeb17cc58a72
 
-COCOAPODS: 0.34.4
+COCOAPODS: 0.35.0

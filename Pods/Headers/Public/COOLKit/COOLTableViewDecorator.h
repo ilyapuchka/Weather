@@ -1,1 +1,1 @@
-../../../../../COOLKit/COOLKit/COOLDecorators/Public/COOLTableViewDecorator.h
+../../../../../COOLKit/COOLKit/COOLDecorators/Decorators/COOLTableViewDecorator.h

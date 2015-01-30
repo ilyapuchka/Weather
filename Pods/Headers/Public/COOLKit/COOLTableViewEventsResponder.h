@@ -1,1 +1,1 @@
-../../../../../COOLKit/COOLKit/COOLDecorators/Public/COOLTableViewEventsResponder.h
+../../../../../COOLKit/COOLKit/COOLDecorators/Decorators/COOLTableViewEventsResponder.h
