@@ -1,1 +1,1 @@
-../../../../../COOLKit/COOLKit/COOLNetworkStack/Protocols/COOLMapping.h
+../../../COOLKit/COOLKit/COOLNetworkStack/Protocols/COOLMapping.h

@@ -1,1 +1,1 @@
-../../../../../COOLKit/COOLKit/COOLCompositions/Categories/NSArray/NSArray+Extensions.h
+../../../COOLKit/COOLKit/COOLCompositions/Categories/NSArray/NSArray+Extensions.h

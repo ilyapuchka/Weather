@@ -1,1 +1,1 @@
-../../../../../COOLKit/COOLKit/COOLNetworkStack/APIResponses/COOLAPIResponse.h
+../../../COOLKit/COOLKit/COOLNetworkStack/APIResponses/COOLAPIResponse.h

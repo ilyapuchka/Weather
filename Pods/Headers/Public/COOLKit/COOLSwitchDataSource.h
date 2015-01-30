@@ -1,1 +1,1 @@
-../../../../../COOLKit/COOLKit/COOLDataSources/COOLSwitchDataSource.h
+../../../COOLKit/COOLKit/COOLDataSources/COOLSwitchDataSource.h

@@ -1,1 +1,1 @@
-../../../../../COOLKit/COOLKit/COOLDecorators/Wrappers/COOLTableViewDataSourceDelegate.h
+../../../COOLKit/COOLKit/COOLDecorators/Wrappers/COOLTableViewDataSourceDelegate.h

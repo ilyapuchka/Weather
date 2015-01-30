@@ -54,16 +54,12 @@ PODS:
   - Typhoon/no-arc (2.3.1)
 
 DEPENDENCIES:
-  - COOLKit (from `../COOLKit`)
+  - COOLKit
   - EasyMapping
   - INTULocationManager
   - Mantle
   - MSCMoreOptionTableViewCell
   - Typhoon
-
-EXTERNAL SOURCES:
-  COOLKit:
-    :path: ../COOLKit
 
 SPEC CHECKSUMS:
   AFNetworkActivityLogger: d6a2d2755fada3a1fbf1f490ec0dd92224e092a4

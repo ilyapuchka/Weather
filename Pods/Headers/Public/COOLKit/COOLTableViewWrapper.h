@@ -1,1 +1,1 @@
-../../../../../COOLKit/COOLKit/COOLDecorators/Wrappers/COOLTableViewWrapper.h
+../../../COOLKit/COOLKit/COOLDecorators/Wrappers/COOLTableViewWrapper.h

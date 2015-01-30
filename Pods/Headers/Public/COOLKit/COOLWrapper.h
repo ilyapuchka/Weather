@@ -1,1 +1,1 @@
-../../../../../COOLKit/COOLKit/COOLDecorators/Wrappers/COOLWrapper.h
+../../../COOLKit/COOLKit/COOLDecorators/Wrappers/COOLWrapper.h

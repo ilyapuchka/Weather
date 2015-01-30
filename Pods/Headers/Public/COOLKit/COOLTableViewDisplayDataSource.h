@@ -1,1 +1,1 @@
-../../../../../COOLKit/COOLKit/COOLDecorators/Decorators/COOLTableViewDisplayDataSource.h
+../../../COOLKit/COOLKit/COOLDecorators/Decorators/COOLTableViewDisplayDataSource.h

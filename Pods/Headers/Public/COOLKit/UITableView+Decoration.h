@@ -1,1 +1,1 @@
-../../../../../COOLKit/COOLKit/COOLDecorators/Categories/UITableView+Decoration.h
+../../../COOLKit/COOLKit/COOLDecorators/Categories/UITableView+Decoration.h

@@ -1,1 +1,1 @@
-../../../../../COOLKit/COOLKit/COOLDecorators/Decorators/COOLTableViewDelegationDecorator.h
+../../../COOLKit/COOLKit/COOLDecorators/Decorators/COOLTableViewDelegationDecorator.h

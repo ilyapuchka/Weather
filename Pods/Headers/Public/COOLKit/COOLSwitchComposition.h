@@ -1,1 +1,1 @@
-../../../../../COOLKit/COOLKit/COOLCompositions/COOLSwitchComposition.h
+../../../COOLKit/COOLKit/COOLCompositions/COOLSwitchComposition.h

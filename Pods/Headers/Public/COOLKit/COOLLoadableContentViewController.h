@@ -1,1 +1,1 @@
-../../../../../COOLKit/COOLKit/COOLUI/COOLLoadableContentViewController.h
+../../../COOLKit/COOLKit/COOLUI/COOLLoadableContentViewController.h

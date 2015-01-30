@@ -1,1 +1,1 @@
-../../../../../COOLKit/COOLKit/COOLNetworkStack/APIClient/AFHTTPResponseSerializer+COOLAPIResponseSerialization.h
+../../../COOLKit/COOLKit/COOLNetworkStack/APIClient/AFHTTPResponseSerializer+COOLAPIResponseSerialization.h

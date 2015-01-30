@@ -1,1 +1,1 @@
-../../../../../COOLKit/COOLKit/COOLDecorators/Wrappers/Index Patsh Mapping/COOLComposedIndexPathsMapping.h
+../../../COOLKit/COOLKit/COOLDecorators/Wrappers/Index Patsh Mapping/COOLComposedIndexPathsMapping.h
