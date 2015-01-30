@@ -20,7 +20,6 @@
 		09085D151A28CFEC00A01689 /* UIColor+Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = 09085D141A28CFEC00A01689 /* UIColor+Weather.m */; };
 		09085D191A28D01200A01689 /* UIFont+Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = 09085D181A28D01200A01689 /* UIFont+Weather.m */; };
 		09085D1C1A28DC4000A01689 /* COOLForecastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09085D1B1A28DC4000A01689 /* COOLForecastViewController.m */; };
-		09085D1F1A28F73D00A01689 /* COOLTodayDataSourceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 09085D1E1A28F73D00A01689 /* COOLTodayDataSourceImpl.m */; };
 		09085D231A29050F00A01689 /* Forecast+Mapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 09085D221A29050F00A01689 /* Forecast+Mapping.m */; };
 		09085D261A29052800A01689 /* Hourly+Mapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 09085D251A29052800A01689 /* Hourly+Mapping.m */; };
 		09085D291A29056000A01689 /* Weather+Mapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 09085D281A29056000A01689 /* Weather+Mapping.m */; };
@@ -142,8 +141,6 @@
 		09085D181A28D01200A01689 /* UIFont+Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Weather.m"; sourceTree = "<group>"; };
 		09085D1A1A28DC4000A01689 /* COOLForecastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLForecastViewController.h; sourceTree = "<group>"; };
 		09085D1B1A28DC4000A01689 /* COOLForecastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLForecastViewController.m; sourceTree = "<group>"; };
-		09085D1D1A28F73D00A01689 /* COOLTodayDataSourceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLTodayDataSourceImpl.h; sourceTree = "<group>"; };
-		09085D1E1A28F73D00A01689 /* COOLTodayDataSourceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLTodayDataSourceImpl.m; sourceTree = "<group>"; };
 		09085D211A29050F00A01689 /* Forecast+Mapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Forecast+Mapping.h"; sourceTree = "<group>"; };
 		09085D221A29050F00A01689 /* Forecast+Mapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Forecast+Mapping.m"; sourceTree = "<group>"; };
 		09085D241A29052800A01689 /* Hourly+Mapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Hourly+Mapping.h"; sourceTree = "<group>"; };
@@ -664,8 +661,6 @@
 				092215331A25F6DC002A614A /* COOLLocationsDataSourceImpl.m */,
 				093876ED1A263A5A00ADF480 /* COOLForecastComposedDataSourceImpl.h */,
 				093876EE1A263A5A00ADF480 /* COOLForecastComposedDataSourceImpl.m */,
-				09085D1D1A28F73D00A01689 /* COOLTodayDataSourceImpl.h */,
-				09085D1E1A28F73D00A01689 /* COOLTodayDataSourceImpl.m */,
 			);
 			path = "Data Sources";
 			sourceTree = "<group>";
@@ -962,7 +957,6 @@
 				092214BA1A25411E002A614A /* COOLWeatherAPIImpl.m in Sources */,
 				0922146D1A253F86002A614A /* main.m in Sources */,
 				092215341A25F6DC002A614A /* COOLLocationsDataSourceImpl.m in Sources */,
-				09085D1F1A28F73D00A01689 /* COOLTodayDataSourceImpl.m in Sources */,
 				092214D51A254471002A614A /* COOLWeatherAPIRequestSerializer.m in Sources */,
 				092214D21A2543DF002A614A /* COOLDailyForecastAPIRequest.m in Sources */,
 				09ED70231A276F1000BE573A /* COOLForecastTableViewCellModel.m in Sources */,
