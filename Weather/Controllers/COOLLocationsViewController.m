@@ -141,6 +141,9 @@
     self.addButton.hidden = NO;
     self.navigationItem.title = @"Locations";
     [self.navigationItem setRightBarButtonItem:self.doneItem animated:YES];
+    
+    self.loadableContentView.supplementaryViewOffset = CGPointZero;
+
     [self.forecastDataSource loadDailyForecastsWithQueries:self.locations days:1];
     self.currentDataSource = self.locationsTableViewDataSource;
     self.tableView.tableFooterView = [UIView new];
@@ -155,6 +158,9 @@
     self.navigationItem.titleView = searchBar;
     [self.navigationItem setRightBarButtonItem:nil animated:YES];
     [searchBar becomeFirstResponder];
+    
+    self.loadableContentView.supplementaryViewOffset = CGPointMake(0, -100);
+    
     self.addButton.hidden = YES;
     self.currentDataSource = self.searchResultsTableViewDataSource;
     [self.currentDataSource setItems:nil];
@@ -203,7 +209,7 @@ static NSURLSessionDataTask *task;
 
 - (void)dataSourceWillLoadContent:(id)dataSource
 {
-    
+    [self.loadableContentView beginUpdateContent];
 }
 
 - (void)dataSource:(id)dataSource didLoadContentWithError:(NSError *)error
@@ -214,8 +220,18 @@ static NSURLSessionDataTask *task;
     }
     else if (dataSource == self.forecastDataSource) {
         items = [self.forecastDataSource forecasts];
-        [self.locationsTableViewDataSource setCurrentUserLocation:self.currentUserLocation];
     }
+    
+    if (!error && items.count > 0) {
+        [self.loadableContentView endUpdateContentWithNewState:COOLLoadingStateContentLoaded];
+    }
+    else if (error) {
+        [self.loadableContentView endUpdateContentWithNewState:COOLLoadingStateError];
+    }
+    else {
+        [self.loadableContentView endUpdateContentWithNewState:COOLLoadingStateNoContent];
+    }
+
     [self.currentDataSource setItems:items];
     [self reloadData];
 }

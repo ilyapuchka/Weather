@@ -520,7 +520,7 @@
                         <viewControllerLayoutGuide type="top" id="yY0-KM-c36"/>
                         <viewControllerLayoutGuide type="bottom" id="PjM-g8-QSE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Rmf-P2-bcf">
+                    <view key="view" contentMode="scaleToFill" id="Rmf-P2-bcf" customClass="COOLLoadableContentView">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -590,6 +590,9 @@
                                 <exclude reference="JRK-RL-6Mw"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outlet property="contentView" destination="VTP-gu-yzO" id="mcX-Su-AIl"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Locations" id="uoo-ro-dZ5">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="wVL-Ua-7QI">

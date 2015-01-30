@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "COOLLoadableContentViewController.h"
 #import "COOLLocationsViewInput.h"
 #import "COOLLocationsSelection.h"
 
@@ -18,7 +19,7 @@
 @protocol COOLUserSettingsRepository;
 @class COOLAPIClientDataSource;
 
-@interface COOLLocationsViewController : UIViewController <COOLLocationsViewInput, COOLLocationsSelection>
+@interface COOLLocationsViewController : COOLLoadableContentViewController <COOLLocationsViewInput, COOLLocationsSelection>
 
 @property (nonatomic, strong) COOLAPIClientDataSource<COOLLocationsDataSource> *locationsDataSource;
 @property (nonatomic, strong) id<COOLForecastComposedDataSource> forecastDataSource;
