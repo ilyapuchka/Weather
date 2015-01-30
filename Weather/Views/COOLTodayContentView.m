@@ -14,10 +14,9 @@
 
 @implementation COOLTodayContentView
 
-- (void)awakeFromNib
+- (void)layoutSubviews
 {
-    [self setNeedsLayout];
-    [self layoutIfNeeded];
+    [super layoutSubviews];
     
     self.weatherDescLabel.preferredMaxLayoutWidth =
     self.locationLabel.preferredMaxLayoutWidth = self.bounds.size.width - 30 * 2;
@@ -26,6 +25,8 @@
         CGFloat top = (self.bounds.size.height - self.contentSize.height) / 2;
         self.contentInset = UIEdgeInsetsMake(top, 0, 0, 0);
     }
+
+    [super layoutSubviews];
 }
 
 @end
