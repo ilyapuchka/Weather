@@ -83,8 +83,7 @@
 {
     if (willUpdateUserLocation) {
         if (!self.selectedLocation) {
-            self.forecast = nil;
-            [self reloadTableViewWithForecast:self.forecast];
+            [self.loadableContentView beginUpdateContent];
         }
     }
     else {
@@ -120,6 +119,11 @@
     task = [self.forecastDataSource loadDailyForecastWithQuery:location days:5];
 }
 
+- (void)dataSourceDidEnterLoadingState:(id)dataSource
+{
+    [self.loadableContentView beginUpdateContent];
+}
+
 - (void)dataSource:(id)dataSource didLoadContentWithError:(NSError *)error
 {
     [super dataSource:dataSource didLoadContentWithError:error];
@@ -127,8 +131,16 @@
     if (dataSource == self.forecastDataSource) {
         Forecast *forecast = [self.forecastDataSource dailyForecast];
         if (!error && forecast) {
+            [self.loadableContentView endUpdateContentWithNewState:COOLLoadingStateContentLoaded];
+
             self.forecast = forecast;
             [self reloadTableViewWithForecast:self.forecast];
+        }
+        else if (error) {
+            [self.loadableContentView endUpdateContentWithNewState:COOLLoadingStateError];
+        }
+        else {
+            [self.loadableContentView endUpdateContentWithNewState:COOLLoadingStateNoContent];
         }
     }
 }
@@ -149,8 +161,7 @@
 - (void)didSelectLocation:(Location *)location
 {
     if ([self shouldClearTableViewForLocation:location]) {
-        self.forecast = nil;
-        [self reloadTableViewWithForecast:self.forecast];
+        [self.loadableContentView beginUpdateContent];
     }
     
     self.selectedLocation = location;

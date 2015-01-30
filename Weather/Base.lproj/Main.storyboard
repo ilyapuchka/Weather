@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3Mw-JI-ARy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14C99d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3Mw-JI-ARy">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
@@ -427,7 +428,7 @@
                         <viewControllerLayoutGuide type="top" id="a8u-qP-wfh"/>
                         <viewControllerLayoutGuide type="bottom" id="hJi-VU-mW7"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="aCz-WR-49e">
+                    <view key="view" contentMode="scaleToFill" id="aCz-WR-49e" customClass="COOLLoadableContentView">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -469,6 +470,9 @@
                                 <exclude reference="FRH-fc-gI9"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outlet property="contentView" destination="afl-9v-Cxh" id="MLV-G1-FpH"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="rbZ-5b-kem">
                         <barButtonItem key="rightBarButtonItem" image="Location" id="gRf-PF-dK0">
@@ -708,6 +712,6 @@
         <image name="divider-short" width="127" height="1"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BTb-jC-ohr"/>
+        <segue reference="hvY-bh-no2"/>
     </inferredMetricsTieBreakers>
 </document>
