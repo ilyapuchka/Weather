@@ -17,18 +17,17 @@
 
 @interface COOLForecastTableViewCellModel : NSObject
 
-- (instancetype)initWithWeather:(Weather *)weather;
+- (instancetype)initWithWeather:(Weather *)weather
+                        setting:(id<COOLUserSettingsRepository>)settings;
 
 - (instancetype)initWithDailyForecast:(Forecast *)forecast
-                         forLocation:(Location *)location
-                   isCurrentLocation:(BOOL)isCurrentLocation;
+                          forLocation:(Location *)location
+                    isCurrentLocation:(BOOL)isCurrentLocation
+                              setting:(id<COOLUserSettingsRepository>)settings;
 
 - (UIImage *)weatherIconImage;
 - (NSAttributedString *)titleString;
 - (NSString *)subtitleString;
-- (NSString *)temperatureStringWithUnit:(COOLTemperatureUnit)tempUnit;
-
-- (void)setup:(id<COOLForecastTableViewCellPresentation>)view
-      setting:(id<COOLUserSettingsRepository>)settings;
+- (NSString *)temperatureString;
 
 @end

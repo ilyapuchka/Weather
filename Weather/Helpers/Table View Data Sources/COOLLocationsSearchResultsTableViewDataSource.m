@@ -34,7 +34,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:COOLSearchResultsTableViewCellReuseId forIndexPath:indexPath];
     Location *location = self.items[indexPath.row];
     COOLLocationSearchCellModel *model = [[COOLLocationSearchCellModel alloc] initWithLocation:location];
-    [model setup:(id<COOLocationSearchCellPresentation>)cell];
+    cell.textLabel.attributedText = model.titleString;
     cell.separatorInset = UIEdgeInsetsMake(0, 34, 0, 0);
     return cell;
 }

@@ -9,6 +9,7 @@
 #import "COOLDailyForecastTableViewDataSource.h"
 #import "COOLForecastTableViewCell.h"
 #import "COOLForecastTableViewCellModel.h"
+#import "COOLUserSettingsRepository.h"
 
 #import "COOLStoryboardIdentifiers.h"
 
@@ -29,8 +30,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     COOLForecastTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:COOLForecastTableViewCellReuseId forIndexPath:indexPath];
-    COOLForecastTableViewCellModel *viewModel = [[COOLForecastTableViewCellModel alloc] initWithWeather:self.items[indexPath.row]];
-    [viewModel setup:cell setting:self.settings];
+    COOLForecastTableViewCellModel *viewModel = [[COOLForecastTableViewCellModel alloc] initWithWeather:self.items[indexPath.row] setting:self.settings];
+    
+    cell.weatherIconImageView.image = viewModel.weatherIconImage;
+    cell.titleLabel.attributedText = viewModel.titleString;
+    cell.subtitleLabel.text = viewModel.subtitleString;
+    cell.temperatureLabel.text = viewModel.temperatureString;
+
     cell.separatorInset = UIEdgeInsetsMake(0, 87, 0, 0);
     return cell;
 }

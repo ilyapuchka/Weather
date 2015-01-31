@@ -17,6 +17,4 @@
 
 - (NSAttributedString *)titleString;
 
-- (void)setup:(id<COOLocationSearchCellPresentation>)view;
-
 @end

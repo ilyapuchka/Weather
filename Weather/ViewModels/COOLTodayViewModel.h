@@ -18,22 +18,20 @@
 
 - (instancetype)initWithForecast:(Forecast *)forecast
                         location:(Location *)location
-               isCurrentLocation:(BOOL)isCurrentLocation;
+               isCurrentLocation:(BOOL)isCurrentLocation
+                        settings:(id<COOLUserSettingsRepository>)settings;
 
 - (Forecast *)forecast;
 - (Location *)location;
 
 - (UIImage *)weatherIconImage;
 - (NSAttributedString *)locationString;
-- (NSAttributedString *)weatherDescStringWithUnit:(COOLTemperatureUnit)tempUnit;
+- (NSAttributedString *)weatherDescString;
 - (NSString *)chanceOfRainString;
 - (UIImage *)chanceOfRainIcon;
 - (NSString *)precipString;
 - (NSString *)pressureString;
-- (NSString *)windSpeedStringWithUnit:(COOLDistanceUnit)distanceUnit;
+- (NSString *)windSpeedString;
 - (NSString *)windDirectionString;
-
-- (void)setup:(id<COOLTodayViewPresentation>)view
-      setting:(id<COOLUserSettingsRepository>)settings;
 
 @end

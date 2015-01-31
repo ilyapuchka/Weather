@@ -47,8 +47,13 @@
     Forecast *forecast = item.forecast;
     Location *location = item.location;
     
-    COOLForecastTableViewCellModel *viewModel = [[COOLForecastTableViewCellModel alloc] initWithDailyForecast:forecast forLocation:location isCurrentLocation:[location isEqual:self.currentUserLocation]];
-    [viewModel setup:cell setting:self.settings];
+    COOLForecastTableViewCellModel *viewModel = [[COOLForecastTableViewCellModel alloc] initWithDailyForecast:forecast forLocation:location isCurrentLocation:[location isEqual:self.currentUserLocation] setting:self.settings];
+    
+    cell.weatherIconImageView.image = viewModel.weatherIconImage;
+    cell.titleLabel.attributedText = viewModel.titleString;
+    cell.subtitleLabel.text = viewModel.subtitleString;
+    cell.temperatureLabel.text = viewModel.temperatureString;
+
     cell.selectionStyle = UITableViewCellSelectionStyleDefault;
     cell.separatorInset = UIEdgeInsetsMake(0, 87, 0, 0);
     cell.delegate = self;

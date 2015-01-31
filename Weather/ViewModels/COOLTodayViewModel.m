@@ -25,18 +25,20 @@
 @property (nonatomic, copy) Location *location;
 @property (nonatomic, assign) BOOL isCurrentLocation;
 @property (nonatomic, strong) Hourly *currentHourly;
+@property (nonatomic, strong) id<COOLUserSettingsRepository> settings;
 
 @end
 
 @implementation COOLTodayViewModel
 
-- (instancetype)initWithForecast:(Forecast *)forecast location:(Location *)location isCurrentLocation:(BOOL)isCurrentLocation
+- (instancetype)initWithForecast:(Forecast *)forecast location:(Location *)location isCurrentLocation:(BOOL)isCurrentLocation settings:(id<COOLUserSettingsRepository>)settings
 {
     self = [super init];
     if (self) {
         self.forecast = forecast;
         self.location = location;
         self.isCurrentLocation = isCurrentLocation;
+        self.settings = settings;
     }
     return self;
 }
@@ -60,9 +62,10 @@
     return [attrString copy];
 }
 
-- (NSAttributedString *)weatherDescStringWithUnit:(COOLTemperatureUnit)tempUnit
+- (NSAttributedString *)weatherDescString
 {
     NSMutableAttributedString *attrString = [NSMutableAttributedString new];
+    COOLTemperatureUnit tempUnit = [self.settings defaultTemperatureUnit];
     switch (tempUnit) {
         case COOLTemperatureFahrenheit:
             [attrString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@ ", self.currentHourly.tempF, NSLocalizedStringFromTable(@"Fahrenheit", @"Units", nil)]]];
@@ -113,9 +116,10 @@
     return [NSString stringWithFormat:@"%@ %@", self.currentHourly.pressure, NSLocalizedStringFromTable(@"Pressure", @"Units", nil)];
 }
 
-- (NSString *)windSpeedStringWithUnit:(COOLDistanceUnit)distanceUnit
+- (NSString *)windSpeedString
 {
     NSString *unitString;
+    COOLDistanceUnit distanceUnit = [self.settings defaultDistanceUnit];
     switch (distanceUnit) {
         case COOLDistanceMiles:
             unitString = NSLocalizedStringFromTable(@"Speed in miles", @"Units", nil);
@@ -130,19 +134,6 @@
 - (NSString *)windDirectionString
 {
     return NSLocalizedStringFromTable(self.currentHourly.winddir16Point, @"Units", nil);
-}
-
-- (void)setup:(id<COOLTodayViewPresentation>)view setting:(id<COOLUserSettingsRepository>)settings
-{
-    view.weatherIconImageView.image = self.weatherIconImage;
-    view.locationLabel.attributedText = self.locationString;
-    view.weatherDescLabel.attributedText = [self weatherDescStringWithUnit:[settings defaultTemperatureUnit]];
-    view.chanceOfRainLabel.text = self.chanceOfRainString;
-    view.chanceOfRainIcon.image = self.chanceOfRainIcon;
-    view.precipLabel.text = self.precipString;
-    view.pressureLabel.text = self.pressureString;
-    view.windSpeedLabel.text = [self windSpeedStringWithUnit:[settings defaultDistanceUnit]];
-    view.windDirectionLabel.text = self.windDirectionString;
 }
 
 #pragma mark - Private

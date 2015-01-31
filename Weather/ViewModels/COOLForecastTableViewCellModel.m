@@ -28,27 +28,30 @@
 @property (nonatomic, copy) Weather *weather;
 @property (nonatomic, copy) Hourly *currentHourly;
 @property (nonatomic, assign) BOOL isCurrentLocation;
+@property (nonatomic, strong) id<COOLUserSettingsRepository> settings;
 
 @end
 
 @implementation COOLForecastTableViewCellModel
 
-- (instancetype)initWithWeather:(Weather *)weather
+- (instancetype)initWithWeather:(Weather *)weather setting:(id<COOLUserSettingsRepository>)settings
 {
     self = [super init];
     if (self) {
-        _weather = weather;
+        self.weather = weather;
+        self.settings = settings;
     }
     return self;
 }
 
-- (instancetype)initWithDailyForecast:(Forecast *)forecast forLocation:(Location *)location isCurrentLocation:(BOOL)isCurrentLocation
+- (instancetype)initWithDailyForecast:(Forecast *)forecast forLocation:(Location *)location isCurrentLocation:(BOOL)isCurrentLocation setting:(id<COOLUserSettingsRepository>)settings
 {
     self = [self init];
     if (self) {
-        _forecast = forecast;
-        _location = location;
-        _isCurrentLocation = isCurrentLocation;
+        self.forecast = forecast;
+        self.location = location;
+        self.isCurrentLocation = isCurrentLocation;
+        self.settings = settings;
     }
     return self;
 }
@@ -83,9 +86,10 @@
     return [(WeatherDesc *)self.currentHourly.localizedWeatherDesc.lastObject value]?:@"--";
 }
 
-- (NSString *)temperatureStringWithUnit:(COOLTemperatureUnit)tempUnit
+- (NSString *)temperatureString
 {
     NSString *tempString;
+    COOLTemperatureUnit tempUnit = [self.settings defaultTemperatureUnit];
     switch (tempUnit) {
         case COOLTemperatureFahrenheit:
             tempString = self.currentHourly.tempF;
@@ -95,14 +99,6 @@
             break;
     }
     return tempString?[NSString stringWithFormat:@"%@°", tempString]:@"--";
-}
-
-- (void)setup:(id<COOLForecastTableViewCellPresentation>)view setting:(id<COOLUserSettingsRepository>)settings
-{
-    view.weatherIconImageView.image = self.weatherIconImage;
-    view.titleLabel.attributedText = self.titleString;
-    view.subtitleLabel.text = self.subtitleString;
-    view.temperatureLabel.text = [self temperatureStringWithUnit:[settings defaultTemperatureUnit]];
 }
 
 #pragma mark - Private

@@ -108,17 +108,12 @@
         Forecast *forecast = [self.forecastDataSource dailyForecast];
         if (!error && forecast) {
             [self.loadableContentView endUpdateContentWithNewState:COOLLoadingStateContentLoaded];
-            COOLTodayViewModel *model;
-            if (self.selectedLocation) {
-                model = [[COOLTodayViewModel alloc] initWithForecast:forecast location:self.selectedLocation isCurrentLocation:([self.selectedLocation isEqual: self.userLocation])];
-            }
-            else if (self.userLocation) {
-                model = [[COOLTodayViewModel alloc] initWithForecast:forecast location:self.userLocation isCurrentLocation:YES];
-            }
-            else {
-                return;
-            }
-            [model setup:self.todayView setting:self.userSettingsRepository];
+            
+            COOLTodayViewModel *model = [self viewModelForForecast:forecast
+                                              withSelectedLocation:self.selectedLocation
+                                                      userLocation:self.userLocation
+                                                          settings:self.userSettingsRepository];
+            [self setupView:self.todayView withModel:model];
             self.viewModel = model;
         }
         else if (error) {
@@ -128,6 +123,43 @@
             [self.loadableContentView endUpdateContentWithNewState:COOLLoadingStateNoContent];
         }
     }
+}
+
+- (COOLTodayViewModel *)viewModelForForecast:(Forecast *)forecast withSelectedLocation:(Location *)selectedLocation userLocation:(Location *)userLocation settings:(id<COOLUserSettingsRepository>)settings
+{
+    if (!forecast || (!selectedLocation && !userLocation)) {
+        return nil;
+    }
+    
+    COOLTodayViewModel *model;
+    Location *location;
+    BOOL isCurrentLocation;
+    
+    if (selectedLocation) {
+        location = selectedLocation;
+        isCurrentLocation = ([selectedLocation isEqual:userLocation]);
+    }
+    else if (userLocation) {
+        location = userLocation;
+        isCurrentLocation = YES;
+    }
+    
+    model = [[COOLTodayViewModel alloc] initWithForecast:forecast location:location isCurrentLocation:isCurrentLocation settings:settings];
+    
+    return model;
+}
+
+- (void)setupView:(COOLTodayContentView *)view withModel:(COOLTodayViewModel *)model
+{
+    view.weatherIconImageView.image = model.weatherIconImage;
+    view.locationLabel.attributedText = model.locationString;
+    view.weatherDescLabel.attributedText = model.weatherDescString;
+    view.chanceOfRainLabel.text = model.chanceOfRainString;
+    view.chanceOfRainIcon.image = model.chanceOfRainIcon;
+    view.precipLabel.text = model.precipString;
+    view.pressureLabel.text = model.pressureString;
+    view.windSpeedLabel.text = model.windSpeedString;
+    view.windDirectionLabel.text = model.windDirectionString;
 }
 
 #pragma mark - Navigation
@@ -169,7 +201,14 @@
 
 - (void)defaultsChanged:(NSNotification *)note
 {
-    [self.viewModel setup:self.todayView setting:self.userSettingsRepository];
+    Forecast *forecast = [self.forecastDataSource dailyForecast];
+    
+    COOLTodayViewModel *model = [self viewModelForForecast:forecast
+                                      withSelectedLocation:self.selectedLocation
+                                              userLocation:self.userLocation
+                                                  settings:self.userSettingsRepository];
+    [self setupView:self.todayView withModel:model];
+    self.viewModel = model;
 }
 
 @end
