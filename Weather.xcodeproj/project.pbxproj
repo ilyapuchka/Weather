@@ -235,6 +235,7 @@
 		093876FB1A26459D00ADF480 /* COOLUserLocationsUserDefaultsImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLUserLocationsUserDefaultsImpl.h; sourceTree = "<group>"; };
 		093876FC1A26459D00ADF480 /* COOLUserLocationsUserDefaultsImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLUserLocationsUserDefaultsImpl.m; sourceTree = "<group>"; };
 		093876FE1A26485000ADF480 /* COOLLocationsSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLLocationsSelection.h; sourceTree = "<group>"; };
+		093F3BAC1A7CE1C30063AC68 /* COOLForecastDataSourceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLForecastDataSourceFactory.h; sourceTree = "<group>"; };
 		099D6D0D1A293F9900776469 /* Weather Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Weather Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		099D6D101A293F9900776469 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		099D6D181A293FB700776469 /* forecast.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = forecast.json; sourceTree = "<group>"; };
@@ -532,6 +533,7 @@
 				09DA4A031A27D22000BCDB37 /* COOLTodayViewPresentation.h */,
 				09DA4A041A27D36400BCDB37 /* COOLocationSearchCellPresentation.h */,
 				09085CE51A2893CB00A01689 /* COOLUserSettingsRepository.h */,
+				093F3BAC1A7CE1C30063AC68 /* COOLForecastDataSourceFactory.h */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";

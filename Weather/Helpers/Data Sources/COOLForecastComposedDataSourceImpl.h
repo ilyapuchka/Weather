@@ -8,7 +8,10 @@
 
 #import "COOLComposedDataSource.h"
 #import "COOLForecastComposedDataSource.h"
+#import "COOLForecastDataSourceFactory.h"
 
 @interface COOLForecastComposedDataSourceImpl : COOLComposedDataSource <COOLForecastComposedDataSource>
+
+@property (nonatomic, strong) id<COOLForecastDataSourceFactory> dataSourcesFactory;
 
 @end

@@ -11,8 +11,6 @@
 #import "ForecastForLocation.h"
 #import "Forecast.h"
 #import "Location.h"
-#import "Typhoon.h"
-#import "NetworkComponents.h"
 
 @interface COOLForecastComposedDataSourceImpl()
 
@@ -45,22 +43,24 @@
 - (void)setQueries:(NSArray *)queries
 {
     _queries = [queries copy];
-    _dataSources = nil;
+    _dataSources = [self dataSourcesForQueries:_queries];
+}
+
+- (COOLComposition *)dataSourcesForQueries:(NSArray *)queries
+{
+    COOLComposition *dataSources = [[COOLComposition alloc] init];
+    
+    for (Location *location in _queries) {
+        id<COOLForecastDataSource> dataSource = [self.dataSourcesFactory forecastDataSource];
+        dataSource.query = location;
+        dataSource.delegate = self;
+        [dataSources addObject:dataSource];
+    }
+    return dataSources;
 }
 
 - (COOLComposition *)dataSources
 {
-    if (!_dataSources) {
-        NSMutableArray *array = [@[] mutableCopy];
-        NetworkComponents *factory = [TyphoonBlockComponentFactory factoryWithAssembly:[NetworkComponents new]];
-        for (Location *location in self.queries) {
-            id<COOLForecastDataSource> dataSource = [factory forecastDataSource];
-            dataSource.query = location;
-            dataSource.delegate = self;
-            [array addObject:dataSource];
-        }
-        _dataSources = [[COOLComposition alloc] initWithArray:array];
-    }
     return _dataSources;
 }
 
@@ -92,7 +92,7 @@
     [self loadContentWithBlock:^(COOLLoadingProcess *loadingProcess) {
         for (NSInteger idx = 0; idx < [self.dataSources count]; idx++) {
             id<COOLForecastDataSource> dataSource = self.dataSources[idx];
-            [dataSource loadDailyForecastWithQuery:dataSource.query days:1];
+            [dataSource loadDailyForecastWithQuery:queries[idx] days:1];
         }
     }];
 }

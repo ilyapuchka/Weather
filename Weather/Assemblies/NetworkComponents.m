@@ -23,6 +23,7 @@
 
 #import "TyphoonConfigPostProcessor.h"
 #import "TyphoonDefinition+Infrastructure.h"
+#import "TyphoonBlockComponentFactory.h"
 
 @implementation NetworkComponents
 
@@ -91,6 +92,7 @@
 - (id<COOLForecastComposedDataSource>)forecastComposedDataSource
 {
     return [TyphoonDefinition withClass:[COOLForecastComposedDataSourceImpl class] configuration:^(TyphoonDefinition *definition) {
+        [definition injectProperty:@selector(dataSourcesFactory) with:self];
     }];
 }
 

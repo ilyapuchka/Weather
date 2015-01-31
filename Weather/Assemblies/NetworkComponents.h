@@ -7,13 +7,14 @@
 //
 
 #import "TyphoonAssembly.h"
+#import "COOLForecastDataSourceFactory.h"
 
 @protocol COOLWeatherAPI;
 @protocol COOLForecastDataSource;
 @protocol COOLLocationsDataSource;
 @protocol COOLForecastComposedDataSource;
 
-@interface NetworkComponents : TyphoonAssembly
+@interface NetworkComponents : TyphoonAssembly <COOLForecastDataSourceFactory>
 
 - (id<COOLWeatherAPI>)apiClient;
 - (id<COOLForecastDataSource>)forecastDataSource;
