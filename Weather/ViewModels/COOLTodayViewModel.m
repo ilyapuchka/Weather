@@ -65,11 +65,11 @@
     NSMutableAttributedString *attrString = [NSMutableAttributedString new];
     switch (tempUnit) {
         case COOLTemperatureFahrenheit:
-            [attrString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ °F ", self.currentHourly.tempF]]];
+            [attrString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@ ", self.currentHourly.tempF, NSLocalizedStringFromTable(@"Fahrenheit", @"Units", nil)]]];
             break;
             
         default:
-            [attrString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ °C ", self.currentHourly.tempC]]];
+            [attrString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@ ", self.currentHourly.tempC, NSLocalizedStringFromTable(@"Celsius", @"Units", nil)]]];
             break;
     }
     
@@ -105,12 +105,12 @@
 
 - (NSString *)precipString
 {
-    return [NSString stringWithFormat:@"%@ mm", self.currentHourly.precipMM];
+    return [NSString stringWithFormat:@"%@ %@", self.currentHourly.precipMM, NSLocalizedStringFromTable(@"Millimeters", @"Units", nil)];
 }
 
 - (NSString *)pressureString
 {
-    return [NSString stringWithFormat:@"%@ hPa", self.currentHourly.pressure];
+    return [NSString stringWithFormat:@"%@ %@", self.currentHourly.pressure, NSLocalizedStringFromTable(@"Pressure", @"Units", nil)];
 }
 
 - (NSString *)windSpeedStringWithUnit:(COOLDistanceUnit)distanceUnit
@@ -118,10 +118,10 @@
     NSString *unitString;
     switch (distanceUnit) {
         case COOLDistanceMiles:
-            unitString = @"m/h";
+            unitString = NSLocalizedStringFromTable(@"Speed in miles", @"Units", nil);
             break;
         default:
-            unitString = @"km/h";
+            unitString = NSLocalizedStringFromTable(@"Speed in kilometres", @"Units", nil);
             break;
     }
     return [NSString stringWithFormat:@"%@ %@", self.currentHourly.windspeedKmph, unitString];
@@ -129,7 +129,7 @@
 
 - (NSString *)windDirectionString
 {
-    return self.currentHourly.winddir16Point;
+    return NSLocalizedStringFromTable(self.currentHourly.winddir16Point, @"Units", nil);
 }
 
 - (void)setup:(id<COOLTodayViewPresentation>)view setting:(id<COOLUserSettingsRepository>)settings

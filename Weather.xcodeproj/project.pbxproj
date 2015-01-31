@@ -63,6 +63,7 @@
 		093876F71A26445D00ADF480 /* COOLLocationsTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 093876F61A26445D00ADF480 /* COOLLocationsTableViewDataSource.m */; };
 		093876FA1A26446D00ADF480 /* COOLLocationsSearchResultsTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 093876F91A26446D00ADF480 /* COOLLocationsSearchResultsTableViewDataSource.m */; };
 		093876FD1A26459D00ADF480 /* COOLUserLocationsUserDefaultsImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 093876FC1A26459D00ADF480 /* COOLUserLocationsUserDefaultsImpl.m */; };
+		093F3BB71A7CE5FD0063AC68 /* Units.strings in Resources */ = {isa = PBXBuildFile; fileRef = 093F3BB91A7CE5FD0063AC68 /* Units.strings */; };
 		099D6D1B1A293FB700776469 /* forecast.json in Resources */ = {isa = PBXBuildFile; fileRef = 099D6D181A293FB700776469 /* forecast.json */; };
 		099D6D1C1A293FB700776469 /* ModelsMappingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 099D6D191A293FB700776469 /* ModelsMappingTests.m */; };
 		099D6D1D1A293FB700776469 /* todayforecast.json in Resources */ = {isa = PBXBuildFile; fileRef = 099D6D1A1A293FB700776469 /* todayforecast.json */; };
@@ -125,7 +126,6 @@
 		09085CEA1A28A82500A01689 /* COOLForecastShareModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLForecastShareModel.h; sourceTree = "<group>"; };
 		09085CEB1A28A82500A01689 /* COOLForecastShareModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLForecastShareModel.m; sourceTree = "<group>"; };
 		09085CF91A28BC1F00A01689 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Settings.strings; sourceTree = "<group>"; };
-		09085CFC1A28BC2C00A01689 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Settings.strings; sourceTree = "<group>"; };
 		09085D001A28BDFB00A01689 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		09085D011A28BDFF00A01689 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		09085D031A28BF1D00A01689 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
@@ -133,7 +133,6 @@
 		09085D061A28C4AB00A01689 /* UIImage+Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Weather.m"; sourceTree = "<group>"; };
 		09085D091A28C5A600A01689 /* NSDate+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extensions.h"; sourceTree = "<group>"; };
 		09085D0A1A28C5A600A01689 /* NSDate+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extensions.m"; sourceTree = "<group>"; };
-		09085D0F1A28C8D000A01689 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Errors.strings; sourceTree = "<group>"; };
 		09085D111A28C8D200A01689 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Errors.strings; sourceTree = "<group>"; };
 		09085D131A28CFEC00A01689 /* UIColor+Weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Weather.h"; sourceTree = "<group>"; };
 		09085D141A28CFEC00A01689 /* UIColor+Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Weather.m"; sourceTree = "<group>"; };
@@ -236,6 +235,11 @@
 		093876FC1A26459D00ADF480 /* COOLUserLocationsUserDefaultsImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COOLUserLocationsUserDefaultsImpl.m; sourceTree = "<group>"; };
 		093876FE1A26485000ADF480 /* COOLLocationsSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLLocationsSelection.h; sourceTree = "<group>"; };
 		093F3BAC1A7CE1C30063AC68 /* COOLForecastDataSourceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COOLForecastDataSourceFactory.h; sourceTree = "<group>"; };
+		093F3BB31A7CE57E0063AC68 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		093F3BB41A7CE5BF0063AC68 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Settings.strings; sourceTree = "<group>"; };
+		093F3BB81A7CE5FD0063AC68 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Units.strings; sourceTree = "<group>"; };
+		093F3BBA1A7CE5FE0063AC68 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Units.strings; sourceTree = "<group>"; };
+		093F3BBB1A7CE6030063AC68 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Errors.strings; sourceTree = "<group>"; };
 		099D6D0D1A293F9900776469 /* Weather Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Weather Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		099D6D101A293F9900776469 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		099D6D181A293FB700776469 /* forecast.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = forecast.json; sourceTree = "<group>"; };
@@ -418,6 +422,7 @@
 				09085CFD1A28BDF500A01689 /* Localizable.strings */,
 				09085CF81A28BC1F00A01689 /* Settings.strings */,
 				09085D101A28C8D000A01689 /* Errors.strings */,
+				093F3BB91A7CE5FD0063AC68 /* Units.strings */,
 				092214771A253F86002A614A /* Images.xcassets */,
 				092214791A253F86002A614A /* LaunchScreen.xib */,
 				0922146A1A253F86002A614A /* Supporting Files */,
@@ -830,6 +835,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				093F3BB71A7CE5FD0063AC68 /* Units.strings in Resources */,
 				09E8946F1A26A65700D7B95B /* ProximaNova-Light.otf in Resources */,
 				09085CFF1A28BDF500A01689 /* Localizable.strings in Resources */,
 				092214761A253F86002A614A /* Main.storyboard in Resources */,
@@ -1013,7 +1019,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				09085CF91A28BC1F00A01689 /* ru */,
-				09085CFC1A28BC2C00A01689 /* Base */,
+				093F3BB41A7CE5BF0063AC68 /* en */,
 			);
 			name = Settings.strings;
 			sourceTree = "<group>";
@@ -1030,8 +1036,8 @@
 		09085D101A28C8D000A01689 /* Errors.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				09085D0F1A28C8D000A01689 /* Base */,
 				09085D111A28C8D200A01689 /* ru */,
+				093F3BBB1A7CE6030063AC68 /* en */,
 			);
 			name = Errors.strings;
 			sourceTree = "<group>";
@@ -1041,6 +1047,7 @@
 			children = (
 				092214751A253F86002A614A /* Base */,
 				09085D031A28BF1D00A01689 /* ru */,
+				093F3BB31A7CE57E0063AC68 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1051,6 +1058,15 @@
 				0922147A1A253F86002A614A /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		093F3BB91A7CE5FD0063AC68 /* Units.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				093F3BB81A7CE5FD0063AC68 /* en */,
+				093F3BBA1A7CE5FE0063AC68 /* ru */,
+			);
+			name = Units.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

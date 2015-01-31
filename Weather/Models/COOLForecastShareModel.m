@@ -64,11 +64,11 @@
     NSString *tempString;
     switch ([settings defaultTemperatureUnit]) {
         case COOLTemperatureFahrenheit:
-            tempString = [NSString stringWithFormat:@"%@ °F", forecast.currentHourly.tempF];
+            tempString = [NSString stringWithFormat:@"%@ %@", forecast.currentHourly.tempF, NSLocalizedStringFromTable(@"Fahrenheit", @"Units", nil)];
             break;
             
         default:
-            tempString = [NSString stringWithFormat:@"%@ °C", forecast.currentHourly.tempC];
+            tempString = [NSString stringWithFormat:@"%@ %@", forecast.currentHourly.tempC, NSLocalizedStringFromTable(@"Celsius", @"Units", nil)];
             break;
     }
     return tempString;

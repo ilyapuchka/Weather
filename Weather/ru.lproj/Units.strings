@@ -1,0 +1,30 @@
+/* 
+  Units.strings
+  Weather
+
+  Created by Ilya Puchka on 31.01.15.
+  Copyright (c) 2015 Ilya Puchka. All rights reserved.
+*/
+
+"Millimeters" = "мм";
+"Pressure" = "гПа";
+"Celsius" = "°C";
+"Fahrenheit" = "°F";
+"Speed in kilometres" = "км/ч";
+"Speed in miles" = "м/ч";
+"N" = "С";
+"NNE" = "ССВ";
+"NE" = "СВ";
+"ENE" = "ВСВ";
+"E" = "В";
+"ESE" = "ВЮВ";
+"SE" = "ЮВ";
+"SSE" = "ЮЮВ";
+"S" = "Ю";
+"SSW" = "ЮЮЗ";
+"SW" = "ЮЗ";
+"WSW" = "ЗЮЗ";
+"W" = "З";
+"WNW" = "ЗСЗ";
+"NW" = "СЗ";
+"NNW" = "ССЗ";
